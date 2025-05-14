@@ -1,0 +1,48 @@
+16:25:30,530 graphrag.cli.index INFO Logging enabled at /mnt/c/Users/clash/Documents/481/agentic-rag/graph-rag/ragtest/logs/indexing-engine.log
+16:25:34,429 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
+16:29:08,325 graphrag.cli.index INFO Logging enabled at /mnt/c/Users/clash/Documents/481/agentic-rag/graph-rag/ragtest/logs/indexing-engine.log
+16:29:09,671 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
+16:31:04,467 graphrag.cli.index INFO Logging enabled at /mnt/c/Users/clash/Documents/481/agentic-rag/graph-rag/ragtest/logs/indexing-engine.log
+16:31:07,533 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:07,534 openai._base_client INFO Retrying request to /chat/completions in 0.379763 seconds
+16:31:08,25 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:08,26 openai._base_client INFO Retrying request to /chat/completions in 0.762777 seconds
+16:31:08,966 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:08,967 openai._base_client INFO Retrying request to /chat/completions in 1.740389 seconds
+16:31:10,829 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:10,831 openai._base_client INFO Retrying request to /chat/completions in 3.841227 seconds
+16:31:14,788 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:14,790 openai._base_client INFO Retrying request to /chat/completions in 6.383444 seconds
+16:31:21,346 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:21,348 openai._base_client INFO Retrying request to /chat/completions in 7.558311 seconds
+16:31:29,74 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:29,87 openai._base_client INFO Retrying request to /chat/completions in 7.565117 seconds
+16:31:36,876 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:36,878 openai._base_client INFO Retrying request to /chat/completions in 6.746687 seconds
+16:31:43,862 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:43,865 openai._base_client INFO Retrying request to /chat/completions in 7.509655 seconds
+16:31:51,775 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:31:51,776 openai._base_client INFO Retrying request to /chat/completions in 6.336641 seconds
+16:31:58,333 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:34:28,49 graphrag.cli.index INFO Logging enabled at /mnt/c/Users/clash/Documents/481/agentic-rag/graph-rag/ragtest/logs/indexing-engine.log
+16:34:29,188 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:34:29,193 openai._base_client INFO Retrying request to /chat/completions in 0.419736 seconds
+16:34:29,723 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:34:29,736 openai._base_client INFO Retrying request to /chat/completions in 0.953248 seconds
+16:34:30,803 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:34:30,805 openai._base_client INFO Retrying request to /chat/completions in 1.872336 seconds
+16:34:32,794 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:34:32,796 openai._base_client INFO Retrying request to /chat/completions in 3.050640 seconds
+16:34:35,964 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:34:35,966 openai._base_client INFO Retrying request to /chat/completions in 6.034571 seconds
+16:34:42,235 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:34:42,238 openai._base_client INFO Retrying request to /chat/completions in 7.044822 seconds
+16:34:49,456 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:34:49,458 openai._base_client INFO Retrying request to /chat/completions in 7.103932 seconds
+16:34:56,735 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:34:56,738 openai._base_client INFO Retrying request to /chat/completions in 7.841844 seconds
+16:35:04,843 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:35:04,845 openai._base_client INFO Retrying request to /chat/completions in 6.324886 seconds
+16:35:11,488 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+16:35:11,490 openai._base_client INFO Retrying request to /chat/completions in 7.271602 seconds
+16:35:19,237 httpx INFO HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
