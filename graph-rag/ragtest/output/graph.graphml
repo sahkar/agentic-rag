@@ -1,0 +1,434 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="edge" attr.name="weight" attr.type="double" />
+  <graph edgedefault="undirected">
+    <node id="PIPE SWITCH" />
+    <node id="14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION" />
+    <node id="JOHNS HOPKINS UNIVERSITY" />
+    <node id="BYTEDANCE INC." />
+    <node id="ZHIAO BAI" />
+    <node id="ZHEN ZHANG" />
+    <node id="YIBO ZHU" />
+    <node id="XIN JIN" />
+    <node id="USENIX SYMPOSIUM" />
+    <node id="PYTORCH" />
+    <node id="USENIX ASSOCIATION" />
+    <node id="GPU CLUSTERS" />
+    <node id="NVIDIA T4" />
+    <node id="NVIDIA V100" />
+    <node id="BERT" />
+    <node id="DEEP LEARNING (DL)" />
+    <node id="USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION" />
+    <node id="DEEP LEARNING" />
+    <node id="CONTROLLER" />
+    <node id="MEMORY DAEMON" />
+    <node id="ACTIVE WORKER" />
+    <node id="STANDBY WORKER" />
+    <node id="PIPELINE MODEL TRANSMISSION" />
+    <node id="RESNET152" />
+    <node id="AMAZON AWS" />
+    <node id="PIPESWITCH" />
+    <node id="DNN FRAMEWORK" />
+    <node id="PCIE" />
+    <node id="GPU" />
+    <node id="LAYER" />
+    <node id="ALGORITHM 1" />
+    <node id="EQUATION 1" />
+    <node id="DEEP LEARNING APPLICATIONS" />
+    <node id="CUDA UNIFIED MEMORY" />
+    <node id="CUDA" />
+    <node id="DNN MODEL" />
+    <node id="INTERMEDIATE RESULTS" />
+    <node id="RESNET-152" />
+    <node id="MICROSOFT" />
+    <node id="AWS" />
+    <node id="EC2" />
+    <node id="G4DN.2XLARGE" />
+    <node id="P3.2XLARGE" />
+    <node id="V100" />
+    <node id="NVIDIA" />
+    <node id="INCEPTION_V3" />
+    <node id="BERT_BASE" />
+    <node id="NVIDIA MPS" />
+    <node id="MADAN MUSUVATHI" />
+    <node id="ZHIHAO BAI" />
+    <node id="CUDA MULTI-PROCESS SERVICE" />
+    <node id="AMAZON WEB SERVICES" />
+    <node id="MICROSOFT AZURE" />
+    <node id="GOOGLE CLOUD PLATFORM" />
+    <node id="CONFERENCE ON MACHINE LEARNING AND SYSTEMS" />
+    <node id="ACM SOSP" />
+    <node id="USENIX NSDI" />
+    <node id="USENIX ATC" />
+    <node id="TENSORFLOW" />
+    <node id="EUROSYS" />
+    <node id="Y. CHEN" />
+    <node id="K. MAHAJAN" />
+    <node id="ACM SYMPOSIUM ON CLOUD COMPUTING" />
+    <node id="R. LIAW" />
+    <node id="ACM CONFERENCE ON PROGRAMMING LANGUAGE DESIGN AND IMPLEMENTATION" />
+    <node id="R. DATHATHRI" />
+    <node id="USENIX OSDI" />
+    <node id="T. CHEN" />
+    <node id="ADVANCES IN NEURAL INFORMATION PROCESSING SYSTEMS" />
+    <node id="Y. HUANG" />
+    <node id="G. WANG" />
+    <node id="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" />
+    <node id="B. HINDMAN" />
+    <node id="C. WU" />
+    <node id="C. GUO" />
+    <node id="A. BALASUBRAMANIAN" />
+    <node id="A. SINGHVI" />
+    <node id="S. VENKATARAMAN" />
+    <node id="A. AKELLA" />
+    <node id="A. PHANISHAYEE" />
+    <node id="S. CHAWLA" />
+    <node id="KUBERNETES" />
+    <node id="R. BHARDWAJ" />
+    <node id="L. DUNLAP" />
+    <node id="Y. ZOU" />
+    <node id="J. E. GONZALEZ" />
+    <node id="I. STOICA" />
+    <node id="A. TUMANOV" />
+    <node id="NVIDIA CONTAINER RUNTIME FOR DOCKER" />
+    <node id="SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION" />
+    <node id="APACHE HADOOP YARN" />
+    <node id="TENSORFLOW XLA" />
+    <node id="MXNET" />
+    <edge source="PIPE SWITCH" target="14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="JOHNS HOPKINS UNIVERSITY">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="BYTEDANCE INC.">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="USENIX SYMPOSIUM">
+      <data key="d0">12.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="PYTORCH">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="NVIDIA V100">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="NVIDIA T4">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="DEEP LEARNING">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="CONTROLLER">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="MEMORY DAEMON">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="ACTIVE WORKER">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="STANDBY WORKER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="ALGORITHM 1">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="CUDA">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="GPU">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="USENIX ASSOCIATION">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="RESNET-152">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="NVIDIA MPS">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="RESNET152">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="INCEPTION_V3">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPE SWITCH" target="BERT_BASE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="JOHNS HOPKINS UNIVERSITY" target="ZHIAO BAI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="JOHNS HOPKINS UNIVERSITY" target="ZHEN ZHANG">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="JOHNS HOPKINS UNIVERSITY" target="XIN JIN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="BYTEDANCE INC." target="YIBO ZHU">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ZHEN ZHANG" target="PIPESWITCH">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="XIN JIN" target="PIPESWITCH">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="USENIX SYMPOSIUM" target="PIPELINE MODEL TRANSMISSION">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="USENIX SYMPOSIUM" target="PIPESWITCH">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="USENIX SYMPOSIUM" target="PYTORCH">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="USENIX SYMPOSIUM" target="RESNET152">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="USENIX SYMPOSIUM" target="INCEPTION_V3">
+      <data key="d0">4.0</data>
+    </edge>
+    <edge source="USENIX SYMPOSIUM" target="BERT_BASE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PYTORCH" target="NVIDIA">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PYTORCH" target="TENSORFLOW">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="USENIX ASSOCIATION" target="GPU CLUSTERS">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="USENIX ASSOCIATION" target="ALGORITHM 1">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="USENIX ASSOCIATION" target="PIPESWITCH">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="USENIX ASSOCIATION" target="SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="GPU CLUSTERS" target="DEEP LEARNING (DL)">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="NVIDIA T4" target="NVIDIA V100">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="NVIDIA T4" target="BERT">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="NVIDIA T4" target="AMAZON AWS">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA V100" target="BERT">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="NVIDIA V100" target="AMAZON AWS">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="PIPELINE MODEL TRANSMISSION" target="RESNET152">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="RESNET152" target="NVIDIA MPS">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="RESNET152" target="PIPESWITCH">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="DNN FRAMEWORK">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="PCIE">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="GPU">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="LAYER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="MICROSOFT">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="AWS">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="EC2">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="G4DN.2XLARGE">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="P3.2XLARGE">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="V100">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="INCEPTION_V3">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="BERT_BASE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="MADAN MUSUVATHI">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="ZHIHAO BAI">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="PIPESWITCH" target="CUDA MULTI-PROCESS SERVICE">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="GPU" target="DEEP LEARNING APPLICATIONS">
+      <data key="d0">9.0</data>
+    </edge>
+    <edge source="GPU" target="CUDA UNIFIED MEMORY">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="LAYER" target="ALGORITHM 1">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="ALGORITHM 1" target="EQUATION 1">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="ALGORITHM 1" target="DEEP LEARNING APPLICATIONS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="DNN MODEL" target="INTERMEDIATE RESULTS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="EC2" target="NVIDIA">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="NVIDIA" target="AMAZON WEB SERVICES">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="NVIDIA" target="MICROSOFT AZURE">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="NVIDIA" target="GOOGLE CLOUD PLATFORM">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="NVIDIA" target="KUBERNETES">
+      <data key="d0">7.0</data>
+    </edge>
+    <edge source="INCEPTION_V3" target="NVIDIA MPS">
+      <data key="d0">6.0</data>
+    </edge>
+    <edge source="BERT_BASE" target="NVIDIA MPS">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="CONFERENCE ON MACHINE LEARNING AND SYSTEMS" target="ACM SOSP">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="CONFERENCE ON MACHINE LEARNING AND SYSTEMS" target="USENIX NSDI">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="CONFERENCE ON MACHINE LEARNING AND SYSTEMS" target="G. WANG">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="ACM SOSP" target="USENIX ATC">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="USENIX NSDI" target="K. MAHAJAN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="EUROSYS" target="Y. CHEN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="Y. CHEN" target="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="K. MAHAJAN" target="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="ACM SYMPOSIUM ON CLOUD COMPUTING" target="R. LIAW">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="R. LIAW" target="KUBERNETES">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="ACM CONFERENCE ON PROGRAMMING LANGUAGE DESIGN AND IMPLEMENTATION" target="R. DATHATHRI">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="USENIX OSDI" target="T. CHEN">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="T. CHEN" target="NVIDIA CONTAINER RUNTIME FOR DOCKER">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="ADVANCES IN NEURAL INFORMATION PROCESSING SYSTEMS" target="Y. HUANG">
+      <data key="d0">8.0</data>
+    </edge>
+    <edge source="Y. HUANG" target="NVIDIA CONTAINER RUNTIME FOR DOCKER">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="G. WANG" target="NVIDIA CONTAINER RUNTIME FOR DOCKER">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" target="B. HINDMAN">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" target="C. WU">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" target="C. GUO">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" target="A. BALASUBRAMANIAN">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" target="A. SINGHVI">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" target="S. VENKATARAMAN">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" target="A. AKELLA">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" target="A. PHANISHAYEE">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY" target="S. CHAWLA">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="B. HINDMAN" target="NVIDIA CONTAINER RUNTIME FOR DOCKER">
+      <data key="d0">1.0</data>
+    </edge>
+    <edge source="KUBERNETES" target="R. BHARDWAJ">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="KUBERNETES" target="L. DUNLAP">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="KUBERNETES" target="Y. ZOU">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="KUBERNETES" target="J. E. GONZALEZ">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="KUBERNETES" target="I. STOICA">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="KUBERNETES" target="A. TUMANOV">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION" target="APACHE HADOOP YARN">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION" target="TENSORFLOW XLA">
+      <data key="d0">5.0</data>
+    </edge>
+    <edge source="SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION" target="MXNET">
+      <data key="d0">1.0</data>
+    </edge>
+  </graph>
+</graphml>
