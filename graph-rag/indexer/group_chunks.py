@@ -7,12 +7,16 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.cluster import AgglomerativeClustering
 import nltk
 import fitz 
+import spacy
+from keybert import KeyBERT
 
 nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
 
-# Load model
+# Load models
 model = SentenceTransformer('all-MiniLM-L6-v2')
+kw_model = KeyBERT(model=model)
+nlp = spacy.load("en_core_web_sm")
 
 def extract_text_from_pdf(path):
     doc = fitz.open(path)
@@ -31,13 +35,25 @@ text = re.sub(r'[^a-zA-Z0-9.,;:!?()\'\" -]', '', text)
 chunks = sent_tokenize(text)
 chunks = [c.strip() for c in chunks if c.strip()]
 
+# filter out useless chunks
+def is_relevant(chunk):
+    # BERT to find keywords
+    keywords = kw_model.extract_keywords(chunk, top_n=5, stop_words='english')
+
+    #spaCY to find entities
+    entities = [ent.text for ent in nlp(chunk).ents]
+    
+    return len(keywords) >= 2 or len(entities) >= 1
+
+chunks = [c for c in chunks if is_relevant(c)]
+
 # Embeddings
 embeddings = model.encode(chunks)
 
 # Similarity matrix
 sim_matrix = cosine_similarity(embeddings)
 
-# Optional: print most similar pairs (cosine > 0.8)
+# Print most similar pairs (cosine > 0.8)
 threshold = 0.8
 for i in range(len(chunks)):
     for j in range(i+1, len(chunks)):
@@ -46,11 +62,11 @@ for i in range(len(chunks)):
             print(f"[{j}] {chunks[j]}")
             print(f"Similarity: {sim_matrix[i][j]:.2f}\n")
 
-# Clustering similar chunks (optional)
+# Clustering similar chunks
 clustering = AgglomerativeClustering(n_clusters=None, distance_threshold=0.3, metric='cosine', linkage='average')
 labels = clustering.fit_predict(embeddings)
 
-# After getting 'labels' from AgglomerativeClustering
+# After getting labels from AgglomerativeClustering
 clustered_chunks = defaultdict(list)
 
 for label, chunk in zip(labels, chunks):
