@@ -980,8 +980,6 @@
     <node id="first-in-last-out" />
     <node id="The memory allocation and release" />
     <node id="a simple stack-like mechanism" />
-    <node id="memory allocation overhead" />
-    <node id="" />
     <node id="minimized" />
     <node id="avoided" />
     <node id="a memory management mechanism tailored for DL applications" />
@@ -2390,9 +2388,6 @@
       <data key="d0">predicate</data>
     </edge>
     <edge source="Salus 7" target="multiple inference tasks which have large models">
-      <data key="d0">predicate</data>
-    </edge>
-    <edge source="Salus 7" target="">
       <data key="d0">predicate</data>
     </edge>
     <edge source="Salus 7" target="the models to be preloaded to the GPU">
@@ -4136,9 +4131,6 @@
       <data key="d0">predicate</data>
     </edge>
     <edge source="a simple stack-like mechanism" target="memory fragmentation">
-      <data key="d0">predicate</data>
-    </edge>
-    <edge source="memory allocation overhead" target="">
       <data key="d0">predicate</data>
     </edge>
     <edge source="a dedicated memory daemon" target="the GPU memory">

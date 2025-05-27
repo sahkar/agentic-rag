@@ -12,7 +12,15 @@ for triple in triples:
   predicate = triple["predicate"]
   object = triple["object"]
 
-  if None in [subject, predicate, object]: continue
+  is_valid = True
+  for id in [subject, predicate, object]:
+    if id is None or len(id) == 0:
+      is_valid = False
+      continue
+
+  # if we have any invalid IDs, don't process this triple
+  if not is_valid:
+    continue
 
   if subject not in graph:
     graph.add_node(subject)
