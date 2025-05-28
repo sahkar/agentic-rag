@@ -1,0 +1,3892 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="relationship" attr.type="string"/>
+<graph edgedefault="directed"><node id="Processors"/>
+<node id="the open RISC-V instruction set architecture (ISA)"/>
+<node id="Processors using the open RISC-V instruction set architecture (ISA)"/>
+<node id="increasing adoption in the embedded world"/>
+<node id="CV32RT"/>
+<node id="a 32-bit RISC-V core"/>
+<node id="the interrupt handling capabilities of CV32E40P"/>
+<node id="CV32E40P"/>
+<node id="an industrially supported open-source core"/>
+<node id="best-in-class interrupt latency"/>
+<node id="fast context switching"/>
+<node id="commercial off-the-shelf (COTS) processor vendors"/>
+<node id="RISC-V architectures in time-critical systems"/>
+<node id="We"/>
+<node id="a brief overview of the full-system platform used to design and implement the proposed interrupt extension in Section II-A"/>
+<node id="the relevant target metrics in Section II-B3"/>
+<node id="the current status of interrupt handling in RISC-V in Section II-C"/>
+<node id="CV32E40P core"/>
+<node id="CV32"/>
+<node id="an open-source, industry-grade, 32-bit, in-order, four-stage RISC-V core"/>
+<node id="the basis for implementing our extensions"/>
+<node id="CV32 core"/>
+<node id="baseline"/>
+<node id="native CLINT interrupt controller"/>
+<node id="CLIC"/>
+<node id="CV32RTCLIC"/>
+<node id="fastirq"/>
+<node id="core microarchitecture"/>
+<node id="extension proposed in this work"/>
+<node id="CV32RTfastirq"/>
+<node id="CLIC interrupt controller"/>
+<node id="draft specification"/>
+<node id="RISC-V Privileged Specification"/>
+<node id="Our proposed fastirq extension"/>
+<node id="these weaknesses"/>
+<node id="fastirq extension"/>
+<node id="the CLIC base capabilities"/>
+<node id="interrupt latency"/>
+<node id="HW vectored interrupts"/>
+<node id="skipping of redundant context restore operations"/>
+<node id="a fast interrupt extension for RISC-V embedded systems"/>
+<node id="the extension on CV32RT"/>
+<node id="a 32-bit, in-order, single-issue core"/>
+<node id="the RISC-V CLIC fast interrupt controller"/>
+<node id="A CLIC extension based fast interrupt system"/>
+<node id="embedded RISC-V processors"/>
+<node id="Many embedded use cases"/>
+<node id="real-time constraints"/>
+<node id="flexible, predictable, and fast reactive handling of incoming events"/>
+<node id="RISC-V processors"/>
+<node id="this area"/>
+<node id="more mature proprietary architectures"/>
+<node id="ARM Cortex-M and TriCore"/>
+<node id="years"/>
+<node id="The default interrupt controller standardized by RISC-V"/>
+<node id="the core local interruptor (CLINT)"/>
+<node id="The core local interruptor (CLINT)"/>
+<node id="configurability in prioritization and preemption of interrupts"/>
+<node id="The RISC-V core local interrupt controller (CLIC) specification"/>
+<node id="this concern"/>
+<node id="preemptible, low-latency vectored interrupts"/>
+<node id="optional extensions to improve interrupt latency"/>
+<node id="the RISC-V community"/>
+<node id="an extension to the Privileged specifications 14"/>
+<node id="the extension to the Privileged specifications 14"/>
+<node id="the proposal of the RISC-V core local interrupt controller (CLIC) 15"/>
+<node id="currently under ratification by the community"/>
+<node id="the RISC-V core local interrupt controller (CLIC) 15"/>
+<node id="real-time scenarios"/>
+<node id="CLICs"/>
+<node id="local to each hardware thread (HART)"/>
+<node id="PLICs"/>
+<node id="platform level interrupt controllers"/>
+<node id="centralized interrupt controllers"/>
+<node id="managing multiple HARTs"/>
+<node id="RISC-V PLIC"/>
+<node id="Platform-Level Interrupt Controllers"/>
+<node id="advanced PLIC (APLIC)"/>
+<node id="RISC-V incoming message signaled interrupt controller (IMSIC)"/>
+<node id="RISC-V PLIC and advanced PLIC (APLIC)"/>
+<node id="wire-based interrupt communication"/>
+<node id="message-signaled interrupt communication"/>
+<node id="distribute time-critical interrupts to the running HARTs"/>
+<node id="B. Core-Local Interrupt Controllers CLICs"/>
+<node id="providing fast interrupt-handling capabilities in real-time embedded application domains"/>
+<node id="RISC-V SMCLIC Core-Local Interrupt Controller (CLIC)"/>
+<node id="RISC-V Privileged Architecture Extension"/>
+<node id="Document"/>
+<node id="http://www2.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-129.html"/>
+<node id="CV32RT our enhanced core"/>
+<node id="the first fully open-source RV32 core with competitive interrupt-handling features"/>
+<node id="Arm Cortex-M series"/>
+<node id="TriCore"/>
+<node id="CV32RT within an open-source system on chip (SoC)"/>
+<node id="CV32RT interrupt handling capabilities"/>
+<node id="extension"/>
+<node id="negligible area overhead in a modern technology node"/>
+<node id="performance benefits"/>
+<node id="various CV32RT versions"/>
+<node id="interrupt latency and context switch times"/>
+<node id="these additions"/>
+<node id="overhead in terms of area and timing"/>
+<node id="The proposed extensions"/>
+<node id="task context switching in real-time operating systems (RTOSs)"/>
+<node id="Index Terms"/>
+<node id="Context switching"/>
+<node id="embedded"/>
+<node id="microcontroller unit (MCU)"/>
+<node id="real-time"/>
+<node id="RISC-V"/>
+<node id="several markets"/>
+<node id="real-time and SW-based solution"/>
+<node id="the automotive industry"/>
+<node id="hundreds of electronic control units (ECUs)"/>
+<node id="electronic control units (ECUs)"/>
+<node id="real-time applications"/>
+<node id="electronic engine control"/>
+<node id="gearbox control"/>
+<node id="cruise control"/>
+<node id="anti-lock brake systems"/>
+<node id="General-purpose operating systems (GPOSs)"/>
+<node id="average throughput rather than real-time"/>
+<node id="Date of publication"/>
+<node id="21 March 2024"/>
+<node id="date of current version"/>
+<node id="23 May 2024"/>
+<node id="This work"/>
+<node id="the HORIZON Key Digital Technologies Joint Undertaking (KDT JU) Programme"/>
+<node id="the TRISTAN project"/>
+<node id="Grant 101095947"/>
+<node id="Robert Balas"/>
+<node id="corresponding author"/>
+<node id="Integrated Systems Laboratory (IIS), ETH Zurich, 8092 Zurich, Switzerland"/>
+<node id="Alessandro Ottaviano"/>
+<node id="Luca Benini"/>
+<node id="Integrated Systems Laboratory (IIS), ETH Zurich, Zurich, Switzerland"/>
+<node id="Department of Electrical, Electronic and Information Engineering (DEI), University of Bologna, 40126 Bologna, Italy"/>
+<node id="Color versions of one or more figures in this article"/>
+<node id="https:doi.org10.1109TVLSI.2024.3377130"/>
+<node id="Digital Object Identifier"/>
+<node id="10.1109TVLSI.2024.3377130"/>
+<node id="the development of Linux"/>
+<node id="average performance"/>
+<node id="Linux"/>
+<node id="a popular open-source GPOS kernel"/>
+<node id="extensions and modifications"/>
+<node id="improving determinism and latencies of critical operations in Linux"/>
+<node id="proposed and implemented"/>
+<node id="strict bounds on maximum latencies of operations"/>
+<node id="industry-grade maturity to be employed in hard real-time scenarios"/>
+<node id="Real-time operating systems (RTOSs) kernels"/>
+<node id="special-purpose operating systems (OSs)"/>
+<node id="real-time guarantees"/>
+<node id="task scheduling according to a given expected completion deadline"/>
+<node id="deterministic latencies of various operations"/>
+<node id="A. Stankovic"/>
+<node id="Scheduling algorithms and operating systems support for real-time systems"/>
+<node id="Proc."/>
+<node id="The cost of saving and restoring the task state during a context switch"/>
+<node id="a significant concern"/>
+<node id="relatively high"/>
+<node id="Long context switch times"/>
+<node id="available task utilization"/>
+<node id="the minimum viable switching granularity"/>
+<node id="process state"/>
+<node id="context switch"/>
+<node id="program counter"/>
+<node id="register files (RF)s"/>
+<node id="status registers"/>
+<node id="address space mapping"/>
+<node id="a significant number of memory access operations"/>
+<node id="store the state of the preempted task"/>
+<node id="restore the state of the new task to be executed"/>
+<node id="network loads"/>
+<node id="interrupt latency in time-critical microcontroller units (MCUs)"/>
+<node id="high overhead generated by the receiving of packets"/>
+<node id="continuous floods"/>
+<node id="short transmission bursts"/>
+<node id="50 task lateness"/>
+<node id="task lateness"/>
+<node id="the additional time a task takes to finish than its deadline allows"/>
+<node id="iterations from the critical network load increase per packet per second"/>
+<node id="HW-induced interrupt latency"/>
+<node id="one part of the problem"/>
+<node id="Interrupt latency"/>
+<node id="SW-dependent contributions"/>
+<node id="HW-dependent contributions"/>
+<node id="Personal use"/>
+<node id="permitted"/>
+<node id="republicationredistribution"/>
+<node id="IEEE permission"/>
+<node id="Authorized licensed use"/>
+<node id="California Polytechnic State University San Luis Obispo"/>
+<node id="interrupt state"/>
+<node id="unknown (implied process)"/>
+<node id="The latter"/>
+<node id="the execution time of the Authorized licensed use limited to California Polytechnic State University San Luis Obispo"/>
+<node id="May 28, 2025 at 17:50:39 UTC"/>
+<node id="IEEE Xplore"/>
+<node id="GPOSRTOS scheduler and the user code"/>
+<node id="the capability of the system to provide timely responses to asynchronous events"/>
+<node id="fast interrupt and context switching"/>
+<node id="Table I"/>
+<node id="nested interrupt preemption scheme according to RISC-V CLIC"/>
+<node id="interrupt latency in the non-nested interrupt case"/>
+<node id="interrupt latency in the nested interrupt case"/>
+<node id="bank switching in the non-nested interrupt case"/>
+<node id="an automatic context-saving mechanism in the background for the nested interrupt case"/>
+<node id="Fast Interrupt Extension"/>
+<node id="Automatic Hardware Context Saving and Bank Switching"/>
+<node id="A block diagram"/>
+<node id="A block diagram of CV32RTfastirq"/>
+<node id="Fig."/>
+<node id="pointer"/>
+<node id="appropriately before triggering an SW interrupt"/>
+<node id="SW interrupt"/>
+<node id="write to CLICs memory map"/>
+<node id="instruction in machine mode (emret)"/>
+<node id="skip redundant context saving and restoring sequences"/>
+<node id="directly jumping to the next available interrupt handler"/>
+<node id="Low interrupt latency and context switch time"/>
+<node id="crucial metrics for a wide range of platforms"/>
+<node id="Platforms"/>
+<node id="commodity MCU-class embedded systems to more advanced and complex application-class mixed criticality systems (MCSs)"/>
+<node id="Timesafety-critical and non-critical applications"/>
+<node id="different isolated partitions of the same HW platform"/>
+<node id="Response and context switch time minimization"/>
+<node id="a challenge to be tackled at the HWSW interface"/>
+<node id="SW programming techniques and HW interrupt controller architectures"/>
+<node id="to ensure minimal response time"/>
+<node id="commercial vendors and IP providers"/>
+<node id="such features as in-house solutions"/>
+<node id="often proprietary"/>
+<node id="the vendors instruction set architecture (ISA), target HW family, and associated SW stack"/>
+<node id="RISC-V ecosystem"/>
+<node id="a modular, free, and open-source ISA"/>
+<node id="the de facto lingua franca of computing"/>
+<node id="ever-growing"/>
+<node id="time period"/>
+<node id="the last decade"/>
+<node id="RISC-V support for fast interrupt and context switch handling"/>
+<node id="incumbent proprietary architectures"/>
+<node id="flexible interrupt prioritization"/>
+<node id="preemption mechanisms"/>
+<node id="low interrupt latency"/>
+<node id="modular RISC-V ISA"/>
+<node id="developing orthogonal custom extensions"/>
+<node id="few published works"/>
+<node id="the problem of minimizing interrupt latency and context switch time from a holistic (HW and SW) viewpoint for RISC-V"/>
+<node id="the gap with more established proprietary solutions"/>
+<node id="closing the gap with more established proprietary solutions"/>
+<node id="RISC-V as a valuable candidate for time- and safety-critical application domains such as automotive and aerospace"/>
+<node id="an open-source solution to be shared with the community"/>
+<node id="RISC-V core-specific interrupt controllers"/>
+<node id="various flavors"/>
+<node id="interrupt controllers"/>
+<node id="nesting"/>
+<node id="calling of C-functions within it"/>
+<node id="calling of C-functions within interrupt controllers"/>
+<node id="saving and restoring state following the C-ABI"/>
+<node id="our design"/>
+<node id="interrupt latencies of six clock cycles"/>
+<node id="efficient back-to-back interrupt handling in 12 cycles"/>
+<node id="interrupt latencies of six clock cycles and efficient back-to-back interrupt handling in 12 cycles"/>
+<node id="the fastest available approaches currently implemented in the RISC-V landscape"/>
+<node id="fully open-source"/>
+<node id="competitive against closed-source and proprietary commercial solutions"/>
+<node id="the implementation under a permissive open-source license"/>
+<node id="a fast interrupt extension (fastirq)"/>
+<node id="fast interrupt extension (fastirq)"/>
+<node id="both nested and non-nested interrupt case scenarios"/>
+<node id="hiding the latency through memory banks and a background-saving mechanism"/>
+<node id="CLINT"/>
+<node id="about 33 cycles interrupt latency"/>
+<node id="interrupt latency down to six cycles"/>
+<node id="The same mechanism"/>
+<node id="one to accelerate context switching through HWSW cooperation"/>
+<node id="early mret (emret)"/>
+<node id="a novel instruction"/>
+<node id="tail-chaining"/>
+<node id="the baseline strategy proposed in the CLIC standard (xnxti)"/>
+<node id="its enhancement from 18 (jalxnxti)"/>
+<node id="we"/>
+<node id="CV32RT with leading COTS systems in both nested and non-nested interrupt scenarios"/>
+<node id="the proposed solution"/>
+<node id="a competitive candidate for building the next generation of time-critical systems"/>
+<node id="This core"/>
+<node id="ControlPULP 19"/>
+<node id="a SoC specialized in running real-time workloads"/>
+<node id="The system"/>
+<node id="a CV32 manager core"/>
+<node id="a programmable accelerator subsystem"/>
+<node id="eight CV32 cores"/>
+<node id="a set of standard peripherals"/>
+<node id="quad serial peripheral interface (QSPI)"/>
+<node id="inter-integrated circuit (I2C)"/>
+<node id="universal asynchronous receiver-transmitter (UART)"/>
+<node id="The manager core"/>
+<node id="scheduling tasks"/>
+<node id="communicating with the peripherals"/>
+<node id="offloading tasks to the accelerator subsystem"/>
+<node id="being responsive to asynchronous external events"/>
+<node id="asynchronous external events"/>
+<node id="interrupts"/>
+<node id="ControlPULP"/>
+<node id="a set of scratchpad memories (SPMs)"/>
+<node id="scratchpad memories (SPMs)"/>
+<node id="single-cycle access time from the CV32 manager core"/>
+<node id="This design choice"/>
+<node id="deterministic memory access latency for both data load, store, and instruction fetch"/>
+<node id="the worst case latency when handling unpredictable events"/>
+<node id="Applications"/>
+<node id="FreeRTOS 20"/>
+<node id="an open-source, priority-based preemptive RTOS"/>
+<node id="the manager core"/>
+<node id="tasks"/>
+<node id="nested interrupts"/>
+<node id="preemption of a low-level interrupt by a high-level interrupt"/>
+<node id="Transition"/>
+<node id="different interrupt levels"/>
+<node id="the latter"/>
+<node id="the receiving side of the interrupt to clear the source often through accessing appropriate HW registers"/>
+<node id="the former"/>
+<node id="unidirectional notification without confirmation"/>
+<node id="the worst case interrupt latency"/>
+<node id="the time they remain disabled"/>
+<node id="execution of the interrupt handler before all interrupt state has been pushed to memory"/>
+<node id="Interrupts"/>
+<node id="asynchronous events"/>
+<node id="the normal program order execution"/>
+<node id="a switch to a different context to handle the event"/>
+<node id="A processor"/>
+<node id="vectored interrupts"/>
+<node id="each interrupt"/>
+<node id="a specific interrupt service routine (ISR)"/>
+<node id="an interrupt vector table"/>
+<node id="fast interrupt response"/>
+<node id="increased code size"/>
+<node id="interrupt vectoring"/>
+<node id="improve interrupt latencies"/>
+<node id="non-vectored or direct interrupts"/>
+<node id="a shared ISR"/>
+<node id="The latter approach"/>
+<node id="code size for a slower interrupt response"/>
+<node id="The overhead of resolving the interruption cause and jumping to the correct ISR"/>
+<node id="explicit instructions"/>
+<node id="The interrupt table"/>
+<node id="much more compact"/>
+<node id="Multiple sources"/>
+<node id="the interrupt latency in a system"/>
+<node id="the underlying HW"/>
+<node id="the scheduler or OS"/>
+<node id="the application running on top"/>
+<node id="minimizing the latency imposed by the HW"/>
+<node id="its HW-contributed part"/>
+<node id="restoring the interrupt context and the regular interrupt latency"/>
+<node id="This breakdown"/>
+<node id="the time it takes from an interrupt edge arriving at the HW to the execution of the first instruction of the corresponding interrupt handler routine"/>
+<node id="interrupt edge"/>
+<node id="the HW"/>
+<node id="HW"/>
+<node id="the interrupt controller"/>
+<node id="the number of cycles it takes for an interrupt to arrive at the interrupt controller input to the first instruction of an interrupt handler that allows the calling of a C-function"/>
+<node id="To make a fair comparison between SW-based and more HW-oriented interrupt solutions"/>
+<node id="what exactly constitutes the first instruction of the interrupt handler"/>
+<node id="Each HW configuration"/>
+<node id="a handwritten optimized interrupt handler"/>
+<node id="all required general-purpose and machine-specific registers for nesting interrupts"/>
+<node id="the first instruction"/>
+<node id="the one after all necessary interrupt context has been saved on the stack to be able to call a function"/>
+<node id="what exactly entails a function call"/>
+<node id="the used application binary interface (ABI)"/>
+<node id="its calling convention"/>
+<node id="some of the context saving code"/>
+<node id="redundant"/>
+<node id="The active interrupt handlers context"/>
+<node id="interrupt return"/>
+<node id="the next pending interrupt firing"/>
+<node id="Restoring the pre-interrupt context"/>
+<node id="SW for the nested interrupt case"/>
+<node id="Context Switching Time"/>
+<node id="the responsiveness of the architecture in swapping from one execution context to another"/>
+<node id="The execution context"/>
+<node id="the OS being used"/>
+<node id="the state of the architectural registers of the ISA and the chosen ABI"/>
+<node id="Preemption"/>
+<node id="an event such as an interrupt request temporarily interrupting a current task with the purpose of resuming its execution later"/>
+<node id="The simplest case for preemption"/>
+<node id="non-nested interrupt handlers"/>
+<node id="globally during the execution of an ISR"/>
+<node id="A more complex case for preemption"/>
+<node id="nested interrupt handlers"/>
+<node id="the case of multiple interrupts at a time"/>
+<node id="This situation"/>
+<node id="preemption"/>
+<node id="pending interrupts to be serviced in sequence according to increasing priority"/>
+<node id="levelpriority arbitration"/>
+<node id="SW-driven"/>
+<node id="priority simplestandard interrupt handlers"/>
+<node id="highest priority interrupt identification code"/>
+<node id="not executed"/>
+<node id="levelpriority arbitration logic"/>
+<node id="interrupt controller"/>
+<node id="highest levelpriority interrupt"/>
+<node id="pending but disabled"/>
+<node id="core"/>
+<node id="levelpriority interrupt scheme"/>
+<node id="SW or HW driven"/>
+<node id="additional masking of incoming interrupts"/>
+<node id="additional masking"/>
+<node id="incoming interrupts of equal or lower levelpriority than the executing ISR"/>
+<node id="incoming interrupts larger than a configurable levelpriority threshold"/>
+<node id="This scenario"/>
+<node id="real-time and complex embedded systems"/>
+<node id="sequentially"/>
+<node id="attempts to handle a more complex interrupt scheme"/>
+<node id="SW emulation"/>
+<node id="untenable interrupt latencies"/>
+<node id="A high-priority interrupt"/>
+<node id="a lower-priority interrupt to finish"/>
+<node id="globally within the scope of an executing ISR"/>
+<node id="interrupt handler"/>
+<node id="whenever"/>
+<node id="global interrupts"/>
+<node id="disabled"/>
+<node id="The ISR"/>
+<node id="designed to ensure they are reentrant"/>
+<node id="The nesting"/>
+<node id="higher priority interrupts to preempt a current lower priority ISR executing"/>
+<node id="Redundant Interrupt Context"/>
+<node id="back-to-back interrupts"/>
+<node id="served sequentially"/>
+<node id="whenever there are multiple interrupts pending"/>
+<node id="The transition from one interrupt to the next one"/>
+<node id="a redundant sequence of context restores and context saves"/>
+<node id="redundant context restore sequences"/>
+<node id="interrupt latency on higher interrupt loads"/>
+<node id="redundant context restore"/>
+<node id="unwanted additional interrupt latency"/>
+<node id="non-nested or nested horizontal interrupts"/>
+<node id="Redundant context restore"/>
+<node id="two non-preemptive interrupts"/>
+<node id="two interrupts with same level but different priorities"/>
+<node id="optimize redundant context restore"/>
+<node id="interrupt context restore and store sequence"/>
+<node id="between back-to-back interrupts"/>
+<node id="Redundant Context Restoring"/>
+<node id="Section II-B"/>
+<node id="the redundant context restoring sequences"/>
+<node id="the full interrupt exit code sequence"/>
+<node id="Redundant context restore with non-nested interrupts"/>
+<node id="chaining two back-to-back interrupts and bypassing the superfluous restoresave operation"/>
+<node id="Section III-D"/>
+<node id="the optimizations implemented in this work to address this scenario"/>
+<node id="privileged specification 14"/>
+<node id="a simple interrupt scheme with a set of timer and inter-processor interrupts"/>
+<node id="the RISC-V ecosystem"/>
+<node id="pending and enabled interrupts"/>
+<node id="according to a threshold value representing an interrupt level"/>
+<node id="threshold value representing an interrupt level"/>
+<node id="a CSR"/>
+<node id="selectively"/>
+<node id="masking of interrupts"/>
+<node id="standard RISC-V privileged specifications"/>
+<node id="Platform-Level Interrupt Controller Specification"/>
+<node id="fixed priority interrupt scheme"/>
+<node id="16 predefined or reserved interrupts"/>
+<node id="16 implementation-defined interrupts"/>
+<node id="optionally vectored"/>
+<node id="cores"/>
+<node id="32-bit"/>
+<node id="The CLINT"/>
+<node id="prioritization of interrupts based on privilege mode"/>
+<node id="CLINT-mode"/>
+<node id="inflexible interrupt scheme"/>
+<node id="much more work"/>
+<node id="managing interrupt mask (SOMEIRQMASK) and other machine state"/>
+<node id="interrupts with lower priority than the current interrupt running"/>
+<node id="when global interrupts are re-enabled"/>
+<node id="fine-grained control over interrupt prioritization for the embedded use cases"/>
+<node id="PLIC 22"/>
+<node id="number of custom interrupts"/>
+<node id="interrupt request IRQ2"/>
+<node id="serviced"/>
+<node id="another request IRQ1"/>
+<node id="enabled and pending"/>
+<node id="an active interrupt handler"/>
+<node id="irq2"/>
+<node id="irq1"/>
+<node id="pending"/>
+<node id="PREEMPTION"/>
+<node id="PRIVILEGE MODE (Vertical INTERRUPTS) and INTERRUPT LEVEL when the PRIVILEGE MODE is the same (Horizontal INTERRUPTS)"/>
+<node id="number of interrupts"/>
+<node id="flexible (at design time)"/>
+<node id="one or more targets"/>
+<node id="Interrupts that are assigned a higher level"/>
+<node id="lower-level interrupts"/>
+<node id="A single HART"/>
+<node id="multiple targets"/>
+<node id="Each interrupt"/>
+<node id="a priority"/>
+<node id="Each target"/>
+<node id="a threshold below which interrupts are disabled"/>
+<node id="Interrupt selection"/>
+<node id="the CLIC in HW"/>
+<node id="the highest level, highest priority pending interrupt to the cores interface"/>
+<node id="Interrupt priority"/>
+<node id="a tie-breaker for the case of multiple interrupts pending with the same level"/>
+<node id="selecting the interrupt with maximum level and priority"/>
+<node id="three binary trees"/>
+<node id="Enabled interrupts and their level and priority information"/>
+<node id="prioritization logic"/>
+<node id="a binary arbitration tree"/>
+<node id="the highest-level interrupt"/>
+<node id="a level"/>
+<node id="The priorities"/>
+<node id="concurrent pending interrupts to be taken in the order preferred by the programmer"/>
+<node id="the level information"/>
+<node id="pre-emption of same-privilege level interrupts"/>
+<node id="same-privilege level interrupts"/>
+<node id="horizontal interrupts"/>
+<node id="This scheme"/>
+<node id="interrupts to be divided according to their priorities on the PLIC-level"/>
+<node id="some flexibility in terms of prioritization"/>
+<node id="the flexibility problem on the core local-level"/>
+<node id="CLIC 15"/>
+<node id="these limitations"/>
+<node id="interrupts to be prioritized by levels and priorities"/>
+<node id="multiple horizontal interrupts"/>
+<node id="equal levels and priorities"/>
+<node id="the highest numbered interrupt 15"/>
+<node id="an arbitrary assignment decided at design time"/>
+<node id="Interrupts that are enabled, pending, and have a level below the threshold"/>
+<node id="masked"/>
+<node id="others"/>
+<node id="propagated"/>
+<node id="This feature"/>
+<node id="RTOSs that only want to disable a subset of all interrupts during critical sections"/>
+<node id="Interrupts that do not interfere with the data accessed in such a critical section"/>
+<node id="still fire"/>
+<node id="irq1 level"/>
+<node id="interrupt threshold"/>
+<node id="irq2 level"/>
+<node id="interrupts fired from different privilege modes"/>
+<node id="vertical interrupts"/>
+<node id="interrupts fired from the same privilege mode"/>
+<node id="preemption conditions of two nested interrupts irq2 and irq1 according to the CLIC specification"/>
+<node id="Reading from this CSR"/>
+<node id="to fast-track interrupts that arrive late"/>
+<node id="to avoid redundant context saverestore by running through pending interrupts back-to-back"/>
+<node id="the core"/>
+<node id="within an active handler"/>
+<node id="Entering an interrupt context or performing a context switch"/>
+<node id="the HW to store enough information to resume operation correctly after returning from the aforementioned context"/>
+<node id="improving interrupt latency and context switch times"/>
+<node id="controlling the amount of state that needs to be preserved to enter and leave an interrupt context"/>
+<node id="increasing the bandwidth and decreasing the latency to memory"/>
+<node id="relying on latency-hiding techniques that defer the effective saving of the state to a later point in time"/>
+<node id="architectural features and HWSW codesign"/>
+<node id="proposed architecture"/>
+<node id="typical case scenarios"/>
+<node id="The background-saving mechanism"/>
+<node id="the stack pointer"/>
+<node id="the bank-switched contents in memory"/>
+<node id="the execution of the core"/>
+<node id="in parallel"/>
+<node id="2"/>
+<node id="an overview of the design"/>
+<node id="Incoming interrupts"/>
+<node id="a Gateway module"/>
+<node id="Gateway module"/>
+<node id="there is a pending and enabled request for each interrupt source i (IRQ i)"/>
+<node id="the gateway"/>
+<node id="programmable configuration information"/>
+<node id="each interrupt line"/>
+<node id="level"/>
+<node id="priority"/>
+<node id="enable status"/>
+<node id="sensitivity (leveledge)"/>
+<node id="The Interrupt Prioritization module"/>
+<node id="the tree from leaves to the root"/>
+<node id="the sought-after maximum level and priority interrupt"/>
+<node id="the root"/>
+<node id="Each tree"/>
+<node id="low overhead in terms of area and delay"/>
+<node id="overhead in terms of area"/>
+<node id="O(n)"/>
+<node id="overhead in terms of delay"/>
+<node id="O(log(n))"/>
+<node id="The interrupt"/>
+<node id="a handshake-based interface"/>
+<node id="The additional kill signal"/>
+<node id="a handshake to restart"/>
+<node id="a potentially more important interrupt to be presented to the core"/>
+<node id="this work"/>
+<node id="n 4096 local interrupt sources"/>
+<node id="additional pipeline stages"/>
+<node id="the arbitration tree"/>
+<node id="relax timing"/>
+<node id="our version of the CLIC"/>
+<node id="SHV"/>
+<node id="the xnxti CSR in the core"/>
+<node id="interrupt handling capabilities"/>
+<node id="interrupt handling capabilities of CV32"/>
+<node id="introducing priority and levels management in HW"/>
+<node id="critical operations such as interrupt state and context saverestore"/>
+<node id="the CLIC"/>
+<node id="SW"/>
+<node id="CV32fastirq"/>
+<node id="filling this gap"/>
+<node id="The CLIC"/>
+<node id="this with the levelpriority scheme"/>
+<node id="that"/>
+<node id="the interrupt state saving logic in HW"/>
+<node id="emret to handle redundant interrupt context sequences"/>
+<node id="a wrapper around the cores RF"/>
+<node id="the RF by an additional read port for the background-saving mechanism"/>
+<node id="registers for latching the additional processor state required for proper interrupt nesting"/>
+<node id="A new interrupt at the CLIC"/>
+<node id="whether the interrupt level exceeds the configured threshold"/>
+<node id="The cores state machine"/>
+<node id="the pipeline"/>
+<node id="the program counter"/>
+<node id="the vector table entry"/>
+<node id="the saving logic"/>
+<node id="a bank switch"/>
+<node id="the bank switch"/>
+<node id="the interrupt context to have a fresh set of registers"/>
+<node id="draining the other bank contents through a separate port to the main memory"/>
+<node id="RF banks"/>
+<node id="on an interrupt"/>
+<node id="stack pointer"/>
+<node id="during a bank switch"/>
+<node id="a dedicated adder between the two RFs"/>
+<node id="The RISC-V embedded and integer ABI"/>
+<node id="that the stack pointer points below the last saved register on the stack"/>
+<node id="The stack pointer"/>
+<node id="appropriately to maintain ABI invariants"/>
+<node id="program code running in the interrupt handler"/>
+<node id="the values on the stack"/>
+<node id="interactions"/>
+<node id="background-saving mechanism and regular loadstore instructions of the core"/>
+<node id="incorrect execution"/>
+<node id="a load instruction"/>
+<node id="an architectural register"/>
+<node id="the background-saving mechanism"/>
+<node id="the same register"/>
+<node id="no conflict"/>
+<node id="interrupts are injected into the pipeline and only acted upon in the write-back stage of the core"/>
+<node id="the write-back stage of the core"/>
+<node id="updates to the RF"/>
+<node id="at this point"/>
+<node id="the bank switching operation"/>
+<node id="after updates to the RF are resolved"/>
+<node id="correctness of the execution"/>
+<node id="already executing"/>
+<node id="loads or stores accessing stack memory regions"/>
+<node id="properly resolved"/>
+<node id="stack memory regions"/>
+<node id="where the background-saving mechanism is writing to"/>
+<node id="execution of the handler"/>
+<node id="if this happens while the background-saving mechanism is still at work"/>
+<node id="stale data"/>
+<node id="data that is immediately overwritten"/>
+<node id="A straightforward solution"/>
+<node id="to stall the cores pipeline while the background-saving mechanism is at work"/>
+<node id="a load soon in the interrupt handler"/>
+<node id="this problem"/>
+<node id="whether the load-store unit tries to access the memory in the range of the stack pointer"/>
+<node id="decrementing the stack pointer"/>
+<node id="space available"/>
+<node id="the interrupt state word by word"/>
+<node id="the address offset of the last word pushed out by the background-saving mechanism"/>
+<node id="any incoming load and stores"/>
+<node id="the load-store unit"/>
+<node id="Load and stores that try to access data that is not yet pushed to memory"/>
+<node id="the cores pipeline to stall"/>
+<node id="This mechanism"/>
+<node id="the correctness of loads and stores issued by the core"/>
+<node id="A system call handler"/>
+<node id="the ecall instruction in RISC-V"/>
+<node id="user-provided arguments"/>
+<node id="Most"/>
+<node id="general-purpose registers"/>
+<node id="some"/>
+<node id="the stack"/>
+<node id="Short interrupt handlers"/>
+<node id="the full interrupt state has been saved"/>
+<node id="Each of these cases"/>
+<node id="the stalling logic outlined in Section III-C3"/>
+<node id="higher interrupt latencies"/>
+<node id="Some register values"/>
+<node id="because they might not have reached the load-store unit yet"/>
+<node id="the approach"/>
+<node id="HW complexity"/>
+<node id="a dynamic address lookup into a queue-like buffer"/>
+<node id="an SW-based solution that does not cause any kind of stalling"/>
+<node id="the pipeline stalling logic"/>
+<node id="ordering the loads to access the already stored interrupt state first"/>
+<node id="an analysis of the functional improvements"/>
+<node id="The cv32s RF"/>
+<node id="additional logic for the background-saving mechanism"/>
+<node id="Parts of the old memory bank (the interrupt context)"/>
+<node id="the cores stack location"/>
+<node id="execution"/>
+<node id="the new bank"/>
+<node id="this design"/>
+<node id="a dedicated memory port for the background-saving mechanism"/>
+<node id="the dedicated memory port for the background-saving mechanism"/>
+<node id="the port from the load-store unit"/>
+<node id="the general-purpose registers x1, x2"/>
+<node id="the programmer"/>
+<node id="that to achieve the best possible latency"/>
+<node id="4"/>
+<node id="how nested interrupt handling code works for the basic CLINT-mode, the baseline CLIC, and our fastirq extension"/>
+<node id="Routines"/>
+<node id="saving state for vectored nesting interrupts"/>
+<node id="proposed fastirq extension"/>
+<node id="RV32E as a variant of RV32I"/>
+<node id="RV32E"/>
+<node id="16 registers"/>
+<node id="RV32I"/>
+<node id="32 registers"/>
+<node id="Reducing the RF size"/>
+<node id="lower context switch times"/>
+<node id="the interrupt latency"/>
+<node id="the set of caller-save registers"/>
+<node id="the same when using the embedded-application binary interface (EABI)"/>
+<node id="Our implementation"/>
+<node id="the core to dynamically switch between RV32I and RV32E with fastirq depending on the workload"/>
+<node id="increased pressure on the RF"/>
+<node id="not acceptable"/>
+<node id="one"/>
+<node id="additional registers for the seven caller-save registers"/>
+<node id="adding additional registers for the seven caller-save registers"/>
+<node id="to save area"/>
+<node id="instead of doubling the RF size for the banking logic"/>
+<node id="the interrupt state"/>
+<node id="simply switching register banks"/>
+<node id="mret"/>
+<node id="regular return from an interrupt handler"/>
+<node id="the interrupt state has been restored by SW"/>
+<node id="a new instruction emret instead"/>
+<node id="This instruction"/>
+<node id="switching register banks"/>
+<node id="this situation"/>
+<node id="directly checking for other interrupts pending on the same level before restoring the executions interrupt context"/>
+<node id="an HW-assisted solution to address such a scenario with the xnxti CSRs"/>
+<node id="Nucleis enhanced CLIC (ECLIC) 18"/>
+<node id="xnxti"/>
+<node id="the jump to the queuing interrupt handler in the xnxti HW (jalxnxti)"/>
+<node id="Nuclei System Technology ECLIC 39"/>
+<node id="traditional xnxti"/>
+<node id="a novel CSR for machine privilege mode, jalmnxti 18"/>
+<node id="jalmnxti 18"/>
+<node id="this work in Section IV"/>
+<node id="emret"/>
+<node id="the control flow to the pending interrupts handler"/>
+<node id="Some HW"/>
+<node id="this concept of removing redundant context restores as tail-chaining"/>
+<node id="this scenario"/>
+<node id="latency"/>
+<node id="re-enabling global interrupts"/>
+<node id="a high-level interrupt"/>
+<node id="the current running interrupt handler"/>
+<node id="This combination of latency hiding and background saving"/>
+<node id="the core to quickly enter a first-level interrupt handler"/>
+<node id="mie"/>
+<node id="to prevent that"/>
+<node id="corresponding lower-priority interrupts"/>
+<node id="this return path"/>
+<node id="HW by adding an additional write port to the cores RF"/>
+<node id="exiting an interrupt handler"/>
+<node id="less time-critical"/>
+<node id="how quickly an external event is addressed"/>
+<node id="context switches"/>
+<node id="OS-specific and HW-specific parts"/>
+<node id="The OS part"/>
+<node id="all contributions to the context switch time that is specific to the OS itself"/>
+<node id="computing the next task to be scheduled"/>
+<node id="bookkeeping operations"/>
+<node id="The remainder"/>
+<node id="the HW-dependent saving and restoring of the state belonging to the new context"/>
+<node id="The idea"/>
+<node id="the state saving and restoring part of context Fig."/>
+<node id="switches"/>
+<node id="the loading of a new state with the automatic saving HW pushing out the previous register state to memory in the background"/>
+<node id="the HW mechanism"/>
+<node id="the registers"/>
+<node id="them in the background"/>
+<node id="the rest of the context switch routine"/>
+<node id="the initial part of the context switch routine"/>
+<node id="for that"/>
+<node id="the current running tasks state to memory"/>
+<node id="Additional RISC-V extensions"/>
+<node id="more context switching state"/>
+<node id="the goals of fastirq regarding latencies"/>
+<node id="adding more state to fastirq"/>
+<node id="technical limitations"/>
+<node id="the resulting design"/>
+<node id="a significant increase in area and power"/>
+<node id="a dirty bit"/>
+<node id="keep the fast path competitive"/>
+<node id="This section"/>
+<node id="a functional and quantitative evaluation of the various flavors of the CV32RT"/>
+<node id="the first standardized RISC-V interrupt controller"/>
+<node id="interrupt lines"/>
+<node id="a hardwired prioritization scheme"/>
+<node id="The baseline CLIC"/>
+<node id="a level threshold register per privilege level (xintthresh)"/>
+<node id="the set of allowed horizontal interrupts"/>
+<node id="those whose level exceeds the given value in the register"/>
+<node id="Vectoring"/>
+<node id="per interrupt line"/>
+<node id="This solution"/>
+<node id="both vectored and non-vectored interrupts"/>
+<node id="the regular CLINT"/>
+<node id="storing and restoring the interrupt context"/>
+<node id="The optional xnxti extension"/>
+<node id="multiple horizontal interrupts to be serviced in sequence without redundant context-restoring operations in between"/>
+<node id="the first interrupt"/>
+<node id="the full latency cost"/>
+<node id="the interrupt context storing part"/>
+<node id="This approach"/>
+<node id="the latency advantage of HW vectoring"/>
+<node id="an SW emulation of HW vectoring"/>
+<node id="The discussed differences"/>
+<node id="Table II"/>
+<node id="RTL simulations of the different versions of CV32RT as part of ControlPULP"/>
+<node id="memory subsystem"/>
+<node id="single cycle (zero wait state) access to static random access memory (SRAM)"/>
+<node id="The memory bank we are using"/>
+<node id="other bus masters"/>
+<node id="no additional latencies introduced on the system level"/>
+<node id="interrupt sources and the CLIC"/>
+<node id="HW contributed interrupt latency of our fastirq extension"/>
+<node id="HW contributed interrupt latency"/>
+<node id="Section II-B3"/>
+<node id="HW contributed interrupt latency of our fastirq extension to the CV32 and CV32RT variations"/>
+<node id="CV32 and CV32RT variations"/>
+<node id="standard CLIC, xnxti, jalxnxti"/>
+<node id="all caller-save registers"/>
+<node id="true"/>
+<node id="The saved general-purpose registers"/>
+<node id="all caller-save registers in the respective ABI"/>
+<node id="Interrupt handler routines"/>
+<node id="SW-based mechanisms to save and restore interrupt state"/>
+<node id="the handler code"/>
+<node id="some caller-save registers"/>
+<node id="if the compiler permits"/>
+<node id="the interrupt latency in the optimal case"/>
+<node id="the optimal case"/>
+<node id="only one caller-save register needs saving for SW-based interrupt handlers"/>
+<node id="the design at the interrupt controller inputs"/>
+<node id="both the EABI and regular integer ABI of RISC-V"/>
+<node id="this amount of state"/>
+<node id="for our fastirq extension"/>
+<node id="which caller-save registers need to be saved"/>
+<node id="Table III"/>
+<node id="the main techniques for optimizing interrupt context and task context save/restore with nested and non-nested interrupts employed by industry and academia in the embedded and real-time application domains"/>
+<node id="Several designs"/>
+<node id="the interrupt context directly in HW"/>
+<node id="automatic interrupt context saverestore"/>
+<node id="SW housekeeping overhead before and after handling the interrupt routine"/>
+<node id="the acceleration of the complete task context switch"/>
+<node id="the presented solutions"/>
+<node id="optimizing context"/>
+<node id="saverestore"/>
+<node id="HW and SW cooperation"/>
+<node id="a cohesive approach to address both interrupt context and task context switch acceleration"/>
+<node id="none of the existing RISC-V-based approaches can close the gap with well-established industry vendors"/>
+<node id="none of the existing RISC-V-based approaches"/>
+<node id="the gap with well-established industry vendors"/>
+<node id="Interrupt context saverestore"/>
+<node id="even worse"/>
+<node id="jalxnxti"/>
+<node id="42 cycles"/>
+<node id="35 cycles"/>
+<node id="xnxti and jalxnxti"/>
+<node id="additional instructions in the code path between the handler and interrupt event"/>
+<node id="checking for pending interrupts"/>
+<node id="directly jumping to the respective handlers"/>
+<node id="a pointer to the address of the next handler"/>
+<node id="a small code sequence (load, jump, and retry loop)"/>
+<node id="these operations into one instruction"/>
+<node id="saving nine cycles"/>
+<node id="Arm Cortex-M4"/>
+<node id="an interrupt latency of 12 cycles given a single-cycle memory"/>
+<node id="The Arm Cortex-M4"/>
+<node id="the same task in six cycles"/>
+<node id="single-cycle memory 24"/>
+<node id="baseline CLIC"/>
+<node id="68 cycles when using the integer ABI"/>
+<node id="50 cycles when using the embedded ABI"/>
+<node id="The emret mechanism of fastirq"/>
+<node id="similarly"/>
+<node id="eight clock cycles"/>
+<node id="non-vectored interrupts"/>
+<node id="context switch time"/>
+<node id="number of clock cycles between two FreeRTOS dummy tasks"/>
+<node id="baseline CV32RT and CV32RTfastirq"/>
+<node id="Average context switch time"/>
+<node id="FreeRTOS for two tasks of various flavors of CV32RT"/>
+<node id="All compile time options"/>
+<node id="to minimize the context switch code"/>
+<node id="tracing"/>
+<node id="stack overflow signaling"/>
+<node id="the more generic task selection mechanism"/>
+<node id="configurations that do not have Fig."/>
+<node id="Cortex-M4 core"/>
+<node id="single-cycle access to memory"/>
+<node id="Arm Cortex-M"/>
+<node id="16 core registers"/>
+<node id="us to skip ahead the saving of the general-purpose registers"/>
+<node id="an SW interrupt as part of the save sequence"/>
+<node id="The SW interrupt"/>
+<node id="the fastirq mechanism"/>
+<node id="saving the general-purpose registers to memory"/>
+<node id="31 cycles (19) for a context switch when using the I-extension"/>
+<node id="16 cycles (12) for the E-extension"/>
+<node id="registers"/>
+<node id="Section III-C4"/>
+<node id="The FreeRTOS website 20"/>
+<node id="context switches as low as 96 cycles for a Cortex-M4 implementation"/>
+<node id="CV32RT as part of the ControlPULP platform"/>
+<node id="Synopsys Design Compiler 2022.03"/>
+<node id="GlobalFoundries 12LP FinFet technology"/>
+<node id="500 MHz, TT corner, and 25 C"/>
+<node id="One gate equivalent (GE) for this technology"/>
+<node id="0.121 m2"/>
+<node id="STM32L476RG"/>
+<node id="SoC"/>
+<node id="higher latencies"/>
+<node id="memory access stalls and other implementation choices in the memory subsystem"/>
+<node id="3This"/>
+<node id="a lower bound"/>
+<node id="The RISC-V E-Extension"/>
+<node id="the available general-purpose registers from 32 to 16"/>
+<node id="the context switch state that needs to be saved and restored"/>
+<node id="RISC-V CLIC"/>
+<node id="area breakdown at varying numbers of interrupt sources"/>
+<node id="8"/>
+<node id="the area breakdown of the CLIC implemented in the proposed with different interrupt sources"/>
+<node id="Area overhead"/>
+<node id="CV32RT in the two main configurations"/>
+<node id="The overhead of fastirq in CV32RTfastirq core"/>
+<node id="a minimal 10 area increase concentrated around the ID stage"/>
+<node id="The design"/>
+<node id="GF12LP technology"/>
+<node id="500 MHz"/>
+<node id="TT corner"/>
+<node id="25 C"/>
+<node id="0.8 V"/>
+<node id="super low VT standard cells"/>
+<node id="CV32E40PRT ID stage"/>
+<node id="area breakdown with the proposed HW extensions"/>
+<node id="one 32-bit register"/>
+<node id="an area overhead of about 176 GE"/>
+<node id="The remaining area"/>
+<node id="the gateway and binary tree arbitration logic at the core of the CLIC working principle"/>
+<node id="additional housekeeping control logic that scales linearly with the number of interrupt sources"/>
+<node id="the fraction of the design occupied by the arbitration tree"/>
+<node id="when increasing the number of sources"/>
+<node id="a larger area overhead compared to traditional RISC-V CLINT 14"/>
+<node id="the gain in flexibility"/>
+<node id="a broader application scope with time-critical systems"/>
+<node id="10 overall area increase compared to baseline CLIC only"/>
+<node id="The ID stage"/>
+<node id="the HW block where the additional registers and the automatic stacking-unstacking logic are localized"/>
+<node id="A breakdown of the ID stage"/>
+<node id="additional storage space for automatic context save and restore in HW"/>
+<node id="the area of the RF by about 36 in the proposed implementation"/>
+<node id="the logic for managing the shadow registers"/>
+<node id="an overhead of 40 on the baseline ID stage controller"/>
+<node id="HW overhead"/>
+<node id="the additional emret instruction"/>
+<node id="negligible"/>
+<node id="increased size of the ID stage"/>
+<node id="benefits of a simplified programming model that moves several SW operations in HW"/>
+<node id="benefits of significantly lowered interrupt latency than standard RISC-V"/>
+<node id="the critical path of the base core design"/>
+<node id="time-critical systems"/>
+<node id="area efficiency"/>
+<node id="safety, security, and reliability"/>
+<node id="this section"/>
+<node id="the leading solutions to optimize handling asynchronous events in state-of-the-art embedded and real-time MCUs"/>
+<node id="existing PLICs and CLICs"/>
+<node id="PLICs and CLICs"/>
+<node id="Section II-C"/>
+<node id="solutions across various platforms in industry and academia"/>
+<node id="solutions"/>
+<node id="interrupt context saverestore techniques"/>
+<node id="context switch techniques"/>
+<node id="dedicated strategies to optimize redundant context restore with back-to-back interrupts"/>
+<node id="a modified version of the return"/>
+<node id="the overview"/>
+<node id="presented in Section II-B"/>
+<node id="different variants adopted by SOTA in Table III"/>
+<node id="Arms generic interrupt controller (GIC)"/>
+<node id="incoming asynchronous events"/>
+<node id="non-critical (IRQ) or critical interrupts (fast IRQ, or FIQ)"/>
+<node id="a dedicated register bank"/>
+<node id="dedicated register bank"/>
+<node id="up to eight registers"/>
+<node id="minimize context switching"/>
+<node id="nested vectored interrupt controller (NVIC)"/>
+<node id="a state machine 32"/>
+<node id="caller-save register stacking in the background"/>
+<node id="the link register a value (EXCRETURN)"/>
+<node id="EXCRETURN"/>
+<node id="the core to start unwinding the stack"/>
+<node id="unwinding the stack to return to normal program execution"/>
+<node id="interrupt control unit (ICU) 33, 34, 35"/>
+<node id="Infineon AURIX MCU-class TriCore family"/>
+<node id="context of the calling routine"/>
+<node id="memory autonomously"/>
+<node id="restoring the context"/>
+<node id="RET instruction"/>
+<node id="return jump 36"/>
+<node id="27"/>
+<node id="extensions for the RISC-V CLIC"/>
+<node id="interrupt handling"/>
+<node id="automatic stacking in HW"/>
+<node id="the cores Harvard architecture"/>
+<node id="simultaneous data and instruction memory access"/>
+<node id="Register banking"/>
+<node id="several architectures"/>
+<node id="a task's context without pushing/popping register values to the stack"/>
+<node id="an additional area overhead in the design"/>
+<node id="A task's context switch"/>
+<node id="quickly transferring the suspended context to the dedicated register bank"/>
+<node id="already restoring the next task to be executed"/>
+<node id="HW register banking"/>
+<node id="PLICs (GIC)"/>
+<node id="Arm designs"/>
+<node id="A similar approach"/>
+<node id="the Renesas M32C80 series 30"/>
+<node id="A dual register bank"/>
+<node id="quickly swapping the context without saving/restoring to/from the stack"/>
+<node id="The second register bank"/>
+<node id="high-speed interrupts"/>
+<node id="The Aurix family"/>
+<node id="an SW managed solution"/>
+<node id="The SW managed solution"/>
+<node id="a specific organization of the context layout in the system memory"/>
+<node id="The specific organization of the context layout"/>
+<node id="context save area (CSA) chained in a linked list fashion"/>
+<node id="leveraging RISC-Vs RV32E base instruction set by re-using the lower 16 architectural registers of the RF"/>
+<node id="The evaluation in 28"/>
+<node id="HW implementation"/>
+<node id="area overhead assessment"/>
+<node id="context switching overhead by 24 on the DSPstone benchmark"/>
+<node id="These approaches"/>
+<node id="HW- and SW-induced latencies when handling asynchronous events"/>
+<node id="26"/>
+<node id="a full HW solution based on a hardware scheduling engine (HSE)"/>
+<node id="hardware scheduling engine (HSE)"/>
+<node id="interrupts to running tasks"/>
+<node id="a specialized interrupt controller"/>
+<node id="this approach"/>
+<node id="lowering interrupt latency and task context switches dramatically"/>
+<node id="flexibility"/>
+<node id="its area overhead"/>
+<node id="a high number of tasks"/>
+<node id="replicating hardware resources per task"/>
+<node id="architectures such as superscalar central processing units (CPUs)"/>
+<node id="hide latency in graphic processing units (GPUs)"/>
+<node id="such works"/>
+<node id="the difference in memory footprint between such architectures (MB size RFs) and low-end embedded microcontrollers targeted in this work"/>
+<node id="RF caching rather than register shadowing or banking"/>
+<node id="RF caching"/>
+<node id="performance reasons"/>
+<node id="lower access latency to the RF"/>
+<node id="register shadowing or banking"/>
+<node id="higher thread-level parallelism (TLP)"/>
+<node id="such techniques"/>
+<node id="the systems predictability"/>
+<node id="the xnxti CSR with SW-managed interrupt service loops"/>
+<node id="xnxti CSR with SW-managed interrupt service loops"/>
+<node id="the CLIC specifications"/>
+<node id="early commercial examples with 31"/>
+<node id="RISC-V AIA without APLIC"/>
+<node id="mnxti with the xtopi CSR"/>
+<node id="xtopi CSR"/>
+<node id="the highest-priority, pending, and enabled interrupt for a specific privilege mode"/>
+<node id="both late arrival and redundant context restore mechanisms"/>
+<node id="a combination of the background-saving with a register banking approach"/>
+<node id="task context switch times in FreeRTOS to 104 clock cycles using fastirq"/>
+<node id="20 faster than an SW-only approach"/>
+<node id="the authors"/>
+<node id="analyzing fastirqs impact on timing channels"/>
+<node id="its integration with different RISC-V extensions"/>
+<node id="C. Rochange, S. Uhrig, and P. Sainrat"/>
+<node id="Time-Predictable Architectures (FOCUS Computer Engineering Series)"/>
+<node id="Hoboken, NJ, USA"/>
+<node id="Wiley"/>
+<node id="2014"/>
+<node id="2 L. M. Pinho et al."/>
+<node id="High-Performance and Time-Predictable Embedded Computing"/>
+<node id="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1848215932.html"/>
+<node id="River"/>
+<node id="Wharton, TX, USA"/>
+<node id="2018"/>
+<node id="3 F. Reghenzani, G. Massari, and W. Fornaciari"/>
+<node id="The real-time Linux kernel: A survey on PREEMPTRT"/>
+<node id="ACM Comput."/>
+<node id="M. Liu, D. Liu, Y. Wang, M. Wang, and Z. Shao"/>
+<node id="On improving real-time interrupt latencies of hybrid operating systems with two-level hardware interrupts"/>
+<node id="IEEE Trans."/>
+<node id="5 P. Mantegazza, E. L. Dozio, and S. Papacharalambous"/>
+<node id="RTAI: Real time application interface"/>
+<node id="Linux J."/>
+<node id="J. Valvano"/>
+<node id="Introduction to Embedded Systems"/>
+<node id="http:web.engr.oregonstate.edutraylorece473 pdfsminimizeinterruptresponsetime.pdf"/>
+<node id="web.engr.oregonstate.edu"/>
+<node id="CreateSpace"/>
+<node id="Scotts Valley, CA, USA in Aug. 2016"/>
+<node id="9 Y. Huang, L. Shi, J. Li, Q. Li, and C. J. Xue"/>
+<node id="WCET-aware re-scheduling register allocation for real-time embedded systems with clustered VLIW architecture"/>
+<node id="WCET-aware re-scheduling register allocation"/>
+<node id="real-time embedded systems with clustered VLIW architecture"/>
+<node id="X. Zhou and P. Petrov"/>
+<node id="Rapid and low-cost context-switch through embedded processor customization for real-time and control applications"/>
+<node id="Association for Computing Machinery"/>
+<node id="New York, NY, USA"/>
+<node id="2006"/>
+<node id="352"/>
+<node id="10.11451146909.1147001"/>
+<node id="I. Behnke, L. Pirl, L. Thamsen, R. Danicki, A. Polze, and O. Kao"/>
+<node id="Interrupting real-time IoT tasks: How bad can it be to connect your critical embedded system to the Internet?"/>
+<node id="12 F. Rehm et al."/>
+<node id="The road towards predictable automotive high Performance platforms"/>
+<node id="K. Asanovic and D. A. Patterson"/>
+<node id="Instruction sets should be free: The case for RISC-V"/>
+<node id="The RISC-V instruction set manual volume II"/>
+<node id="A. Waterman, Y. Lee, R. Avizienis, D. A. Patterson, and K. Asanovic"/>
+<node id="1.9"/>
+<node id="Privileged architecture"/>
+<node id="http:www2.eecs.berkeley.eduPubsTechRpts2014EECS-2014-146.html"/>
+<node id="Dept."/>
+<node id="EECS"/>
+<node id="Univ."/>
+<node id="California"/>
+<node id="Berkeley"/>
+<node id="CA"/>
+<node id="USA"/>
+<node id="Tech"/>
+<node id="clic"/>
+<node id="https://github.com/riscv/riscv-fast-interrupt/blob/master/clic"/>
+<node id="M. Gautschi et al."/>
+<node id="Near-threshold RISC-V core with DSP extensions for scalable IoT endpoint devices"/>
+<node id="OpenHW Group CV32E40P"/>
+<node id="User Manual"/>
+<node id="OpenHW Group"/>
+<node id="an organization"/>
+<node id="cv32e40p"/>
+<node id="https"/>
+<node id="readthedocs.io"/>
+<node id="Nuclei System Technology documentation"/>
+<node id="Nuclei System Technology"/>
+<node id="18"/>
+<node id="39 Nuclei System Technology Co. Ltd."/>
+<node id="ECLIC Unit Introduction"/>
+<node id="Nuclei"/>
+<node id="ISA Spec"/>
+<node id="A. Ottaviano et al."/>
+<node id="ControlPULP: A RISC-V on-chip parallel power controller for many-core HPC processors with FPGA-based hardware-in-the-loop power and thermal emulation"/>
+<node id="a RISC-V on-chip parallel power controller for many-core HPC processors"/>
+<node id="FPGA-based hardware-in-the-loop power and thermal emulation"/>
+<node id="Text"/>
+<node id="https://doc.nucleisys.com/nucleispecisaintroduction.html"/>
+<node id="FreeRTOS"/>
+<node id="Real-Time Operating System for Microcontrollers"/>
+<node id="Real Time Engineers Ltd."/>
+<node id="Online"/>
+<node id="C.-M. Lin"/>
+<node id="Nested interrupt analysis of low cost and high performance embedded systems using GSPN framework"/>
+<node id="IEICE Trans."/>
+<node id="https:www.freertos.orgindex.html"/>
+<node id="22"/>
+<node id="RISC-V International"/>
+<node id="The Definitive Guide to ARM Cortex-M3 Cortex-M4 Processors"/>
+<node id="J. Yiu"/>
+<node id="3rd ed."/>
+<node id="riscv-plic-1.0.0.pdf"/>
+<node id="https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic-1.0.0.pdf"/>
+<node id="Newnes"/>
+<node id="Boston, MA, USA in 2013"/>
+<node id="Cortex-M4"/>
+<node id="https://developer.arm.com/documentation/100166/0001"/>
+<node id="the document"/>
+<node id="Interrupt Latency"/>
+<node id="Arm Cortex-M Processors"/>
+<node id="V. G. Gaitan, N. C. Gaitan, and I. Ungurean"/>
+<node id="CPU architecture based on a hardware scheduler and independent pipeline registers"/>
+<node id="CPU architecture"/>
+<node id="a hardware scheduler and independent pipeline registers"/>
+<node id="https://community.arm.com/arm-community-blogs/b-architectures-and-processors-blog/posts/beginner-guide-on-interrupt-latency-and-interrupt-latency-of-the-arm-cortex-m-processors?pifragment=227142"/>
+<node id="Circuits Microsystems (ICICM)"/>
+<node id="Oct. 2021"/>
+<node id="Li and J. K. Lee"/>
+<node id="paged register files for improving context switching on embedded processors"/>
+<node id="29 R. Balas and L. Benini"/>
+<node id="RISC-V for real-time MCUs Software optimization and microarchitectural gap analysis"/>
+<node id="30"/>
+<node id="Renesas"/>
+<node id="Hardware Manual"/>
+<node id="RENESAS MCU M16C"/>
+<node id="SiFive Inc."/>
+<node id="hardware manual for M32C87, M32C87A, M32C87B"/>
+<node id="hardware manual"/>
+<node id="https://www.renesas.com/us/en/document/mahm32c87-group-m32c87-m32c87a-m32c87b-hardware-manual"/>
+<node id="2021"/>
+<node id="SiFive E21"/>
+<node id="Core Complex Manual"/>
+<node id="https:sifive.cdn.prismic.iosifive7c22c2ec-8af4-4b6c-a5fe-9327d91e7808e21corecomplexmanual21G1.pdf"/>
+<node id="STMicroelectronics"/>
+<node id="STM32L5-System-NestedVectoredInterruptControlNVIC.pdf"/>
+<node id="https://www.st.com/content/ccc/resource/training/technical/product_training/group/16135/d207346f4e83/STM32L5-System-NestedVectoredInterruptControlNVIC/files/STM32L5-System-NestedVectoredInterruptControlNVIC.pdf/jcr:content/translations/en.STM32L5-System-NestedVectoredInterruptControlNVIC.pdf"/>
+<node id="Infineon Technologies AG"/>
+<node id="A Fast Powertrain Microcontroller"/>
+<node id="a microcontroller"/>
+<node id="https://old.hotchips.org/wp-content/uploads/hcarchives/hc16/3Tue6HC16Sess7Pres1bw.pdf"/>
+<node id="Document at https://old.hotchips.org/wp-content/uploads/hcarchives/hc16/3Tue6HC16Sess7Pres1bw.pdf"/>
+<node id="https://hitex.co.uk/fileadmin/uk-files/downloads/ShieldBuddy_tc27xDum_v2.2.pdf"/>
+<node id="TC27x D-Step"/>
+<node id="32-Bit Single-Chip Microcontroller"/>
+<node id="TriCore V1.6"/>
+<node id="Core Architecture"/>
+<node id="Task context switching RTOS"/>
+<node id="U.S. Patent 7 434 222 B2"/>
+<node id="October 2008"/>
+<node id="https:www.infineon.comdgdltc16 architecturevol1.pdf?fileIddb3a3043372d5cc801373b0f374d5d67"/>
+<node id="H. Zeng and K. Ghose"/>
+<node id="Register file caching for energy efficiency"/>
+<node id="ISLPED Proc."/>
+<node id="Date"/>
+<node id="6, June 2024"/>
+<node id="M. Sadrosadati et al."/>
+<node id="Highly concurrent latency-tolerant register files for GPUs"/>
+<node id="ACM Trans."/>
+<node id="Access date"/>
+<node id="Aug. 4, 2023"/>
+<node id="Graduate Student Member, IEEE"/>
+<node id="B.Sc."/>
+<node id="degrees"/>
+<node id="ETH Zurich, Zurich, Switzerland"/>
+<node id="2015 and 2017, respectively"/>
+<node id="Ph.D. degree"/>
+<node id="Digital Circuits and Systems Group of Prof. Benini"/>
+<node id="the Digital Circuits and Systems Group"/>
+<node id="Prof. Benini"/>
+<node id="His research interests"/>
+<node id="real-time computing"/>
+<node id="compilers"/>
+<node id="operating systems"/>
+<node id="power management of HPC processors"/>
+<node id="energy-efficient processor architecture"/>
+<node id="Graduate Student Member of IEEE"/>
+<node id="degree"/>
+<node id="physical engineering"/>
+<node id="Politecnico di Turino, Turin, Italy"/>
+<node id="electrical engineering"/>
+<node id="Politecnico di Turino"/>
+<node id="Grenoble INP-Phelma, Grenoble, France"/>
+<node id="EPFL Lausanne, Lausanne, Switzerland"/>
+<node id="2020"/>
+<node id="Dr. Benini"/>
+<node id="the ACM"/>
+<node id="the Academia Europaea"/>
+<node id="McCluskey Award"/>
+<node id="an award"/>
+<edge source="Processors" target="the open RISC-V instruction set architecture (ISA)">
+  <data key="d0">use</data>
+</edge>
+<edge source="Processors using the open RISC-V instruction set architecture (ISA)" target="increasing adoption in the embedded world">
+  <data key="d0">are finding</data>
+</edge>
+<edge source="CV32RT" target="a 32-bit RISC-V core">
+  <data key="d0">is</data>
+</edge>
+<edge source="CV32RT" target="the interrupt handling capabilities of CV32E40P">
+  <data key="d0">extends</data>
+</edge>
+<edge source="CV32RT" target="best-in-class interrupt latency">
+  <data key="d0">achieves</data>
+</edge>
+<edge source="CV32RT" target="fast context switching">
+  <data key="d0">achieves</data>
+</edge>
+<edge source="CV32RT" target="commercial off-the-shelf (COTS) processor vendors">
+  <data key="d0">performs better than</data>
+</edge>
+<edge source="CV32RT" target="RISC-V architectures in time-critical systems">
+  <data key="d0">paves the road for</data>
+</edge>
+<edge source="CV32RT" target="a 32-bit, in-order, single-issue core">
+  <data key="d0">is</data>
+</edge>
+<edge source="CV32RT" target="the RISC-V CLIC fast interrupt controller">
+  <data key="d0">is designed with</data>
+</edge>
+<edge source="CV32RT" target="the first fully open-source RV32 core with competitive interrupt-handling features">
+  <data key="d0">is</data>
+</edge>
+<edge source="CV32RT" target="Arm Cortex-M series">
+  <data key="d0">has competitive interrupt-handling features compared to</data>
+</edge>
+<edge source="CV32RT" target="TriCore">
+  <data key="d0">has competitive interrupt-handling features compared to</data>
+</edge>
+<edge source="CV32RT" target="fast interrupt and context switching">
+  <data key="d0">enables</data>
+</edge>
+<edge source="CV32RT" target="architectural features and HWSW codesign">
+  <data key="d0">has</data>
+</edge>
+<edge source="CV32RT" target="Synopsys Design Compiler 2022.03">
+  <data key="d0">is synthesized using</data>
+</edge>
+<edge source="CV32E40P" target="an industrially supported open-source core">
+  <data key="d0">is</data>
+</edge>
+<edge source="fast context switching" target="architectures such as superscalar central processing units (CPUs)">
+  <data key="d0">is often required in</data>
+</edge>
+<edge source="fast context switching" target="hide latency in graphic processing units (GPUs)">
+  <data key="d0">is often required to</data>
+</edge>
+<edge source="We" target="a brief overview of the full-system platform used to design and implement the proposed interrupt extension in Section II-A">
+  <data key="d0">give</data>
+</edge>
+<edge source="We" target="the relevant target metrics in Section II-B3">
+  <data key="d0">motivate and explain</data>
+</edge>
+<edge source="We" target="the current status of interrupt handling in RISC-V in Section II-C">
+  <data key="d0">describe</data>
+</edge>
+<edge source="We" target="the extension on CV32RT">
+  <data key="d0">implement</data>
+</edge>
+<edge source="We" target="CV32RT our enhanced core">
+  <data key="d0">call</data>
+</edge>
+<edge source="We" target="CV32RT within an open-source system on chip (SoC)">
+  <data key="d0">integrate</data>
+</edge>
+<edge source="We" target="CV32RT interrupt handling capabilities">
+  <data key="d0">evaluate</data>
+</edge>
+<edge source="We" target="the implementation under a permissive open-source license">
+  <data key="d0">make available</data>
+</edge>
+<edge source="We" target="a fast interrupt extension (fastirq)">
+  <data key="d0">design</data>
+</edge>
+<edge source="We" target="the RF by an additional read port for the background-saving mechanism">
+  <data key="d0">extend</data>
+</edge>
+<edge source="We" target="registers for latching the additional processor state required for proper interrupt nesting">
+  <data key="d0">extend</data>
+</edge>
+<edge source="We" target="this problem">
+  <data key="d0">address</data>
+</edge>
+<edge source="We" target="whether the load-store unit tries to access the memory in the range of the stack pointer">
+  <data key="d0">check</data>
+</edge>
+<edge source="We" target="an SW-based solution that does not cause any kind of stalling">
+  <data key="d0">propose</data>
+</edge>
+<edge source="We" target="an analysis of the functional improvements">
+  <data key="d0">give</data>
+</edge>
+<edge source="We" target="this scenario">
+  <data key="d0">address</data>
+</edge>
+<edge source="We" target="interrupt latency">
+  <data key="d0">minimize</data>
+</edge>
+<edge source="We" target="latency">
+  <data key="d0">hide</data>
+</edge>
+<edge source="We" target="RTL simulations of the different versions of CV32RT as part of ControlPULP">
+  <data key="d0">take measurements by running</data>
+</edge>
+<edge source="We" target="HW contributed interrupt latency of our fastirq extension">
+  <data key="d0">measure</data>
+</edge>
+<edge source="We" target="HW contributed interrupt latency of our fastirq extension to the CV32 and CV32RT variations">
+  <data key="d0">compare</data>
+</edge>
+<edge source="We" target="both the EABI and regular integer ABI of RISC-V">
+  <data key="d0">evaluate</data>
+</edge>
+<edge source="We" target="configurations that do not have Fig.">
+  <data key="d0">left out</data>
+</edge>
+<edge source="We" target="CV32RT as part of the ControlPULP platform">
+  <data key="d0">synthesize</data>
+</edge>
+<edge source="We" target="existing PLICs and CLICs">
+  <data key="d0">differentiate between</data>
+</edge>
+<edge source="We" target="the latter">
+  <data key="d0">focus on</data>
+</edge>
+<edge source="We" target="solutions across various platforms in industry and academia">
+  <data key="d0">discuss</data>
+</edge>
+<edge source="We" target="a modified version of the return">
+  <data key="d0">propose</data>
+</edge>
+<edge source="CV32E40P core" target="CV32">
+  <data key="d0">is abbreviated to</data>
+</edge>
+<edge source="CV32E40P core" target="an open-source, industry-grade, 32-bit, in-order, four-stage RISC-V core">
+  <data key="d0">is</data>
+</edge>
+<edge source="CV32E40P core" target="the basis for implementing our extensions">
+  <data key="d0">is used as</data>
+</edge>
+<edge source="CV32" target="interrupt handling capabilities">
+  <data key="d0">has</data>
+</edge>
+<edge source="CV32 core" target="baseline">
+  <data key="d0">is</data>
+</edge>
+<edge source="native CLINT interrupt controller" target="CLIC">
+  <data key="d0">is replaced with</data>
+</edge>
+<edge source="CLIC" target="CV32RTCLIC">
+  <data key="d0">is referred to as</data>
+</edge>
+<edge source="CLIC" target="about 33 cycles interrupt latency">
+  <data key="d0">have</data>
+</edge>
+<edge source="CLIC" target="the highest numbered interrupt 15">
+  <data key="d0">selects</data>
+</edge>
+<edge source="CV32RTCLIC" target="CLIC interrupt controller">
+  <data key="d0">implements</data>
+</edge>
+<edge source="fastirq" target="core microarchitecture">
+  <data key="d0">is introduced into</data>
+</edge>
+<edge source="fastirq" target="extension proposed in this work">
+  <data key="d0">is</data>
+</edge>
+<edge source="fastirq" target="a fast interrupt extension for RISC-V embedded systems">
+  <data key="d0">is</data>
+</edge>
+<edge source="fastirq" target="interrupt latency">
+  <data key="d0">reduces</data>
+</edge>
+<edge source="fastirq" target="hiding the latency through memory banks and a background-saving mechanism">
+  <data key="d0">reduces interrupt latency by</data>
+</edge>
+<edge source="fastirq" target="that">
+  <data key="d0">improves upon</data>
+</edge>
+<edge source="fastirq" target="the interrupt state saving logic in HW">
+  <data key="d0">moves</data>
+</edge>
+<edge source="fastirq" target="emret to handle redundant interrupt context sequences">
+  <data key="d0">adds</data>
+</edge>
+<edge source="fastirq" target="a wrapper around the cores RF">
+  <data key="d0">is</data>
+</edge>
+<edge source="fastirq" target="us to skip ahead the saving of the general-purpose registers">
+  <data key="d0">allows</data>
+</edge>
+<edge source="fastirq" target="an SW interrupt as part of the save sequence">
+  <data key="d0">triggers</data>
+</edge>
+<edge source="fastirq" target="20 faster than an SW-only approach">
+  <data key="d0">is</data>
+</edge>
+<edge source="extension proposed in this work" target="CV32RTfastirq">
+  <data key="d0">is referred to as</data>
+</edge>
+<edge source="CV32RTfastirq" target="interrupt latency in the non-nested interrupt case">
+  <data key="d0">optimizes</data>
+</edge>
+<edge source="CV32RTfastirq" target="interrupt latency in the nested interrupt case">
+  <data key="d0">optimizes</data>
+</edge>
+<edge source="CV32RTfastirq" target="bank switching in the non-nested interrupt case">
+  <data key="d0">combines</data>
+</edge>
+<edge source="CV32RTfastirq" target="an automatic context-saving mechanism in the background for the nested interrupt case">
+  <data key="d0">uses</data>
+</edge>
+<edge source="CV32RTfastirq" target="Fast Interrupt Extension">
+  <data key="d0">has feature</data>
+</edge>
+<edge source="CV32RTfastirq" target="10 overall area increase compared to baseline CLIC only">
+  <data key="d0">incurs</data>
+</edge>
+<edge source="CLIC interrupt controller" target="draft specification">
+  <data key="d0">is implemented according to</data>
+</edge>
+<edge source="draft specification" target="RISC-V Privileged Specification">
+  <data key="d0">is to be included in</data>
+</edge>
+<edge source="Our proposed fastirq extension" target="these weaknesses">
+  <data key="d0">addresses</data>
+</edge>
+<edge source="fastirq extension" target="the CLIC base capabilities">
+  <data key="d0">extends</data>
+</edge>
+<edge source="fastirq extension" target="interrupt latency">
+  <data key="d0">lowers</data>
+</edge>
+<edge source="fastirq extension" target="HW vectored interrupts">
+  <data key="d0">keeps</data>
+</edge>
+<edge source="fastirq extension" target="skipping of redundant context restore operations">
+  <data key="d0">allows</data>
+</edge>
+<edge source="fastirq extension" target="interrupt latency down to six cycles">
+  <data key="d0">is able to reduce</data>
+</edge>
+<edge source="interrupt latency" target="50 task lateness">
+  <data key="d0">reaches up to</data>
+</edge>
+<edge source="interrupt latency" target="its HW-contributed part">
+  <data key="d0">means</data>
+</edge>
+<edge source="interrupt latency" target="the number of cycles it takes for an interrupt to arrive at the interrupt controller input to the first instruction of an interrupt handler that allows the calling of a C-function">
+  <data key="d0">is measured as</data>
+</edge>
+<edge source="interrupt latency" target="presented in Section II-B">
+  <data key="d0">definition</data>
+</edge>
+<edge source="A CLIC extension based fast interrupt system" target="embedded RISC-V processors">
+  <data key="d0">is for</data>
+</edge>
+<edge source="Many embedded use cases" target="real-time constraints">
+  <data key="d0">have</data>
+</edge>
+<edge source="Many embedded use cases" target="flexible, predictable, and fast reactive handling of incoming events">
+  <data key="d0">require</data>
+</edge>
+<edge source="RISC-V processors" target="this area">
+  <data key="d0">are lagging in</data>
+</edge>
+<edge source="RISC-V processors" target="more mature proprietary architectures">
+  <data key="d0">are lagging compared to</data>
+</edge>
+<edge source="more mature proprietary architectures" target="ARM Cortex-M and TriCore">
+  <data key="d0">include</data>
+</edge>
+<edge source="ARM Cortex-M and TriCore" target="years">
+  <data key="d0">have been tuned for</data>
+</edge>
+<edge source="The default interrupt controller standardized by RISC-V" target="the core local interruptor (CLINT)">
+  <data key="d0">is</data>
+</edge>
+<edge source="The core local interruptor (CLINT)" target="configurability in prioritization and preemption of interrupts">
+  <data key="d0">lacks</data>
+</edge>
+<edge source="The RISC-V core local interrupt controller (CLIC) specification" target="this concern">
+  <data key="d0">addresses</data>
+</edge>
+<edge source="The RISC-V core local interrupt controller (CLIC) specification" target="preemptible, low-latency vectored interrupts">
+  <data key="d0">enables</data>
+</edge>
+<edge source="The RISC-V core local interrupt controller (CLIC) specification" target="optional extensions to improve interrupt latency">
+  <data key="d0">envisions</data>
+</edge>
+<edge source="the RISC-V community" target="an extension to the Privileged specifications 14">
+  <data key="d0">has been developing</data>
+</edge>
+<edge source="the extension to the Privileged specifications 14" target="the proposal of the RISC-V core local interrupt controller (CLIC) 15">
+  <data key="d0">is</data>
+</edge>
+<edge source="the proposal of the RISC-V core local interrupt controller (CLIC) 15" target="currently under ratification by the community">
+  <data key="d0">is</data>
+</edge>
+<edge source="the RISC-V core local interrupt controller (CLIC) 15" target="real-time scenarios">
+  <data key="d0">is designed to handle</data>
+</edge>
+<edge source="CLICs" target="local to each hardware thread (HART)">
+  <data key="d0">are</data>
+</edge>
+<edge source="PLICs" target="platform level interrupt controllers">
+  <data key="d0">are</data>
+</edge>
+<edge source="PLICs" target="centralized interrupt controllers">
+  <data key="d0">are</data>
+</edge>
+<edge source="PLICs" target="managing multiple HARTs">
+  <data key="d0">are capable of</data>
+</edge>
+<edge source="RISC-V PLIC" target="Platform-Level Interrupt Controllers">
+  <data key="d0">belongs to</data>
+</edge>
+<edge source="Platform-Level Interrupt Controllers" target="distribute time-critical interrupts to the running HARTs">
+  <data key="d0">are not designed to</data>
+</edge>
+<edge source="advanced PLIC (APLIC)" target="Platform-Level Interrupt Controllers">
+  <data key="d0">belongs to</data>
+</edge>
+<edge source="RISC-V incoming message signaled interrupt controller (IMSIC)" target="Platform-Level Interrupt Controllers">
+  <data key="d0">belongs to</data>
+</edge>
+<edge source="RISC-V incoming message signaled interrupt controller (IMSIC)" target="message-signaled interrupt communication">
+  <data key="d0">is for</data>
+</edge>
+<edge source="RISC-V PLIC and advanced PLIC (APLIC)" target="wire-based interrupt communication">
+  <data key="d0">are for</data>
+</edge>
+<edge source="B. Core-Local Interrupt Controllers CLICs" target="providing fast interrupt-handling capabilities in real-time embedded application domains">
+  <data key="d0">are specialized in</data>
+</edge>
+<edge source="RISC-V SMCLIC Core-Local Interrupt Controller (CLIC)" target="RISC-V Privileged Architecture Extension">
+  <data key="d0">is part of</data>
+</edge>
+<edge source="Document" target="http://www2.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-129.html">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="Document" target="May 28, 2025 at 17:50:39 UTC">
+  <data key="d0">was downloaded on</data>
+</edge>
+<edge source="Document" target="IEEE Xplore">
+  <data key="d0">was downloaded from</data>
+</edge>
+<edge source="Document" target="https:www.freertos.orgindex.html">
+  <data key="d0">available at</data>
+</edge>
+<edge source="Document" target="https://developer.arm.com/documentation/100166/0001">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="Document" target="https:sifive.cdn.prismic.iosifive7c22c2ec-8af4-4b6c-a5fe-9327d91e7808e21corecomplexmanual21G1.pdf">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="Document" target="https://old.hotchips.org/wp-content/uploads/hcarchives/hc16/3Tue6HC16Sess7Pres1bw.pdf">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="Document" target="https://hitex.co.uk/fileadmin/uk-files/downloads/ShieldBuddy_tc27xDum_v2.2.pdf">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="Document" target="https:www.infineon.comdgdltc16 architecturevol1.pdf?fileIddb3a3043372d5cc801373b0f374d5d67">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="Arm Cortex-M series" target="nested vectored interrupt controller (NVIC)">
+  <data key="d0">integrates</data>
+</edge>
+<edge source="extension" target="negligible area overhead in a modern technology node">
+  <data key="d0">introduces</data>
+</edge>
+<edge source="extension" target="performance benefits">
+  <data key="d0">provides</data>
+</edge>
+<edge source="various CV32RT versions" target="interrupt latency and context switch times">
+  <data key="d0">perform in terms of</data>
+</edge>
+<edge source="these additions" target="overhead in terms of area and timing">
+  <data key="d0">incur</data>
+</edge>
+<edge source="The proposed extensions" target="task context switching in real-time operating systems (RTOSs)">
+  <data key="d0">are demonstrated to improve</data>
+</edge>
+<edge source="Index Terms" target="Context switching">
+  <data key="d0">include</data>
+</edge>
+<edge source="Index Terms" target="embedded">
+  <data key="d0">include</data>
+</edge>
+<edge source="Index Terms" target="interrupt latency">
+  <data key="d0">include</data>
+</edge>
+<edge source="Index Terms" target="microcontroller unit (MCU)">
+  <data key="d0">include</data>
+</edge>
+<edge source="Index Terms" target="real-time">
+  <data key="d0">include</data>
+</edge>
+<edge source="Index Terms" target="RISC-V">
+  <data key="d0">include</data>
+</edge>
+<edge source="RISC-V" target="a competitive candidate for building the next generation of time-critical systems">
+  <data key="d0">is</data>
+</edge>
+<edge source="RISC-V" target="Platform-Level Interrupt Controller Specification">
+  <data key="d0">has</data>
+</edge>
+<edge source="RISC-V" target="RV32E as a variant of RV32I">
+  <data key="d0">defines</data>
+</edge>
+<edge source="RISC-V" target="this scenario">
+  <data key="d0">addresses</data>
+</edge>
+<edge source="RISC-V" target="the xnxti CSR with SW-managed interrupt service loops">
+  <data key="d0">adds</data>
+</edge>
+<edge source="RISC-V" target="early commercial examples with 31">
+  <data key="d0">finds</data>
+</edge>
+<edge source="several markets" target="real-time and SW-based solution">
+  <data key="d0">rely on</data>
+</edge>
+<edge source="the automotive industry" target="hundreds of electronic control units (ECUs)">
+  <data key="d0">employs</data>
+</edge>
+<edge source="electronic control units (ECUs)" target="real-time applications">
+  <data key="d0">are used for</data>
+</edge>
+<edge source="real-time applications" target="electronic engine control">
+  <data key="d0">include</data>
+</edge>
+<edge source="real-time applications" target="gearbox control">
+  <data key="d0">include</data>
+</edge>
+<edge source="real-time applications" target="cruise control">
+  <data key="d0">include</data>
+</edge>
+<edge source="real-time applications" target="anti-lock brake systems">
+  <data key="d0">include</data>
+</edge>
+<edge source="General-purpose operating systems (GPOSs)" target="average throughput rather than real-time">
+  <data key="d0">are typically tuned for</data>
+</edge>
+<edge source="Date of publication" target="21 March 2024">
+  <data key="d0">is</data>
+</edge>
+<edge source="date of current version" target="23 May 2024">
+  <data key="d0">is</data>
+</edge>
+<edge source="This work" target="the HORIZON Key Digital Technologies Joint Undertaking (KDT JU) Programme">
+  <data key="d0">was supported by</data>
+</edge>
+<edge source="This work" target="the TRISTAN project">
+  <data key="d0">was supported through</data>
+</edge>
+<edge source="This work" target="a combination of the background-saving with a register banking approach">
+  <data key="d0">proposes</data>
+</edge>
+<edge source="the TRISTAN project" target="Grant 101095947">
+  <data key="d0">is under</data>
+</edge>
+<edge source="Robert Balas" target="corresponding author">
+  <data key="d0">is</data>
+</edge>
+<edge source="Robert Balas" target="Integrated Systems Laboratory (IIS), ETH Zurich, 8092 Zurich, Switzerland">
+  <data key="d0">is with</data>
+</edge>
+<edge source="Robert Balas" target="Graduate Student Member, IEEE">
+  <data key="d0">is</data>
+</edge>
+<edge source="Robert Balas" target="B.Sc.">
+  <data key="d0">received</data>
+</edge>
+<edge source="Alessandro Ottaviano" target="Integrated Systems Laboratory (IIS), ETH Zurich, 8092 Zurich, Switzerland">
+  <data key="d0">is with</data>
+</edge>
+<edge source="Alessandro Ottaviano" target="Graduate Student Member of IEEE">
+  <data key="d0">is</data>
+</edge>
+<edge source="Alessandro Ottaviano" target="B.Sc.">
+  <data key="d0">received</data>
+</edge>
+<edge source="Luca Benini" target="Integrated Systems Laboratory (IIS), ETH Zurich, Zurich, Switzerland">
+  <data key="d0">is with</data>
+</edge>
+<edge source="Luca Benini" target="Department of Electrical, Electronic and Information Engineering (DEI), University of Bologna, 40126 Bologna, Italy">
+  <data key="d0">is with</data>
+</edge>
+<edge source="Color versions of one or more figures in this article" target="https:doi.org10.1109TVLSI.2024.3377130">
+  <data key="d0">are available at</data>
+</edge>
+<edge source="Digital Object Identifier" target="10.1109TVLSI.2024.3377130">
+  <data key="d0">is</data>
+</edge>
+<edge source="the development of Linux" target="average performance">
+  <data key="d0">is focused on</data>
+</edge>
+<edge source="Linux" target="a popular open-source GPOS kernel">
+  <data key="d0">is</data>
+</edge>
+<edge source="Linux" target="real-time applications">
+  <data key="d0">is less suitable to be used for</data>
+</edge>
+<edge source="extensions and modifications" target="improving determinism and latencies of critical operations in Linux">
+  <data key="d0">aim at</data>
+</edge>
+<edge source="extensions and modifications" target="proposed and implemented">
+  <data key="d0">have been</data>
+</edge>
+<edge source="extensions and modifications" target="strict bounds on maximum latencies of operations">
+  <data key="d0">do not guarantee</data>
+</edge>
+<edge source="extensions and modifications" target="industry-grade maturity to be employed in hard real-time scenarios">
+  <data key="d0">lack</data>
+</edge>
+<edge source="Real-time operating systems (RTOSs) kernels" target="special-purpose operating systems (OSs)">
+  <data key="d0">are</data>
+</edge>
+<edge source="Real-time operating systems (RTOSs) kernels" target="real-time guarantees">
+  <data key="d0">are designed to provide</data>
+</edge>
+<edge source="real-time guarantees" target="task scheduling according to a given expected completion deadline">
+  <data key="d0">include</data>
+</edge>
+<edge source="real-time guarantees" target="deterministic latencies of various operations">
+  <data key="d0">include</data>
+</edge>
+<edge source="A. Stankovic" target="Scheduling algorithms and operating systems support for real-time systems">
+  <data key="d0">authored</data>
+</edge>
+<edge source="Scheduling algorithms and operating systems support for real-time systems" target="Proc.">
+  <data key="d0">published in</data>
+</edge>
+<edge source="The cost of saving and restoring the task state during a context switch" target="a significant concern">
+  <data key="d0">is</data>
+</edge>
+<edge source="The cost of saving and restoring the task state during a context switch" target="relatively high">
+  <data key="d0">remains</data>
+</edge>
+<edge source="Long context switch times" target="available task utilization">
+  <data key="d0">reduce</data>
+</edge>
+<edge source="Long context switch times" target="the minimum viable switching granularity">
+  <data key="d0">reduce</data>
+</edge>
+<edge source="process state" target="context switch">
+  <data key="d0">needs to be saved on</data>
+</edge>
+<edge source="process state" target="program counter">
+  <data key="d0">includes</data>
+</edge>
+<edge source="process state" target="register files (RF)s">
+  <data key="d0">includes</data>
+</edge>
+<edge source="process state" target="status registers">
+  <data key="d0">includes</data>
+</edge>
+<edge source="process state" target="address space mapping">
+  <data key="d0">includes</data>
+</edge>
+<edge source="a significant number of memory access operations" target="store the state of the preempted task">
+  <data key="d0">need to be performed to</data>
+</edge>
+<edge source="a significant number of memory access operations" target="restore the state of the new task to be executed">
+  <data key="d0">need to be performed to</data>
+</edge>
+<edge source="network loads" target="interrupt latency in time-critical microcontroller units (MCUs)">
+  <data key="d0">impact</data>
+</edge>
+<edge source="high overhead generated by the receiving of packets" target="continuous floods">
+  <data key="d0">can be seen in</data>
+</edge>
+<edge source="high overhead generated by the receiving of packets" target="short transmission bursts">
+  <data key="d0">can be seen in</data>
+</edge>
+<edge source="task lateness" target="the additional time a task takes to finish than its deadline allows">
+  <data key="d0">is defined as</data>
+</edge>
+<edge source="task lateness" target="iterations from the critical network load increase per packet per second">
+  <data key="d0">will start to accumulate over</data>
+</edge>
+<edge source="HW-induced interrupt latency" target="one part of the problem">
+  <data key="d0">is</data>
+</edge>
+<edge source="Interrupt latency" target="SW-dependent contributions">
+  <data key="d0">breaks down into</data>
+</edge>
+<edge source="Interrupt latency" target="HW-dependent contributions">
+  <data key="d0">breaks down into</data>
+</edge>
+<edge source="Interrupt latency" target="the time it takes from an interrupt edge arriving at the HW to the execution of the first instruction of the corresponding interrupt handler routine">
+  <data key="d0">is defined as</data>
+</edge>
+<edge source="Personal use" target="permitted">
+  <data key="d0">is</data>
+</edge>
+<edge source="republicationredistribution" target="IEEE permission">
+  <data key="d0">requires</data>
+</edge>
+<edge source="Authorized licensed use" target="California Polytechnic State University San Luis Obispo">
+  <data key="d0">is limited to</data>
+</edge>
+<edge source="interrupt state" target="unknown (implied process)">
+  <data key="d0">gets pushed</data>
+</edge>
+<edge source="The latter" target="the execution time of the Authorized licensed use limited to California Polytechnic State University San Luis Obispo">
+  <data key="d0">reduces</data>
+</edge>
+<edge source="The latter" target="restoring the interrupt context and the regular interrupt latency">
+  <data key="d0">consists of</data>
+</edge>
+<edge source="GPOSRTOS scheduler and the user code" target="the capability of the system to provide timely responses to asynchronous events">
+  <data key="d0">primarily impacts</data>
+</edge>
+<edge source="Table I" target="nested interrupt preemption scheme according to RISC-V CLIC">
+  <data key="d0">describes</data>
+</edge>
+<edge source="Table I" target="preemption conditions of two nested interrupts irq2 and irq1 according to the CLIC specification">
+  <data key="d0">shows</data>
+</edge>
+<edge source="Fast Interrupt Extension" target="Automatic Hardware Context Saving and Bank Switching">
+  <data key="d0">includes</data>
+</edge>
+<edge source="A block diagram" target="CV32RTfastirq">
+  <data key="d0">of</data>
+</edge>
+<edge source="A block diagram of CV32RTfastirq" target="Fig.">
+  <data key="d0">is shown in</data>
+</edge>
+<edge source="pointer" target="appropriately before triggering an SW interrupt">
+  <data key="d0">is adjusted</data>
+</edge>
+<edge source="SW interrupt" target="write to CLICs memory map">
+  <data key="d0">is triggered by</data>
+</edge>
+<edge source="instruction in machine mode (emret)" target="skip redundant context saving and restoring sequences">
+  <data key="d0">is able to</data>
+</edge>
+<edge source="instruction in machine mode (emret)" target="fast interrupt and context switching">
+  <data key="d0">enables</data>
+</edge>
+<edge source="instruction in machine mode (emret)" target="directly jumping to the next available interrupt handler">
+  <data key="d0">does this by</data>
+</edge>
+<edge source="Low interrupt latency and context switch time" target="crucial metrics for a wide range of platforms">
+  <data key="d0">are</data>
+</edge>
+<edge source="Platforms" target="commodity MCU-class embedded systems to more advanced and complex application-class mixed criticality systems (MCSs)">
+  <data key="d0">range from</data>
+</edge>
+<edge source="Timesafety-critical and non-critical applications" target="different isolated partitions of the same HW platform">
+  <data key="d0">coexist on</data>
+</edge>
+<edge source="Response and context switch time minimization" target="a challenge to be tackled at the HWSW interface">
+  <data key="d0">become</data>
+</edge>
+<edge source="SW programming techniques and HW interrupt controller architectures" target="to ensure minimal response time">
+  <data key="d0">can cooperate</data>
+</edge>
+<edge source="commercial vendors and IP providers" target="such features as in-house solutions">
+  <data key="d0">offer</data>
+</edge>
+<edge source="such features as in-house solutions" target="often proprietary">
+  <data key="d0">are</data>
+</edge>
+<edge source="such features as in-house solutions" target="the vendors instruction set architecture (ISA), target HW family, and associated SW stack">
+  <data key="d0">are tightly coupled with</data>
+</edge>
+<edge source="RISC-V ecosystem" target="a modular, free, and open-source ISA">
+  <data key="d0">has been offering</data>
+</edge>
+<edge source="RISC-V ecosystem" target="the de facto lingua franca of computing">
+  <data key="d0">is becoming</data>
+</edge>
+<edge source="RISC-V ecosystem" target="ever-growing">
+  <data key="d0">is</data>
+</edge>
+<edge source="time period" target="the last decade">
+  <data key="d0">is</data>
+</edge>
+<edge source="RISC-V support for fast interrupt and context switch handling" target="incumbent proprietary architectures">
+  <data key="d0">is not mature enough to compete with</data>
+</edge>
+<edge source="RISC-V support for fast interrupt and context switch handling" target="flexible interrupt prioritization">
+  <data key="d0">lacks</data>
+</edge>
+<edge source="RISC-V support for fast interrupt and context switch handling" target="preemption mechanisms">
+  <data key="d0">lacks</data>
+</edge>
+<edge source="RISC-V support for fast interrupt and context switch handling" target="low interrupt latency">
+  <data key="d0">lacks</data>
+</edge>
+<edge source="modular RISC-V ISA" target="developing orthogonal custom extensions">
+  <data key="d0">enables</data>
+</edge>
+<edge source="few published works" target="the problem of minimizing interrupt latency and context switch time from a holistic (HW and SW) viewpoint for RISC-V">
+  <data key="d0">tackle</data>
+</edge>
+<edge source="few published works" target="the gap with more established proprietary solutions">
+  <data key="d0">try to close</data>
+</edge>
+<edge source="few published works" target="an open-source solution to be shared with the community">
+  <data key="d0">provide</data>
+</edge>
+<edge source="closing the gap with more established proprietary solutions" target="RISC-V as a valuable candidate for time- and safety-critical application domains such as automotive and aerospace">
+  <data key="d0">promotes</data>
+</edge>
+<edge source="RISC-V core-specific interrupt controllers" target="various flavors">
+  <data key="d0">have</data>
+</edge>
+<edge source="interrupt controllers" target="nesting">
+  <data key="d0">support</data>
+</edge>
+<edge source="interrupt controllers" target="calling of C-functions within it">
+  <data key="d0">support</data>
+</edge>
+<edge source="calling of C-functions within interrupt controllers" target="saving and restoring state following the C-ABI">
+  <data key="d0">involves</data>
+</edge>
+<edge source="our design" target="interrupt latencies of six clock cycles">
+  <data key="d0">can achieve</data>
+</edge>
+<edge source="our design" target="efficient back-to-back interrupt handling in 12 cycles">
+  <data key="d0">can achieve</data>
+</edge>
+<edge source="interrupt latencies of six clock cycles and efficient back-to-back interrupt handling in 12 cycles" target="the fastest available approaches currently implemented in the RISC-V landscape">
+  <data key="d0">is as low as</data>
+</edge>
+<edge source="the fastest available approaches currently implemented in the RISC-V landscape" target="fully open-source">
+  <data key="d0">are</data>
+</edge>
+<edge source="the fastest available approaches currently implemented in the RISC-V landscape" target="competitive against closed-source and proprietary commercial solutions">
+  <data key="d0">are</data>
+</edge>
+<edge source="fast interrupt extension (fastirq)" target="both nested and non-nested interrupt case scenarios">
+  <data key="d0">accelerates</data>
+</edge>
+<edge source="CLINT" target="about 33 cycles interrupt latency">
+  <data key="d0">have</data>
+</edge>
+<edge source="CLINT" target="fine-grained control over interrupt prioritization for the embedded use cases">
+  <data key="d0">lacks</data>
+</edge>
+<edge source="CLINT" target="the first standardized RISC-V interrupt controller">
+  <data key="d0">is</data>
+</edge>
+<edge source="The same mechanism" target="one to accelerate context switching through HWSW cooperation">
+  <data key="d0">allows</data>
+</edge>
+<edge source="early mret (emret)" target="a novel instruction">
+  <data key="d0">is</data>
+</edge>
+<edge source="early mret (emret)" target="tail-chaining">
+  <data key="d0">optimizes</data>
+</edge>
+<edge source="early mret (emret)" target="the baseline strategy proposed in the CLIC standard (xnxti)">
+  <data key="d0">optimizes tail-chaining compared to</data>
+</edge>
+<edge source="early mret (emret)" target="its enhancement from 18 (jalxnxti)">
+  <data key="d0">optimizes tail-chaining compared to</data>
+</edge>
+<edge source="tail-chaining" target="optimize redundant context restore">
+  <data key="d0">is used to</data>
+</edge>
+<edge source="we" target="CV32RT with leading COTS systems in both nested and non-nested interrupt scenarios">
+  <data key="d0">compare</data>
+</edge>
+<edge source="we" target="minimizing the latency imposed by the HW">
+  <data key="d0">focus on</data>
+</edge>
+<edge source="we" target="interrupt latency and context switch times">
+  <data key="d0">can improve</data>
+</edge>
+<edge source="we" target="the stack pointer">
+  <data key="d0">need to update</data>
+</edge>
+<edge source="we" target="a dedicated adder between the two RFs">
+  <data key="d0">have</data>
+</edge>
+<edge source="we" target="stale data">
+  <data key="d0">could read</data>
+</edge>
+<edge source="we" target="data that is immediately overwritten">
+  <data key="d0">could write</data>
+</edge>
+<edge source="we" target="a load soon in the interrupt handler">
+  <data key="d0">want to issue</data>
+</edge>
+<edge source="we" target="the pipeline stalling logic">
+  <data key="d0">do not need to engage</data>
+</edge>
+<edge source="we" target="the general-purpose registers x1, x2">
+  <data key="d0">push out</data>
+</edge>
+<edge source="we" target="a new instruction emret instead">
+  <data key="d0">add</data>
+</edge>
+<edge source="we" target="how quickly an external event is addressed">
+  <data key="d0">mostly care about</data>
+</edge>
+<edge source="we" target="the rest of the context switch routine">
+  <data key="d0">can proceed with</data>
+</edge>
+<edge source="we" target="the current running tasks state to memory">
+  <data key="d0">want to save</data>
+</edge>
+<edge source="we" target="the stack">
+  <data key="d0">set up</data>
+</edge>
+<edge source="we" target="the interrupt latency in the optimal case">
+  <data key="d0">measure</data>
+</edge>
+<edge source="we" target="31 cycles (19) for a context switch when using the I-extension">
+  <data key="d0">can save up to</data>
+</edge>
+<edge source="we" target="16 cycles (12) for the E-extension">
+  <data key="d0">can save up to</data>
+</edge>
+<edge source="we" target="different variants adopted by SOTA in Table III">
+  <data key="d0">provide references to</data>
+</edge>
+<edge source="we" target="task context switch times in FreeRTOS to 104 clock cycles using fastirq">
+  <data key="d0">improve</data>
+</edge>
+<edge source="the proposed solution" target="RISC-V">
+  <data key="d0">promotes</data>
+</edge>
+<edge source="This core" target="ControlPULP 19">
+  <data key="d0">is embedded in</data>
+</edge>
+<edge source="ControlPULP 19" target="a SoC specialized in running real-time workloads">
+  <data key="d0">is</data>
+</edge>
+<edge source="The system" target="a CV32 manager core">
+  <data key="d0">contains</data>
+</edge>
+<edge source="The system" target="a programmable accelerator subsystem">
+  <data key="d0">contains</data>
+</edge>
+<edge source="The system" target="a set of standard peripherals">
+  <data key="d0">contains</data>
+</edge>
+<edge source="a programmable accelerator subsystem" target="eight CV32 cores">
+  <data key="d0">consists of</data>
+</edge>
+<edge source="a set of standard peripherals" target="quad serial peripheral interface (QSPI)">
+  <data key="d0">includes</data>
+</edge>
+<edge source="a set of standard peripherals" target="inter-integrated circuit (I2C)">
+  <data key="d0">includes</data>
+</edge>
+<edge source="a set of standard peripherals" target="universal asynchronous receiver-transmitter (UART)">
+  <data key="d0">includes</data>
+</edge>
+<edge source="The manager core" target="scheduling tasks">
+  <data key="d0">is responsible for</data>
+</edge>
+<edge source="The manager core" target="communicating with the peripherals">
+  <data key="d0">is responsible for</data>
+</edge>
+<edge source="The manager core" target="offloading tasks to the accelerator subsystem">
+  <data key="d0">is responsible for</data>
+</edge>
+<edge source="The manager core" target="being responsive to asynchronous external events">
+  <data key="d0">is responsible for</data>
+</edge>
+<edge source="asynchronous external events" target="interrupts">
+  <data key="d0">include</data>
+</edge>
+<edge source="interrupts" target="globally during the execution of an ISR">
+  <data key="d0">are disabled</data>
+</edge>
+<edge source="interrupts" target="sequentially">
+  <data key="d0">are served</data>
+</edge>
+<edge source="interrupts" target="globally within the scope of an executing ISR">
+  <data key="d0">are enabled</data>
+</edge>
+<edge source="interrupts" target="optionally vectored">
+  <data key="d0">can be</data>
+</edge>
+<edge source="interrupts" target="the pipeline">
+  <data key="d0">are injected into</data>
+</edge>
+<edge source="interrupts" target="the write-back stage of the core">
+  <data key="d0">are only acted upon in</data>
+</edge>
+<edge source="ControlPULP" target="a set of scratchpad memories (SPMs)">
+  <data key="d0">hosts</data>
+</edge>
+<edge source="ControlPULP" target="a RISC-V on-chip parallel power controller for many-core HPC processors">
+  <data key="d0">is</data>
+</edge>
+<edge source="ControlPULP" target="FPGA-based hardware-in-the-loop power and thermal emulation">
+  <data key="d0">uses</data>
+</edge>
+<edge source="scratchpad memories (SPMs)" target="single-cycle access time from the CV32 manager core">
+  <data key="d0">guarantee</data>
+</edge>
+<edge source="This design choice" target="deterministic memory access latency for both data load, store, and instruction fetch">
+  <data key="d0">enables</data>
+</edge>
+<edge source="This design choice" target="the worst case latency when handling unpredictable events">
+  <data key="d0">bounds</data>
+</edge>
+<edge source="Applications" target="FreeRTOS 20">
+  <data key="d0">run on top of</data>
+</edge>
+<edge source="FreeRTOS 20" target="an open-source, priority-based preemptive RTOS">
+  <data key="d0">is</data>
+</edge>
+<edge source="FreeRTOS 20" target="the manager core">
+  <data key="d0">runs in</data>
+</edge>
+<edge source="tasks" target="the manager core">
+  <data key="d0">are scheduled and run from</data>
+</edge>
+<edge source="nested interrupts" target="preemption of a low-level interrupt by a high-level interrupt">
+  <data key="d0">entails</data>
+</edge>
+<edge source="Transition" target="different interrupt levels">
+  <data key="d0">is between</data>
+</edge>
+<edge source="the latter" target="the receiving side of the interrupt to clear the source often through accessing appropriate HW registers">
+  <data key="d0">requires</data>
+</edge>
+<edge source="the former" target="unidirectional notification without confirmation">
+  <data key="d0">is</data>
+</edge>
+<edge source="the worst case interrupt latency" target="the time they remain disabled">
+  <data key="d0">increases by</data>
+</edge>
+<edge source="execution of the interrupt handler before all interrupt state has been pushed to memory" target="interrupt latency">
+  <data key="d0">lowers</data>
+</edge>
+<edge source="Interrupts" target="asynchronous events">
+  <data key="d0">are</data>
+</edge>
+<edge source="Interrupts" target="the normal program order execution">
+  <data key="d0">alter</data>
+</edge>
+<edge source="Interrupts" target="a switch to a different context to handle the event">
+  <data key="d0">require</data>
+</edge>
+<edge source="Interrupts" target="a priority">
+  <data key="d0">can be assigned</data>
+</edge>
+<edge source="Interrupts" target="a level">
+  <data key="d0">can be assigned</data>
+</edge>
+<edge source="Interrupts" target="the gateway">
+  <data key="d0">arrive at</data>
+</edge>
+<edge source="Interrupts" target="programmable configuration information">
+  <data key="d0">are combined with</data>
+</edge>
+<edge source="Interrupts" target="the design at the interrupt controller inputs">
+  <data key="d0">are injected into</data>
+</edge>
+<edge source="A processor" target="vectored interrupts">
+  <data key="d0">supports</data>
+</edge>
+<edge source="vectored interrupts" target="fast interrupt response">
+  <data key="d0">grant</data>
+</edge>
+<edge source="each interrupt" target="a specific interrupt service routine (ISR)">
+  <data key="d0">traps to</data>
+</edge>
+<edge source="each interrupt" target="an interrupt vector table">
+  <data key="d0">traps according to</data>
+</edge>
+<edge source="each interrupt" target="one 32-bit register">
+  <data key="d0">is associated with</data>
+</edge>
+<edge source="fast interrupt response" target="increased code size">
+  <data key="d0">comes at the cost of</data>
+</edge>
+<edge source="interrupt vectoring" target="improve interrupt latencies">
+  <data key="d0">is supported to</data>
+</edge>
+<edge source="non-vectored or direct interrupts" target="a shared ISR">
+  <data key="d0">trap to</data>
+</edge>
+<edge source="The latter approach" target="code size for a slower interrupt response">
+  <data key="d0">trades off</data>
+</edge>
+<edge source="The latter approach" target="leveraging RISC-Vs RV32E base instruction set by re-using the lower 16 architectural registers of the RF">
+  <data key="d0">is similar to</data>
+</edge>
+<edge source="The overhead of resolving the interruption cause and jumping to the correct ISR" target="explicit instructions">
+  <data key="d0">are handled in</data>
+</edge>
+<edge source="The interrupt table" target="much more compact">
+  <data key="d0">can be made</data>
+</edge>
+<edge source="Multiple sources" target="the interrupt latency in a system">
+  <data key="d0">determine</data>
+</edge>
+<edge source="the underlying HW" target="interrupt latency">
+  <data key="d0">is a source of</data>
+</edge>
+<edge source="the scheduler or OS" target="interrupt latency">
+  <data key="d0">is a source of</data>
+</edge>
+<edge source="the application running on top" target="interrupt latency">
+  <data key="d0">is a source of</data>
+</edge>
+<edge source="This breakdown" target="Fig.">
+  <data key="d0">is detailed in</data>
+</edge>
+<edge source="interrupt edge" target="the HW">
+  <data key="d0">arrives at</data>
+</edge>
+<edge source="the HW" target="the link register a value (EXCRETURN)">
+  <data key="d0">encodes in</data>
+</edge>
+<edge source="HW" target="the interrupt controller">
+  <data key="d0">is usually</data>
+</edge>
+<edge source="HW" target="which caller-save registers need to be saved">
+  <data key="d0">does not know a priori</data>
+</edge>
+<edge source="To make a fair comparison between SW-based and more HW-oriented interrupt solutions" target="what exactly constitutes the first instruction of the interrupt handler">
+  <data key="d0">we have to delineate</data>
+</edge>
+<edge source="Each HW configuration" target="a handwritten optimized interrupt handler">
+  <data key="d0">has</data>
+</edge>
+<edge source="a handwritten optimized interrupt handler" target="all required general-purpose and machine-specific registers for nesting interrupts">
+  <data key="d0">stores</data>
+</edge>
+<edge source="the first instruction" target="the one after all necessary interrupt context has been saved on the stack to be able to call a function">
+  <data key="d0">is counted as</data>
+</edge>
+<edge source="the first instruction" target="re-enabling global interrupts">
+  <data key="d0">will be</data>
+</edge>
+<edge source="what exactly entails a function call" target="the used application binary interface (ABI)">
+  <data key="d0">is dictated by</data>
+</edge>
+<edge source="what exactly entails a function call" target="its calling convention">
+  <data key="d0">is dictated by</data>
+</edge>
+<edge source="some of the context saving code" target="redundant">
+  <data key="d0">might be</data>
+</edge>
+<edge source="The active interrupt handlers context" target="interrupt return">
+  <data key="d0">must be restored on</data>
+</edge>
+<edge source="The active interrupt handlers context" target="the next pending interrupt firing">
+  <data key="d0">is immediately saved again due to</data>
+</edge>
+<edge source="Restoring the pre-interrupt context" target="SW for the nested interrupt case">
+  <data key="d0">is handled in</data>
+</edge>
+<edge source="Context Switching Time" target="the responsiveness of the architecture in swapping from one execution context to another">
+  <data key="d0">determines</data>
+</edge>
+<edge source="The execution context" target="the OS being used">
+  <data key="d0">is dependent on</data>
+</edge>
+<edge source="The execution context" target="the state of the architectural registers of the ISA and the chosen ABI">
+  <data key="d0">usually consists of</data>
+</edge>
+<edge source="Preemption" target="an event such as an interrupt request temporarily interrupting a current task with the purpose of resuming its execution later">
+  <data key="d0">refers to</data>
+</edge>
+<edge source="The simplest case for preemption" target="non-nested interrupt handlers">
+  <data key="d0">occurs with</data>
+</edge>
+<edge source="A more complex case for preemption" target="nested interrupt handlers">
+  <data key="d0">occurs with</data>
+</edge>
+<edge source="nested interrupt handlers" target="the case of multiple interrupts at a time">
+  <data key="d0">handle</data>
+</edge>
+<edge source="This situation" target="preemption">
+  <data key="d0">does not result in</data>
+</edge>
+<edge source="This situation" target="pending interrupts to be serviced in sequence according to increasing priority">
+  <data key="d0">causes</data>
+</edge>
+<edge source="levelpriority arbitration" target="SW-driven">
+  <data key="d0">is</data>
+</edge>
+<edge source="levelpriority arbitration" target="priority simplestandard interrupt handlers">
+  <data key="d0">is driven by</data>
+</edge>
+<edge source="highest priority interrupt identification code" target="not executed">
+  <data key="d0">is</data>
+</edge>
+<edge source="levelpriority arbitration logic" target="interrupt controller">
+  <data key="d0">is designed within</data>
+</edge>
+<edge source="highest levelpriority interrupt" target="pending but disabled">
+  <data key="d0">is</data>
+</edge>
+<edge source="highest levelpriority interrupt" target="core">
+  <data key="d0">is not propagated to</data>
+</edge>
+<edge source="levelpriority interrupt scheme" target="SW or HW driven">
+  <data key="d0">can be</data>
+</edge>
+<edge source="levelpriority interrupt scheme" target="additional masking of incoming interrupts">
+  <data key="d0">introduces</data>
+</edge>
+<edge source="additional masking" target="incoming interrupts of equal or lower levelpriority than the executing ISR">
+  <data key="d0">applies to</data>
+</edge>
+<edge source="additional masking" target="incoming interrupts larger than a configurable levelpriority threshold">
+  <data key="d0">sometimes applies to</data>
+</edge>
+<edge source="This scenario" target="real-time and complex embedded systems">
+  <data key="d0">is not ideal for</data>
+</edge>
+<edge source="attempts to handle a more complex interrupt scheme" target="SW emulation">
+  <data key="d0">would require</data>
+</edge>
+<edge source="SW emulation" target="untenable interrupt latencies">
+  <data key="d0">incurs</data>
+</edge>
+<edge source="A high-priority interrupt" target="a lower-priority interrupt to finish">
+  <data key="d0">has to wait for</data>
+</edge>
+<edge source="interrupt handler" target="whenever">
+  <data key="d0">is entered</data>
+</edge>
+<edge source="interrupt handler" target="already executing">
+  <data key="d0">is</data>
+</edge>
+<edge source="interrupt handler" target="a dedicated register bank">
+  <data key="d0">uses</data>
+</edge>
+<edge source="global interrupts" target="disabled">
+  <data key="d0">are</data>
+</edge>
+<edge source="The ISR" target="designed to ensure they are reentrant">
+  <data key="d0">need to be</data>
+</edge>
+<edge source="The nesting" target="higher priority interrupts to preempt a current lower priority ISR executing">
+  <data key="d0">allows</data>
+</edge>
+<edge source="Redundant Interrupt Context" target="back-to-back interrupts">
+  <data key="d0">is</data>
+</edge>
+<edge source="back-to-back interrupts" target="served sequentially">
+  <data key="d0">need to be</data>
+</edge>
+<edge source="back-to-back interrupts" target="whenever there are multiple interrupts pending">
+  <data key="d0">can happen</data>
+</edge>
+<edge source="The transition from one interrupt to the next one" target="a redundant sequence of context restores and context saves">
+  <data key="d0">causes</data>
+</edge>
+<edge source="redundant context restore sequences" target="interrupt latency on higher interrupt loads">
+  <data key="d0">negatively impact</data>
+</edge>
+<edge source="redundant context restore" target="unwanted additional interrupt latency">
+  <data key="d0">can introduce</data>
+</edge>
+<edge source="redundant context restore" target="non-nested or nested horizontal interrupts">
+  <data key="d0">occurs with</data>
+</edge>
+<edge source="Redundant context restore" target="two non-preemptive interrupts">
+  <data key="d0">occurs for</data>
+</edge>
+<edge source="two non-preemptive interrupts" target="two interrupts with same level but different priorities">
+  <data key="d0">example</data>
+</edge>
+<edge source="interrupt context restore and store sequence" target="redundant">
+  <data key="d0">can be considered</data>
+</edge>
+<edge source="interrupt context restore and store sequence" target="between back-to-back interrupts">
+  <data key="d0">occurs</data>
+</edge>
+<edge source="Redundant Context Restoring" target="Section II-B">
+  <data key="d0">is described in</data>
+</edge>
+<edge source="the redundant context restoring sequences" target="the full interrupt exit code sequence">
+  <data key="d0">contains</data>
+</edge>
+<edge source="Redundant context restore with non-nested interrupts" target="chaining two back-to-back interrupts and bypassing the superfluous restoresave operation">
+  <data key="d0">is addressed by</data>
+</edge>
+<edge source="Section III-D" target="the optimizations implemented in this work to address this scenario">
+  <data key="d0">explores</data>
+</edge>
+<edge source="privileged specification 14" target="a simple interrupt scheme with a set of timer and inter-processor interrupts">
+  <data key="d0">defines</data>
+</edge>
+<edge source="privileged specification 14" target="the RISC-V ecosystem">
+  <data key="d0">is in</data>
+</edge>
+<edge source="pending and enabled interrupts" target="according to a threshold value representing an interrupt level">
+  <data key="d0">are masked</data>
+</edge>
+<edge source="pending and enabled interrupts" target="selectively">
+  <data key="d0">are masked</data>
+</edge>
+<edge source="threshold value representing an interrupt level" target="a CSR">
+  <data key="d0">is configured through</data>
+</edge>
+<edge source="masking of interrupts" target="standard RISC-V privileged specifications">
+  <data key="d0">is compared to</data>
+</edge>
+<edge source="fixed priority interrupt scheme" target="16 predefined or reserved interrupts">
+  <data key="d0">has</data>
+</edge>
+<edge source="fixed priority interrupt scheme" target="16 implementation-defined interrupts">
+  <data key="d0">has</data>
+</edge>
+<edge source="cores" target="32-bit">
+  <data key="d0">are</data>
+</edge>
+<edge source="The CLINT" target="prioritization of interrupts based on privilege mode">
+  <data key="d0">supports</data>
+</edge>
+<edge source="CLINT-mode" target="inflexible interrupt scheme">
+  <data key="d0">has</data>
+</edge>
+<edge source="much more work" target="managing interrupt mask (SOMEIRQMASK) and other machine state">
+  <data key="d0">needs to be done in</data>
+</edge>
+<edge source="interrupts with lower priority than the current interrupt running" target="when global interrupts are re-enabled">
+  <data key="d0">can fire</data>
+</edge>
+<edge source="interrupts with lower priority than the current interrupt running" target="CLINT-mode">
+  <data key="d0">occur in</data>
+</edge>
+<edge source="PLIC 22" target="CLINT">
+  <data key="d0">can be attached to</data>
+</edge>
+<edge source="PLIC 22" target="number of custom interrupts">
+  <data key="d0">increases</data>
+</edge>
+<edge source="interrupt request IRQ2" target="serviced">
+  <data key="d0">is being</data>
+</edge>
+<edge source="another request IRQ1" target="enabled and pending">
+  <data key="d0">is</data>
+</edge>
+<edge source="an active interrupt handler" target="irq2">
+  <data key="d0">is servicing</data>
+</edge>
+<edge source="irq1" target="pending">
+  <data key="d0">is</data>
+</edge>
+<edge source="irq1" target="irq2">
+  <data key="d0">preempts</data>
+</edge>
+<edge source="PREEMPTION" target="PRIVILEGE MODE (Vertical INTERRUPTS) and INTERRUPT LEVEL when the PRIVILEGE MODE is the same (Horizontal INTERRUPTS)">
+  <data key="d0">is regulated by</data>
+</edge>
+<edge source="number of interrupts" target="flexible (at design time)">
+  <data key="d0">is</data>
+</edge>
+<edge source="number of interrupts" target="one or more targets">
+  <data key="d0">can be assigned to</data>
+</edge>
+<edge source="Interrupts that are assigned a higher level" target="lower-level interrupts">
+  <data key="d0">can pre-empt</data>
+</edge>
+<edge source="A single HART" target="multiple targets">
+  <data key="d0">can correspond to</data>
+</edge>
+<edge source="Each interrupt" target="a priority">
+  <data key="d0">can be assigned</data>
+</edge>
+<edge source="Each target" target="a threshold below which interrupts are disabled">
+  <data key="d0">can select</data>
+</edge>
+<edge source="Interrupt selection" target="the CLIC in HW">
+  <data key="d0">is driven by</data>
+</edge>
+<edge source="the CLIC in HW" target="the highest level, highest priority pending interrupt to the cores interface">
+  <data key="d0">propagates</data>
+</edge>
+<edge source="Interrupt priority" target="a tie-breaker for the case of multiple interrupts pending with the same level">
+  <data key="d0">serves as</data>
+</edge>
+<edge source="selecting the interrupt with maximum level and priority" target="three binary trees">
+  <data key="d0">is implemented with</data>
+</edge>
+<edge source="Enabled interrupts and their level and priority information" target="prioritization logic">
+  <data key="d0">are sent to</data>
+</edge>
+<edge source="prioritization logic" target="a binary arbitration tree">
+  <data key="d0">uses</data>
+</edge>
+<edge source="a binary arbitration tree" target="the highest-level interrupt">
+  <data key="d0">selects</data>
+</edge>
+<edge source="The priorities" target="concurrent pending interrupts to be taken in the order preferred by the programmer">
+  <data key="d0">allow</data>
+</edge>
+<edge source="the level information" target="pre-emption of same-privilege level interrupts">
+  <data key="d0">enables</data>
+</edge>
+<edge source="same-privilege level interrupts" target="horizontal interrupts">
+  <data key="d0">are also called</data>
+</edge>
+<edge source="This scheme" target="interrupts to be divided according to their priorities on the PLIC-level">
+  <data key="d0">allows</data>
+</edge>
+<edge source="This scheme" target="some flexibility in terms of prioritization">
+  <data key="d0">allows</data>
+</edge>
+<edge source="This scheme" target="the flexibility problem on the core local-level">
+  <data key="d0">does not address</data>
+</edge>
+<edge source="CLIC 15" target="these limitations">
+  <data key="d0">addresses</data>
+</edge>
+<edge source="CLIC 15" target="interrupts to be prioritized by levels and priorities">
+  <data key="d0">allows</data>
+</edge>
+<edge source="multiple horizontal interrupts" target="equal levels and priorities">
+  <data key="d0">have</data>
+</edge>
+<edge source="the highest numbered interrupt 15" target="an arbitrary assignment decided at design time">
+  <data key="d0">is</data>
+</edge>
+<edge source="Interrupts that are enabled, pending, and have a level below the threshold" target="masked">
+  <data key="d0">are</data>
+</edge>
+<edge source="others" target="propagated">
+  <data key="d0">can be</data>
+</edge>
+<edge source="This feature" target="RTOSs that only want to disable a subset of all interrupts during critical sections">
+  <data key="d0">is useful for</data>
+</edge>
+<edge source="Interrupts that do not interfere with the data accessed in such a critical section" target="still fire">
+  <data key="d0">can</data>
+</edge>
+<edge source="irq1 level" target="interrupt threshold">
+  <data key="d0">is higher than</data>
+</edge>
+<edge source="irq1 level" target="irq2 level">
+  <data key="d0">is higher than</data>
+</edge>
+<edge source="interrupts fired from different privilege modes" target="vertical interrupts">
+  <data key="d0">are referred to as</data>
+</edge>
+<edge source="interrupts fired from the same privilege mode" target="horizontal interrupts">
+  <data key="d0">are referred to as</data>
+</edge>
+<edge source="Reading from this CSR" target="to fast-track interrupts that arrive late">
+  <data key="d0">allows</data>
+</edge>
+<edge source="Reading from this CSR" target="to avoid redundant context saverestore by running through pending interrupts back-to-back">
+  <data key="d0">allows</data>
+</edge>
+<edge source="the core" target="within an active handler">
+  <data key="d0">is</data>
+</edge>
+<edge source="the core" target="unwinding the stack to return to normal program execution">
+  <data key="d0">starts</data>
+</edge>
+<edge source="Entering an interrupt context or performing a context switch" target="the HW to store enough information to resume operation correctly after returning from the aforementioned context">
+  <data key="d0">requires</data>
+</edge>
+<edge source="improving interrupt latency and context switch times" target="controlling the amount of state that needs to be preserved to enter and leave an interrupt context">
+  <data key="d0">is done by</data>
+</edge>
+<edge source="improving interrupt latency and context switch times" target="increasing the bandwidth and decreasing the latency to memory">
+  <data key="d0">is done by</data>
+</edge>
+<edge source="improving interrupt latency and context switch times" target="relying on latency-hiding techniques that defer the effective saving of the state to a later point in time">
+  <data key="d0">is done by</data>
+</edge>
+<edge source="proposed architecture" target="typical case scenarios">
+  <data key="d0">tackles</data>
+</edge>
+<edge source="The background-saving mechanism" target="the stack pointer">
+  <data key="d0">updates</data>
+</edge>
+<edge source="The background-saving mechanism" target="the bank-switched contents in memory">
+  <data key="d0">stores</data>
+</edge>
+<edge source="the stack pointer" target="on an interrupt">
+  <data key="d0">is decremented</data>
+</edge>
+<edge source="the execution of the core" target="in parallel">
+  <data key="d0">proceeds</data>
+</edge>
+<edge source="2" target="an overview of the design">
+  <data key="d0">provides</data>
+</edge>
+<edge source="Incoming interrupts" target="a Gateway module">
+  <data key="d0">are filtered with</data>
+</edge>
+<edge source="Gateway module" target="there is a pending and enabled request for each interrupt source i (IRQ i)">
+  <data key="d0">decides whether</data>
+</edge>
+<edge source="programmable configuration information" target="each interrupt line">
+  <data key="d0">is about</data>
+</edge>
+<edge source="programmable configuration information" target="level">
+  <data key="d0">consists of</data>
+</edge>
+<edge source="programmable configuration information" target="priority">
+  <data key="d0">consists of</data>
+</edge>
+<edge source="programmable configuration information" target="enable status">
+  <data key="d0">consists of</data>
+</edge>
+<edge source="programmable configuration information" target="sensitivity (leveledge)">
+  <data key="d0">consists of</data>
+</edge>
+<edge source="The Interrupt Prioritization module" target="the tree from leaves to the root">
+  <data key="d0">traverses</data>
+</edge>
+<edge source="the sought-after maximum level and priority interrupt" target="the root">
+  <data key="d0">is found</data>
+</edge>
+<edge source="Each tree" target="low overhead in terms of area and delay">
+  <data key="d0">has</data>
+</edge>
+<edge source="overhead in terms of area" target="O(n)">
+  <data key="d0">is</data>
+</edge>
+<edge source="overhead in terms of delay" target="O(log(n))">
+  <data key="d0">is</data>
+</edge>
+<edge source="The interrupt" target="the core">
+  <data key="d0">is presented to</data>
+</edge>
+<edge source="The interrupt" target="a handshake-based interface">
+  <data key="d0">is presented with</data>
+</edge>
+<edge source="The additional kill signal" target="a handshake to restart">
+  <data key="d0">is there to allow for</data>
+</edge>
+<edge source="a handshake to restart" target="a potentially more important interrupt to be presented to the core">
+  <data key="d0">allows</data>
+</edge>
+<edge source="this work" target="n 4096 local interrupt sources">
+  <data key="d0">can scale up to</data>
+</edge>
+<edge source="additional pipeline stages" target="the arbitration tree">
+  <data key="d0">can be inserted in</data>
+</edge>
+<edge source="additional pipeline stages" target="relax timing">
+  <data key="d0">can be inserted to</data>
+</edge>
+<edge source="our version of the CLIC" target="SHV">
+  <data key="d0">supports</data>
+</edge>
+<edge source="our version of the CLIC" target="the xnxti CSR in the core">
+  <data key="d0">supports</data>
+</edge>
+<edge source="interrupt handling capabilities of CV32" target="introducing priority and levels management in HW">
+  <data key="d0">are improved by</data>
+</edge>
+<edge source="critical operations such as interrupt state and context saverestore" target="the CLIC">
+  <data key="d0">are not natively covered by</data>
+</edge>
+<edge source="critical operations such as interrupt state and context saverestore" target="SW">
+  <data key="d0">need to be handled in</data>
+</edge>
+<edge source="CV32fastirq" target="filling this gap">
+  <data key="d0">aims at</data>
+</edge>
+<edge source="The CLIC" target="this with the levelpriority scheme">
+  <data key="d0">addresses</data>
+</edge>
+<edge source="The CLIC" target="an HW-assisted solution to address such a scenario with the xnxti CSRs">
+  <data key="d0">offers</data>
+</edge>
+<edge source="A new interrupt at the CLIC" target="whether the interrupt level exceeds the configured threshold">
+  <data key="d0">will be checked</data>
+</edge>
+<edge source="The cores state machine" target="the pipeline">
+  <data key="d0">will flush</data>
+</edge>
+<edge source="The cores state machine" target="the program counter">
+  <data key="d0">will update</data>
+</edge>
+<edge source="the program counter" target="the vector table entry">
+  <data key="d0">is updated according to</data>
+</edge>
+<edge source="the saving logic" target="a bank switch">
+  <data key="d0">triggers</data>
+</edge>
+<edge source="the bank switch" target="the interrupt context to have a fresh set of registers">
+  <data key="d0">allows</data>
+</edge>
+<edge source="the bank switch" target="draining the other bank contents through a separate port to the main memory">
+  <data key="d0">allows</data>
+</edge>
+<edge source="RF banks" target="on an interrupt">
+  <data key="d0">are switched</data>
+</edge>
+<edge source="stack pointer" target="during a bank switch">
+  <data key="d0">is updated</data>
+</edge>
+<edge source="The RISC-V embedded and integer ABI" target="that the stack pointer points below the last saved register on the stack">
+  <data key="d0">dictate</data>
+</edge>
+<edge source="The stack pointer" target="appropriately to maintain ABI invariants">
+  <data key="d0">is adjusted</data>
+</edge>
+<edge source="program code running in the interrupt handler" target="the values on the stack">
+  <data key="d0">could clobber</data>
+</edge>
+<edge source="interactions" target="background-saving mechanism and regular loadstore instructions of the core">
+  <data key="d0">exist between</data>
+</edge>
+<edge source="interactions" target="incorrect execution">
+  <data key="d0">could result in</data>
+</edge>
+<edge source="a load instruction" target="an architectural register">
+  <data key="d0">is trying to update</data>
+</edge>
+<edge source="the background-saving mechanism" target="the same register">
+  <data key="d0">is trying to read</data>
+</edge>
+<edge source="the background-saving mechanism" target="the interrupt state word by word">
+  <data key="d0">will start storing</data>
+</edge>
+<edge source="the background-saving mechanism" target="the state saving and restoring part of context Fig.">
+  <data key="d0">to accelerate</data>
+</edge>
+<edge source="the background-saving mechanism" target="Section III-C4">
+  <data key="d0">is described in</data>
+</edge>
+<edge source="no conflict" target="interrupts are injected into the pipeline and only acted upon in the write-back stage of the core">
+  <data key="d0">arises because</data>
+</edge>
+<edge source="updates to the RF" target="at this point">
+  <data key="d0">are resolved</data>
+</edge>
+<edge source="the bank switching operation" target="after updates to the RF are resolved">
+  <data key="d0">takes place</data>
+</edge>
+<edge source="the bank switching operation" target="correctness of the execution">
+  <data key="d0">ensures</data>
+</edge>
+<edge source="loads or stores accessing stack memory regions" target="properly resolved">
+  <data key="d0">need to be</data>
+</edge>
+<edge source="stack memory regions" target="where the background-saving mechanism is writing to">
+  <data key="d0">are</data>
+</edge>
+<edge source="execution of the handler" target="if this happens while the background-saving mechanism is still at work">
+  <data key="d0">has to wait</data>
+</edge>
+<edge source="A straightforward solution" target="to stall the cores pipeline while the background-saving mechanism is at work">
+  <data key="d0">is</data>
+</edge>
+<edge source="decrementing the stack pointer" target="space available">
+  <data key="d0">makes</data>
+</edge>
+<edge source="the address offset of the last word pushed out by the background-saving mechanism" target="any incoming load and stores">
+  <data key="d0">is compared against</data>
+</edge>
+<edge source="the address offset of the last word pushed out by the background-saving mechanism" target="the load-store unit">
+  <data key="d0">is in</data>
+</edge>
+<edge source="Load and stores that try to access data that is not yet pushed to memory" target="the cores pipeline to stall">
+  <data key="d0">cause</data>
+</edge>
+<edge source="This mechanism" target="the correctness of loads and stores issued by the core">
+  <data key="d0">ensures</data>
+</edge>
+<edge source="A system call handler" target="the ecall instruction in RISC-V">
+  <data key="d0">is issued through</data>
+</edge>
+<edge source="A system call handler" target="user-provided arguments">
+  <data key="d0">wants to access</data>
+</edge>
+<edge source="Most" target="general-purpose registers">
+  <data key="d0">will be passed through</data>
+</edge>
+<edge source="some" target="the stack">
+  <data key="d0">might be placed on</data>
+</edge>
+<edge source="Short interrupt handlers" target="the full interrupt state has been saved">
+  <data key="d0">want to return before</data>
+</edge>
+<edge source="Each of these cases" target="the stalling logic outlined in Section III-C3">
+  <data key="d0">would potentially engage</data>
+</edge>
+<edge source="the stalling logic outlined in Section III-C3" target="higher interrupt latencies">
+  <data key="d0">causes</data>
+</edge>
+<edge source="Some register values" target="because they might not have reached the load-store unit yet">
+  <data key="d0">cannot be forwarded</data>
+</edge>
+<edge source="the approach" target="HW complexity">
+  <data key="d0">increases</data>
+</edge>
+<edge source="the approach" target="a dynamic address lookup into a queue-like buffer">
+  <data key="d0">requires</data>
+</edge>
+<edge source="the pipeline stalling logic" target="ordering the loads to access the already stored interrupt state first">
+  <data key="d0">is engaged by</data>
+</edge>
+<edge source="The cv32s RF" target="additional logic for the background-saving mechanism">
+  <data key="d0">is extended with</data>
+</edge>
+<edge source="Parts of the old memory bank (the interrupt context)" target="the cores stack location">
+  <data key="d0">are copied to</data>
+</edge>
+<edge source="execution" target="the new bank">
+  <data key="d0">can go ahead by using</data>
+</edge>
+<edge source="this design" target="a dedicated memory port for the background-saving mechanism">
+  <data key="d0">has</data>
+</edge>
+<edge source="this design" target="a larger area overhead compared to traditional RISC-V CLINT 14">
+  <data key="d0">incurs</data>
+</edge>
+<edge source="the dedicated memory port for the background-saving mechanism" target="the port from the load-store unit">
+  <data key="d0">can be shared with</data>
+</edge>
+<edge source="the programmer" target="that to achieve the best possible latency">
+  <data key="d0">has to be aware of</data>
+</edge>
+<edge source="4" target="how nested interrupt handling code works for the basic CLINT-mode, the baseline CLIC, and our fastirq extension">
+  <data key="d0">gives an overview of</data>
+</edge>
+<edge source="Routines" target="saving state for vectored nesting interrupts">
+  <data key="d0">are for</data>
+</edge>
+<edge source="Routines" target="CLINT">
+  <data key="d0">use</data>
+</edge>
+<edge source="Routines" target="CLIC">
+  <data key="d0">use</data>
+</edge>
+<edge source="Routines" target="proposed fastirq extension">
+  <data key="d0">use</data>
+</edge>
+<edge source="RV32E" target="16 registers">
+  <data key="d0">has</data>
+</edge>
+<edge source="RV32I" target="32 registers">
+  <data key="d0">has</data>
+</edge>
+<edge source="Reducing the RF size" target="lower context switch times">
+  <data key="d0">helps</data>
+</edge>
+<edge source="Reducing the RF size" target="the interrupt latency">
+  <data key="d0">does not affect</data>
+</edge>
+<edge source="the set of caller-save registers" target="the same when using the embedded-application binary interface (EABI)">
+  <data key="d0">remains</data>
+</edge>
+<edge source="Our implementation" target="the core to dynamically switch between RV32I and RV32E with fastirq depending on the workload">
+  <data key="d0">allows</data>
+</edge>
+<edge source="increased pressure on the RF" target="not acceptable">
+  <data key="d0">is</data>
+</edge>
+<edge source="one" target="additional registers for the seven caller-save registers">
+  <data key="d0">could add</data>
+</edge>
+<edge source="adding additional registers for the seven caller-save registers" target="to save area">
+  <data key="d0">purpose</data>
+</edge>
+<edge source="instead of doubling the RF size for the banking logic" target="adding additional registers for the seven caller-save registers">
+  <data key="d0">alternative to</data>
+</edge>
+<edge source="the interrupt state" target="simply switching register banks">
+  <data key="d0">can be quickly restored by</data>
+</edge>
+<edge source="mret" target="regular return from an interrupt handler">
+  <data key="d0">is used for</data>
+</edge>
+<edge source="mret" target="the interrupt state has been restored by SW">
+  <data key="d0">assumes</data>
+</edge>
+<edge source="This instruction" target="mret">
+  <data key="d0">performs the same function as</data>
+</edge>
+<edge source="This instruction" target="switching register banks">
+  <data key="d0">performs</data>
+</edge>
+<edge source="this situation" target="directly checking for other interrupts pending on the same level before restoring the executions interrupt context">
+  <data key="d0">can be optimized by</data>
+</edge>
+<edge source="Nucleis enhanced CLIC (ECLIC) 18" target="xnxti">
+  <data key="d0">extends</data>
+</edge>
+<edge source="Nucleis enhanced CLIC (ECLIC) 18" target="the jump to the queuing interrupt handler in the xnxti HW (jalxnxti)">
+  <data key="d0">embeds</data>
+</edge>
+<edge source="xnxti" target="the interrupt context storing part">
+  <data key="d0">does not touch</data>
+</edge>
+<edge source="xnxti" target="even worse">
+  <data key="d0">perform</data>
+</edge>
+<edge source="xnxti" target="42 cycles">
+  <data key="d0">require</data>
+</edge>
+<edge source="xnxti" target="a pointer to the address of the next handler">
+  <data key="d0">returns</data>
+</edge>
+<edge source="xnxti" target="a small code sequence (load, jump, and retry loop)">
+  <data key="d0">needs</data>
+</edge>
+<edge source="Nuclei System Technology ECLIC 39" target="traditional xnxti">
+  <data key="d0">extends</data>
+</edge>
+<edge source="Nuclei System Technology ECLIC 39" target="a novel CSR for machine privilege mode, jalmnxti 18">
+  <data key="d0">has</data>
+</edge>
+<edge source="jalmnxti 18" target="this work in Section IV">
+  <data key="d0">is discussed in</data>
+</edge>
+<edge source="emret" target="the control flow to the pending interrupts handler">
+  <data key="d0">redirects</data>
+</edge>
+<edge source="Some HW" target="this concept of removing redundant context restores as tail-chaining">
+  <data key="d0">refers to</data>
+</edge>
+<edge source="a high-level interrupt" target="the current running interrupt handler">
+  <data key="d0">could preempt</data>
+</edge>
+<edge source="This combination of latency hiding and background saving" target="the core to quickly enter a first-level interrupt handler">
+  <data key="d0">allows</data>
+</edge>
+<edge source="mie" target="to prevent that">
+  <data key="d0">has to be manually adjusted</data>
+</edge>
+<edge source="corresponding lower-priority interrupts" target="disabled">
+  <data key="d0">are</data>
+</edge>
+<edge source="this return path" target="HW by adding an additional write port to the cores RF">
+  <data key="d0">could be handled in</data>
+</edge>
+<edge source="exiting an interrupt handler" target="less time-critical">
+  <data key="d0">is</data>
+</edge>
+<edge source="context switches" target="OS-specific and HW-specific parts">
+  <data key="d0">can be divided into</data>
+</edge>
+<edge source="The OS part" target="all contributions to the context switch time that is specific to the OS itself">
+  <data key="d0">entails</data>
+</edge>
+<edge source="The OS part" target="computing the next task to be scheduled">
+  <data key="d0">includes</data>
+</edge>
+<edge source="The OS part" target="bookkeeping operations">
+  <data key="d0">includes</data>
+</edge>
+<edge source="The remainder" target="the HW-dependent saving and restoring of the state belonging to the new context">
+  <data key="d0">is</data>
+</edge>
+<edge source="The idea" target="the background-saving mechanism">
+  <data key="d0">is to use</data>
+</edge>
+<edge source="switches" target="the loading of a new state with the automatic saving HW pushing out the previous register state to memory in the background">
+  <data key="d0">interleave</data>
+</edge>
+<edge source="the HW mechanism" target="the registers">
+  <data key="d0">to swap</data>
+</edge>
+<edge source="the HW mechanism" target="them in the background">
+  <data key="d0">to save</data>
+</edge>
+<edge source="the initial part of the context switch routine" target="for that">
+  <data key="d0">changes</data>
+</edge>
+<edge source="Additional RISC-V extensions" target="more context switching state">
+  <data key="d0">introduce</data>
+</edge>
+<edge source="more context switching state" target="the goals of fastirq regarding latencies">
+  <data key="d0">run contrary to</data>
+</edge>
+<edge source="adding more state to fastirq" target="technical limitations">
+  <data key="d0">has no</data>
+</edge>
+<edge source="the resulting design" target="a significant increase in area and power">
+  <data key="d0">would incur</data>
+</edge>
+<edge source="a dirty bit" target="keep the fast path competitive">
+  <data key="d0">could help to</data>
+</edge>
+<edge source="This section" target="a functional and quantitative evaluation of the various flavors of the CV32RT">
+  <data key="d0">gives</data>
+</edge>
+<edge source="interrupt lines" target="a hardwired prioritization scheme">
+  <data key="d0">have</data>
+</edge>
+<edge source="interrupt lines" target="no additional latencies introduced on the system level">
+  <data key="d0">have</data>
+</edge>
+<edge source="interrupt lines" target="interrupt sources and the CLIC">
+  <data key="d0">are between</data>
+</edge>
+<edge source="The baseline CLIC" target="these weaknesses">
+  <data key="d0">addresses</data>
+</edge>
+<edge source="The baseline CLIC" target="the regular CLINT">
+  <data key="d0">does not differ from</data>
+</edge>
+<edge source="a level threshold register per privilege level (xintthresh)" target="the set of allowed horizontal interrupts">
+  <data key="d0">controls</data>
+</edge>
+<edge source="a level threshold register per privilege level (xintthresh)" target="those whose level exceeds the given value in the register">
+  <data key="d0">limits the set of allowed horizontal interrupts to</data>
+</edge>
+<edge source="Vectoring" target="per interrupt line">
+  <data key="d0">can be enabled or disabled</data>
+</edge>
+<edge source="This solution" target="both vectored and non-vectored interrupts">
+  <data key="d0">works for</data>
+</edge>
+<edge source="storing and restoring the interrupt context" target="SW">
+  <data key="d0">is fully handled in</data>
+</edge>
+<edge source="The optional xnxti extension" target="multiple horizontal interrupts to be serviced in sequence without redundant context-restoring operations in between">
+  <data key="d0">allows</data>
+</edge>
+<edge source="the first interrupt" target="the full latency cost">
+  <data key="d0">has to pay</data>
+</edge>
+<edge source="This approach" target="the latency advantage of HW vectoring">
+  <data key="d0">loses</data>
+</edge>
+<edge source="This approach" target="an SW emulation of HW vectoring">
+  <data key="d0">runs</data>
+</edge>
+<edge source="The discussed differences" target="Table II">
+  <data key="d0">are summarized in</data>
+</edge>
+<edge source="memory subsystem" target="single cycle (zero wait state) access to static random access memory (SRAM)">
+  <data key="d0">has</data>
+</edge>
+<edge source="The memory bank we are using" target="other bus masters">
+  <data key="d0">is not contended by</data>
+</edge>
+<edge source="HW contributed interrupt latency" target="Section II-B3">
+  <data key="d0">is described in</data>
+</edge>
+<edge source="CV32 and CV32RT variations" target="standard CLIC, xnxti, jalxnxti">
+  <data key="d0">include</data>
+</edge>
+<edge source="all caller-save registers" target="true">
+  <data key="d0">need to be saved</data>
+</edge>
+<edge source="The saved general-purpose registers" target="all caller-save registers in the respective ABI">
+  <data key="d0">are</data>
+</edge>
+<edge source="Interrupt handler routines" target="SW-based mechanisms to save and restore interrupt state">
+  <data key="d0">use</data>
+</edge>
+<edge source="Interrupt handler routines" target="the handler code">
+  <data key="d0">can fully inline</data>
+</edge>
+<edge source="Interrupt handler routines" target="some caller-save registers">
+  <data key="d0">can save</data>
+</edge>
+<edge source="Interrupt handler routines" target="if the compiler permits">
+  <data key="d0">can fully inline the handler code and save some caller-save registers</data>
+</edge>
+<edge source="the optimal case" target="only one caller-save register needs saving for SW-based interrupt handlers">
+  <data key="d0">is</data>
+</edge>
+<edge source="this amount of state" target="for our fastirq extension">
+  <data key="d0">is always saved</data>
+</edge>
+<edge source="Table III" target="the main techniques for optimizing interrupt context and task context save/restore with nested and non-nested interrupts employed by industry and academia in the embedded and real-time application domains">
+  <data key="d0">compares</data>
+</edge>
+<edge source="Table III" target="the overview">
+  <data key="d0">summarizes</data>
+</edge>
+<edge source="Several designs" target="the interrupt context directly in HW">
+  <data key="d0">automatically save and restore</data>
+</edge>
+<edge source="automatic interrupt context saverestore" target="SW housekeeping overhead before and after handling the interrupt routine">
+  <data key="d0">reduces</data>
+</edge>
+<edge source="automatic interrupt context saverestore" target="the acceleration of the complete task context switch">
+  <data key="d0">only partially addresses</data>
+</edge>
+<edge source="the presented solutions" target="optimizing context">
+  <data key="d0">are effective in</data>
+</edge>
+<edge source="the presented solutions" target="a cohesive approach to address both interrupt context and task context switch acceleration">
+  <data key="d0">lack</data>
+</edge>
+<edge source="the presented solutions" target="none of the existing RISC-V-based approaches can close the gap with well-established industry vendors">
+  <data key="d0">lack</data>
+</edge>
+<edge source="saverestore" target="HW and SW cooperation">
+  <data key="d0">has</data>
+</edge>
+<edge source="none of the existing RISC-V-based approaches" target="the gap with well-established industry vendors">
+  <data key="d0">can close</data>
+</edge>
+<edge source="Interrupt context saverestore" target="the former">
+  <data key="d0">takes advantage of</data>
+</edge>
+<edge source="Interrupt context saverestore" target="the HW">
+  <data key="d0">defers operations to</data>
+</edge>
+<edge source="jalxnxti" target="even worse">
+  <data key="d0">perform</data>
+</edge>
+<edge source="jalxnxti" target="35 cycles">
+  <data key="d0">require</data>
+</edge>
+<edge source="jalxnxti" target="these operations into one instruction">
+  <data key="d0">fuses</data>
+</edge>
+<edge source="jalxnxti" target="saving nine cycles">
+  <data key="d0">results in</data>
+</edge>
+<edge source="xnxti and jalxnxti" target="additional instructions in the code path between the handler and interrupt event">
+  <data key="d0">insert</data>
+</edge>
+<edge source="xnxti and jalxnxti" target="this situation">
+  <data key="d0">improve upon</data>
+</edge>
+<edge source="xnxti and jalxnxti" target="checking for pending interrupts">
+  <data key="d0">improve upon this situation by</data>
+</edge>
+<edge source="xnxti and jalxnxti" target="directly jumping to the respective handlers">
+  <data key="d0">improve upon this situation by</data>
+</edge>
+<edge source="Arm Cortex-M4" target="an interrupt latency of 12 cycles given a single-cycle memory">
+  <data key="d0">has</data>
+</edge>
+<edge source="The Arm Cortex-M4" target="the same task in six cycles">
+  <data key="d0">is able to do</data>
+</edge>
+<edge source="The Arm Cortex-M4" target="single-cycle memory 24">
+  <data key="d0">has access to</data>
+</edge>
+<edge source="baseline CLIC" target="68 cycles when using the integer ABI">
+  <data key="d0">takes</data>
+</edge>
+<edge source="baseline CLIC" target="50 cycles when using the embedded ABI">
+  <data key="d0">takes</data>
+</edge>
+<edge source="The emret mechanism of fastirq" target="similarly">
+  <data key="d0">works</data>
+</edge>
+<edge source="The emret mechanism of fastirq" target="eight clock cycles">
+  <data key="d0">costs</data>
+</edge>
+<edge source="The emret mechanism of fastirq" target="non-vectored interrupts">
+  <data key="d0">is not restricted to</data>
+</edge>
+<edge source="context switch time" target="number of clock cycles between two FreeRTOS dummy tasks">
+  <data key="d0">is shown in</data>
+</edge>
+<edge source="context switch time" target="baseline CV32RT and CV32RTfastirq">
+  <data key="d0">is compared between</data>
+</edge>
+<edge source="Average context switch time" target="FreeRTOS for two tasks of various flavors of CV32RT">
+  <data key="d0">is measured in</data>
+</edge>
+<edge source="All compile time options" target="to minimize the context switch code">
+  <data key="d0">were turned off</data>
+</edge>
+<edge source="All compile time options" target="tracing">
+  <data key="d0">include</data>
+</edge>
+<edge source="All compile time options" target="stack overflow signaling">
+  <data key="d0">include</data>
+</edge>
+<edge source="All compile time options" target="the more generic task selection mechanism">
+  <data key="d0">include</data>
+</edge>
+<edge source="Cortex-M4 core" target="single-cycle access to memory">
+  <data key="d0">has</data>
+</edge>
+<edge source="Arm Cortex-M" target="16 core registers">
+  <data key="d0">has</data>
+</edge>
+<edge source="The SW interrupt" target="the fastirq mechanism">
+  <data key="d0">will trigger</data>
+</edge>
+<edge source="the fastirq mechanism" target="saving the general-purpose registers to memory">
+  <data key="d0">starts</data>
+</edge>
+<edge source="registers" target="the background-saving mechanism">
+  <data key="d0">are still being saved by</data>
+</edge>
+<edge source="The FreeRTOS website 20" target="context switches as low as 96 cycles for a Cortex-M4 implementation">
+  <data key="d0">claims</data>
+</edge>
+<edge source="Synopsys Design Compiler 2022.03" target="GlobalFoundries 12LP FinFet technology">
+  <data key="d0">targets</data>
+</edge>
+<edge source="GlobalFoundries 12LP FinFet technology" target="500 MHz, TT corner, and 25 C">
+  <data key="d0">operates at</data>
+</edge>
+<edge source="One gate equivalent (GE) for this technology" target="0.121 m2">
+  <data key="d0">equals</data>
+</edge>
+<edge source="STM32L476RG" target="SoC">
+  <data key="d0">is a</data>
+</edge>
+<edge source="higher latencies" target="STM32L476RG">
+  <data key="d0">were observed on</data>
+</edge>
+<edge source="higher latencies" target="memory access stalls and other implementation choices in the memory subsystem">
+  <data key="d0">are due to</data>
+</edge>
+<edge source="3This" target="a lower bound">
+  <data key="d0">can be seen as</data>
+</edge>
+<edge source="The RISC-V E-Extension" target="the available general-purpose registers from 32 to 16">
+  <data key="d0">reduces</data>
+</edge>
+<edge source="The RISC-V E-Extension" target="the context switch state that needs to be saved and restored">
+  <data key="d0">lowers</data>
+</edge>
+<edge source="RISC-V CLIC" target="area breakdown at varying numbers of interrupt sources">
+  <data key="d0">has</data>
+</edge>
+<edge source="8" target="the area breakdown of the CLIC implemented in the proposed with different interrupt sources">
+  <data key="d0">reports</data>
+</edge>
+<edge source="Area overhead" target="CV32RT in the two main configurations">
+  <data key="d0">of</data>
+</edge>
+<edge source="The overhead of fastirq in CV32RTfastirq core" target="a minimal 10 area increase concentrated around the ID stage">
+  <data key="d0">results in</data>
+</edge>
+<edge source="The design" target="GF12LP technology">
+  <data key="d0">has been synthesized in</data>
+</edge>
+<edge source="GF12LP technology" target="500 MHz">
+  <data key="d0">has frequency</data>
+</edge>
+<edge source="GF12LP technology" target="TT corner">
+  <data key="d0">has corner</data>
+</edge>
+<edge source="GF12LP technology" target="25 C">
+  <data key="d0">has temperature</data>
+</edge>
+<edge source="GF12LP technology" target="0.8 V">
+  <data key="d0">has voltage</data>
+</edge>
+<edge source="GF12LP technology" target="super low VT standard cells">
+  <data key="d0">uses</data>
+</edge>
+<edge source="CV32E40PRT ID stage" target="area breakdown with the proposed HW extensions">
+  <data key="d0">has</data>
+</edge>
+<edge source="one 32-bit register" target="an area overhead of about 176 GE">
+  <data key="d0">incurs</data>
+</edge>
+<edge source="The remaining area" target="the gateway and binary tree arbitration logic at the core of the CLIC working principle">
+  <data key="d0">implements</data>
+</edge>
+<edge source="The remaining area" target="additional housekeeping control logic that scales linearly with the number of interrupt sources">
+  <data key="d0">implements</data>
+</edge>
+<edge source="the fraction of the design occupied by the arbitration tree" target="when increasing the number of sources">
+  <data key="d0">is kept constant</data>
+</edge>
+<edge source="the gain in flexibility" target="a broader application scope with time-critical systems">
+  <data key="d0">enables</data>
+</edge>
+<edge source="The ID stage" target="the HW block where the additional registers and the automatic stacking-unstacking logic are localized">
+  <data key="d0">is</data>
+</edge>
+<edge source="A breakdown of the ID stage" target="Fig.">
+  <data key="d0">is shown in</data>
+</edge>
+<edge source="additional storage space for automatic context save and restore in HW" target="the area of the RF by about 36 in the proposed implementation">
+  <data key="d0">increases</data>
+</edge>
+<edge source="the logic for managing the shadow registers" target="an overhead of 40 on the baseline ID stage controller">
+  <data key="d0">accounts for</data>
+</edge>
+<edge source="HW overhead" target="the additional emret instruction">
+  <data key="d0">comes from</data>
+</edge>
+<edge source="HW overhead" target="negligible">
+  <data key="d0">is</data>
+</edge>
+<edge source="increased size of the ID stage" target="benefits of a simplified programming model that moves several SW operations in HW">
+  <data key="d0">trades off</data>
+</edge>
+<edge source="increased size of the ID stage" target="benefits of significantly lowered interrupt latency than standard RISC-V">
+  <data key="d0">trades off</data>
+</edge>
+<edge source="increased size of the ID stage" target="the critical path of the base core design">
+  <data key="d0">does not impact</data>
+</edge>
+<edge source="time-critical systems" target="area efficiency">
+  <data key="d0">shift design priorities from</data>
+</edge>
+<edge source="time-critical systems" target="safety, security, and reliability">
+  <data key="d0">shift design priorities to</data>
+</edge>
+<edge source="this section" target="the leading solutions to optimize handling asynchronous events in state-of-the-art embedded and real-time MCUs">
+  <data key="d0">describes</data>
+</edge>
+<edge source="PLICs and CLICs" target="Section II-C">
+  <data key="d0">are introduced in</data>
+</edge>
+<edge source="solutions" target="interrupt context saverestore techniques">
+  <data key="d0">address</data>
+</edge>
+<edge source="solutions" target="context switch techniques">
+  <data key="d0">address</data>
+</edge>
+<edge source="solutions" target="dedicated strategies to optimize redundant context restore with back-to-back interrupts">
+  <data key="d0">address</data>
+</edge>
+<edge source="Arms generic interrupt controller (GIC)" target="incoming asynchronous events">
+  <data key="d0">redistributes</data>
+</edge>
+<edge source="incoming asynchronous events" target="non-critical (IRQ) or critical interrupts (fast IRQ, or FIQ)">
+  <data key="d0">are redistributed as</data>
+</edge>
+<edge source="dedicated register bank" target="up to eight registers">
+  <data key="d0">has</data>
+</edge>
+<edge source="up to eight registers" target="minimize context switching">
+  <data key="d0">are employed to</data>
+</edge>
+<edge source="a state machine 32" target="caller-save register stacking in the background">
+  <data key="d0">performs</data>
+</edge>
+<edge source="EXCRETURN" target="the core to start unwinding the stack">
+  <data key="d0">notifies</data>
+</edge>
+<edge source="interrupt control unit (ICU) 33, 34, 35" target="Infineon AURIX MCU-class TriCore family">
+  <data key="d0">is in</data>
+</edge>
+<edge source="context of the calling routine" target="memory autonomously">
+  <data key="d0">is saved in</data>
+</edge>
+<edge source="restoring the context" target="RET instruction">
+  <data key="d0">is embedded in</data>
+</edge>
+<edge source="restoring the context" target="return jump 36">
+  <data key="d0">happens in parallel with</data>
+</edge>
+<edge source="27" target="extensions for the RISC-V CLIC">
+  <data key="d0">are the first to propose</data>
+</edge>
+<edge source="interrupt handling" target="automatic stacking in HW">
+  <data key="d0">is enhanced with</data>
+</edge>
+<edge source="automatic stacking in HW" target="the cores Harvard architecture">
+  <data key="d0">benefits from</data>
+</edge>
+<edge source="automatic stacking in HW" target="simultaneous data and instruction memory access">
+  <data key="d0">benefits from</data>
+</edge>
+<edge source="Register banking" target="several architectures">
+  <data key="d0">is a technique adopted by</data>
+</edge>
+<edge source="Register banking" target="a task's context without pushing/popping register values to the stack">
+  <data key="d0">swaps</data>
+</edge>
+<edge source="Register banking" target="an additional area overhead in the design">
+  <data key="d0">has</data>
+</edge>
+<edge source="A task's context switch" target="quickly transferring the suspended context to the dedicated register bank">
+  <data key="d0">benefits from</data>
+</edge>
+<edge source="A task's context switch" target="already restoring the next task to be executed">
+  <data key="d0">benefits from</data>
+</edge>
+<edge source="HW register banking" target="PLICs (GIC)">
+  <data key="d0">is the case of</data>
+</edge>
+<edge source="HW register banking" target="Arm designs">
+  <data key="d0">is used in</data>
+</edge>
+<edge source="A similar approach" target="the Renesas M32C80 series 30">
+  <data key="d0">is implemented in</data>
+</edge>
+<edge source="A dual register bank" target="quickly swapping the context without saving/restoring to/from the stack">
+  <data key="d0">allows</data>
+</edge>
+<edge source="The second register bank" target="high-speed interrupts">
+  <data key="d0">is reserved for</data>
+</edge>
+<edge source="The Aurix family" target="an SW managed solution">
+  <data key="d0">implements</data>
+</edge>
+<edge source="The SW managed solution" target="a specific organization of the context layout in the system memory">
+  <data key="d0">features</data>
+</edge>
+<edge source="The specific organization of the context layout" target="context save area (CSA) chained in a linked list fashion">
+  <data key="d0">is based on</data>
+</edge>
+<edge source="The evaluation in 28" target="HW implementation">
+  <data key="d0">lacks</data>
+</edge>
+<edge source="The evaluation in 28" target="area overhead assessment">
+  <data key="d0">lacks</data>
+</edge>
+<edge source="The evaluation in 28" target="context switching overhead by 24 on the DSPstone benchmark">
+  <data key="d0">reduces</data>
+</edge>
+<edge source="These approaches" target="HW- and SW-induced latencies when handling asynchronous events">
+  <data key="d0">trade-off</data>
+</edge>
+<edge source="26" target="a full HW solution based on a hardware scheduling engine (HSE)">
+  <data key="d0">propose</data>
+</edge>
+<edge source="hardware scheduling engine (HSE)" target="interrupts to running tasks">
+  <data key="d0">directly attaches</data>
+</edge>
+<edge source="hardware scheduling engine (HSE)" target="a specialized interrupt controller">
+  <data key="d0">does not need</data>
+</edge>
+<edge source="this approach" target="lowering interrupt latency and task context switches dramatically">
+  <data key="d0">allows</data>
+</edge>
+<edge source="this approach" target="flexibility">
+  <data key="d0">lacks</data>
+</edge>
+<edge source="this approach" target="replicating hardware resources per task">
+  <data key="d0">requires</data>
+</edge>
+<edge source="its area overhead" target="a high number of tasks">
+  <data key="d0">grows for</data>
+</edge>
+<edge source="such works" target="the difference in memory footprint between such architectures (MB size RFs) and low-end embedded microcontrollers targeted in this work">
+  <data key="d0">highlight</data>
+</edge>
+<edge source="such works" target="RF caching rather than register shadowing or banking">
+  <data key="d0">adopt</data>
+</edge>
+<edge source="RF caching" target="performance reasons">
+  <data key="d0">is adopted for</data>
+</edge>
+<edge source="RF caching" target="lower access latency to the RF">
+  <data key="d0">provides</data>
+</edge>
+<edge source="register shadowing or banking" target="higher thread-level parallelism (TLP)">
+  <data key="d0">provides</data>
+</edge>
+<edge source="such techniques" target="the systems predictability">
+  <data key="d0">may deteriorate</data>
+</edge>
+<edge source="xnxti CSR with SW-managed interrupt service loops" target="the CLIC specifications">
+  <data key="d0">is part of</data>
+</edge>
+<edge source="RISC-V AIA without APLIC" target="mnxti with the xtopi CSR">
+  <data key="d0">has a similar approach to</data>
+</edge>
+<edge source="RISC-V AIA without APLIC" target="both late arrival and redundant context restore mechanisms">
+  <data key="d0">allows</data>
+</edge>
+<edge source="xtopi CSR" target="the highest-priority, pending, and enabled interrupt for a specific privilege mode">
+  <data key="d0">reports</data>
+</edge>
+<edge source="the authors" target="analyzing fastirqs impact on timing channels">
+  <data key="d0">consider for future work</data>
+</edge>
+<edge source="the authors" target="its integration with different RISC-V extensions">
+  <data key="d0">consider for future work</data>
+</edge>
+<edge source="C. Rochange, S. Uhrig, and P. Sainrat" target="Time-Predictable Architectures (FOCUS Computer Engineering Series)">
+  <data key="d0">are authors of</data>
+</edge>
+<edge source="Hoboken, NJ, USA" target="Wiley">
+  <data key="d0">is location of publisher</data>
+</edge>
+<edge source="Wiley" target="2014">
+  <data key="d0">published in year</data>
+</edge>
+<edge source="2 L. M. Pinho et al." target="High-Performance and Time-Predictable Embedded Computing">
+  <data key="d0">authored</data>
+</edge>
+<edge source="High-Performance and Time-Predictable Embedded Computing" target="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1848215932.html">
+  <data key="d0">available at</data>
+</edge>
+<edge source="River" target="Wharton, TX, USA">
+  <data key="d0">published in</data>
+</edge>
+<edge source="River" target="2018">
+  <data key="d0">published in year</data>
+</edge>
+<edge source="3 F. Reghenzani, G. Massari, and W. Fornaciari" target="The real-time Linux kernel: A survey on PREEMPTRT">
+  <data key="d0">authored</data>
+</edge>
+<edge source="The real-time Linux kernel: A survey on PREEMPTRT" target="ACM Comput.">
+  <data key="d0">published in</data>
+</edge>
+<edge source="M. Liu, D. Liu, Y. Wang, M. Wang, and Z. Shao" target="On improving real-time interrupt latencies of hybrid operating systems with two-level hardware interrupts">
+  <data key="d0">authored</data>
+</edge>
+<edge source="On improving real-time interrupt latencies of hybrid operating systems with two-level hardware interrupts" target="IEEE Trans.">
+  <data key="d0">published_in</data>
+</edge>
+<edge source="5 P. Mantegazza, E. L. Dozio, and S. Papacharalambous" target="RTAI: Real time application interface">
+  <data key="d0">authored</data>
+</edge>
+<edge source="RTAI: Real time application interface" target="Linux J.">
+  <data key="d0">published in</data>
+</edge>
+<edge source="J. Valvano" target="Introduction to Embedded Systems">
+  <data key="d0">author of</data>
+</edge>
+<edge source="http:web.engr.oregonstate.edutraylorece473 pdfsminimizeinterruptresponsetime.pdf" target="web.engr.oregonstate.edu">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="CreateSpace" target="Scotts Valley, CA, USA in Aug. 2016">
+  <data key="d0">published</data>
+</edge>
+<edge source="9 Y. Huang, L. Shi, J. Li, Q. Li, and C. J. Xue" target="WCET-aware re-scheduling register allocation for real-time embedded systems with clustered VLIW architecture">
+  <data key="d0">wrote</data>
+</edge>
+<edge source="WCET-aware re-scheduling register allocation" target="real-time embedded systems with clustered VLIW architecture">
+  <data key="d0">is for</data>
+</edge>
+<edge source="WCET-aware re-scheduling register allocation" target="IEEE Trans.">
+  <data key="d0">published in</data>
+</edge>
+<edge source="X. Zhou and P. Petrov" target="Rapid and low-cost context-switch through embedded processor customization for real-time and control applications">
+  <data key="d0">authored</data>
+</edge>
+<edge source="Rapid and low-cost context-switch through embedded processor customization for real-time and control applications" target="Proc.">
+  <data key="d0">published in</data>
+</edge>
+<edge source="Association for Computing Machinery" target="New York, NY, USA">
+  <data key="d0">location</data>
+</edge>
+<edge source="Association for Computing Machinery" target="2006">
+  <data key="d0">publication year</data>
+</edge>
+<edge source="Association for Computing Machinery" target="352">
+  <data key="d0">page</data>
+</edge>
+<edge source="Association for Computing Machinery" target="10.11451146909.1147001">
+  <data key="d0">doi</data>
+</edge>
+<edge source="I. Behnke, L. Pirl, L. Thamsen, R. Danicki, A. Polze, and O. Kao" target="Interrupting real-time IoT tasks: How bad can it be to connect your critical embedded system to the Internet?">
+  <data key="d0">authored</data>
+</edge>
+<edge source="12 F. Rehm et al." target="The road towards predictable automotive high Performance platforms">
+  <data key="d0">wrote</data>
+</edge>
+<edge source="The road towards predictable automotive high Performance platforms" target="Proc.">
+  <data key="d0">was published in</data>
+</edge>
+<edge source="K. Asanovic and D. A. Patterson" target="Instruction sets should be free: The case for RISC-V">
+  <data key="d0">wrote</data>
+</edge>
+<edge source="The RISC-V instruction set manual volume II" target="A. Waterman, Y. Lee, R. Avizienis, D. A. Patterson, and K. Asanovic">
+  <data key="d0">is authored by</data>
+</edge>
+<edge source="The RISC-V instruction set manual volume II" target="1.9">
+  <data key="d0">has version</data>
+</edge>
+<edge source="The RISC-V instruction set manual volume II" target="Privileged architecture">
+  <data key="d0">covers</data>
+</edge>
+<edge source="The RISC-V instruction set manual volume II" target="http:www2.eecs.berkeley.eduPubsTechRpts2014EECS-2014-146.html">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="The RISC-V instruction set manual volume II" target="Dept.">
+  <data key="d0">is published by</data>
+</edge>
+<edge source="EECS" target="Univ.">
+  <data key="d0">is part of</data>
+</edge>
+<edge source="California" target="Berkeley">
+  <data key="d0">contains</data>
+</edge>
+<edge source="Berkeley" target="CA">
+  <data key="d0">is located in</data>
+</edge>
+<edge source="Berkeley" target="Tech">
+  <data key="d0">is associated with</data>
+</edge>
+<edge source="CA" target="USA">
+  <data key="d0">is part of</data>
+</edge>
+<edge source="clic" target="https://github.com/riscv/riscv-fast-interrupt/blob/master/clic">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="M. Gautschi et al." target="Near-threshold RISC-V core with DSP extensions for scalable IoT endpoint devices">
+  <data key="d0">authored</data>
+</edge>
+<edge source="Near-threshold RISC-V core with DSP extensions for scalable IoT endpoint devices" target="IEEE Trans.">
+  <data key="d0">published in</data>
+</edge>
+<edge source="OpenHW Group CV32E40P" target="User Manual">
+  <data key="d0">is</data>
+</edge>
+<edge source="OpenHW Group" target="an organization">
+  <data key="d0">is</data>
+</edge>
+<edge source="cv32e40p" target="https">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="readthedocs.io" target="Nuclei System Technology documentation">
+  <data key="d0">hosts</data>
+</edge>
+<edge source="Nuclei System Technology" target="18">
+  <data key="d0">has version</data>
+</edge>
+<edge source="39 Nuclei System Technology Co. Ltd." target="ECLIC Unit Introduction">
+  <data key="d0">has</data>
+</edge>
+<edge source="Nuclei" target="ISA Spec">
+  <data key="d0">has</data>
+</edge>
+<edge source="A. Ottaviano et al." target="ControlPULP: A RISC-V on-chip parallel power controller for many-core HPC processors with FPGA-based hardware-in-the-loop power and thermal emulation">
+  <data key="d0">authored</data>
+</edge>
+<edge source="Text" target="https://doc.nucleisys.com/nucleispecisaintroduction.html">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="Text" target="https://community.arm.com/arm-community-blogs/b-architectures-and-processors-blog/posts/beginner-guide-on-interrupt-latency-and-interrupt-latency-of-the-arm-cortex-m-processors?pifragment=227142">
+  <data key="d0">available at</data>
+</edge>
+<edge source="FreeRTOS" target="Real-Time Operating System for Microcontrollers">
+  <data key="d0">is</data>
+</edge>
+<edge source="Real Time Engineers Ltd." target="Online">
+  <data key="d0">is</data>
+</edge>
+<edge source="C.-M. Lin" target="Nested interrupt analysis of low cost and high performance embedded systems using GSPN framework">
+  <data key="d0">authored</data>
+</edge>
+<edge source="Nested interrupt analysis of low cost and high performance embedded systems using GSPN framework" target="IEICE Trans.">
+  <data key="d0">published in</data>
+</edge>
+<edge source="22" target="RISC-V International">
+  <data key="d0">is associated with</data>
+</edge>
+<edge source="The Definitive Guide to ARM Cortex-M3 Cortex-M4 Processors" target="J. Yiu">
+  <data key="d0">author</data>
+</edge>
+<edge source="The Definitive Guide to ARM Cortex-M3 Cortex-M4 Processors" target="3rd ed.">
+  <data key="d0">edition</data>
+</edge>
+<edge source="J. Yiu" target="the document">
+  <data key="d0">is author of</data>
+</edge>
+<edge source="riscv-plic-1.0.0.pdf" target="https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic-1.0.0.pdf">
+  <data key="d0">available at</data>
+</edge>
+<edge source="Newnes" target="Boston, MA, USA in 2013">
+  <data key="d0">published</data>
+</edge>
+<edge source="Cortex-M4" target="Tech">
+  <data key="d0">is</data>
+</edge>
+<edge source="Interrupt Latency" target="Arm Cortex-M Processors">
+  <data key="d0">is related to</data>
+</edge>
+<edge source="V. G. Gaitan, N. C. Gaitan, and I. Ungurean" target="CPU architecture based on a hardware scheduler and independent pipeline registers">
+  <data key="d0">authored</data>
+</edge>
+<edge source="CPU architecture" target="a hardware scheduler and independent pipeline registers">
+  <data key="d0">is based on</data>
+</edge>
+<edge source="CPU architecture" target="IEEE Trans.">
+  <data key="d0">published in</data>
+</edge>
+<edge source="Circuits Microsystems (ICICM)" target="Oct. 2021">
+  <data key="d0">occurred in</data>
+</edge>
+<edge source="Li and J. K. Lee" target="paged register files for improving context switching on embedded processors">
+  <data key="d0">support</data>
+</edge>
+<edge source="29 R. Balas and L. Benini" target="RISC-V for real-time MCUs Software optimization and microarchitectural gap analysis">
+  <data key="d0">authored</data>
+</edge>
+<edge source="RISC-V for real-time MCUs Software optimization and microarchitectural gap analysis" target="Proc.">
+  <data key="d0">was presented in</data>
+</edge>
+<edge source="30" target="Renesas">
+  <data key="d0">is</data>
+</edge>
+<edge source="Hardware Manual" target="RENESAS MCU M16C">
+  <data key="d0">is for</data>
+</edge>
+<edge source="SiFive Inc." target="hardware manual for M32C87, M32C87A, M32C87B">
+  <data key="d0">published</data>
+</edge>
+<edge source="SiFive Inc." target="2021">
+  <data key="d0">published year</data>
+</edge>
+<edge source="hardware manual" target="https://www.renesas.com/us/en/document/mahm32c87-group-m32c87-m32c87a-m32c87b-hardware-manual">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="SiFive E21" target="Core Complex Manual">
+  <data key="d0">is described in</data>
+</edge>
+<edge source="STMicroelectronics" target="the document">
+  <data key="d0">is mentioned in</data>
+</edge>
+<edge source="STM32L5-System-NestedVectoredInterruptControlNVIC.pdf" target="https://www.st.com/content/ccc/resource/training/technical/product_training/group/16135/d207346f4e83/STM32L5-System-NestedVectoredInterruptControlNVIC/files/STM32L5-System-NestedVectoredInterruptControlNVIC.pdf/jcr:content/translations/en.STM32L5-System-NestedVectoredInterruptControlNVIC.pdf">
+  <data key="d0">is available at</data>
+</edge>
+<edge source="Infineon Technologies AG" target="STM32L5-System-NestedVectoredInterruptControlNVIC.pdf">
+  <data key="d0">is mentioned in</data>
+</edge>
+<edge source="Infineon Technologies AG" target="Document at https://old.hotchips.org/wp-content/uploads/hcarchives/hc16/3Tue6HC16Sess7Pres1bw.pdf">
+  <data key="d0">is mentioned in</data>
+</edge>
+<edge source="Infineon Technologies AG" target="the document">
+  <data key="d0">is mentioned in</data>
+</edge>
+<edge source="Infineon Technologies AG" target="Task context switching RTOS">
+  <data key="d0">has</data>
+</edge>
+<edge source="A Fast Powertrain Microcontroller" target="a microcontroller">
+  <data key="d0">is</data>
+</edge>
+<edge source="TC27x D-Step" target="32-Bit Single-Chip Microcontroller">
+  <data key="d0">is</data>
+</edge>
+<edge source="TriCore V1.6" target="Core Architecture">
+  <data key="d0">has</data>
+</edge>
+<edge source="Task context switching RTOS" target="U.S. Patent 7 434 222 B2">
+  <data key="d0">is associated with</data>
+</edge>
+<edge source="U.S. Patent 7 434 222 B2" target="October 2008">
+  <data key="d0">was issued in</data>
+</edge>
+<edge source="H. Zeng and K. Ghose" target="Register file caching for energy efficiency">
+  <data key="d0">authored</data>
+</edge>
+<edge source="Register file caching for energy efficiency" target="ISLPED Proc.">
+  <data key="d0">was presented in</data>
+</edge>
+<edge source="Date" target="6, June 2024">
+  <data key="d0">is</data>
+</edge>
+<edge source="M. Sadrosadati et al." target="Highly concurrent latency-tolerant register files for GPUs">
+  <data key="d0">authored</data>
+</edge>
+<edge source="Highly concurrent latency-tolerant register files for GPUs" target="ACM Trans.">
+  <data key="d0">published in</data>
+</edge>
+<edge source="Access date" target="Aug. 4, 2023">
+  <data key="d0">is</data>
+</edge>
+<edge source="degrees" target="ETH Zurich, Zurich, Switzerland">
+  <data key="d0">are from</data>
+</edge>
+<edge source="degrees" target="2015 and 2017, respectively">
+  <data key="d0">were obtained in</data>
+</edge>
+<edge source="Ph.D. degree" target="Digital Circuits and Systems Group of Prof. Benini">
+  <data key="d0">is at</data>
+</edge>
+<edge source="the Digital Circuits and Systems Group" target="Prof. Benini">
+  <data key="d0">is of</data>
+</edge>
+<edge source="Prof. Benini" target="ETH Zurich, Zurich, Switzerland">
+  <data key="d0">is at</data>
+</edge>
+<edge source="His research interests" target="real-time computing">
+  <data key="d0">include</data>
+</edge>
+<edge source="His research interests" target="compilers">
+  <data key="d0">include</data>
+</edge>
+<edge source="His research interests" target="operating systems">
+  <data key="d0">include</data>
+</edge>
+<edge source="His research interests" target="power management of HPC processors">
+  <data key="d0">include</data>
+</edge>
+<edge source="His research interests" target="energy-efficient processor architecture">
+  <data key="d0">include</data>
+</edge>
+<edge source="degree" target="physical engineering">
+  <data key="d0">is in</data>
+</edge>
+<edge source="degree" target="Politecnico di Turino, Turin, Italy">
+  <data key="d0">is from</data>
+</edge>
+<edge source="degree" target="2018">
+  <data key="d0">was obtained in</data>
+</edge>
+<edge source="degree" target="electrical engineering">
+  <data key="d0">field</data>
+</edge>
+<edge source="degree" target="Politecnico di Turino">
+  <data key="d0">awarded by</data>
+</edge>
+<edge source="degree" target="Grenoble INP-Phelma, Grenoble, France">
+  <data key="d0">awarded by</data>
+</edge>
+<edge source="degree" target="EPFL Lausanne, Lausanne, Switzerland">
+  <data key="d0">awarded by</data>
+</edge>
+<edge source="degree" target="2020">
+  <data key="d0">year</data>
+</edge>
+<edge source="Dr. Benini" target="the ACM">
+  <data key="d0">is a fellow of</data>
+</edge>
+<edge source="Dr. Benini" target="the Academia Europaea">
+  <data key="d0">is a member of</data>
+</edge>
+<edge source="McCluskey Award" target="an award">
+  <data key="d0">is</data>
+</edge>
+</graph></graphml>
