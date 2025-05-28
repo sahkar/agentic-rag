@@ -1,0 +1,6492 @@
+[
+  {
+    "subject": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+    "predicate": "is authored by",
+    "object": "Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu, Joseph E. Gonzalez, Hao Zhang, Ion Stoica"
+  },
+  {
+    "subject": "Woosuk Kwon",
+    "predicate": "is affiliated with",
+    "object": "UC Berkeley"
+  },
+  {
+    "subject": "Zhuohan Li",
+    "predicate": "is affiliated with",
+    "object": "UC Berkeley"
+  },
+  {
+    "subject": "Siyuan Zhuang",
+    "predicate": "is affiliated with",
+    "object": "UC Berkeley"
+  },
+  {
+    "subject": "Ying Sheng",
+    "predicate": "is affiliated with",
+    "object": "UC Berkeley and Stanford University"
+  },
+  {
+    "subject": "Lianmin Zheng",
+    "predicate": "is affiliated with",
+    "object": "UC Berkeley"
+  },
+  {
+    "subject": "Cody Hao Yu",
+    "predicate": "is affiliated with",
+    "object": "Independent Researcher"
+  },
+  {
+    "subject": "Joseph E. Gonzalez",
+    "predicate": "is affiliated with",
+    "object": "UC Berkeley"
+  },
+  {
+    "subject": "Hao Zhang",
+    "predicate": "is affiliated with",
+    "object": "UC San Diego"
+  },
+  {
+    "subject": "Ion Stoica",
+    "predicate": "is affiliated with",
+    "object": "UC Berkeley"
+  },
+  {
+    "subject": "High throughput serving of large language models (LLMs)",
+    "predicate": "requires",
+    "object": "batching sufficiently many requests at a time"
+  },
+  {
+    "subject": "existing systems",
+    "predicate": "struggle",
+    "object": "because the key-value cache (KV cache) memory for each request is huge and grows and shrinks dynamically"
+  },
+  {
+    "subject": "The KV Cache size",
+    "predicate": "grows quickly with",
+    "object": "the number of requests"
+  },
+  {
+    "subject": "this memory",
+    "predicate": "can be wasted by",
+    "object": "fragmentation and redundant duplication"
+  },
+  {
+    "subject": "wasting of this memory",
+    "predicate": "is caused by",
+    "object": "inefficient management"
+  },
+  {
+    "subject": "fragmentation and redundant duplication",
+    "predicate": "limit",
+    "object": "the batch size"
+  },
+  {
+    "subject": "inefficient memory management",
+    "predicate": "can decrease",
+    "object": "the batch size"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "is",
+    "object": "an attention algorithm"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "is inspired by",
+    "object": "the classical virtual memory and paging techniques in operating systems"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "is inspired by",
+    "object": "the operating systems (OS) solution to memory fragmentation and sharing"
+  },
+  {
+    "subject": "the operating systems (OS) solution to memory fragmentation and sharing",
+    "predicate": "is",
+    "object": "virtual memory with paging"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "operates on",
+    "object": "KV cache stored in non-contiguous paged memory"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "is inspired by",
+    "object": "the virtual memory and paging in OS"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "is inspired by",
+    "object": "the classic idea of paging in operating systems"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "is introduced to address",
+    "object": "the memory challenges in 3"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "allows storing",
+    "object": "continuous keys and values in non-contiguous memory space"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "is unlike",
+    "object": "traditional attention algorithms"
+  },
+  {
+    "subject": "PagedAttention algorithm",
+    "predicate": "has",
+    "object": "attention key and values vectors stored as non-contiguous blocks in the memory"
+  },
+  {
+    "subject": "This paper",
+    "predicate": "proposes",
+    "object": "PagedAttention"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "is",
+    "object": "a new attention algorithm"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "allows",
+    "object": "attention keys and values to be stored in non-contiguous paged memory"
+  },
+  {
+    "subject": "This paper",
+    "predicate": "presents",
+    "object": "vLLM"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "is",
+    "object": "a high-throughput LLM serving system"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "has",
+    "object": "efficient memory management enabled by PagedAttention"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "is",
+    "object": "an LLM serving system"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "achieves",
+    "object": "near-zero waste in KV cache memory"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "achieves",
+    "object": "flexible sharing of KV cache within and across requests"
+  },
+  {
+    "subject": "flexible sharing of KV cache",
+    "predicate": "purpose",
+    "object": "to further reduce memory usage"
+  },
+  {
+    "subject": "existing LLM serving systems 31, 60",
+    "predicate": "fall short of",
+    "object": "managing the KV cache memory efficiently"
+  },
+  {
+    "subject": "we",
+    "predicate": "can manage",
+    "object": "the KV cache in a more flexible way"
+  },
+  {
+    "subject": "blocks",
+    "predicate": "can be thought of as",
+    "object": "pages"
+  },
+  {
+    "subject": "tokens",
+    "predicate": "can be thought of as",
+    "object": "bytes"
+  },
+  {
+    "subject": "requests",
+    "predicate": "can be thought of as",
+    "object": "processes"
+  },
+  {
+    "subject": "we",
+    "predicate": "build",
+    "object": "vLLM"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "is",
+    "object": "a high-throughput distributed LLM serving engine"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "is built on top of",
+    "object": "PagedAttention"
+  },
+  {
+    "subject": "KV cache",
+    "predicate": "is related to",
+    "object": "memory management in existing systems"
+  },
+  {
+    "subject": "established techniques",
+    "predicate": "are inspired by",
+    "object": "operating systems"
+  },
+  {
+    "subject": "established techniques",
+    "predicate": "include",
+    "object": "virtual memory"
+  },
+  {
+    "subject": "established techniques",
+    "predicate": "include",
+    "object": "copy-on-write"
+  },
+  {
+    "subject": "established techniques",
+    "predicate": "can be adapted to",
+    "object": "efficiently manage KV cache"
+  },
+  {
+    "subject": "established techniques",
+    "predicate": "can be adapted to",
+    "object": "handle various decoding algorithms in LLM serving"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "improves",
+    "object": "the throughput of popular LLMs by 2-4"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "has",
+    "object": "the same level of latency compared to the state-of-the-art systems"
+  },
+  {
+    "subject": "state-of-the-art systems",
+    "predicate": "include",
+    "object": "FasterTransformer and Orca"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "improves",
+    "object": "LLM serving throughput by 2-4 compared to the state-of-the-art systems 31, 60"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "does not affect",
+    "object": "model accuracy"
+  },
+  {
+    "subject": "we",
+    "predicate": "evaluate",
+    "object": "the performance of vLLM under a variety of workloads"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "achieves",
+    "object": "2-4 throughput improvements over the state-of-the-art systems"
+  },
+  {
+    "subject": "The improvement",
+    "predicate": "is more pronounced with",
+    "object": "longer sequences"
+  },
+  {
+    "subject": "The improvement",
+    "predicate": "is more pronounced with",
+    "object": "larger models"
+  },
+  {
+    "subject": "The improvement",
+    "predicate": "is more pronounced with",
+    "object": "more complex decoding algorithms"
+  },
+  {
+    "subject": "The improvements",
+    "predicate": "are more pronounced with",
+    "object": "longer sequences"
+  },
+  {
+    "subject": "The improvements",
+    "predicate": "are more pronounced with",
+    "object": "larger models"
+  },
+  {
+    "subject": "The improvements",
+    "predicate": "are more pronounced with",
+    "object": "more complex decoding algorithms"
+  },
+  {
+    "subject": "vLLMs source code",
+    "predicate": "is publicly available at",
+    "object": "https://github.com/vllm-project/vllm"
+  },
+  {
+    "subject": "large language models (LLMs) like GPT 5, 37 and PaLM 9",
+    "predicate": "have enabled",
+    "object": "new applications such as programming assistants 6, 18 and universal chatbots 19, 35"
+  },
+  {
+    "subject": "programming assistants 6, 18 and universal chatbots 19, 35",
+    "predicate": "are starting to impact",
+    "object": "our work and daily routines"
+  },
+  {
+    "subject": "Many cloud companies 34, 44",
+    "predicate": "are racing to provide",
+    "object": "these applications as hosted services"
+  },
+  {
+    "subject": "running these applications",
+    "predicate": "is",
+    "object": "very expensive"
+  },
+  {
+    "subject": "running these applications",
+    "predicate": "requires",
+    "object": "a large number of hardware accelerators such as GPUs"
+  },
+  {
+    "subject": "processing an LLM request",
+    "predicate": "can be",
+    "object": "10 more expensive than a traditional keyword query"
+  },
+  {
+    "subject": "SOSP 23",
+    "predicate": "date",
+    "object": "October 23-26, 2023"
+  },
+  {
+    "subject": "SOSP 23",
+    "predicate": "location",
+    "object": "Koblenz, Germany"
+  },
+  {
+    "subject": "Copyright",
+    "predicate": "held by",
+    "object": "the ownerauthor(s)"
+  },
+  {
+    "subject": "Copyright",
+    "predicate": "year",
+    "object": "2023"
+  },
+  {
+    "subject": "ACM",
+    "predicate": "has ISBN",
+    "object": "979-8-4007-0229-72310"
+  },
+  {
+    "subject": "DOI",
+    "predicate": "is",
+    "object": "https://doi.org/10.1145/3600006.3613165"
+  },
+  {
+    "subject": "NVIDIA A100",
+    "predicate": "has memory size",
+    "object": "40GB"
+  },
+  {
+    "subject": "Parameters",
+    "predicate": "size",
+    "object": "26GB"
+  },
+  {
+    "subject": "KV Cache",
+    "predicate": "size",
+    "object": "30"
+  },
+  {
+    "subject": "Others",
+    "predicate": "size",
+    "object": "20"
+  },
+  {
+    "subject": "Others",
+    "predicate": "size",
+    "object": "30"
+  },
+  {
+    "subject": "Others",
+    "predicate": "size",
+    "object": "40"
+  },
+  {
+    "subject": "Memory usage",
+    "predicate": "unit",
+    "object": "GB"
+  },
+  {
+    "subject": "Batch size",
+    "predicate": "unit",
+    "object": "requests"
+  },
+  {
+    "subject": "Throughput",
+    "predicate": "unit",
+    "object": "tokens"
+  },
+  {
+    "subject": "Existing systems",
+    "predicate": "include",
+    "object": "vLLM"
+  },
+  {
+    "subject": "Memory layout",
+    "predicate": "is used when serving",
+    "object": "an LLM with 13B parameters on NVIDIA A100"
+  },
+  {
+    "subject": "1 (left)",
+    "predicate": "illustrates",
+    "object": "the memory distribution for a 13B-parameter LLM on an NVIDIA A100 GPU with 40GB RAM"
+  },
+  {
+    "subject": "The parameters (gray)",
+    "predicate": "persist in",
+    "object": "GPU memory throughout serving"
+  },
+  {
+    "subject": "The memory for the KV cache (red)",
+    "predicate": "is (de)allocated",
+    "object": "per serving request"
+  },
+  {
+    "subject": "the contiguous chunk of memory",
+    "predicate": "is for",
+    "object": "storing the KV cache of a request in contiguous space"
+  },
+  {
+    "subject": "all available memory",
+    "predicate": "was allocated to",
+    "object": "KV cache"
+  },
+  {
+    "subject": "only a few tens of requests",
+    "predicate": "could be accommodated",
+    "object": ""
+  },
+  {
+    "subject": "output length of a request",
+    "predicate": "grows at",
+    "object": "decoding"
+  },
+  {
+    "subject": "memory required for its KV cache",
+    "predicate": "expands",
+    "object": "as output length of a request grows at decoding"
+  },
+  {
+    "subject": "memory required for its KV cache",
+    "predicate": "may exhaust",
+    "object": "available memory for incoming requests or ongoing generation for existing prompts"
+  },
+  {
+    "subject": "A small amount of memory (yellow)",
+    "predicate": "is used",
+    "object": "ephemerally for activation"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "smooths out",
+    "object": "the rapid growth curve of KV cache memory seen in existing systems 31, 60"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "leads to",
+    "object": "a notable boost in serving throughput"
+  },
+  {
+    "subject": "The key idea behind vLLMs memory manager",
+    "predicate": "is analogous to",
+    "object": "the virtual memory 25 in operating systems"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "uses",
+    "object": "the ideas behind virtual memory to manage the KV cache in an LLM service"
+  },
+  {
+    "subject": "cost per request",
+    "predicate": "is becoming",
+    "object": "more important"
+  },
+  {
+    "subject": "cost per request",
+    "predicate": "of",
+    "object": "LLM serving systems"
+  },
+  {
+    "subject": "LLMs",
+    "predicate": "have at their core",
+    "object": "an autoregressive Transformer model"
+  },
+  {
+    "subject": "This model",
+    "predicate": "generates",
+    "object": "words (tokens)"
+  },
+  {
+    "subject": "This model",
+    "predicate": "generates words",
+    "object": "one at a time"
+  },
+  {
+    "subject": "This model",
+    "predicate": "generates words based on",
+    "object": "the input (prompt)"
+  },
+  {
+    "subject": "This model",
+    "predicate": "generates words based on",
+    "object": "the previous sequence of the outputs tokens it has generated so far"
+  },
+  {
+    "subject": "this expensive process",
+    "predicate": "is repeated",
+    "object": "for each request"
+  },
+  {
+    "subject": "the model",
+    "predicate": "outputs",
+    "object": "a termination token"
+  },
+  {
+    "subject": "This sequential generation process",
+    "predicate": "makes",
+    "object": "the workload memory-bound"
+  },
+  {
+    "subject": "This sequential generation process",
+    "predicate": "underutilizes",
+    "object": "the computation power of GPUs"
+  },
+  {
+    "subject": "This sequential generation process",
+    "predicate": "limits",
+    "object": "the serving throughput"
+  },
+  {
+    "subject": "Improving the throughput",
+    "predicate": "is possible by",
+    "object": "batching multiple requests together"
+  },
+  {
+    "subject": "memory space for each request",
+    "predicate": "should be",
+    "object": "efficiently managed"
+  },
+  {
+    "subject": "One exception",
+    "predicate": "is",
+    "object": "Fig."
+  },
+  {
+    "subject": "Approximately 65 of the memory",
+    "predicate": "is allocated for",
+    "object": "the model weights"
+  },
+  {
+    "subject": "the model weights",
+    "predicate": "remain",
+    "object": "static during serving"
+  },
+  {
+    "subject": "Close to 30 of the memory",
+    "predicate": "is used to store",
+    "object": "the dynamic states of the requests"
+  },
+  {
+    "subject": "these states",
+    "predicate": "consist of",
+    "object": "the key and value tensors associated with the attention mechanism"
+  },
+  {
+    "subject": "the key and value tensors",
+    "predicate": "are commonly referred to as",
+    "object": "KV cache 41"
+  },
+  {
+    "subject": "KV cache 41",
+    "predicate": "represent",
+    "object": "the context from earlier tokens"
+  },
+  {
+    "subject": "the context from earlier tokens",
+    "predicate": "is used to",
+    "object": "generate new output tokens in sequence"
+  },
+  {
+    "subject": "611 Orca (Max)",
+    "predicate": "has KV cache usage",
+    "object": "20.4"
+  },
+  {
+    "subject": "Orca (Pow2)",
+    "predicate": "has KV cache usage",
+    "object": "13.3"
+  },
+  {
+    "subject": "Orca (Oracle)",
+    "predicate": "has KV cache usage",
+    "object": "57.3"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "has KV cache usage",
+    "object": "8.9"
+  },
+  {
+    "subject": "611 Orca (Max)",
+    "predicate": "has Token states",
+    "object": "26.8"
+  },
+  {
+    "subject": "Orca (Pow2)",
+    "predicate": "has Token states",
+    "object": "17.9"
+  },
+  {
+    "subject": "Orca (Oracle)",
+    "predicate": "has Token states",
+    "object": "13.6"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "has Token states",
+    "object": "41.6"
+  },
+  {
+    "subject": "611 Orca (Max)",
+    "predicate": "has Reservation",
+    "object": "38.2"
+  },
+  {
+    "subject": "Orca (Pow2)",
+    "predicate": "has Reservation",
+    "object": "25.2"
+  },
+  {
+    "subject": "Orca (Oracle)",
+    "predicate": "has Reservation",
+    "object": "36.6"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "has Reservation",
+    "object": "96.3"
+  },
+  {
+    "subject": "Average percentage of memory wastes",
+    "predicate": "is measured in",
+    "object": "different LLM serving systems during the experiment in 6.2"
+  },
+  {
+    "subject": "Percentage of memory",
+    "predicate": "is used for",
+    "object": "other data, including activations"
+  },
+  {
+    "subject": "Activations",
+    "predicate": "are",
+    "object": "the ephemeral tensors created when evaluating the LLM"
+  },
+  {
+    "subject": "model weights",
+    "predicate": "are",
+    "object": "constant"
+  },
+  {
+    "subject": "activations",
+    "predicate": "occupy",
+    "object": "a small fraction of the GPU memory"
+  },
+  {
+    "subject": "the way the KV cache is managed",
+    "predicate": "is",
+    "object": "critical in determining the maximum batch size"
+  },
+  {
+    "subject": "KV cache memory",
+    "predicate": "can limit",
+    "object": "batch size"
+  },
+  {
+    "subject": "KV cache memory",
+    "predicate": "can limit",
+    "object": "throughput of the LLM"
+  },
+  {
+    "subject": "limiting batch size and throughput",
+    "predicate": "occurs when",
+    "object": "KV cache memory is managed inefficiently"
+  },
+  {
+    "subject": "fine-grained batching",
+    "predicate": "reduces",
+    "object": "the waste of computing"
+  },
+  {
+    "subject": "fine-grained batching",
+    "predicate": "enables",
+    "object": "requests to be batched in a more flexible way"
+  },
+  {
+    "subject": "the number of requests that can be batched together",
+    "predicate": "is constrained by",
+    "object": "GPU memory capacity"
+  },
+  {
+    "subject": "GPU memory capacity",
+    "predicate": "particularly constrains",
+    "object": "the space allocated to store the KV cache"
+  },
+  {
+    "subject": "The idea of virtual memory and paging",
+    "predicate": "is effective for",
+    "object": "managing the KV cache in LLM serving"
+  },
+  {
+    "subject": "The workload",
+    "predicate": "requires",
+    "object": "dynamic memory allocation"
+  },
+  {
+    "subject": "The output length",
+    "predicate": "is",
+    "object": "not known a priori"
+  },
+  {
+    "subject": "Performance",
+    "predicate": "is bound by",
+    "object": "the GPU memory capacity"
+  },
+  {
+    "subject": "most deep learning frameworks 33, 39",
+    "predicate": "require",
+    "object": "tensors to be stored in contiguous memory"
+  },
+  {
+    "subject": "most operators in current deep learning frameworks",
+    "predicate": "require",
+    "object": "tensors to be stored in contiguous memory"
+  },
+  {
+    "subject": "previous LLM serving systems",
+    "predicate": "store",
+    "object": "the KV cache of one request as a contiguous tensor across the different positions"
+  },
+  {
+    "subject": "KV cache",
+    "predicate": "has",
+    "object": "unique characteristics"
+  },
+  {
+    "subject": "KV cache",
+    "predicate": "dynamically grows and shrinks over time",
+    "object": "as the model generates new tokens"
+  },
+  {
+    "subject": "lifetime and length of KV cache",
+    "predicate": "are",
+    "object": "not known a priori"
+  },
+  {
+    "subject": "existing systems approach",
+    "predicate": "is",
+    "object": "significantly inefficient in two ways"
+  },
+  {
+    "subject": "existing systems 31, 60",
+    "predicate": "suffer from",
+    "object": "internal and external memory fragmentation"
+  },
+  {
+    "subject": "the requests actual length",
+    "predicate": "can be",
+    "object": "much shorter than its maximum length"
+  },
+  {
+    "subject": "pre-allocation",
+    "predicate": "is",
+    "object": "inefficient"
+  },
+  {
+    "subject": "entire chunk",
+    "predicate": "is reserved during",
+    "object": "requests lifetime"
+  },
+  {
+    "subject": "other shorter requests",
+    "predicate": "cannot utilize",
+    "object": "any part of the chunk that is currently unused"
+  },
+  {
+    "subject": "external memory fragmentation",
+    "predicate": "can be",
+    "object": "significant"
+  },
+  {
+    "subject": "pre-allocated size",
+    "predicate": "can be different for",
+    "object": "each request"
+  },
+  {
+    "subject": "KV cache memory",
+    "predicate": "is used to store",
+    "object": "the actual token states"
+  },
+  {
+    "subject": "the actual token states",
+    "predicate": "occupy",
+    "object": "20.4 - 38.2 of the KV cache memory"
+  },
+  {
+    "subject": "existing systems",
+    "predicate": "use",
+    "object": "KV cache memory"
+  },
+  {
+    "subject": "KV cache of one token",
+    "predicate": "depends on",
+    "object": "all its previous tokens"
+  },
+  {
+    "subject": "the KV cache of the same token appearing at different positions in a sequence",
+    "predicate": "will be",
+    "object": "different"
+  },
+  {
+    "subject": "The token in each memory slot",
+    "predicate": "represents",
+    "object": "its KV cache"
+  },
+  {
+    "subject": "the same tokens",
+    "predicate": "can have",
+    "object": "different KV cache"
+  },
+  {
+    "subject": "different KV cache",
+    "predicate": "occur",
+    "object": "at different positions"
+  },
+  {
+    "subject": "the existing systems",
+    "predicate": "cannot exploit",
+    "object": "the opportunities for memory sharing"
+  },
+  {
+    "subject": "LLM services",
+    "predicate": "use",
+    "object": "advanced decoding algorithms"
+  },
+  {
+    "subject": "advanced decoding algorithms",
+    "predicate": "include",
+    "object": "parallel sampling"
+  },
+  {
+    "subject": "advanced decoding algorithms",
+    "predicate": "include",
+    "object": "beam search"
+  },
+  {
+    "subject": "advanced decoding algorithms",
+    "predicate": "generate",
+    "object": "multiple outputs per request"
+  },
+  {
+    "subject": "LLM services",
+    "predicate": "offer",
+    "object": "a range of decoding algorithms"
+  },
+  {
+    "subject": "users",
+    "predicate": "select from",
+    "object": "a range of decoding algorithms"
+  },
+  {
+    "subject": "decoding algorithms",
+    "predicate": "have",
+    "object": "varying implications for memory management complexity"
+  },
+  {
+    "subject": "an LLM service",
+    "predicate": "must offer",
+    "object": "more complex decoding scenarios"
+  },
+  {
+    "subject": "more complex decoding scenarios",
+    "predicate": "exhibit",
+    "object": "complex accessing patterns"
+  },
+  {
+    "subject": "more complex decoding scenarios",
+    "predicate": "exhibit",
+    "object": "more opportunities for memory sharing"
+  },
+  {
+    "subject": "the request",
+    "predicate": "consists of",
+    "object": "multiple sequences"
+  },
+  {
+    "subject": "multiple sequences",
+    "predicate": "can partially share",
+    "object": "their KV cache"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "stores",
+    "object": "the KV cache of two requests at the same time"
+  },
+  {
+    "subject": "a request",
+    "predicate": "finishes",
+    "object": "its generation"
+  },
+  {
+    "subject": "its KV blocks",
+    "predicate": "can be freed to store",
+    "object": "the KV cache of other requests"
+  },
+  {
+    "subject": "memory sharing",
+    "predicate": "is not possible in",
+    "object": "the existing systems"
+  },
+  {
+    "subject": "the KV cache of the sequences",
+    "predicate": "is stored in",
+    "object": "separate contiguous spaces"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "divides",
+    "object": "the requests KV cache into blocks"
+  },
+  {
+    "subject": "each block",
+    "predicate": "can contain",
+    "object": "the attention keys and values of a fixed number of tokens"
+  },
+  {
+    "subject": "PagedAttention kernel",
+    "predicate": "identifies",
+    "object": "different KV blocks"
+  },
+  {
+    "subject": "PagedAttention kernel",
+    "predicate": "fetches",
+    "object": "different KV blocks"
+  },
+  {
+    "subject": "blocks for the KV cache in PagedAttention",
+    "predicate": "are not necessarily stored in",
+    "object": "contiguous space"
+  },
+  {
+    "subject": "The KV cache manager",
+    "predicate": "manages",
+    "object": "the KV cache"
+  },
+  {
+    "subject": "The KV cache manager",
+    "predicate": "manages in a",
+    "object": "paged fashion"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "enables",
+    "object": "paged fashion management of the KV cache"
+  },
+  {
+    "subject": "we",
+    "predicate": "show",
+    "object": "the design of the KV cache manager in 4.2"
+  },
+  {
+    "subject": "the design of the KV cache manager",
+    "predicate": "facilitates",
+    "object": "PagedAttention in 4.3"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "partitions",
+    "object": "the KV cache of each sequence into KV blocks"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "enables",
+    "object": "organizing the KV cache as fixed-size KV blocks"
+  },
+  {
+    "subject": "KV cache",
+    "predicate": "is organized as",
+    "object": "fixed-size KV blocks"
+  },
+  {
+    "subject": "fixed-size KV blocks",
+    "predicate": "are like",
+    "object": "pages in virtual memory"
+  },
+  {
+    "subject": "This design",
+    "predicate": "alleviates",
+    "object": "internal fragmentation"
+  },
+  {
+    "subject": "This design",
+    "predicate": "uses",
+    "object": "relatively small blocks"
+  },
+  {
+    "subject": "This design",
+    "predicate": "allocates",
+    "object": "relatively small blocks on demand"
+  },
+  {
+    "subject": "all blocks",
+    "predicate": "have",
+    "object": "the same size"
+  },
+  {
+    "subject": "memory sharing",
+    "predicate": "occurs across",
+    "object": "the different sequences associated with the same request"
+  },
+  {
+    "subject": "memory sharing",
+    "predicate": "occurs across",
+    "object": "the different requests"
+  },
+  {
+    "subject": "PagedAttention algorithm",
+    "predicate": "allows",
+    "object": "KV blocks to be stored in non-contiguous physical memory"
+  },
+  {
+    "subject": "storing KV blocks in non-contiguous physical memory",
+    "predicate": "enables",
+    "object": "more flexible paged memory management in vLLM"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "uses",
+    "object": "PagedAttention kernel to access the previous KV cache"
+  },
+  {
+    "subject": "previous KV cache",
+    "predicate": "is stored in the form of",
+    "object": "logical KV blocks"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "saves",
+    "object": "newly generated KV cache into the physical KV blocks"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "can realize",
+    "object": "this sharing easily via its PagedAttention and paged memory management"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "can save",
+    "object": "memory via its PagedAttention and paged memory management"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "supports",
+    "object": "popular LLMs such as GPT 5, OPT 62, and LLaMA 52"
+  },
+  {
+    "subject": "popular LLMs such as GPT 5, OPT 62, and LLaMA 52",
+    "predicate": "have",
+    "object": "varying sizes"
+  },
+  {
+    "subject": "varying sizes",
+    "predicate": "include",
+    "object": "ones exceeding the memory capacity of a single GPU"
+  },
+  {
+    "subject": "we",
+    "predicate": "identify",
+    "object": "the challenges in memory allocation in serving LLMs"
+  },
+  {
+    "subject": "we",
+    "predicate": "quantify",
+    "object": "their impact on serving performance"
+  },
+  {
+    "subject": "We",
+    "predicate": "design and implement",
+    "object": "vLLM"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "is",
+    "object": "a distributed LLM serving engine"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "can sustain",
+    "object": "up to 22 higher request rates compared to FasterTransformer"
+  },
+  {
+    "subject": "FasterTransformer",
+    "predicate": "does not utilize",
+    "object": "a fine-grained scheduling mechanism"
+  },
+  {
+    "subject": "FasterTransformer",
+    "predicate": "manages memory",
+    "object": "inefficiently like Orca (Max)"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "reduces",
+    "object": "memory fragmentation"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "enables",
+    "object": "sharing"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "runs",
+    "object": "more requests in a batch in parallel"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "achieves",
+    "object": "a 2-4 speedup compared to Orca"
+  },
+  {
+    "subject": "this section",
+    "predicate": "describes",
+    "object": "the generation and serving procedures of typical LLMs"
+  },
+  {
+    "subject": "this section",
+    "predicate": "describes",
+    "object": "the iteration-level scheduling used in LLM serving"
+  },
+  {
+    "subject": "language modeling",
+    "predicate": "is to model",
+    "object": "the probability of a list of tokens"
+  },
+  {
+    "subject": "language",
+    "predicate": "has",
+    "object": "a natural sequential ordering"
+  },
+  {
+    "subject": "Transformers 53",
+    "predicate": "have become",
+    "object": "the de facto standard architecture for modeling the probability above at a large scale"
+  },
+  {
+    "subject": "The most important component of a Transformer-based language model",
+    "predicate": "is",
+    "object": "its self-attention layers"
+  },
+  {
+    "subject": "a self-attention layer",
+    "predicate": "applies",
+    "object": "linear transformations on each position to get the query, key, and value vectors"
+  },
+  {
+    "subject": "the self-attention layer",
+    "predicate": "computes",
+    "object": "the attention score"
+  },
+  {
+    "subject": "the self-attention layer",
+    "predicate": "computes the attention score by",
+    "object": "multiplying the query vector at one position with all the key vectors before it"
+  },
+  {
+    "subject": "the self-attention layer",
+    "predicate": "computes",
+    "object": "the output as the weighted average over the value vectors"
+  },
+  {
+    "subject": "all other components in the Transformer model",
+    "predicate": "include",
+    "object": "embedding layer"
+  },
+  {
+    "subject": "all other components in the Transformer model",
+    "predicate": "include",
+    "object": "feed-forward layer"
+  },
+  {
+    "subject": "all other components in the Transformer model",
+    "predicate": "include",
+    "object": "layer normalization 2"
+  },
+  {
+    "subject": "all other components in the Transformer model",
+    "predicate": "include",
+    "object": "residual connection 22"
+  },
+  {
+    "subject": "all other components in the Transformer model",
+    "predicate": "include",
+    "object": "output logit computation"
+  },
+  {
+    "subject": "all other components in the Transformer model",
+    "predicate": "include",
+    "object": "query, key, and value transformation in Eq."
+  },
+  {
+    "subject": "LLMs",
+    "predicate": "are deployed as",
+    "object": "a conditional generation service"
+  },
+  {
+    "subject": "A request to an LLM service",
+    "predicate": "provides",
+    "object": "a list of input prompt tokens"
+  },
+  {
+    "subject": "We",
+    "predicate": "refer to",
+    "object": "the concatenation of the prompt and output lists as sequence"
+  },
+  {
+    "subject": "the LLM",
+    "predicate": "can only sample and generate",
+    "object": "new tokens one by one"
+  },
+  {
+    "subject": "the generation process of each new token",
+    "predicate": "depends on",
+    "object": "all the previous tokens in that sequence"
+  },
+  {
+    "subject": "all the previous tokens in that sequence",
+    "predicate": "specifically have",
+    "object": "their key and value vectors"
+  },
+  {
+    "subject": "key and value vectors of existing tokens",
+    "predicate": "are often cached for",
+    "object": "generating future tokens"
+  },
+  {
+    "subject": "generating future tokens",
+    "predicate": "is known as",
+    "object": "KV cache"
+  },
+  {
+    "subject": "A requests KV cache",
+    "predicate": "is represented as",
+    "object": "a series of logical KV blocks"
+  },
+  {
+    "subject": "logical KV blocks",
+    "predicate": "are filled from",
+    "object": "left to right"
+  },
+  {
+    "subject": "logical KV blocks",
+    "predicate": "are filled as",
+    "object": "new tokens and their KV cache are generated"
+  },
+  {
+    "subject": "generation computation in the LLM service",
+    "predicate": "can be decomposed into",
+    "object": "two phases"
+  },
+  {
+    "subject": "The prompt phase",
+    "predicate": "takes",
+    "object": "the whole user prompt"
+  },
+  {
+    "subject": "the computation of the prompt phase",
+    "predicate": "can be parallelized using",
+    "object": "matrix-matrix multiplication operations"
+  },
+  {
+    "subject": "this phase",
+    "predicate": "can efficiently use",
+    "object": "the parallelism inherent in GPUs"
+  },
+  {
+    "subject": "The autoregressive generation phase",
+    "predicate": "generates",
+    "object": "the remaining new tokens sequentially"
+  },
+  {
+    "subject": "key and value vectors at positions 1 to 1",
+    "predicate": "are cached at",
+    "object": "previous iterations"
+  },
+  {
+    "subject": "new key and value vector",
+    "predicate": "are computed at",
+    "object": "this iteration"
+  },
+  {
+    "subject": "This phase",
+    "predicate": "completes when",
+    "object": "the sequence reaches a maximum length"
+  },
+  {
+    "subject": "maximum length",
+    "predicate": "is specified by",
+    "object": "users"
+  },
+  {
+    "subject": "maximum length",
+    "predicate": "is limited by",
+    "object": "LLMs"
+  },
+  {
+    "subject": "This phase",
+    "predicate": "completes when",
+    "object": "an end-of-sequence (eos) token is emitted"
+  },
+  {
+    "subject": "The computation at different iterations",
+    "predicate": "cannot be",
+    "object": "parallelized"
+  },
+  {
+    "subject": "The computation at different iterations",
+    "predicate": "cannot be parallelized due to",
+    "object": "the data dependency"
+  },
+  {
+    "subject": "The computation at different iterations",
+    "predicate": "often uses",
+    "object": "matrix-vector multiplication"
+  },
+  {
+    "subject": "matrix-vector multiplication",
+    "predicate": "is",
+    "object": "less efficient"
+  },
+  {
+    "subject": "this phase",
+    "predicate": "underutilizes",
+    "object": "GPU computation"
+  },
+  {
+    "subject": "this phase",
+    "predicate": "becomes",
+    "object": "memory-bound"
+  },
+  {
+    "subject": "this phase",
+    "predicate": "is responsible for",
+    "object": "most portion of the latency of a single request"
+  },
+  {
+    "subject": "compute utilization in serving LLMs",
+    "predicate": "can be improved by",
+    "object": "batching multiple requests"
+  },
+  {
+    "subject": "batching the requests to an LLM service",
+    "predicate": "is",
+    "object": "non-trivial"
+  },
+  {
+    "subject": "requests",
+    "predicate": "share",
+    "object": "the same model weights"
+  },
+  {
+    "subject": "the overhead of moving weights",
+    "predicate": "is amortized across",
+    "object": "the requests in a batch"
+  },
+  {
+    "subject": "the overhead of moving weights",
+    "predicate": "can be overwhelmed by",
+    "object": "the computational overhead"
+  },
+  {
+    "subject": "the computational overhead",
+    "predicate": "is related to",
+    "object": "the batch size being sufficiently large"
+  },
+  {
+    "subject": "requests",
+    "predicate": "may arrive at",
+    "object": "different times"
+  },
+  {
+    "subject": "A naive batching strategy",
+    "predicate": "would either make",
+    "object": "earlier requests wait for later ones"
+  },
+  {
+    "subject": "A naive batching strategy",
+    "predicate": "would either",
+    "object": "delay the incoming requests until earlier ones finish"
+  },
+  {
+    "subject": "delaying the incoming requests until earlier ones finish",
+    "predicate": "leads to",
+    "object": "significant queueing delays"
+  },
+  {
+    "subject": "requests",
+    "predicate": "may have",
+    "object": "vastly different input and output lengths"
+  },
+  {
+    "subject": "A straightforward batching technique",
+    "predicate": "would pad",
+    "object": "the inputs and outputs of the requests"
+  },
+  {
+    "subject": "padding the inputs and outputs of the requests",
+    "predicate": "to",
+    "object": "equalize their lengths"
+  },
+  {
+    "subject": "padding the inputs and outputs of the requests",
+    "predicate": "wastes",
+    "object": "GPU computation and memory"
+  },
+  {
+    "subject": "fine-grained batching mechanisms",
+    "predicate": "include",
+    "object": "cellular batching"
+  },
+  {
+    "subject": "fine-grained batching mechanisms",
+    "predicate": "include",
+    "object": "iteration-level scheduling"
+  },
+  {
+    "subject": "fine-grained batching mechanisms",
+    "predicate": "have been proposed",
+    "object": "to address this problem"
+  },
+  {
+    "subject": "these techniques",
+    "predicate": "operate at",
+    "object": "the iteration level"
+  },
+  {
+    "subject": "traditional methods",
+    "predicate": "work at",
+    "object": "the request level"
+  },
+  {
+    "subject": "completed requests",
+    "predicate": "are removed from",
+    "object": "the batch"
+  },
+  {
+    "subject": "new ones",
+    "predicate": "are added",
+    "object": "the batch"
+  },
+  {
+    "subject": "a new request",
+    "predicate": "can be processed after",
+    "object": "waiting for a single iteration"
+  },
+  {
+    "subject": "a new request",
+    "predicate": "cannot be processed after",
+    "object": "waiting for the entire batch to complete"
+  },
+  {
+    "subject": "these techniques",
+    "predicate": "eliminate",
+    "object": "the need to pad the inputs and outputs"
+  },
+  {
+    "subject": "special GPU kernels",
+    "predicate": "are used by",
+    "object": "these techniques"
+  },
+  {
+    "subject": "fine-grained batching mechanisms",
+    "predicate": "reduce",
+    "object": "queueing delay and the inefficiencies from padding"
+  },
+  {
+    "subject": "fine-grained batching mechanisms",
+    "predicate": "significantly increase",
+    "object": "the throughput of LLM serving"
+  },
+  {
+    "subject": "our fathers",
+    "predicate": "brought forth",
+    "object": "613 Four score and seven years ago"
+  },
+  {
+    "subject": "You",
+    "predicate": "only live",
+    "object": "once"
+  },
+  {
+    "subject": "2038 slots",
+    "predicate": "are",
+    "object": "never used (internal fragmentation)"
+  },
+  {
+    "subject": "2 slots",
+    "predicate": "are",
+    "object": "future used (reserved)"
+  },
+  {
+    "subject": "External fragmentation",
+    "predicate": "exists in",
+    "object": "memory"
+  },
+  {
+    "subject": "7 KV cache states",
+    "predicate": "are for",
+    "object": "request As prompt"
+  },
+  {
+    "subject": "3 KV cache states",
+    "predicate": "are for",
+    "object": "request Bs prompt"
+  },
+  {
+    "subject": "1 slot",
+    "predicate": "is",
+    "object": "future used (reserved)"
+  },
+  {
+    "subject": "507 slots",
+    "predicate": "are",
+    "object": "never used (Internal fragmentation)"
+  },
+  {
+    "subject": "Request B",
+    "predicate": "is",
+    "object": "current iteration"
+  },
+  {
+    "subject": "1 slot",
+    "predicate": "is for",
+    "object": "generated token"
+  },
+  {
+    "subject": "Figure 3",
+    "predicate": "is",
+    "object": "illustration"
+  },
+  {
+    "subject": "Three types of memory wastes",
+    "predicate": "are",
+    "object": "reserved, internal fragmentation, and external fragmentation"
+  },
+  {
+    "subject": "Three types of memory wastes",
+    "predicate": "exist",
+    "object": "to prevent other requests from fitting into the memory"
+  },
+  {
+    "subject": "serving systems throughput",
+    "predicate": "is",
+    "object": "memory-bound"
+  },
+  {
+    "subject": "the performance of the systems",
+    "predicate": "becomes",
+    "object": "compute-bound rather than memory-bound"
+  },
+  {
+    "subject": "Overcoming this memory-bound",
+    "predicate": "requires addressing",
+    "object": "the following challenges in the memory management"
+  },
+  {
+    "subject": "the challenges in the memory management",
+    "predicate": "include",
+    "object": "Large KV cache"
+  },
+  {
+    "subject": "KV cache of a single token",
+    "predicate": "demands",
+    "object": "800 KB of space"
+  },
+  {
+    "subject": "800 KB of space",
+    "predicate": "is calculated as",
+    "object": "2 (key and value vectors) × 5120 (hidden state size) × 40 (number of layers) × 2 (bytes per FP16)"
+  },
+  {
+    "subject": "model",
+    "predicate": "is",
+    "object": "13B parameter OPT model 62"
+  },
+  {
+    "subject": "OPT",
+    "predicate": "can generate sequences up to",
+    "object": "2048 tokens"
+  },
+  {
+    "subject": "the memory required to store the KV cache of one request",
+    "predicate": "can be as much as",
+    "object": "1.6 GB"
+  },
+  {
+    "subject": "Concurrent GPUs",
+    "predicate": "have",
+    "object": "memory capacities in the tens of GBs"
+  },
+  {
+    "subject": "GPUs computation speed",
+    "predicate": "grows faster than",
+    "object": "memory capacity"
+  },
+  {
+    "subject": "FLOPS",
+    "predicate": "increases by",
+    "object": "more than 2x from NVIDIA A100 to H100"
+  },
+  {
+    "subject": "GPU memory",
+    "predicate": "stays at",
+    "object": "80GB maximum"
+  },
+  {
+    "subject": "memory",
+    "predicate": "will become",
+    "object": "an increasingly significant bottleneck"
+  },
+  {
+    "subject": "users",
+    "predicate": "request",
+    "object": "multiple random samples from a single input prompt"
+  },
+  {
+    "subject": "multiple random samples from a single input prompt",
+    "predicate": "is",
+    "object": "a typical use case in program suggestion 18"
+  },
+  {
+    "subject": "the KV cache of the prompt part",
+    "predicate": "accounts for",
+    "object": "12 of the total KV cache memory in our experiment (6.3)"
+  },
+  {
+    "subject": "the KV cache of the prompt part",
+    "predicate": "can be shared to",
+    "object": "minimize memory usage"
+  },
+  {
+    "subject": "KV cache",
+    "predicate": "should remain",
+    "object": "unshared during the autoregressive generation phase"
+  },
+  {
+    "subject": "different sample results and their dependence on context and position",
+    "predicate": "cause",
+    "object": "KV cache to remain unshared"
+  },
+  {
+    "subject": "The extent of KV cache sharing",
+    "predicate": "depends on",
+    "object": "the specific decoding algorithm employed"
+  },
+  {
+    "subject": "different request beams",
+    "predicate": "can share",
+    "object": "larger portions of their KV cache"
+  },
+  {
+    "subject": "larger portions",
+    "predicate": "up to",
+    "object": "55 memory saving"
+  },
+  {
+    "subject": "sharing pattern",
+    "predicate": "evolves",
+    "object": "as the decoding process advances"
+  },
+  {
+    "subject": "Scheduling",
+    "predicate": "is for",
+    "object": "unknown input output lengths"
+  },
+  {
+    "subject": "The requests to an LLM service",
+    "predicate": "exhibit",
+    "object": "variability in their input and output lengths"
+  },
+  {
+    "subject": "LLM services",
+    "predicate": "face",
+    "object": "a unique challenge"
+  },
+  {
+    "subject": "input prompts for an LLM",
+    "predicate": "can vary",
+    "object": "significantly in length"
+  },
+  {
+    "subject": "resulting output lengths",
+    "predicate": "are not known",
+    "object": "a priori"
+  },
+  {
+    "subject": "resulting output lengths",
+    "predicate": "are contingent on",
+    "object": "both the input prompt and the model"
+  },
+  {
+    "subject": "the memory management system",
+    "predicate": "to accommodate",
+    "object": "a wide range of prompt lengths"
+  },
+  {
+    "subject": "The system",
+    "predicate": "needs to make",
+    "object": "scheduling decisions"
+  },
+  {
+    "subject": "scheduling decisions",
+    "predicate": "include",
+    "object": "deleting or swapping out the KV cache of some requests from GPU memory"
+  },
+  {
+    "subject": "allocation",
+    "predicate": "is based on",
+    "object": "the request's maximum possible sequence length"
+  },
+  {
+    "subject": "allocation",
+    "predicate": "is irrespective of",
+    "object": "the actual input or eventual output length of the request"
+  },
+  {
+    "subject": "request A",
+    "predicate": "has maximum possible sequence length",
+    "object": "2048"
+  },
+  {
+    "subject": "request B",
+    "predicate": "has maximum possible sequence length",
+    "object": "512"
+  },
+  {
+    "subject": "The chunk pre-allocation scheme in existing systems",
+    "predicate": "has",
+    "object": "three primary sources of memory wastes"
+  },
+  {
+    "subject": "three primary sources of memory wastes",
+    "predicate": "include",
+    "object": "reserved slots for future tokens"
+  },
+  {
+    "subject": "three primary sources of memory wastes",
+    "predicate": "include",
+    "object": "internal fragmentation due to over-provisioning for potential maximum sequence lengths"
+  },
+  {
+    "subject": "three primary sources of memory wastes",
+    "predicate": "include",
+    "object": "external fragmentation from the memory allocator like the buddy allocator"
+  },
+  {
+    "subject": "The external fragmentation",
+    "predicate": "will never be used for",
+    "object": "generated tokens"
+  },
+  {
+    "subject": "The external fragmentation",
+    "predicate": "is known before",
+    "object": "serving a request"
+  },
+  {
+    "subject": "Internal fragmentation",
+    "predicate": "remains",
+    "object": "unused"
+  },
+  {
+    "subject": "reserving this space for the entire requests duration",
+    "predicate": "occupies",
+    "object": "the space that could otherwise be used to process other requests"
+  },
+  {
+    "subject": "We",
+    "predicate": "visualize",
+    "object": "the average percentage of memory wastes in our experiments in Fig."
+  },
+  {
+    "subject": "actual effective memory in previous systems",
+    "predicate": "can be as low as",
+    "object": "20.4"
+  },
+  {
+    "subject": "614 KV Cache Manager",
+    "predicate": "is part of",
+    "object": "vLLM system"
+  },
+  {
+    "subject": "Scheduler",
+    "predicate": "is part of",
+    "object": "vLLM system"
+  },
+  {
+    "subject": "CPU Block Allocator",
+    "predicate": "is part of",
+    "object": "vLLM system"
+  },
+  {
+    "subject": "GPU Block Allocator",
+    "predicate": "is part of",
+    "object": "vLLM system"
+  },
+  {
+    "subject": "Block tables",
+    "predicate": "are part of",
+    "object": "vLLM system"
+  },
+  {
+    "subject": "Worker 0",
+    "predicate": "runs",
+    "object": "Model Shard 0 Cache Engine"
+  },
+  {
+    "subject": "Figure 4",
+    "predicate": "shows",
+    "object": "vLLM system overview"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "includes",
+    "object": "a CPU block allocator"
+  },
+  {
+    "subject": "CPU block allocator",
+    "predicate": "manages",
+    "object": "the physical blocks swapped to CPU RAM"
+  },
+  {
+    "subject": "GPU block allocator",
+    "predicate": "is included in",
+    "object": "vLLM"
+  },
+  {
+    "subject": "compaction 54",
+    "predicate": "has been proposed as",
+    "object": "a potential solution to fragmentation"
+  },
+  {
+    "subject": "performing compaction in a performance-sensitive LLM serving system",
+    "predicate": "is",
+    "object": "impractical"
+  },
+  {
+    "subject": "performing compaction in a performance-sensitive LLM serving system",
+    "predicate": "is impractical due to",
+    "object": "the massive KV cache"
+  },
+  {
+    "subject": "pre-allocated chunk space for each request",
+    "predicate": "prevents",
+    "object": "memory sharing specific to decoding algorithms in existing memory management systems"
+  },
+  {
+    "subject": "we",
+    "predicate": "develop",
+    "object": "a new attention algorithm, PagedAttention"
+  },
+  {
+    "subject": "we",
+    "predicate": "build",
+    "object": "an LLM serving engine, vLLM"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "tackle",
+    "object": "the challenges outlined in 3"
+  },
+  {
+    "subject": "The architecture of vLLM",
+    "predicate": "is shown in",
+    "object": "Fig."
+  },
+  {
+    "subject": "We",
+    "predicate": "show",
+    "object": "the general applicability of vLLM on them"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "adopts",
+    "object": "a centralized scheduler"
+  },
+  {
+    "subject": "a centralized scheduler",
+    "predicate": "coordinates",
+    "object": "the execution of distributed GPU workers"
+  },
+  {
+    "subject": "the KV cache manager",
+    "predicate": "manages",
+    "object": "the physical KV cache memory on the GPU workers"
+  },
+  {
+    "subject": "the KV cache manager",
+    "predicate": "manages through",
+    "object": "the instructions sent by the centralized scheduler"
+  },
+  {
+    "subject": "each GPU worker",
+    "predicate": "has",
+    "object": "the same physical block IDs"
+  },
+  {
+    "subject": "a worker",
+    "predicate": "stores",
+    "object": "a portion of the KV cache for its corresponding attention heads"
+  },
+  {
+    "subject": "GPU workers",
+    "predicate": "read",
+    "object": "the KV cache"
+  },
+  {
+    "subject": "GPU workers",
+    "predicate": "read according to",
+    "object": "the block table in the control message"
+  },
+  {
+    "subject": "the block table",
+    "predicate": "is in",
+    "object": "the control message"
+  },
+  {
+    "subject": "the KV cache",
+    "predicate": "is read in",
+    "object": "the attention layers"
+  },
+  {
+    "subject": "We",
+    "predicate": "describe",
+    "object": "the PagedAttention algorithm"
+  },
+  {
+    "subject": "the PagedAttention algorithm",
+    "predicate": "is described in",
+    "object": "4.1"
+  },
+  {
+    "subject": "We",
+    "predicate": "show",
+    "object": "an example of PagedAttention in Fig."
+  },
+  {
+    "subject": "this design",
+    "predicate": "facilitates",
+    "object": "effective memory management for various decoding methods (4.4)"
+  },
+  {
+    "subject": "this design",
+    "predicate": "handles",
+    "object": "the variable length input and output sequences (4.5)"
+  },
+  {
+    "subject": "the system design of vLLM",
+    "predicate": "works in",
+    "object": "a distributed setting"
+  },
+  {
+    "subject": "Each block",
+    "predicate": "contains",
+    "object": "the key and value vectors for a fixed number of tokens"
+  },
+  {
+    "subject": "We",
+    "predicate": "denote",
+    "object": "the key and value vectors for a fixed number of tokens as KV"
+  },
+  {
+    "subject": "Each token",
+    "predicate": "has",
+    "object": "a set of key and value vectors across layers and attention heads within a layer"
+  },
+  {
+    "subject": "All the key and value vectors",
+    "predicate": "can be managed together within",
+    "object": "a single KV block"
+  },
+  {
+    "subject": "the key and value vectors at different heads and layers",
+    "predicate": "can each have",
+    "object": "a separate block"
+  },
+  {
+    "subject": "the key and value vectors at different heads and layers",
+    "predicate": "can be managed in",
+    "object": "separate block tables"
+  },
+  {
+    "subject": "The two designs",
+    "predicate": "have",
+    "object": "no performance difference"
+  },
+  {
+    "subject": "we",
+    "predicate": "choose",
+    "object": "the second one"
+  },
+  {
+    "subject": "the second one",
+    "predicate": "is chosen for",
+    "object": "easy implementation"
+  },
+  {
+    "subject": "our fathers",
+    "predicate": "brought forth",
+    "object": "Four score and seven"
+  },
+  {
+    "subject": "We",
+    "predicate": "study",
+    "object": "the effect of block size in 7.2"
+  },
+  {
+    "subject": "key block",
+    "predicate": "denote",
+    "object": "((1)1"
+  },
+  {
+    "subject": "The attention computation",
+    "predicate": "is in",
+    "object": "Eq."
+  },
+  {
+    "subject": "4",
+    "predicate": "can be transformed into",
+    "object": "the following block-wise computation"
+  },
+  {
+    "subject": "The key and value vectors",
+    "predicate": "are spread across",
+    "object": "three blocks"
+  },
+  {
+    "subject": "The three blocks",
+    "predicate": "are not",
+    "object": "contiguous on the physical memory"
+  },
+  {
+    "subject": "the kernel",
+    "predicate": "multiplies",
+    "object": "the query vector of the query token (forth) and the key vectors in a block"
+  },
+  {
+    "subject": "the kernel",
+    "predicate": "computes",
+    "object": "the attention score"
+  },
+  {
+    "subject": "the kernel",
+    "predicate": "multiplies with",
+    "object": "the value vectors in a block"
+  },
+  {
+    "subject": "the kernel",
+    "predicate": "derives",
+    "object": "the final attention output"
+  },
+  {
+    "subject": "OS",
+    "predicate": "partitions",
+    "object": "memory into fixed-sized pages"
+  },
+  {
+    "subject": "OS",
+    "predicate": "maps",
+    "object": "user programs logical pages to physical pages"
+  },
+  {
+    "subject": "Contiguous logical pages",
+    "predicate": "can correspond to",
+    "object": "non-contiguous physical memory pages"
+  },
+  {
+    "subject": "user programs",
+    "predicate": "can access",
+    "object": "memory as though it were contiguous"
+  },
+  {
+    "subject": "physical memory space",
+    "predicate": "needs not to be",
+    "object": "fully reserved in advance"
+  },
+  {
+    "subject": "the OS",
+    "predicate": "enables",
+    "object": "to dynamically allocate physical pages as needed"
+  },
+  {
+    "subject": "The last KV blocks unfilled positions",
+    "predicate": "are reserved for",
+    "object": "future generations"
+  },
+  {
+    "subject": "block engine",
+    "predicate": "allocates",
+    "object": "a contiguous chunk of GPU DRAM"
+  },
+  {
+    "subject": "fathers",
+    "predicate": "brought",
+    "object": "Four score and seven years ago"
+  },
+  {
+    "subject": "Physical KV blocks",
+    "predicate": "are located on",
+    "object": "GPU DRAM"
+  },
+  {
+    "subject": "Block table translation",
+    "predicate": "is in",
+    "object": "vLLM"
+  },
+  {
+    "subject": "The KV block manager",
+    "predicate": "maintains",
+    "object": "block tables"
+  },
+  {
+    "subject": "block tables",
+    "predicate": "are",
+    "object": "the mapping between logical and physical KV blocks of each request"
+  },
+  {
+    "subject": "Each block table entry",
+    "predicate": "records",
+    "object": "the corresponding physical blocks of a logical block"
+  },
+  {
+    "subject": "Each block table entry",
+    "predicate": "records",
+    "object": "the number of filled positions"
+  },
+  {
+    "subject": "Separating logical and physical KV blocks",
+    "predicate": "allows",
+    "object": "vLLM to dynamically grow the KV cache memory without reserving it for all positions in advance"
+  },
+  {
+    "subject": "Separating logical and physical KV blocks",
+    "predicate": "eliminates",
+    "object": "most memory waste in existing systems"
+  },
+  {
+    "subject": "all the blocks",
+    "predicate": "are filled",
+    "object": "from left to right"
+  },
+  {
+    "subject": "a new physical block",
+    "predicate": "is allocated",
+    "object": "only when all previous blocks are full"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "limits",
+    "object": "all the memory wastes for a request within one block"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "can utilize",
+    "object": "all the memory effectively"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "enables",
+    "object": "the sharing of most of the space used to store the prompts KV cache across multiple output samples"
+  },
+  {
+    "subject": "the final logical block",
+    "predicate": "is managed by",
+    "object": "a copy-on-write mechanism"
+  },
+  {
+    "subject": "vLLMs physical block sharing",
+    "predicate": "reduces",
+    "object": "frequent memory copy overhead"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "conceals",
+    "object": "the complex memory sharing between different sequences"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "uses",
+    "object": "a common mapping layer"
+  },
+  {
+    "subject": "a common mapping layer",
+    "predicate": "translates",
+    "object": "logical blocks to physical blocks"
+  },
+  {
+    "subject": "introducing the vLLMs techniques",
+    "predicate": "may degrade",
+    "object": "the performance"
+  },
+  {
+    "subject": "the degradation of performance",
+    "predicate": "is due to",
+    "object": "the extra overhead of memory indirection and non-contiguous block memory"
+  },
+  {
+    "subject": "We",
+    "predicate": "walk through",
+    "object": "an example"
+  },
+  {
+    "subject": "The example",
+    "predicate": "is in",
+    "object": "Fig."
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "generates",
+    "object": "the new token"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "uses",
+    "object": "the PagedAttention algorithm"
+  },
+  {
+    "subject": "the PagedAttention algorithm",
+    "predicate": "operates on",
+    "object": "physical blocks 7 and 1"
+  },
+  {
+    "subject": "the new token",
+    "predicate": "is generated in",
+    "object": "the first autoregressive decoding step"
+  },
+  {
+    "subject": "4.3",
+    "predicate": "shows how",
+    "object": "PagedAttention and vLLM handle basic decoding algorithms"
+  },
+  {
+    "subject": "basic decoding algorithms",
+    "predicate": "include",
+    "object": "greedy decoding and sampling"
+  },
+  {
+    "subject": "basic decoding algorithms",
+    "predicate": "take as input",
+    "object": "one user prompt"
+  },
+  {
+    "subject": "basic decoding algorithms",
+    "predicate": "generate",
+    "object": "a single output sequence"
+  },
+  {
+    "subject": "The prompt",
+    "predicate": "has",
+    "object": "7 tokens"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "maps",
+    "object": "the first 2 logical KV blocks (0 and 1) to 2 physical KV blocks (7 and 1, respectively)"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "generates",
+    "object": "the KV cache of the prompts and the first output token"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "uses",
+    "object": "a conventional self-attention algorithm (e.g., 13)"
+  },
+  {
+    "subject": "the prefill step",
+    "predicate": "involves",
+    "object": "vLLM generating the KV cache of the prompts and the first output token"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "stores",
+    "object": "the KV cache of the first 4 tokens in logical block 0"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "stores",
+    "object": "the KV cache of the following 3 tokens in logical block 1"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "dynamically assigns",
+    "object": "new physical blocks to logical blocks"
+  },
+  {
+    "subject": "more tokens and their KV cache",
+    "predicate": "are generated",
+    "object": ""
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "exhausts",
+    "object": "free physical blocks for new tokens"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "selects",
+    "object": "a set of sequences to evict"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "transfers",
+    "object": "their KV cache to the CPU"
+  },
+  {
+    "subject": "The remaining slot",
+    "predicate": "is reserved for",
+    "object": "the subsequent autoregressive generation phase"
+  },
+  {
+    "subject": "one slot",
+    "predicate": "remains",
+    "object": "available in the last logical block"
+  },
+  {
+    "subject": "newly generated KV cache",
+    "predicate": "is stored",
+    "object": "in the last logical block"
+  },
+  {
+    "subject": "block tables filled record",
+    "predicate": "is updated",
+    "object": ""
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "selects",
+    "object": "a set of candidate sequences for batching"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "allocates",
+    "object": "the physical blocks for the newly required logical blocks"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "concatenates",
+    "object": "all the input tokens of the current iteration"
+  },
+  {
+    "subject": "all tokens",
+    "predicate": "are for",
+    "object": "prompt phase"
+  },
+  {
+    "subject": "prompt phase",
+    "predicate": "includes",
+    "object": "Four score and seven years ago our fathers brought"
+  },
+  {
+    "subject": "Physical KV blocks",
+    "predicate": "include",
+    "object": "Block 0 Block 1 Block 2 Block 3 Block 4 Block 5 Block 6 Block 7 Block 8"
+  },
+  {
+    "subject": "Logical KV blocks",
+    "predicate": "include",
+    "object": "Block 0 Block 1 Block 2"
+  },
+  {
+    "subject": "Storing multiple tokens within a KV block (block size 1)",
+    "predicate": "enables",
+    "object": "the PagedAttention kernel to process the KV cache across more positions in parallel"
+  },
+  {
+    "subject": "Processing the KV cache across more positions in parallel",
+    "predicate": "increases",
+    "object": "hardware utilization"
+  },
+  {
+    "subject": "Processing the KV cache across more positions in parallel",
+    "predicate": "reduces",
+    "object": "latency"
+  },
+  {
+    "subject": "a larger block size",
+    "predicate": "increases",
+    "object": "memory fragmentation"
+  },
+  {
+    "subject": "batching",
+    "predicate": "improves",
+    "object": "the throughput"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "manages",
+    "object": "the memory for two sequences"
+  },
+  {
+    "subject": "The logical blocks of the two sequences",
+    "predicate": "are mapped to",
+    "object": "different physical blocks within the space reserved by the block engine in GPU workers"
+  },
+  {
+    "subject": "The neighboring logical blocks of both sequences",
+    "predicate": "do not need to be",
+    "object": "contiguous in physical GPU memory"
+  },
+  {
+    "subject": "The space of physical blocks",
+    "predicate": "can be effectively utilized by",
+    "object": "both sequences"
+  },
+  {
+    "subject": "an LLM",
+    "predicate": "generates",
+    "object": "multiple sampled outputs for a single input prompt"
+  },
+  {
+    "subject": "users",
+    "predicate": "can choose",
+    "object": "a favorite output from various candidates"
+  },
+  {
+    "subject": "request",
+    "predicate": "is",
+    "object": "616 Sample A1"
+  },
+  {
+    "subject": "Sample A1",
+    "predicate": "contains",
+    "object": "Four score and seven years ago our fathers"
+  },
+  {
+    "subject": "Block 0",
+    "predicate": "is part of",
+    "object": "Physical KV blocks"
+  },
+  {
+    "subject": "Logical KV blocks",
+    "predicate": "include",
+    "object": "Block 0"
+  },
+  {
+    "subject": "Logical KV blocks",
+    "predicate": "include",
+    "object": "Four score and seven years ago our mothers"
+  },
+  {
+    "subject": "Sample A2",
+    "predicate": "is",
+    "object": "Copy-on-write"
+  },
+  {
+    "subject": "Sample A2",
+    "predicate": "has",
+    "object": "Ref count: 2"
+  },
+  {
+    "subject": "Figure 8",
+    "predicate": "is referenced",
+    "object": "in the text"
+  },
+  {
+    "subject": "a request",
+    "predicate": "generates",
+    "object": "multiple sequences"
+  },
+  {
+    "subject": "one request",
+    "predicate": "includes",
+    "object": "multiple samples sharing the same input prompt"
+  },
+  {
+    "subject": "multiple samples",
+    "predicate": "share",
+    "object": "the same input prompt"
+  },
+  {
+    "subject": "one request",
+    "predicate": "allows",
+    "object": "the KV cache of the prompt to be shared"
+  },
+  {
+    "subject": "all parallel sequences in a request",
+    "predicate": "can share",
+    "object": "the KV cache for the prompt"
+  },
+  {
+    "subject": "8",
+    "predicate": "shows",
+    "object": "an example of parallel decoding for two outputs"
+  },
+  {
+    "subject": "both outputs",
+    "predicate": "share",
+    "object": "the same prompt"
+  },
+  {
+    "subject": "we",
+    "predicate": "reserve space for",
+    "object": "one copy of the prompts state at the prompt phase"
+  },
+  {
+    "subject": "the logical blocks for the prompts of both sequences",
+    "predicate": "are mapped to",
+    "object": "the same physical blocks"
+  },
+  {
+    "subject": "logical block 0 of both sequences",
+    "predicate": "is mapped to",
+    "object": "physical block 7"
+  },
+  {
+    "subject": "a single physical block",
+    "predicate": "can be mapped to",
+    "object": "multiple logical blocks"
+  },
+  {
+    "subject": "we",
+    "predicate": "introduce",
+    "object": "a reference count for each physical block"
+  },
+  {
+    "subject": "reference counts for physical block 7",
+    "predicate": "are",
+    "object": "2"
+  },
+  {
+    "subject": "the two outputs",
+    "predicate": "sample",
+    "object": "different output tokens"
+  },
+  {
+    "subject": "the two outputs",
+    "predicate": "need",
+    "object": "separate storage for KV cache"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "implements",
+    "object": "a copy-on-write mechanism at the block granularity"
+  },
+  {
+    "subject": "copy-on-write mechanism",
+    "predicate": "applies to",
+    "object": "physical blocks that need modification by multiple sequences"
+  },
+  {
+    "subject": "copy-on-write mechanism",
+    "predicate": "is similar to",
+    "object": "the copy-on-write technique in OS virtual memory"
+  },
+  {
+    "subject": "copy-on-write technique in OS virtual memory",
+    "predicate": "is used",
+    "object": "when forking a process"
+  },
+  {
+    "subject": "sample A1",
+    "predicate": "needs to write to",
+    "object": "its last logical block (logical block 1)"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "recognizes",
+    "object": "the reference count of the corresponding physical block (physical block 1) is greater than 1"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "allocates",
+    "object": "a new physical block (physical block 3)"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "instructs",
+    "object": "the block engine to copy the information from physical block 1"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "decreases",
+    "object": "the reference count to 1"
+  },
+  {
+    "subject": "sample A2",
+    "predicate": "writes to",
+    "object": "physical block 1"
+  },
+  {
+    "subject": "reference count",
+    "predicate": "is reduced to",
+    "object": "1"
+  },
+  {
+    "subject": "A2",
+    "predicate": "writes",
+    "object": "newly generated KV cache to physical block 1"
+  },
+  {
+    "subject": "sharing physical blocks across multiple samples",
+    "predicate": "can reduce",
+    "object": "memory usage"
+  },
+  {
+    "subject": "memory usage",
+    "predicate": "can be reduced",
+    "object": "greatly"
+  },
+  {
+    "subject": "memory usage reduction",
+    "predicate": "is especially effective for",
+    "object": "long input prompts"
+  },
+  {
+    "subject": "users",
+    "predicate": "expect",
+    "object": "top-most appropriate translations output by the LLM in LLM tasks like machine translation 59"
+  },
+  {
+    "subject": "Beam search 49",
+    "predicate": "is widely used to decode",
+    "object": "the most probable output sequence from an LLM"
+  },
+  {
+    "subject": "Beam search 49",
+    "predicate": "mitigates",
+    "object": "the computational complexity of fully traversing the Block 10 Block 11 Block 1 Block 3 Block 6 Block 7 Block 5 Block 0 Block 2 Block 4 Block 8 Block 9 Block 12"
+  },
+  {
+    "subject": "beam search",
+    "predicate": "expands",
+    "object": "each candidate sequence in the beam during decoding"
+  },
+  {
+    "subject": "beam search",
+    "predicate": "considers",
+    "object": "all possible tokens"
+  },
+  {
+    "subject": "beam search",
+    "predicate": "computes",
+    "object": "respective probabilities using the LLM"
+  },
+  {
+    "subject": "beam search",
+    "predicate": "retains",
+    "object": "the top-most probable sequences out of candidates"
+  },
+  {
+    "subject": "candidates",
+    "predicate": "is related to",
+    "object": "vocabulary size"
+  },
+  {
+    "subject": "The algorithm",
+    "predicate": "relies on",
+    "object": "the beam width parameter"
+  },
+  {
+    "subject": "the beam width parameter",
+    "predicate": "determines",
+    "object": "the number of top candidates retained at every step"
+  },
+  {
+    "subject": "beam search",
+    "predicate": "facilitates sharing",
+    "object": "initial prompt blocks"
+  },
+  {
+    "subject": "beam search",
+    "predicate": "facilitates sharing",
+    "object": "other blocks across different candidates"
+  },
+  {
+    "subject": "sharing patterns",
+    "predicate": "dynamically change",
+    "object": "as the decoding process advances"
+  },
+  {
+    "subject": "sharing patterns",
+    "predicate": "are similar to",
+    "object": "the process tree in the OS created by compound forks"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "manages",
+    "object": "the KV blocks for a beam search example with 4"
+  },
+  {
+    "subject": "each candidate sequence",
+    "predicate": "has used",
+    "object": "4 full logical blocks"
+  },
+  {
+    "subject": "the iteration",
+    "predicate": "is illustrated as",
+    "object": "the dotted line"
+  },
+  {
+    "subject": "All beam candidates",
+    "predicate": "share",
+    "object": "the first block 0 (i.e., prompt)"
+  },
+  {
+    "subject": "Candidate 3",
+    "predicate": "digresses from",
+    "object": "others from the second block"
+  },
+  {
+    "subject": "Candidates 0-2",
+    "predicate": "share",
+    "object": "the first 3 blocks"
+  },
+  {
+    "subject": "Candidates 0-2",
+    "predicate": "diverge",
+    "object": "at the fourth block"
+  },
+  {
+    "subject": "all candidates",
+    "predicate": "share",
+    "object": "blocks 0, 1, 3"
+  },
+  {
+    "subject": "candidates 0 and 1",
+    "predicate": "share",
+    "object": "block 6"
+  },
+  {
+    "subject": "top-4 probable candidates",
+    "predicate": "originate from",
+    "object": "candidates 1 and 2"
+  },
+  {
+    "subject": "original candidates 0 and 3",
+    "predicate": "are no longer among",
+    "object": "the top candidates"
+  },
+  {
+    "subject": "their logical blocks",
+    "predicate": "are",
+    "object": "freed"
+  },
+  {
+    "subject": "the reference counts of corresponding physical blocks",
+    "predicate": "are",
+    "object": "reduced"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "frees",
+    "object": "all physical blocks whose reference counts reach 0 (blocks 2, 4, 5, 8)"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "allocates",
+    "object": "new physical blocks (blocks 9-12)"
+  },
+  {
+    "subject": "new physical blocks (blocks 9-12)",
+    "predicate": "store",
+    "object": "the new KV cache from the new candidates"
+  },
+  {
+    "subject": "Previous LLM serving systems",
+    "predicate": "require",
+    "object": "frequent memory copies of the KV cache across the beam candidates"
+  },
+  {
+    "subject": "candidate 3",
+    "predicate": "would need to copy",
+    "object": "a large portion of candidate 2's KV cache"
+  },
+  {
+    "subject": "candidate 3",
+    "predicate": "would need to copy",
+    "object": "to continue generation"
+  },
+  {
+    "subject": "most blocks of different beam candidates",
+    "predicate": "can be shared",
+    "object": "in vLLM"
+  },
+  {
+    "subject": "The same strategy",
+    "predicate": "is applied in",
+    "object": "beam search"
+  },
+  {
+    "subject": "The same strategy",
+    "predicate": "is applied in",
+    "object": "prefix sharing"
+  },
+  {
+    "subject": "beam search and prefix sharing",
+    "predicate": "are applied by",
+    "object": "vLLM"
+  },
+  {
+    "subject": "LLM user",
+    "predicate": "provides",
+    "object": "a (long) description of the task including instructions and example inputs and outputs"
+  },
+  {
+    "subject": "a (long) description of the task including instructions and example inputs and outputs",
+    "predicate": "is also known as",
+    "object": "system prompt 36"
+  },
+  {
+    "subject": "The description",
+    "predicate": "is concatenated with",
+    "object": "the actual task input"
+  },
+  {
+    "subject": "The description and the actual task input",
+    "predicate": "form",
+    "object": "the prompt of the request"
+  },
+  {
+    "subject": "sea otter",
+    "predicate": "translates to",
+    "object": "loutre de mer"
+  },
+  {
+    "subject": "peppermint",
+    "predicate": "translates to",
+    "object": "menthe poivre"
+  },
+  {
+    "subject": "plush girafe",
+    "predicate": "translates to",
+    "object": "girafe en peluche"
+  },
+  {
+    "subject": "cheese",
+    "predicate": "translates to",
+    "object": "fromage"
+  },
+  {
+    "subject": "I love you",
+    "predicate": "translates to",
+    "object": "Je tamie"
+  },
+  {
+    "subject": "Shared prompt",
+    "predicate": "is example for",
+    "object": "machine translation"
+  },
+  {
+    "subject": "The examples",
+    "predicate": "are adopted from",
+    "object": "5. on the full prompt"
+  },
+  {
+    "subject": "10",
+    "predicate": "shows",
+    "object": "an example"
+  },
+  {
+    "subject": "the shared prefix",
+    "predicate": "can be tuned via",
+    "object": "prompt engineering"
+  },
+  {
+    "subject": "tuning the shared prefix via prompt engineering",
+    "predicate": "improves",
+    "object": "the accuracy of the downstream tasks 26, 27"
+  },
+  {
+    "subject": "many user prompts",
+    "predicate": "share",
+    "object": "a prefix"
+  },
+  {
+    "subject": "the LLM service provider",
+    "predicate": "can store",
+    "object": "the KV cache of the prefix in advance"
+  },
+  {
+    "subject": "storing the KV cache of the prefix in advance",
+    "predicate": "reduces",
+    "object": "the redundant computation spent on the prefix"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "achieves",
+    "object": "reserving a set of physical blocks for a set of predefined shared prefixes by the LLM service provider"
+  },
+  {
+    "subject": "LLM service provider",
+    "predicate": "reserves",
+    "object": "a set of physical blocks for a set of predefined shared prefixes"
+  },
+  {
+    "subject": "OS",
+    "predicate": "handles",
+    "object": "shared library across processes"
+  },
+  {
+    "subject": "A user input prompt with the shared prefix",
+    "predicate": "can map",
+    "object": "its logical blocks to the cached physical blocks"
+  },
+  {
+    "subject": "the last block",
+    "predicate": "is marked",
+    "object": "copy-on-write"
+  },
+  {
+    "subject": "The prompt phase computation",
+    "predicate": "needs to execute on",
+    "object": "the users task input"
+  },
+  {
+    "subject": "The decoding methods discussed earlier",
+    "predicate": "exhibit",
+    "object": "diverse memory sharing and accessing patterns"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "facilitates",
+    "object": "the simultaneous processing of requests with different decoding preferences"
+  },
+  {
+    "subject": "existing systems",
+    "predicate": "cannot efficiently do",
+    "object": "the simultaneous processing of requests with different decoding preferences"
+  },
+  {
+    "subject": "The LLM and its execution kernel",
+    "predicate": "see",
+    "object": "a list of physical block IDs for each sequence"
+  },
+  {
+    "subject": "The LLM and its execution kernel",
+    "predicate": "do not need to handle",
+    "object": "sharing patterns across sequences"
+  },
+  {
+    "subject": "this approach",
+    "predicate": "broadens",
+    "object": "the batching opportunities for requests with different sampling requirements"
+  },
+  {
+    "subject": "this approach",
+    "predicate": "increases",
+    "object": "the systems overall throughput"
+  },
+  {
+    "subject": "request traffic",
+    "predicate": "surpasses",
+    "object": "systems capacity"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "must prioritize",
+    "object": "a subset of requests"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "needs to preempt",
+    "object": "requests"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "ensures",
+    "object": "the earliest arrived requests are served first"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "ensures",
+    "object": "the latest requests are preempted first"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "adopt",
+    "object": "first-come-first-serve (FCFS) scheduling policy"
+  },
+  {
+    "subject": "first-come-first-serve (FCFS) scheduling policy",
+    "predicate": "applies to",
+    "object": "all requests"
+  },
+  {
+    "subject": "first-come-first-serve (FCFS) scheduling policy",
+    "predicate": "ensures",
+    "object": "fairness"
+  },
+  {
+    "subject": "first-come-first-serve (FCFS) scheduling policy",
+    "predicate": "prevents",
+    "object": "starvation"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "can run out of",
+    "object": "the GPUs physical blocks to store the newly generated KV cache"
+  },
+  {
+    "subject": "block size",
+    "predicate": "is",
+    "object": "too small"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "may not fully utilize",
+    "object": "GPUs parallelism for reading and processing KV cache"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "needs to answer",
+    "object": "two classic questions"
+  },
+  {
+    "subject": "we",
+    "predicate": "consider",
+    "object": "two techniques: Swapping"
+  },
+  {
+    "subject": "eviction policies",
+    "predicate": "use",
+    "object": "heuristics"
+  },
+  {
+    "subject": "heuristics",
+    "predicate": "predict",
+    "object": "which block will be accessed furthest in the future"
+  },
+  {
+    "subject": "eviction policies",
+    "predicate": "evict",
+    "object": "that block"
+  },
+  {
+    "subject": "all blocks of a sequence",
+    "predicate": "are accessed",
+    "object": "together"
+  },
+  {
+    "subject": "we",
+    "predicate": "implement",
+    "object": "an all-or-nothing eviction policy"
+  },
+  {
+    "subject": "all-or-nothing eviction policy",
+    "predicate": "means",
+    "object": "either evict all or none of the blocks of a sequence"
+  },
+  {
+    "subject": "multiple sequences within one request",
+    "predicate": "are gang-scheduled as",
+    "object": "a sequence group"
+  },
+  {
+    "subject": "The sequences within one sequence group",
+    "predicate": "are preempted or rescheduled together",
+    "object": "due to potential memory sharing across those sequences"
+  },
+  {
+    "subject": "classic technique",
+    "predicate": "is used by",
+    "object": "most virtual memory implementations"
+  },
+  {
+    "subject": "most virtual memory implementations",
+    "predicate": "copy",
+    "object": "evicted pages to a swap space on the disk"
+  },
+  {
+    "subject": "we",
+    "predicate": "copy",
+    "object": "evicted blocks to the CPU memory"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "preempts",
+    "object": "a sequence"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "evicts",
+    "object": "its blocks"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "stops accepting",
+    "object": "new requests"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "stops accepting new requests until",
+    "object": "all preempted sequences are completed"
+  },
+  {
+    "subject": "a request",
+    "predicate": "completes",
+    "object": "once"
+  },
+  {
+    "subject": "its blocks",
+    "predicate": "are freed from",
+    "object": "memory"
+  },
+  {
+    "subject": "the blocks of a preempted sequence",
+    "predicate": "are brought back in",
+    "object": "to continue the processing of that sequence"
+  },
+  {
+    "subject": "the number of blocks swapped to the CPU RAM",
+    "predicate": "never exceeds",
+    "object": "the number of total physical blocks in the GPU RAM"
+  },
+  {
+    "subject": "the swap space on the CPU RAM",
+    "predicate": "is bounded by",
+    "object": "the GPU memory allocated for the KV cache"
+  },
+  {
+    "subject": "we",
+    "predicate": "recompute",
+    "object": "the KV cache"
+  },
+  {
+    "subject": "the KV cache",
+    "predicate": "is recomputed",
+    "object": "when the preempted sequences are rescheduled"
+  },
+  {
+    "subject": "recomputation latency",
+    "predicate": "can be",
+    "object": "significantly lower than the original latency"
+  },
+  {
+    "subject": "tokens generated at decoding",
+    "predicate": "can be concatenated with",
+    "object": "the original user prompt as a new prompt"
+  },
+  {
+    "subject": "their KV cache at all positions",
+    "predicate": "can be generated in",
+    "object": "one prompt phase iteration"
+  },
+  {
+    "subject": "performances of swapping and recomputation",
+    "predicate": "depend on",
+    "object": "the bandwidth between CPU RAM and GPU memory"
+  },
+  {
+    "subject": "performances of swapping and recomputation",
+    "predicate": "depend on",
+    "object": "the computation power of the GPU"
+  },
+  {
+    "subject": "We",
+    "predicate": "examine",
+    "object": "the speeds of swapping and recomputation in 7.3"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "supports",
+    "object": "recomputation"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "supports",
+    "object": "swapping"
+  },
+  {
+    "subject": "recomputation and swapping",
+    "predicate": "are",
+    "object": "recovery mechanisms"
+  },
+  {
+    "subject": "Many LLMs",
+    "predicate": "have",
+    "object": "parameter sizes exceeding the capacity of a single GPU"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "is effective in",
+    "object": "distributed settings"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "supports",
+    "object": "Megatron-LM style tensor model parallelism strategy on Transformers 47"
+  },
+  {
+    "subject": "This strategy",
+    "predicate": "adheres to",
+    "object": "an SPMD (Single Program Multiple Data) execution schedule"
+  },
+  {
+    "subject": "The detailed model sizes and server configurations",
+    "predicate": "are shown in",
+    "object": "Table 1"
+  },
+  {
+    "subject": "Model size 13B",
+    "predicate": "uses GPUs",
+    "object": "A100 4A100 8A100-80GB"
+  },
+  {
+    "subject": "Model size 13B",
+    "predicate": "has total GPU memory",
+    "object": "40 GB"
+  },
+  {
+    "subject": "Model size 66B",
+    "predicate": "has total GPU memory",
+    "object": "160 GB"
+  },
+  {
+    "subject": "Model size 175B",
+    "predicate": "has total GPU memory",
+    "object": "640 GB"
+  },
+  {
+    "subject": "Model size 13B",
+    "predicate": "has parameter size",
+    "object": "26 GB"
+  },
+  {
+    "subject": "Model size 66B",
+    "predicate": "has parameter size",
+    "object": "132 GB"
+  },
+  {
+    "subject": "Model size 175B",
+    "predicate": "has parameter size",
+    "object": "346 GB"
+  },
+  {
+    "subject": "Model size 13B",
+    "predicate": "has memory for KV cache",
+    "object": "12 GB"
+  },
+  {
+    "subject": "Model size 66B",
+    "predicate": "has memory for KV cache",
+    "object": "21 GB"
+  },
+  {
+    "subject": "Model size 175B",
+    "predicate": "has memory for KV cache",
+    "object": "264 GB"
+  },
+  {
+    "subject": "GPUs",
+    "predicate": "synchronize",
+    "object": "intermediate results"
+  },
+  {
+    "subject": "synchronize",
+    "predicate": "method",
+    "object": "all-reduce operation"
+  },
+  {
+    "subject": "KV cache slots",
+    "predicate": "values",
+    "object": "15.7K, 9.7K, 60.1K"
+  },
+  {
+    "subject": "KV cache slots",
+    "predicate": "used for",
+    "object": "block-wise matrix multiplication"
+  },
+  {
+    "subject": "the attention operator",
+    "predicate": "is split on",
+    "object": "the attention head dimension"
+  },
+  {
+    "subject": "each SPMD process",
+    "predicate": "takes care of",
+    "object": "a subset of attention heads in multi-head attention"
+  },
+  {
+    "subject": "each model shard",
+    "predicate": "processes",
+    "object": "the same set of input tokens"
+  },
+  {
+    "subject": "each model shard",
+    "predicate": "requires",
+    "object": "the KV Cache for the same positions"
+  },
+  {
+    "subject": "model parallel execution",
+    "predicate": "is used with",
+    "object": "each model shard processing the same set of input tokens"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "features",
+    "object": "a single KV cache manager within the centralized scheduler"
+  },
+  {
+    "subject": "Different GPU workers",
+    "predicate": "share",
+    "object": "the manager"
+  },
+  {
+    "subject": "Different GPU workers",
+    "predicate": "share",
+    "object": "the mapping from logical blocks to physical blocks"
+  },
+  {
+    "subject": "This common mapping",
+    "predicate": "allows",
+    "object": "GPU workers to execute the model with the physical blocks provided by the scheduler for each input request"
+  },
+  {
+    "subject": "the scheduler",
+    "predicate": "prepares",
+    "object": "the message with input token IDs for each request in the batch"
+  },
+  {
+    "subject": "the scheduler",
+    "predicate": "prepares",
+    "object": "the block table for each request"
+  },
+  {
+    "subject": "the scheduler",
+    "predicate": "broadcasts",
+    "object": "this control message to the GPU workers"
+  },
+  {
+    "subject": "the GPU workers",
+    "predicate": "send",
+    "object": "the sampled tokens of this iteration back to the scheduler"
+  },
+  {
+    "subject": "GPU workers",
+    "predicate": "start to execute",
+    "object": "the model with the input token IDs"
+  },
+  {
+    "subject": "GPU workers",
+    "predicate": "synchronize",
+    "object": "intermediate results"
+  },
+  {
+    "subject": "GPU workers",
+    "predicate": "use",
+    "object": "all-reduce communication primitive"
+  },
+  {
+    "subject": "GPU workers",
+    "predicate": "synchronize without",
+    "object": "coordination of the scheduler"
+  },
+  {
+    "subject": "GPU workers",
+    "predicate": "do not need to synchronize on",
+    "object": "memory management"
+  },
+  {
+    "subject": "GPU workers",
+    "predicate": "need to receive",
+    "object": "all the memory management information at the beginning of each decoding iteration along with the step inputs"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "is",
+    "object": "an end-to-end serving system"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "has",
+    "object": "a FastAPI 15 frontend"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "has",
+    "object": "a GPU-based inference engine"
+  },
+  {
+    "subject": "The frontend",
+    "predicate": "extends",
+    "object": "the OpenAI API 34 interface"
+  },
+  {
+    "subject": "The frontend",
+    "predicate": "allows",
+    "object": "users to customize sampling parameters for each request"
+  },
+  {
+    "subject": "sampling parameters",
+    "predicate": "include",
+    "object": "the maximum sequence length"
+  },
+  {
+    "subject": "sampling parameters",
+    "predicate": "include",
+    "object": "the beam width"
+  },
+  {
+    "subject": "vLLM engine",
+    "predicate": "is written in",
+    "object": "8.5K lines of Python"
+  },
+  {
+    "subject": "vLLM engine",
+    "predicate": "is written in",
+    "object": "2K lines of CCUDA code"
+  },
+  {
+    "subject": "We",
+    "predicate": "develop",
+    "object": "control-related components including the scheduler and the block manager in Python"
+  },
+  {
+    "subject": "We",
+    "predicate": "develop",
+    "object": "custom CUDA kernels for key operations such as PagedAttention"
+  },
+  {
+    "subject": "we",
+    "predicate": "implement",
+    "object": "popular LLMs such as GPT 5, OPT 62, and LLaMA 52"
+  },
+  {
+    "subject": "popular LLMs",
+    "predicate": "are used for",
+    "object": "the model executor"
+  },
+  {
+    "subject": "Input and output length distributions",
+    "predicate": "are of",
+    "object": "ShareGPT dataset"
+  },
+  {
+    "subject": "Input and output length distributions",
+    "predicate": "are of",
+    "object": "Alpaca dataset"
+  },
+  {
+    "subject": "the ShareGPT dataset",
+    "predicate": "has",
+    "object": "8.4 longer input prompts on average than the Alpaca dataset"
+  },
+  {
+    "subject": "the ShareGPT dataset",
+    "predicate": "has",
+    "object": "5.8 longer outputs on average than the Alpaca dataset"
+  },
+  {
+    "subject": "the ShareGPT dataset",
+    "predicate": "has",
+    "object": "higher variance than the Alpaca dataset"
+  },
+  {
+    "subject": "PyTorch",
+    "predicate": "version",
+    "object": "39"
+  },
+  {
+    "subject": "Transformers",
+    "predicate": "version",
+    "object": "58"
+  },
+  {
+    "subject": "We",
+    "predicate": "use",
+    "object": "NCCL 32 for tensor communication across the distributed GPU workers"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "introduces",
+    "object": "memory access patterns that are not efficiently supported by existing systems"
+  },
+  {
+    "subject": "we",
+    "predicate": "develop",
+    "object": "several GPU kernels for optimizing PagedAttention"
+  },
+  {
+    "subject": "The dynamic block mapping in PagedAttention",
+    "predicate": "affects",
+    "object": "the performance of the GPU operations involving the stored KV cache"
+  },
+  {
+    "subject": "the GPU operations involving the stored KV cache",
+    "predicate": "include",
+    "object": "block readwrites and attention"
+  },
+  {
+    "subject": "Fused re-shape",
+    "predicate": "is combined with",
+    "object": "block write"
+  },
+  {
+    "subject": "Fused block copy",
+    "predicate": "is",
+    "object": "3"
+  },
+  {
+    "subject": "new KV cache",
+    "predicate": "are split into",
+    "object": "blocks"
+  },
+  {
+    "subject": "blocks",
+    "predicate": "are reshaped to",
+    "object": "a memory layout optimized for block read"
+  },
+  {
+    "subject": "blocks",
+    "predicate": "are saved at",
+    "object": "positions specified by the block table"
+  },
+  {
+    "subject": "new KV cache",
+    "predicate": "are split in",
+    "object": "every Transformer layer"
+  },
+  {
+    "subject": "we",
+    "predicate": "fuse",
+    "object": "them into a single kernel"
+  },
+  {
+    "subject": "kernel launch overheads",
+    "predicate": "are minimized by",
+    "object": "fusing them into a single kernel"
+  },
+  {
+    "subject": "we",
+    "predicate": "implement",
+    "object": "a kernel that batches the copy operations for different blocks into a single kernel launch"
+  },
+  {
+    "subject": "We",
+    "predicate": "adapt",
+    "object": "the attention kernel in FasterTransformer 31"
+  },
+  {
+    "subject": "the attention kernel in FasterTransformer 31",
+    "predicate": "reads",
+    "object": "KV cache according to the block table"
+  },
+  {
+    "subject": "the attention kernel in FasterTransformer 31",
+    "predicate": "performs",
+    "object": "attention operations on the fly"
+  },
+  {
+    "subject": "we",
+    "predicate": "assign",
+    "object": "a GPU warp to read each block"
+  },
+  {
+    "subject": "a GPU warp",
+    "predicate": "read",
+    "object": "each block"
+  },
+  {
+    "subject": "we assign a GPU warp to read each block",
+    "predicate": "purpose",
+    "object": "to ensure coalesced memory access"
+  },
+  {
+    "subject": "we",
+    "predicate": "add support for",
+    "object": "variable sequence lengths within a request batch"
+  },
+  {
+    "subject": "Block copy operations",
+    "predicate": "are issued by",
+    "object": "the copy-on-write mechanism"
+  },
+  {
+    "subject": "Block copy operations",
+    "predicate": "may operate on",
+    "object": "discontinuous blocks"
+  },
+  {
+    "subject": "use of the cudaMemcpyAsync API",
+    "predicate": "can lead to",
+    "object": "numerous invocations of small data movements"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "implements",
+    "object": "various decoding algorithms"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "uses methods",
+    "object": "fork, append, and free"
+  },
+  {
+    "subject": "The fork method",
+    "predicate": "creates",
+    "object": "a new sequence from an existing one"
+  },
+  {
+    "subject": "The append method",
+    "predicate": "appends",
+    "object": "a new token to the sequence"
+  },
+  {
+    "subject": "the free method",
+    "predicate": "deletes",
+    "object": "the sequence"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "creates",
+    "object": "multiple output sequences from the single input sequence using the fork method in parallel sampling"
+  },
+  {
+    "subject": "future decoding algorithms",
+    "predicate": "can be supported by",
+    "object": "combining these methods"
+  },
+  {
+    "subject": "OPT-13B",
+    "predicate": "uses",
+    "object": "1 GPU"
+  },
+  {
+    "subject": "OPT-13B",
+    "predicate": "runs",
+    "object": "ShareGPT"
+  },
+  {
+    "subject": "OPT-66B",
+    "predicate": "uses",
+    "object": "4 GPUs"
+  },
+  {
+    "subject": "OPT-66B",
+    "predicate": "runs",
+    "object": "ShareGPT"
+  },
+  {
+    "subject": "OPT-175B",
+    "predicate": "uses",
+    "object": "8 GPUs"
+  },
+  {
+    "subject": "OPT-175B",
+    "predicate": "runs",
+    "object": "ShareGPT"
+  },
+  {
+    "subject": "OPT-13B",
+    "predicate": "runs",
+    "object": "Alpaca"
+  },
+  {
+    "subject": "OPT-66B",
+    "predicate": "runs",
+    "object": "Alpaca"
+  },
+  {
+    "subject": "OPT-175B",
+    "predicate": "runs",
+    "object": "Alpaca"
+  },
+  {
+    "subject": "Normalized latency",
+    "predicate": "measured in",
+    "object": "stoken"
+  },
+  {
+    "subject": "Request rate",
+    "predicate": "measured in",
+    "object": "reqs"
+  },
+  {
+    "subject": "Figure 12",
+    "predicate": "illustrates",
+    "object": "Normalized latency and Request rate for OPT models with ShareGPT and Alpaca"
+  },
+  {
+    "subject": "parallel generation",
+    "predicate": "has parallel size",
+    "object": "2"
+  },
+  {
+    "subject": "beam search",
+    "predicate": "has beam width",
+    "object": "2"
+  },
+  {
+    "subject": "Orca",
+    "predicate": "has variant",
+    "object": "Max"
+  },
+  {
+    "subject": "Orca",
+    "predicate": "has variant",
+    "object": "Pow2"
+  },
+  {
+    "subject": "Orca",
+    "predicate": "has variant",
+    "object": "Oracle"
+  },
+  {
+    "subject": "Figure 14",
+    "predicate": "shows",
+    "object": "request rate and normalized latency for parallel generation and beam search"
+  },
+  {
+    "subject": "Single sequence generation",
+    "predicate": "is performed with",
+    "object": "OPT models"
+  },
+  {
+    "subject": "OPT models",
+    "predicate": "are applied on",
+    "object": "ShareGPT dataset"
+  },
+  {
+    "subject": "OPT models",
+    "predicate": "are applied on",
+    "object": "Alpaca dataset"
+  },
+  {
+    "subject": "Orca (Max), Orca (Pow2), Orca (Oracle), vLLM",
+    "predicate": "are compared on",
+    "object": "ShareGPT dataset"
+  },
+  {
+    "subject": "Orca (Max), Orca (Pow2), Orca (Oracle), vLLM",
+    "predicate": "are compared on",
+    "object": "Alpaca dataset"
+  },
+  {
+    "subject": "Batched requests",
+    "predicate": "have values on ShareGPT dataset",
+    "object": "0, 5, 10, 15, 20, 25, 30, 35"
+  },
+  {
+    "subject": "Batched requests",
+    "predicate": "have values on Alpaca dataset",
+    "object": "0, 25, 50, 75, 100, 125, 150"
+  },
+  {
+    "subject": "Performance values on ShareGPT dataset",
+    "predicate": "are",
+    "object": "7.00, 9.81, 13.62, 30.42"
+  },
+  {
+    "subject": "Performance values on Alpaca dataset",
+    "predicate": "are",
+    "object": "7.00, 43.24, 72.75, 132.44"
+  },
+  {
+    "subject": "Average number of batched requests",
+    "predicate": "is measured when serving",
+    "object": "OPT-13B for the ShareGPT (2 reqss) and Alpaca (30 reqss) traces"
+  },
+  {
+    "subject": "Experimental Setup",
+    "predicate": "includes",
+    "object": "Model and server configurations"
+  },
+  {
+    "subject": "13B",
+    "predicate": "are",
+    "object": "popular sizes for LLMs"
+  },
+  {
+    "subject": "66B",
+    "predicate": "are",
+    "object": "popular sizes for LLMs"
+  },
+  {
+    "subject": "13B and 66B",
+    "predicate": "are shown in",
+    "object": "an LLM leaderboard 38"
+  },
+  {
+    "subject": "175B",
+    "predicate": "is",
+    "object": "the size of the famous GPT-3 5 model"
+  },
+  {
+    "subject": "we",
+    "predicate": "use",
+    "object": "A2 instances with NVIDIA A100 GPUs on Google Cloud Platform"
+  },
+  {
+    "subject": "The ShareGPT dataset",
+    "predicate": "is",
+    "object": "a collection of user-shared conversations with ChatGPT"
+  },
+  {
+    "subject": "We",
+    "predicate": "synthesize",
+    "object": "the chatting history and user query using the ShareGPT dataset"
+  },
+  {
+    "subject": "The Alpaca dataset",
+    "predicate": "is",
+    "object": "an instruction dataset"
+  },
+  {
+    "subject": "The Alpaca dataset",
+    "predicate": "is generated by",
+    "object": "GPT-3.5 with self-instruct 57"
+  },
+  {
+    "subject": "We",
+    "predicate": "tokenize",
+    "object": "the datasets"
+  },
+  {
+    "subject": "We",
+    "predicate": "use",
+    "object": "their input and output lengths"
+  },
+  {
+    "subject": "their input and output lengths",
+    "predicate": "to synthesize",
+    "object": "client requests"
+  },
+  {
+    "subject": "these datasets",
+    "predicate": "do not include",
+    "object": "timestamps"
+  },
+  {
+    "subject": "we",
+    "predicate": "generate",
+    "object": "request arrival times"
+  },
+  {
+    "subject": "request arrival times",
+    "predicate": "are generated using",
+    "object": "Poisson distribution with different request rates"
+  },
+  {
+    "subject": "Baseline 1",
+    "predicate": "is",
+    "object": "FasterTransformer"
+  },
+  {
+    "subject": "FasterTransformer 31",
+    "predicate": "is",
+    "object": "a distributed inference engine highly optimized for latency"
+  },
+  {
+    "subject": "FasterTransformer",
+    "predicate": "does not have",
+    "object": "its own scheduler"
+  },
+  {
+    "subject": "we",
+    "predicate": "implement",
+    "object": "a custom scheduler with a dynamic batching mechanism"
+  },
+  {
+    "subject": "dynamic batching mechanism",
+    "predicate": "is similar to",
+    "object": "the existing serving systems such as Triton 30"
+  },
+  {
+    "subject": "we",
+    "predicate": "set",
+    "object": "a maximum batch size as large as possible for each experiment"
+  },
+  {
+    "subject": "maximum batch size",
+    "predicate": "is set according to",
+    "object": "the GPU memory capacity"
+  },
+  {
+    "subject": "The scheduler",
+    "predicate": "takes up to",
+    "object": "number of earliest arrived requests"
+  },
+  {
+    "subject": "The scheduler",
+    "predicate": "sends the batch to",
+    "object": "FasterTransformer for processing"
+  },
+  {
+    "subject": "Baseline 2",
+    "predicate": "is",
+    "object": "Orca"
+  },
+  {
+    "subject": "the three Orca baselines",
+    "predicate": "behave",
+    "object": "similarly"
+  },
+  {
+    "subject": "Orca 60",
+    "predicate": "is",
+    "object": "a state-of-the-art LLM serving system"
+  },
+  {
+    "subject": "Orca 60",
+    "predicate": "is optimized for",
+    "object": "throughput"
+  },
+  {
+    "subject": "Orca",
+    "predicate": "is not",
+    "object": "publicly available for use"
+  },
+  {
+    "subject": "we",
+    "predicate": "implement",
+    "object": "our own version of Orca"
+  },
+  {
+    "subject": "We",
+    "predicate": "implement",
+    "object": "three versions of Orca"
+  },
+  {
+    "subject": "three versions of Orca",
+    "predicate": "are based on",
+    "object": "how much it over-reserves the space for request outputs"
+  },
+  {
+    "subject": "One version",
+    "predicate": "is",
+    "object": "Orca (Oracle)"
+  },
+  {
+    "subject": "Orca",
+    "predicate": "uses",
+    "object": "the buddy allocation algorithm"
+  },
+  {
+    "subject": "the buddy allocation algorithm",
+    "predicate": "determines",
+    "object": "the memory address to store KV cache"
+  },
+  {
+    "subject": "the system",
+    "predicate": "has",
+    "object": "the knowledge of the lengths of the outputs that will be actually generated for the requests"
+  },
+  {
+    "subject": "the upper-bound performance of Orca",
+    "predicate": "is",
+    "object": "infeasible to achieve in practice"
+  },
+  {
+    "subject": "Orca",
+    "predicate": "also known as",
+    "object": "Pow2"
+  },
+  {
+    "subject": "the system",
+    "predicate": "over-reserves",
+    "object": "the space for outputs"
+  },
+  {
+    "subject": "the system",
+    "predicate": "over-reserves by at most",
+    "object": "2"
+  },
+  {
+    "subject": "true output length",
+    "predicate": "is",
+    "object": "25"
+  },
+  {
+    "subject": "Orca",
+    "predicate": "has name",
+    "object": "Max"
+  },
+  {
+    "subject": "the system",
+    "predicate": "reserves",
+    "object": "the space up to the maximum sequence length of the model"
+  },
+  {
+    "subject": "the maximum sequence length of the model",
+    "predicate": "is",
+    "object": "2048 tokens"
+  },
+  {
+    "subject": "We",
+    "predicate": "focus on",
+    "object": "serving throughput"
+  },
+  {
+    "subject": "we",
+    "predicate": "measure",
+    "object": "normalized latency of the systems"
+  },
+  {
+    "subject": "normalized latency of the systems",
+    "predicate": "is",
+    "object": "the mean of every request's end-to-end latency divided by its output length"
+  },
+  {
+    "subject": "normalized latency measurement",
+    "predicate": "uses",
+    "object": "workloads with different request rates"
+  },
+  {
+    "subject": "normalized latency measurement",
+    "predicate": "is done as in",
+    "object": "Orca 60"
+  },
+  {
+    "subject": "A high-throughput serving system",
+    "predicate": "should retain",
+    "object": "low normalized latency against high request rates"
+  },
+  {
+    "subject": "we",
+    "predicate": "evaluate",
+    "object": "the systems with 1-hour traces"
+  },
+  {
+    "subject": "we",
+    "predicate": "use",
+    "object": "15-minute traces for the OPT-175B model"
+  },
+  {
+    "subject": "15-minute traces",
+    "predicate": "are used for",
+    "object": "the OPT-175B model"
+  },
+  {
+    "subject": "use of 15-minute traces",
+    "predicate": "is due to",
+    "object": "the cost limit"
+  },
+  {
+    "subject": "Parallel generation and beam search",
+    "predicate": "used with",
+    "object": "OPT-13B"
+  },
+  {
+    "subject": "OPT-13B",
+    "predicate": "applied on",
+    "object": "Alpaca dataset"
+  },
+  {
+    "subject": "12",
+    "predicate": "shows",
+    "object": "the results on the ShareGPT dataset"
+  },
+  {
+    "subject": "13b",
+    "predicate": "shows",
+    "object": "the results on the Alpaca dataset"
+  },
+  {
+    "subject": "the Alpaca dataset",
+    "predicate": "follows",
+    "object": "a similar trend to the ShareGPT dataset"
+  },
+  {
+    "subject": "The curves",
+    "predicate": "illustrate",
+    "object": "that as the request rate increases, the latency initially increases at a gradual pace but then suddenly explodes"
+  },
+  {
+    "subject": "request rate",
+    "predicate": "increases",
+    "object": "latency initially increases at a gradual pace"
+  },
+  {
+    "subject": "latency",
+    "predicate": "increases",
+    "object": "at a gradual pace initially"
+  },
+  {
+    "subject": "latency",
+    "predicate": "explodes",
+    "object": "suddenly"
+  },
+  {
+    "subject": "request rate",
+    "predicate": "surpasses",
+    "object": "capacity of the serving system"
+  },
+  {
+    "subject": "queue length",
+    "predicate": "continues to grow",
+    "object": "infinitely"
+  },
+  {
+    "subject": "latency of the requests",
+    "predicate": "continues to grow",
+    "object": "infinitely"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "can sustain",
+    "object": "1.72.7 higher request rates compared to Orca (Oracle) on the ShareGPT dataset"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "can sustain",
+    "object": "2.78 higher request rates compared to Orca (Max) on the ShareGPT dataset"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "maintains",
+    "object": "similar latencies"
+  },
+  {
+    "subject": "OPT-13B vLLM",
+    "predicate": "processes",
+    "object": "2.2 more requests at the same time than Orca (Oracle)"
+  },
+  {
+    "subject": "OPT-13B vLLM",
+    "predicate": "processes",
+    "object": "4.3 more requests at the same time than Orca (Max)"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "achieves",
+    "object": "1.67 higher throughput than Orca (Oracle) when the one-shot prefix is shared"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "achieves",
+    "object": "3.58 higher throughput than Orca (Oracle)"
+  },
+  {
+    "subject": "vLLMs PagedAttention",
+    "predicate": "can manage",
+    "object": "memory usage efficiently"
+  },
+  {
+    "subject": "vLLMs PagedAttention",
+    "predicate": "enable",
+    "object": "batching more requests than Orca"
+  },
+  {
+    "subject": "The iteration-level scheduling in Orca 60",
+    "predicate": "is",
+    "object": "a complementary technique to PagedAttention in vLLM"
+  },
+  {
+    "subject": "Both systems",
+    "predicate": "aim to increase",
+    "object": "the GPU utilization"
+  },
+  {
+    "subject": "Both systems",
+    "predicate": "aim to increase",
+    "object": "the throughput of LLM serving"
+  },
+  {
+    "subject": "Orca",
+    "predicate": "achieves increased GPU utilization by",
+    "object": "scheduling and interleaving the requests"
+  },
+  {
+    "subject": "Scheduling and interleaving the requests",
+    "predicate": "allows",
+    "object": "more requests to be processed in parallel"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "achieves increased GPU utilization by",
+    "object": "increasing memory utilization"
+  },
+  {
+    "subject": "Increasing memory utilization",
+    "predicate": "allows",
+    "object": "the working sets of more requests to fit into memory"
+  },
+  {
+    "subject": "vLLMs",
+    "predicate": "have advantage over",
+    "object": "Orca (Oracle) and Orca (Pow2)"
+  },
+  {
+    "subject": "advantage of vLLMs over Orca (Oracle) and Orca (Pow2)",
+    "predicate": "is",
+    "object": "less pronounced in 12 (f)"
+  },
+  {
+    "subject": "model and server configuration for OPT-175B",
+    "predicate": "allows for",
+    "object": "large GPU memory space available to store KV cache"
+  },
+  {
+    "subject": "Alpaca dataset",
+    "predicate": "has",
+    "object": "short sequences"
+  },
+  {
+    "subject": "Orca (Oracle) and Orca (Pow2)",
+    "predicate": "can batch",
+    "object": "a large number of requests"
+  },
+  {
+    "subject": "Orca (Oracle) and Orca (Pow2)",
+    "predicate": "can batch requests despite",
+    "object": "inefficiencies in their memory management"
+  },
+  {
+    "subject": "Output sequences",
+    "predicate": "are",
+    "object": "0 4 8 12"
+  },
+  {
+    "subject": "Memory saving (a) Parallel sampling",
+    "predicate": "values are",
+    "object": "6.09 8.53 9.79"
+  },
+  {
+    "subject": "Beam width",
+    "predicate": "are",
+    "object": "0 20 40 60"
+  },
+  {
+    "subject": "Memory saving (b) Beam search",
+    "predicate": "values are",
+    "object": "37.56 53.13 55.16"
+  },
+  {
+    "subject": "Figure 15",
+    "predicate": "illustrates",
+    "object": "Memory saving for Parallel sampling and Beam search"
+  },
+  {
+    "subject": "Average amount of memory saving",
+    "predicate": "is from",
+    "object": "sharing KV blocks"
+  },
+  {
+    "subject": "sharing KV blocks",
+    "predicate": "occurs when serving",
+    "object": "OPT-13B for the Alpaca trace"
+  },
+  {
+    "subject": "We",
+    "predicate": "evaluate",
+    "object": "the effectiveness of memory sharing in PagedAttention with two popular sampling methods: parallel sampling and beam search"
+  },
+  {
+    "subject": "We",
+    "predicate": "show",
+    "object": "6.1 - 9.8 memory saving on parallel sampling"
+  },
+  {
+    "subject": "We",
+    "predicate": "show",
+    "object": "37.6 - 55.2 memory saving on beam search"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "brings",
+    "object": "more improvement over the Orca baselines with a larger number of sequences to sample"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "can sustain",
+    "object": "2 higher request rates compared to the three Orca baselines"
+  },
+  {
+    "subject": "14",
+    "predicate": "shows",
+    "object": "the results for beam search with different beam widths"
+  },
+  {
+    "subject": "beam search",
+    "predicate": "allows for",
+    "object": "more sharing"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "demonstrates",
+    "object": "even greater performance benefits"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "improves over",
+    "object": "Orca (Oracle) on OPT-13B and the Alpaca dataset"
+  },
+  {
+    "subject": "improvement of vLLM over Orca (Oracle) on OPT-13B and the Alpaca dataset",
+    "predicate": "goes from",
+    "object": "1.3 in basic sampling"
+  },
+  {
+    "subject": "improvement of vLLM over Orca (Oracle) on OPT-13B and the Alpaca dataset",
+    "predicate": "goes to",
+    "object": "2.3 in beam search with a width of 6"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "is effective for",
+    "object": "the case a prefix is shared among different input prompts"
+  },
+  {
+    "subject": "input prompts",
+    "predicate": "share",
+    "object": "a common prefix"
+  },
+  {
+    "subject": "The prefix",
+    "predicate": "includes",
+    "object": "1 example with 80 tokens"
+  },
+  {
+    "subject": "The prefix",
+    "predicate": "includes",
+    "object": "5 examples with 341 tokens"
+  },
+  {
+    "subject": "LLaMA-13B 52",
+    "predicate": "is used for",
+    "object": "the model"
+  },
+  {
+    "subject": "LLaMA-13B 52",
+    "predicate": "is",
+    "object": "multilingual"
+  },
+  {
+    "subject": "we",
+    "predicate": "use",
+    "object": "the WMT16 4 English-to-German translation dataset"
+  },
+  {
+    "subject": "we",
+    "predicate": "synthesize",
+    "object": "two prefixes that include an instruction and a few translation examples"
+  },
+  {
+    "subject": "The first prefix",
+    "predicate": "includes",
+    "object": "a single example"
+  },
+  {
+    "subject": "a single example",
+    "predicate": "is",
+    "object": "one-shot"
+  },
+  {
+    "subject": "the other prefix",
+    "predicate": "includes",
+    "object": "5 examples"
+  },
+  {
+    "subject": "5 examples",
+    "predicate": "are",
+    "object": "few-shot"
+  },
+  {
+    "subject": "Chatbot",
+    "predicate": "is one of the most important applications of",
+    "object": "LLMs"
+  },
+  {
+    "subject": "we",
+    "predicate": "let",
+    "object": "the model generate a response"
+  },
+  {
+    "subject": "the model",
+    "predicate": "generate",
+    "object": "a response"
+  },
+  {
+    "subject": "a response",
+    "predicate": "is generated by concatenating",
+    "object": "the chatting history and the last user query into a prompt"
+  },
+  {
+    "subject": "OPT-13B model",
+    "predicate": "has",
+    "object": "limited context length"
+  },
+  {
+    "subject": "we",
+    "predicate": "cut",
+    "object": "the prompt to the last 1024 tokens"
+  },
+  {
+    "subject": "we",
+    "predicate": "let",
+    "object": "the model generate at most 1024 tokens"
+  },
+  {
+    "subject": "We",
+    "predicate": "do not store",
+    "object": "the KV cache between different conversation rounds"
+  },
+  {
+    "subject": "storing the KV cache between different conversation rounds",
+    "predicate": "would occupy",
+    "object": "the space for other requests between the conversation rounds"
+  },
+  {
+    "subject": "ShareGPT dataset",
+    "predicate": "contains",
+    "object": "many long conversations"
+  },
+  {
+    "subject": "input prompts for most requests",
+    "predicate": "have",
+    "object": "1024 tokens"
+  },
+  {
+    "subject": "Orca baselines",
+    "predicate": "reserve",
+    "object": "space for 1024 tokens for the request outputs"
+  },
+  {
+    "subject": "Orca baselines",
+    "predicate": "reserve space due to",
+    "object": "buddy allocation algorithm"
+  },
+  {
+    "subject": "Orca baselines",
+    "predicate": "reserve space regardless of",
+    "object": "how they predict the output lengths"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "can effectively handle",
+    "object": "64 128 256 context length"
+  },
+  {
+    "subject": "Latency of attention kernels",
+    "predicate": "is shown for",
+    "object": "vLLM (bs 8), FT (bs 8), vLLM (bs 32), FT (bs 32)"
+  },
+  {
+    "subject": "Block size",
+    "predicate": "has values",
+    "object": "1, 2, 4, 8, 16, 32, 64, 128, 256"
+  },
+  {
+    "subject": "Normalized latency (stoken)",
+    "predicate": "has values",
+    "object": "0.0, 2.5, 5.0, 7.5, 10.0, 12.5, 15.0, 17.5"
+  },
+  {
+    "subject": "ShareGPT Alpaca (b)",
+    "predicate": "measures",
+    "object": "End-to-end latency with different block sizes"
+  },
+  {
+    "subject": "we",
+    "predicate": "study",
+    "object": "various aspects of vLLM"
+  },
+  {
+    "subject": "we",
+    "predicate": "evaluate",
+    "object": "the design choices we make with ablation experiments"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "resolves",
+    "object": "the problem of memory fragmentation and reservation"
+  },
+  {
+    "subject": "our GPU kernels (5)",
+    "predicate": "involve",
+    "object": "extra overheads of accessing the block table"
+  },
+  {
+    "subject": "our GPU kernels (5)",
+    "predicate": "involve",
+    "object": "executing extra branches"
+  },
+  {
+    "subject": "our GPU kernels (5)",
+    "predicate": "involve",
+    "object": "handling variable sequence lengths"
+  },
+  {
+    "subject": "18a",
+    "predicate": "leads to",
+    "object": "2026 higher attention kernel latency"
+  },
+  {
+    "subject": "2026 higher attention kernel latency",
+    "predicate": "is compared to",
+    "object": "highly-optimized FasterTransformer implementation"
+  },
+  {
+    "subject": "the overhead",
+    "predicate": "is",
+    "object": "small"
+  },
+  {
+    "subject": "the overhead",
+    "predicate": "affects",
+    "object": "the attention operator"
+  },
+  {
+    "subject": "the overhead",
+    "predicate": "does not affect",
+    "object": "the other operators in the model"
+  },
+  {
+    "subject": "the other operators in the model",
+    "predicate": "include",
+    "object": "Linear"
+  },
+  {
+    "subject": "PagedAttention",
+    "predicate": "makes",
+    "object": "vLLM significantly outperform FasterTransformer in end-to-end performance"
+  },
+  {
+    "subject": "The choice of block size",
+    "predicate": "can have",
+    "object": "a substantial impact on the performance of vLLM"
+  },
+  {
+    "subject": "block size",
+    "predicate": "is",
+    "object": "too large"
+  },
+  {
+    "subject": "internal fragmentation",
+    "predicate": "increases",
+    "object": ""
+  },
+  {
+    "subject": "probability of sharing",
+    "predicate": "decreases",
+    "object": ""
+  },
+  {
+    "subject": "we",
+    "predicate": "evaluate",
+    "object": "the performance of vLLM with different block sizes"
+  },
+  {
+    "subject": "we",
+    "predicate": "use",
+    "object": "the ShareGPT and Alpaca traces with basic sampling under fixed request rates"
+  },
+  {
+    "subject": "block sizes from 16 to 128",
+    "predicate": "lead to",
+    "object": "the best performance"
+  },
+  {
+    "subject": "block sizes",
+    "predicate": "are in",
+    "object": "the ShareGPT trace"
+  },
+  {
+    "subject": "block size 16 and 32",
+    "predicate": "work well",
+    "object": "in the Alpaca trace"
+  },
+  {
+    "subject": "larger block sizes",
+    "predicate": "significantly degrade",
+    "object": "the performance"
+  },
+  {
+    "subject": "sequences",
+    "predicate": "become",
+    "object": "shorter than the block sizes"
+  },
+  {
+    "subject": "block size 16",
+    "predicate": "is large enough to",
+    "object": "efficiently utilize the GPU"
+  },
+  {
+    "subject": "block size 16",
+    "predicate": "is small enough to",
+    "object": "avoid significant internal fragmentation in most workloads"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "sets",
+    "object": "its default block size as 16"
+  },
+  {
+    "subject": "Block size",
+    "predicate": "includes values",
+    "object": "1, 2, 4, 8, 16, 32, 64, 128, 256"
+  },
+  {
+    "subject": "Time",
+    "predicate": "measured in",
+    "object": "ms"
+  },
+  {
+    "subject": "Microbenchmark",
+    "predicate": "has operations",
+    "object": "Recompute, Swap in, Swap out, Swap in out"
+  },
+  {
+    "subject": "End-to-end performance",
+    "predicate": "includes operations",
+    "object": "Recompute, Swap"
+  },
+  {
+    "subject": "Figure 19",
+    "predicate": "illustrates",
+    "object": "Microbenchmark and End-to-end performance"
+  },
+  {
+    "subject": "Overhead",
+    "predicate": "is for",
+    "object": "recomputation and swapping for different block sizes"
+  },
+  {
+    "subject": "the overhead of recomputation",
+    "predicate": "remains",
+    "object": "constant across different block sizes"
+  },
+  {
+    "subject": "recomputation",
+    "predicate": "does not utilize",
+    "object": "the KV blocks"
+  },
+  {
+    "subject": "recomputation",
+    "predicate": "is more efficient when",
+    "object": "the block size is small"
+  },
+  {
+    "subject": "swapping",
+    "predicate": "is more efficient when",
+    "object": "the block size is large"
+  },
+  {
+    "subject": "recomputation overhead",
+    "predicate": "is never higher than",
+    "object": "20 of swappings latency"
+  },
+  {
+    "subject": "Performance",
+    "predicate": "serves",
+    "object": "OPT-13B with the ShareGPT traces at the same request rate"
+  },
+  {
+    "subject": "we",
+    "predicate": "evaluate",
+    "object": "their end-to-end performance"
+  },
+  {
+    "subject": "we",
+    "predicate": "microbenchmark",
+    "object": "their overheads"
+  },
+  {
+    "subject": "swapping",
+    "predicate": "incurs",
+    "object": "excessive overhead with small block sizes"
+  },
+  {
+    "subject": "small block sizes",
+    "predicate": "result in",
+    "object": "numerous small data transfers between CPU and GPU"
+  },
+  {
+    "subject": "numerous small data transfers between CPU and GPU",
+    "predicate": "limit",
+    "object": "the effective PCIe bandwidth"
+  },
+  {
+    "subject": "the two methods",
+    "predicate": "exhibit",
+    "object": "comparable end-to-end performance for medium block sizes from 16 to 64"
+  },
+  {
+    "subject": "virtual memory and paging technique",
+    "predicate": "applied to",
+    "object": "other GPU workloads"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "mitigates",
+    "object": "the overhead of memory indirection in paging"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "mitigates the overhead by",
+    "object": "fusing the GPU kernels for memory access operations with those for other operations such as attention"
+  },
+  {
+    "subject": "tensor shapes",
+    "predicate": "are",
+    "object": "typically static in DNN training"
+  },
+  {
+    "subject": "memory allocation",
+    "predicate": "can be",
+    "object": "optimized ahead of time"
+  },
+  {
+    "subject": "an increase in memory efficiency",
+    "predicate": "may not result in",
+    "object": "any performance improvement"
+  },
+  {
+    "subject": "performance",
+    "predicate": "is",
+    "object": "primarily compute-bound"
+  },
+  {
+    "subject": "we",
+    "predicate": "would be excited to see",
+    "object": "vLLMs techniques being applied to other workloads with similar properties to LLM serving"
+  },
+  {
+    "subject": "LLM-specific optimizations",
+    "predicate": "are applied in",
+    "object": "virtual memory and paging"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "re-interprets and augments",
+    "object": "the idea of virtual memory and paging"
+  },
+  {
+    "subject": "vLLM",
+    "predicate": "leverages",
+    "object": "the application-specific semantics"
+  },
+  {
+    "subject": "vLLMs all-or-nothing swap-out policy",
+    "predicate": "exploits",
+    "object": "the fact that processing a request requires all of its corresponding token states to be stored in GPU memory"
+  },
+  {
+    "subject": "recomputation method",
+    "predicate": "is used to",
+    "object": "recover the evicted blocks"
+  },
+  {
+    "subject": "recomputation method",
+    "predicate": "is not feasible in",
+    "object": "OS"
+  },
+  {
+    "subject": "9",
+    "predicate": "is related to",
+    "object": "Related Work General model serving systems"
+  },
+  {
+    "subject": "Model serving",
+    "predicate": "has been",
+    "object": "an active area of research in recent years"
+  },
+  {
+    "subject": "numerous systems",
+    "predicate": "have been proposed",
+    "object": "to tackle diverse aspects of deep learning model deployment"
+  },
+  {
+    "subject": "Clipper",
+    "predicate": "is a",
+    "object": "general model serving system"
+  },
+  {
+    "subject": "TensorFlow Serving",
+    "predicate": "is a",
+    "object": "general model serving system"
+  },
+  {
+    "subject": "Nexus",
+    "predicate": "is a",
+    "object": "general model serving system"
+  },
+  {
+    "subject": "InferLine",
+    "predicate": "is a",
+    "object": "general model serving system"
+  },
+  {
+    "subject": "Clockwork",
+    "predicate": "is a",
+    "object": "general model serving system"
+  },
+  {
+    "subject": "batching",
+    "predicate": "is for",
+    "object": "serving single or multiple models"
+  },
+  {
+    "subject": "caching",
+    "predicate": "is for",
+    "object": "serving single or multiple models"
+  },
+  {
+    "subject": "placement",
+    "predicate": "is for",
+    "object": "serving single or multiple models"
+  },
+  {
+    "subject": "scheduling",
+    "predicate": "is for",
+    "object": "serving single or multiple models"
+  },
+  {
+    "subject": "DVABatch 12",
+    "predicate": "introduces",
+    "object": "multi-entry multi-exit batching"
+  },
+  {
+    "subject": "REEF 21 and Shep- herd 61",
+    "predicate": "propose",
+    "object": "preemption for serving"
+  },
+  {
+    "subject": "AlpaServe 28",
+    "predicate": "utilizes",
+    "object": "model parallelism for statistical multiplexing"
+  },
+  {
+    "subject": "AlpaServe",
+    "predicate": "is",
+    "object": "Statistical Multiplexing with Model Parallelism for Deep Learning Serving"
+  },
+  {
+    "subject": "these general systems",
+    "predicate": "fail to take into account",
+    "object": "the auto-regressive property and token state of LLM inference"
+  },
+  {
+    "subject": "Specialized serving systems",
+    "predicate": "are for",
+    "object": "transformers"
+  },
+  {
+    "subject": "numerous specialized serving systems",
+    "predicate": "have been developed for",
+    "object": "the transformer architecture"
+  },
+  {
+    "subject": "These systems",
+    "predicate": "utilize",
+    "object": "GPU kernel optimizations 1, 29, 31, 56"
+  },
+  {
+    "subject": "These systems",
+    "predicate": "utilize",
+    "object": "advanced batching mechanisms 14, 60"
+  },
+  {
+    "subject": "These systems",
+    "predicate": "utilize",
+    "object": "model parallelism 1, 41, 60"
+  },
+  {
+    "subject": "These systems",
+    "predicate": "utilize",
+    "object": "parameter sharing 64"
+  },
+  {
+    "subject": "These systems",
+    "predicate": "utilize",
+    "object": "GPU kernel optimizations, advanced batching mechanisms, model parallelism, and parameter sharing for efficient serving"
+  },
+  {
+    "subject": "Orca 60",
+    "predicate": "is",
+    "object": "most relevant to our approach"
+  },
+  {
+    "subject": "the fine-grained scheduling and interleaving of the requests like in Orca",
+    "predicate": "makes",
+    "object": "memory management more challenging"
+  },
+  {
+    "subject": "the techniques proposed in vLLM",
+    "predicate": "are",
+    "object": "even more crucial"
+  },
+  {
+    "subject": "The widening gap between the compute capability and memory capacity of accelerators",
+    "predicate": "has caused",
+    "object": "memory to become a bottleneck for both training and inference"
+  },
+  {
+    "subject": "Swapping 23, 42, 55, recomputation 7, 24 and their combination 40",
+    "predicate": "have been utilized to reduce",
+    "object": "the peak memory of training"
+  },
+  {
+    "subject": "FlexGen 46",
+    "predicate": "studies",
+    "object": "how to swap weights and token states for LLM inference with 623 limited GPU memory"
+  },
+  {
+    "subject": "FlexGen 46",
+    "predicate": "does not target",
+    "object": "the online serving settings"
+  },
+  {
+    "subject": "OLLA 48",
+    "predicate": "optimizes",
+    "object": "the lifetime and location of tensors"
+  },
+  {
+    "subject": "OLLA 48",
+    "predicate": "reduces",
+    "object": "fragmentation"
+  },
+  {
+    "subject": "OLLA 48",
+    "predicate": "does not do",
+    "object": "fine-grained block-level management"
+  },
+  {
+    "subject": "OLLA 48",
+    "predicate": "does not do",
+    "object": "online serving"
+  },
+  {
+    "subject": "FlashAttention 13",
+    "predicate": "applies",
+    "object": "tiling and kernel optimizations"
+  },
+  {
+    "subject": "tiling and kernel optimizations",
+    "predicate": "reduce",
+    "object": "the peak memory of attention computation"
+  },
+  {
+    "subject": "tiling and kernel optimizations",
+    "predicate": "reduce",
+    "object": "IO costs"
+  },
+  {
+    "subject": "This paper",
+    "predicate": "introduces",
+    "object": "a new idea of block-level memory management in the context of online serving"
+  },
+  {
+    "subject": "We",
+    "predicate": "would like to thank",
+    "object": "Xiaoxuan Liu"
+  },
+  {
+    "subject": "We",
+    "predicate": "would like to thank",
+    "object": "Zhifeng Chen"
+  },
+  {
+    "subject": "We",
+    "predicate": "would like to thank",
+    "object": "Yan-ping Huang"
+  },
+  {
+    "subject": "We",
+    "predicate": "would like to thank",
+    "object": "anonymous SOSP reviewers"
+  },
+  {
+    "subject": "We",
+    "predicate": "would like to thank",
+    "object": "our shepherd, Lidong Zhou"
+  },
+  {
+    "subject": "Xiaoxuan Liu, Zhifeng Chen, Yan-ping Huang, anonymous SOSP reviewers, and our shepherd, Lidong Zhou",
+    "predicate": "provided",
+    "object": "insightful feedback"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Andreessen Horowitz"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Anyscale"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Astronomer"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Google"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from IBM"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Intel"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Lacework"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Microsoft"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Mohamed Bin Zayed University of Artificial Intelligence"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Samsung SDS"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from Uber"
+  },
+  {
+    "subject": "This research",
+    "predicate": "is supported by",
+    "object": "gifts from VMware"
+  },
+  {
+    "subject": "DeepSpeed Inference",
+    "predicate": "enables",
+    "object": "efficient inference of transformer models at unprecedented scale"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:2207.00032"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2207.00032",
+    "predicate": "was published in",
+    "object": "2022"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:1607.06450"
+  },
+  {
+    "subject": "arXiv preprint arXiv:1607.06450",
+    "predicate": "was published in",
+    "object": "2016"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:2107.03374"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2107.03374",
+    "predicate": "was published in",
+    "object": "2021"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:1604.06174"
+  },
+  {
+    "subject": "arXiv preprint arXiv:1604.06174",
+    "predicate": "was published in",
+    "object": "2016"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "identifier",
+    "object": "arXiv:2204.02311"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2204.02311",
+    "predicate": "year",
+    "object": "2022"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:2104.08691"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2104.08691",
+    "predicate": "was published in",
+    "object": "2021"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:2101.00190"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2101.00190",
+    "predicate": "was published in",
+    "object": "2021"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:2302.11665"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2302.11665",
+    "predicate": "was published in",
+    "object": "2023"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:1712.06139"
+  },
+  {
+    "subject": "arXiv preprint arXiv:1712.06139",
+    "predicate": "was published in",
+    "object": "2017"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "identifier",
+    "object": "arXiv:2211.05102"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2211.05102",
+    "predicate": "year",
+    "object": "2022"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:2303.06865"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2303.06865",
+    "predicate": "was published in",
+    "object": "2023"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:1909.08053"
+  },
+  {
+    "subject": "arXiv preprint arXiv:1909.08053",
+    "predicate": "was published in",
+    "object": "2019"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:2302.13971"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2302.13971",
+    "predicate": "was published in",
+    "object": "2023"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:2212.10560"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2212.10560",
+    "predicate": "was published in",
+    "object": "2022"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:1609.08144"
+  },
+  {
+    "subject": "arXiv preprint arXiv:1609.08144",
+    "predicate": "was published in",
+    "object": "2016"
+  },
+  {
+    "subject": "arXiv preprint",
+    "predicate": "has identifier",
+    "object": "arXiv:2205.01068"
+  },
+  {
+    "subject": "arXiv preprint arXiv:2205.01068",
+    "predicate": "was published in",
+    "object": "2022"
+  },
+  {
+    "subject": "Jimmy Lei Ba",
+    "predicate": "is an author",
+    "object": "Jamie Ryan Kiros and Geoffrey E Hinton"
+  },
+  {
+    "subject": "Layer normalization",
+    "predicate": "is",
+    "object": "a technique"
+  },
+  {
+    "subject": "Yoshua Bengio",
+    "predicate": "is mentioned with",
+    "object": "Rjean Ducharme and Pascal Vincent"
+  },
+  {
+    "subject": "A neural probabilistic language model",
+    "predicate": "is",
+    "object": "a language model"
+  },
+  {
+    "subject": "Advances in neural information processing systems",
+    "predicate": "is volume",
+    "object": "13"
+  },
+  {
+    "subject": "Advances in neural information processing systems 13",
+    "predicate": "published in",
+    "object": "2000"
+  },
+  {
+    "subject": "Findings",
+    "predicate": "are from",
+    "object": "the 2016 Conference on Machine Translation"
+  },
+  {
+    "subject": "Association for Computational Linguistics",
+    "predicate": "location",
+    "object": "Berlin, Germany"
+  },
+  {
+    "subject": "Language models",
+    "predicate": "are",
+    "object": "few-shot learners"
+  },
+  {
+    "subject": "Advances in Neural Information Processing Systems",
+    "predicate": "volume",
+    "object": "35"
+  },
+  {
+    "subject": "Advances in Neural Information Processing Systems 35",
+    "predicate": "year",
+    "object": "2022"
+  },
+  {
+    "subject": "Advances in Neural Information Processing Systems 35 (2022)",
+    "predicate": "pages",
+    "object": "16344-16359"
+  },
+  {
+    "subject": "Advances in neural information processing systems 27",
+    "predicate": "is published in",
+    "object": "2014"
+  },
+  {
+    "subject": "Advances in neural information processing systems",
+    "predicate": "is volume",
+    "object": "30"
+  },
+  {
+    "subject": "Advances in neural information processing systems 30",
+    "predicate": "was published in",
+    "object": "2017"
+  },
+  {
+    "subject": "6 Mark Chen",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "Jerry Tworek",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "Heewoo Jun",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "Qiming Yuan",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "Henrique Ponde de Oliveira Pinto",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "Jared Kaplan",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "Harri Edwards",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "Yuri Burda",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "Nicholas Joseph",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "Greg Brockman",
+    "predicate": "is a person mentioned",
+    "object": "in the text"
+  },
+  {
+    "subject": "large language models",
+    "predicate": "are trained on",
+    "object": "code"
+  },
+  {
+    "subject": "7",
+    "predicate": "is associated with",
+    "object": "Tianqi Chen"
+  },
+  {
+    "subject": "7",
+    "predicate": "is associated with",
+    "object": "Bing Xu"
+  },
+  {
+    "subject": "7",
+    "predicate": "is associated with",
+    "object": "Chiyuan Zhang"
+  },
+  {
+    "subject": "7",
+    "predicate": "is associated with",
+    "object": "Carlos Guestrin"
+  },
+  {
+    "subject": "22",
+    "predicate": "refers to",
+    "object": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun"
+  },
+  {
+    "subject": "64",
+    "predicate": "is associated with",
+    "object": "Zhe Zhou, Xuechao Wei, Jiejing Zhang, and Guangyu Sun"
+  },
+  {
+    "subject": "Training deep nets",
+    "predicate": "has",
+    "object": "sublinear memory cost"
+  },
+  {
+    "subject": "28 Zhuohan Li",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Lianmin Zheng",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Yinmin Zhong",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Vincent Liu",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Ying Sheng",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Xin Jin",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Yanping Huang",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Zhifeng Chen",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Hao Zhang",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Joseph E Gonzalez",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "46 Ying Sheng",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Binhang Yuan",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Zhuohan Li",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Max Ryabinin",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Daniel Y Fu",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Zhiqiang Xie",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Beidi Chen",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Clark Barrett",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "59",
+    "predicate": "is associated with authors",
+    "object": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, et al."
+  },
+  {
+    "subject": "Vicuna",
+    "predicate": "is",
+    "object": "an open-source chatbot"
+  },
+  {
+    "subject": "Vicuna",
+    "predicate": "is impressing",
+    "object": "GPT-4"
+  },
+  {
+    "subject": "Vicuna",
+    "predicate": "has",
+    "object": "90 ChatGPT quality"
+  },
+  {
+    "subject": "orgblog2023-03-30-vicuna",
+    "predicate": "has authors",
+    "object": "Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, Charles Sutton, Sebastian Gehrmann, et al."
+  },
+  {
+    "subject": "Palm",
+    "predicate": "is about",
+    "object": "Scaling language modeling with pathways"
+  },
+  {
+    "subject": "10 Daniel Crankshaw, Gur-Eyal Sela, Xiangxi Mo, Corey Zumar, Ion Stoica, Joseph Gonzalez, and Alexey Tumanov",
+    "predicate": "are",
+    "object": "persons"
+  },
+  {
+    "subject": "Daniel Crankshaw",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Xin Wang",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Guilio Zhou",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Michael J Franklin",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Ion Stoica",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "InferLine",
+    "predicate": "is",
+    "object": "latency-aware provisioning and scaling for prediction serving pipelines"
+  },
+  {
+    "subject": "Proceedings",
+    "predicate": "of",
+    "object": "the 11th ACM Symposium on Cloud Computing"
+  },
+  {
+    "subject": "Clipper",
+    "predicate": "is",
+    "object": "A Low-Latency Online Prediction Serving System"
+  },
+  {
+    "subject": "20th USENIX Symposium on Networked Systems Design and Implementation",
+    "predicate": "abbreviation",
+    "object": "NSDI 23"
+  },
+  {
+    "subject": "DVABatch",
+    "predicate": "is",
+    "object": "Diversity-aware Multi-Entry Multi-Exit Batching"
+  },
+  {
+    "subject": "DVABatch",
+    "predicate": "is used for",
+    "object": "Efficient Processing of DNN Services on GPUs"
+  },
+  {
+    "subject": "USENIX Annual Technical Conference",
+    "predicate": "occurred in",
+    "object": "2022"
+  },
+  {
+    "subject": "USENIX Annual Technical Conference",
+    "predicate": "abbreviated as",
+    "object": "USENIX ATC 22"
+  },
+  {
+    "subject": "Flashattention",
+    "predicate": "is",
+    "object": "Fast and memory-efficient exact attention with io-awareness"
+  },
+  {
+    "subject": "TurboTransformers",
+    "predicate": "is",
+    "object": "an efficient GPU serving system for transformer models"
+  },
+  {
+    "subject": "Proceedings",
+    "predicate": "of",
+    "object": "the 26th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming"
+  },
+  {
+    "subject": "Proceedings of the 23rd ACM SIGPLAN symposium",
+    "predicate": "is about",
+    "object": "principles and practice of parallel programming"
+  },
+  {
+    "subject": "FastAPI",
+    "predicate": "is",
+    "object": "15"
+  },
+  {
+    "subject": "rnn inference",
+    "predicate": "has characteristic",
+    "object": "low latency"
+  },
+  {
+    "subject": "rnn inference",
+    "predicate": "uses method",
+    "object": "cellular batching"
+  },
+  {
+    "subject": "17",
+    "predicate": "is associated with",
+    "object": "Amir Gholami"
+  },
+  {
+    "subject": "17",
+    "predicate": "is associated with",
+    "object": "Zhewei Yao"
+  },
+  {
+    "subject": "17",
+    "predicate": "is associated with",
+    "object": "Sehoon Kim"
+  },
+  {
+    "subject": "17",
+    "predicate": "is associated with",
+    "object": "Michael W Mahoney"
+  },
+  {
+    "subject": "17",
+    "predicate": "is associated with",
+    "object": "Kurt Keutzer"
+  },
+  {
+    "subject": "18",
+    "predicate": "is associated with",
+    "object": "Github"
+  },
+  {
+    "subject": "2023",
+    "predicate": "is associated with",
+    "object": "https:bard.google.com"
+  },
+  {
+    "subject": "Arpan Gujarati",
+    "predicate": "is an author",
+    "object": "2023 document"
+  },
+  {
+    "subject": "Reza Karimi",
+    "predicate": "is an author",
+    "object": "2023 document"
+  },
+  {
+    "subject": "Safya Alzayat",
+    "predicate": "is an author",
+    "object": "2023 document"
+  },
+  {
+    "subject": "Wei Hao",
+    "predicate": "is an author",
+    "object": "2023 document"
+  },
+  {
+    "subject": "Antoine Kaufmann",
+    "predicate": "is an author",
+    "object": "2023 document"
+  },
+  {
+    "subject": "Ymir Vigfusson",
+    "predicate": "is an author",
+    "object": "2023 document"
+  },
+  {
+    "subject": "Jonathan Mace",
+    "predicate": "is an author",
+    "object": "2023 document"
+  },
+  {
+    "subject": "Serving DNNs",
+    "predicate": "is like",
+    "object": "Clockwork"
+  },
+  {
+    "subject": "Serving DNNs",
+    "predicate": "has",
+    "object": "Performance Predictability from the Bottom Up"
+  },
+  {
+    "subject": "14th USENIX Symposium on Operating Systems Design and Implementation",
+    "predicate": "abbreviation",
+    "object": "OSDI 20"
+  },
+  {
+    "subject": "Proceedings",
+    "predicate": "of",
+    "object": "the 14th USENIX Conference on Operating Systems Design and Implementation"
+  },
+  {
+    "subject": "16th USENIX Symposium on Operating Systems Design and Implementation",
+    "predicate": "abbreviation",
+    "object": "OSDI 22"
+  },
+  {
+    "subject": "Microsecond-scale Preemption",
+    "predicate": "is for",
+    "object": "Concurrent GPU-accelerated DNN Inferences"
+  },
+  {
+    "subject": "Deep residual learning",
+    "predicate": "is used for",
+    "object": "image recognition"
+  },
+  {
+    "subject": "Proceedings",
+    "predicate": "are of",
+    "object": "the IEEE conference on computer vision and pattern recognition"
+  },
+  {
+    "subject": "Swapadvisor",
+    "predicate": "pushes",
+    "object": "deep learning beyond the GPU memory limit via smart swapping"
+  },
+  {
+    "subject": "Proceedings",
+    "predicate": "of",
+    "object": "the Twenty-Fifth International Conference on Architectural Support for Programming Languages and Operating Systems"
+  },
+  {
+    "subject": "24 Paras Jain",
+    "predicate": "is a person",
+    "object": "Paras Jain"
+  },
+  {
+    "subject": "Ajay Jain",
+    "predicate": "is a person",
+    "object": "Ajay Jain"
+  },
+  {
+    "subject": "Aniruddha Nrusimha",
+    "predicate": "is a person",
+    "object": "Aniruddha Nrusimha"
+  },
+  {
+    "subject": "Amir Gholami",
+    "predicate": "is a person",
+    "object": "Amir Gholami"
+  },
+  {
+    "subject": "Pieter Abbeel",
+    "predicate": "is a person",
+    "object": "Pieter Abbeel"
+  },
+  {
+    "subject": "Joseph Gonzalez",
+    "predicate": "is a person",
+    "object": "Joseph Gonzalez"
+  },
+  {
+    "subject": "Kurt Keutzer",
+    "predicate": "is a person",
+    "object": "Kurt Keutzer"
+  },
+  {
+    "subject": "Ion Stoica",
+    "predicate": "is a person",
+    "object": "Ion Stoica"
+  },
+  {
+    "subject": "Check-mate",
+    "predicate": "is about",
+    "object": "breaking the memory wall with optimal tensor rematerialization"
+  },
+  {
+    "subject": "25",
+    "predicate": "includes authors",
+    "object": "Tom Kilburn"
+  },
+  {
+    "subject": "25",
+    "predicate": "includes authors",
+    "object": "David BG Edwards"
+  },
+  {
+    "subject": "25",
+    "predicate": "includes authors",
+    "object": "Michael J Lanigan"
+  },
+  {
+    "subject": "25",
+    "predicate": "includes authors",
+    "object": "Frank H Sumner"
+  },
+  {
+    "subject": "One-level storage system",
+    "predicate": "is",
+    "object": "a storage system"
+  },
+  {
+    "subject": "Brian Lester",
+    "predicate": "is an author",
+    "object": "26"
+  },
+  {
+    "subject": "Rami Al-Rfou",
+    "predicate": "is an author",
+    "object": "26"
+  },
+  {
+    "subject": "Noah Constant",
+    "predicate": "is an author",
+    "object": "26"
+  },
+  {
+    "subject": "The power of scale",
+    "predicate": "is for",
+    "object": "parameter-efficient prompt tuning"
+  },
+  {
+    "subject": "Prefix-tuning",
+    "predicate": "is",
+    "object": "optimizing continuous prompts for generation"
+  },
+  {
+    "subject": "Rammer",
+    "predicate": "enables",
+    "object": "holistic deep learning compiler optimizations with rtasks"
+  },
+  {
+    "subject": "NVIDIA",
+    "predicate": "is",
+    "object": "30"
+  },
+  {
+    "subject": "NVIDIA",
+    "predicate": "is",
+    "object": "31"
+  },
+  {
+    "subject": "32",
+    "predicate": "is associated with",
+    "object": "NVIDIA"
+  },
+  {
+    "subject": "Triton Inference Server",
+    "predicate": "has no date",
+    "object": "n. d."
+  },
+  {
+    "subject": "nvidia-triton-inference-server",
+    "predicate": "is hosted at",
+    "object": "https://developer.nvidia.com"
+  },
+  {
+    "subject": "FasterTransformer",
+    "predicate": "is hosted at",
+    "object": "https://github.com/NVIDIA/FasterTransformer"
+  },
+  {
+    "subject": "NCCL",
+    "predicate": "is",
+    "object": "The NVIDIA Collective Communication Library"
+  },
+  {
+    "subject": "Tensorflow-serving",
+    "predicate": "is",
+    "object": "flexible, high-performance ml serving"
+  },
+  {
+    "subject": "OpenAI",
+    "predicate": "is",
+    "object": "34"
+  },
+  {
+    "subject": "OpenAI API",
+    "predicate": "was referenced in",
+    "object": "https://openai.com/blog/openai-api in 2020"
+  },
+  {
+    "subject": "OpenAI",
+    "predicate": "is associated with",
+    "object": "OpenAI API"
+  },
+  {
+    "subject": "OpenAI",
+    "predicate": "published",
+    "object": "ChatGPT blog post in 2022"
+  },
+  {
+    "subject": "ChatGPT blog post",
+    "predicate": "URL",
+    "object": "https://openai.com/blog/chatgpt"
+  },
+  {
+    "subject": "arXiv:2303.08774",
+    "predicate": "has category",
+    "object": "cs.CL"
+  },
+  {
+    "subject": "arXiv:2303.08774",
+    "predicate": "has number of pages",
+    "object": "38"
+  },
+  {
+    "subject": "arXiv:2303.08774",
+    "predicate": "is associated with",
+    "object": "LMSYS ORG"
+  },
+  {
+    "subject": "Chatbot Arena Leaderboard Week 8",
+    "predicate": "introduces",
+    "object": "MT-Bench and Vicuna-33B"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "Adam Paszke"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "Sam Gross"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "Francisco Massa"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "Adam Lerer"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "James Bradbury"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "Gregory Chanan"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "Trevor Killeen"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "Zeming Lin"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "Natalia Gimelshein"
+  },
+  {
+    "subject": "39",
+    "predicate": "is associated with",
+    "object": "Luca Antiga"
+  },
+  {
+    "subject": "Pytorch",
+    "predicate": "is",
+    "object": "an imperative style, high-performance deep learning library"
+  },
+  {
+    "subject": "Advances in neural information processing systems 32",
+    "predicate": "is published in",
+    "object": "2019"
+  },
+  {
+    "subject": "POET",
+    "predicate": "is about",
+    "object": "Training Neural Networks on Tiny Devices with Integrated Rematerialization and Paging"
+  },
+  {
+    "subject": "PMLR",
+    "predicate": "has identifier",
+    "object": "1757317583"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "Reiner Pope"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "Sholto Douglas"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "Aakanksha Chowdhery"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "Jacob Devlin"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "James Bradbury"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "Anselm Levskaya"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "Jonathan Heek"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "Kefan Xiao"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "Shivani Agrawal"
+  },
+  {
+    "subject": "41",
+    "predicate": "includes",
+    "object": "Jeff Dean"
+  },
+  {
+    "subject": "ZeRO-Offload",
+    "predicate": "is",
+    "object": "a method for democratizing billion-scale model training"
+  },
+  {
+    "subject": "Amazon Web Services",
+    "predicate": "is mentioned in",
+    "object": "2023. https:www.reuters.comtechnologytech-giants-ai-like-bing-bard-poses-billion-dollar-search-problem-2023-02-22"
+  },
+  {
+    "subject": "2023",
+    "predicate": "is associated with",
+    "object": "https://aws.amazon.com/bedrock"
+  },
+  {
+    "subject": "Haichen Shen, Lequn Chen, Yuchen Jin, Liangyu Zhao, Bingyu Kong, Matthai Philipose, Arvind Krishnamurthy, and Ravi Sundaram",
+    "predicate": "are authors of",
+    "object": "a work referenced as 45"
+  },
+  {
+    "subject": "Nexus",
+    "predicate": "is",
+    "object": "a GPU cluster engine"
+  },
+  {
+    "subject": "Nexus",
+    "predicate": "is used for",
+    "object": "accelerating DNN-based video analysis"
+  },
+  {
+    "subject": "Proceedings",
+    "predicate": "of",
+    "object": "the 27th ACM Symposium on Operating Systems Principles"
+  },
+  {
+    "subject": "High-throughput Generative Inference",
+    "predicate": "is applied to",
+    "object": "Large Language Models"
+  },
+  {
+    "subject": "High-throughput Generative Inference of Large Language Models",
+    "predicate": "is performed with",
+    "object": "a Single GPU"
+  },
+  {
+    "subject": "47",
+    "predicate": "includes authors",
+    "object": "Mohammad Shoeybi"
+  },
+  {
+    "subject": "47",
+    "predicate": "includes authors",
+    "object": "Mostofa Patwary"
+  },
+  {
+    "subject": "47",
+    "predicate": "includes authors",
+    "object": "Raul Puri"
+  },
+  {
+    "subject": "47",
+    "predicate": "includes authors",
+    "object": "Patrick LeGresley"
+  },
+  {
+    "subject": "47",
+    "predicate": "includes authors",
+    "object": "Jared Casper"
+  },
+  {
+    "subject": "47",
+    "predicate": "includes authors",
+    "object": "Bryan Catanzaro"
+  },
+  {
+    "subject": "Megatron-lm",
+    "predicate": "is used for",
+    "object": "training multi-billion parameter language models"
+  },
+  {
+    "subject": "Megatron-lm",
+    "predicate": "uses",
+    "object": "model parallelism"
+  },
+  {
+    "subject": "48",
+    "predicate": "includes authors",
+    "object": "Benoit Steiner, Mostafa Elhoushi, Jacob Kahn, and James Hegarty"
+  },
+  {
+    "subject": "OLLA",
+    "predicate": "stands for",
+    "object": "Optimizing the Lifetime and Location of Arrays to Reduce the Memory Usage of Neural Networks"
+  },
+  {
+    "subject": "Ilya Sutskever, Oriol Vinyals, and Quoc V Le",
+    "predicate": "are authors of",
+    "object": "arXiv.2210.12924"
+  },
+  {
+    "subject": "Sequence to sequence learning",
+    "predicate": "is done with",
+    "object": "neural networks"
+  },
+  {
+    "subject": "50",
+    "predicate": "includes authors",
+    "object": "Rohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann Dubois, Xuechen Li, Carlos Guestrin, Percy Liang, Tatsunori B. Hashimoto"
+  },
+  {
+    "subject": "57 Yizhong Wang",
+    "predicate": "is an author",
+    "object": "Yeganeh Kordi"
+  },
+  {
+    "subject": "57 Yizhong Wang",
+    "predicate": "is an author",
+    "object": "Swaroop Mishra"
+  },
+  {
+    "subject": "57 Yizhong Wang",
+    "predicate": "is an author",
+    "object": "Alisa Liu"
+  },
+  {
+    "subject": "57 Yizhong Wang",
+    "predicate": "is an author",
+    "object": "Noah A Smith"
+  },
+  {
+    "subject": "57 Yizhong Wang",
+    "predicate": "is an author",
+    "object": "Daniel Khashabi"
+  },
+  {
+    "subject": "57 Yizhong Wang",
+    "predicate": "is an author",
+    "object": "Hannaneh Hajishirzi"
+  },
+  {
+    "subject": "Stanford Alpaca",
+    "predicate": "is",
+    "object": "an Instruction-following LLaMA model"
+  },
+  {
+    "subject": "https://github.com/tatsu-lab/stanford-alpaca",
+    "predicate": "is",
+    "object": "a URL"
+  },
+  {
+    "subject": "Hugo Touvron",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Thibaut Lavril",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Gautier Izacard",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Xavier Martinet",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Marie-Anne Lachaux",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Timothe Lacroix",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Baptiste Rozire",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Naman Goyal",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Eric Hambro",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Faisal Azhar",
+    "predicate": "is an author of",
+    "object": "2023 document on https:sharegpt.com"
+  },
+  {
+    "subject": "Llama",
+    "predicate": "is",
+    "object": "Open and efficient foundation language models"
+  },
+  {
+    "subject": "53",
+    "predicate": "is associated with",
+    "object": "Ashish Vaswani"
+  },
+  {
+    "subject": "53",
+    "predicate": "is associated with",
+    "object": "Noam Shazeer"
+  },
+  {
+    "subject": "53",
+    "predicate": "is associated with",
+    "object": "Niki Parmar"
+  },
+  {
+    "subject": "53",
+    "predicate": "is associated with",
+    "object": "Jakob Uszkoreit"
+  },
+  {
+    "subject": "53",
+    "predicate": "is associated with",
+    "object": "Llion Jones"
+  },
+  {
+    "subject": "53",
+    "predicate": "is associated with",
+    "object": "Aidan N Gomez"
+  },
+  {
+    "subject": "53",
+    "predicate": "is associated with",
+    "object": "ukasz Kaiser"
+  },
+  {
+    "subject": "53",
+    "predicate": "is associated with",
+    "object": "Illia Polosukhin"
+  },
+  {
+    "subject": "Attention",
+    "predicate": "is",
+    "object": "all you need"
+  },
+  {
+    "subject": "Pacman",
+    "predicate": "is",
+    "object": "An Efficient Compaction Approach for Log-Structured Key-Value Store on Persistent Memory"
+  },
+  {
+    "subject": "Superneurons",
+    "predicate": "is about",
+    "object": "Dynamic GPU memory management for training deep neural networks"
+  },
+  {
+    "subject": "LightSeq",
+    "predicate": "is",
+    "object": "A High Performance Inference Library for Transformers"
+  },
+  {
+    "subject": "Proceedings",
+    "predicate": "of",
+    "object": "the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies: Industry Papers"
+  },
+  {
+    "subject": "Self-Instruct",
+    "predicate": "is about",
+    "object": "Aligning Language Model with Self Generated Instructions"
+  },
+  {
+    "subject": "Thomas Wolf",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Lysandre Debut",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Victor Sanh",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Julien Chaumond",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Clement Delangue",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Anthony Moi",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Pierric Cistac",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Tim Rault",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Rmi Louf",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Morgan Funtowicz",
+    "predicate": "is an author",
+    "object": "the text"
+  },
+  {
+    "subject": "Transformers",
+    "predicate": "are",
+    "object": "state-of-the-art natural language processing"
+  },
+  {
+    "subject": "Proceedings of the 2020 conference on empirical methods in natural language processing",
+    "predicate": "include",
+    "object": "system demonstrations"
+  },
+  {
+    "subject": "Google's neural machine translation system",
+    "predicate": "bridges",
+    "object": "the gap between human and machine translation"
+  },
+  {
+    "subject": "60",
+    "predicate": "is associated with",
+    "object": "Gyeong-In Yu, Joo Seong Jeong, Geon-Woo Kim, Soojeong Kim, and Byung-Gon Chun"
+  },
+  {
+    "subject": "Orca",
+    "predicate": "is",
+    "object": "A Distributed Serving System for Transformer-Based Generative Models"
+  },
+  {
+    "subject": "SHEPHERD",
+    "predicate": "is",
+    "object": "Serving DNNs in the Wild"
+  },
+  {
+    "subject": "USENIX Association",
+    "predicate": "is located in",
+    "object": "Boston, MA"
+  },
+  {
+    "subject": "USENIX Association",
+    "predicate": "website",
+    "object": "https://www.usenix.org/conference/nsdi23/presentation/zhang-hong"
+  },
+  {
+    "subject": "Susan Zhang",
+    "predicate": "is an author with",
+    "object": "Stephen Roller"
+  },
+  {
+    "subject": "Susan Zhang",
+    "predicate": "is an author with",
+    "object": "Naman Goyal"
+  },
+  {
+    "subject": "Susan Zhang",
+    "predicate": "is an author with",
+    "object": "Mikel Artetxe"
+  },
+  {
+    "subject": "Susan Zhang",
+    "predicate": "is an author with",
+    "object": "Moya Chen"
+  },
+  {
+    "subject": "Susan Zhang",
+    "predicate": "is an author with",
+    "object": "Shuohui Chen"
+  },
+  {
+    "subject": "Susan Zhang",
+    "predicate": "is an author with",
+    "object": "Christopher Dewan"
+  },
+  {
+    "subject": "Susan Zhang",
+    "predicate": "is an author with",
+    "object": "Mona Diab"
+  },
+  {
+    "subject": "Susan Zhang",
+    "predicate": "is an author with",
+    "object": "Xian Li"
+  },
+  {
+    "subject": "Susan Zhang",
+    "predicate": "is an author with",
+    "object": "Xi Victoria Lin"
+  },
+  {
+    "subject": "Opt",
+    "predicate": "is",
+    "object": "Open pre-trained transformer language models"
+  },
+  {
+    "subject": "Alpa",
+    "predicate": "is",
+    "object": "Automating Inter-and Intra-Operator Parallelism for Distributed Deep Learning"
+  },
+  {
+    "subject": "PetS",
+    "predicate": "is",
+    "object": "A Unified Framework for Parameter-Efficient Transformers Serving"
+  }
+]

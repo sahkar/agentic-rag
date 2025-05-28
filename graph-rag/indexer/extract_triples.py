@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 client = AsyncOpenAI()
 
 # Load clustered chunks
-with open("clustered_chunks.json", "r", encoding="utf-8") as f:
+with open("clustered_chunks_riscv.json", "r", encoding="utf-8") as f:
     clustered_chunks = json.load(f)
 
 # Flatten all text groups
@@ -70,8 +70,8 @@ async def main():
 
     deduped = [t for idx, t in enumerate(triples) if idx not in to_remove]
 
-    with open("triples_relevant.json", "w", encoding="utf-8") as f:
+    with open("triples_relevant_riscv.json", "w", encoding="utf-8") as f:
         json.dump(deduped, f, indent=2, ensure_ascii=False)
-    print("Saved triples to triples_relevant.json")
+    print("Saved triples to triples_relevant_riscv.json")
 
 asyncio.run(main())

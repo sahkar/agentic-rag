@@ -25,7 +25,7 @@ def extract_text_from_pdf(path):
     return text
 
 # PDF to text
-text = extract_text_from_pdf("input_pdf/pipeswitch.pdf")
+text = extract_text_from_pdf("input_pdf/riscv.pdf")
 
 # Basic regex clean
 text = re.sub(r'\s+', ' ', text)
@@ -81,7 +81,7 @@ for cluster_id, group in clustered_chunks.items():
 
 serializable_clusters = {str(cluster_id): group for cluster_id, group in clustered_chunks.items()}
 
-with open("clustered_chunks.json", "w", encoding="utf-8") as f:
+with open("clustered_chunks_riscv.json", "w", encoding="utf-8") as f:
     json.dump(serializable_clusters, f, indent=2, ensure_ascii=False)
 
-print("Clusters saved to clustered_chunks.json")
+print("Clusters saved to clustered_chunks_riscv.json")
