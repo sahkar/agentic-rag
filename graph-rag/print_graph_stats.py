@@ -26,7 +26,7 @@ degree_dict = dict(graph.degree())
 avg_degree = sum(degree_dict.values()) / graph.number_of_nodes()
 print(f'Average degree: {avg_degree}')
 
-# Print number of 
+# Print nodes with high degrees
 high_degree_nodes = Counter(degree_dict).most_common(10)
 print()
 print('10 highest-degree nodes:')
@@ -34,8 +34,8 @@ print(f'{"#":>2}  {"Node":<40} {"Degree":>6}')
 print('-' * 50)
 for num, (item, degree) in enumerate(high_degree_nodes, start=1):
   print(f'{num:>2}. {item:<40} {degree:>4}')
-  num += 1
 
+# Print frequent predicates (edge labels)
 if graph.is_directed():
   # Undirected Microsoft GraphRAG graph has weights, but no labels on edges, so this analysis doesn't apply
   predicates = [data["relationship"] for _, _, data in graph.edges(data=True) if "relationship" in data]
@@ -48,4 +48,3 @@ if graph.is_directed():
   print('-' * 50)
   for num, (item, count) in enumerate(frequent_predicates, start=1):
     print(f'{num:>2}. {item:<40} {count:>4}')
-    num += 1
