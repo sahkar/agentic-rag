@@ -1,5 +1,5 @@
 {
-  "58": [
+  "76": [
     "1032 IEEE TRANSACTIONS ON VERY LARGE SCALE INTEGRATION (VLSI) SYSTEMS, VOL.",
     "1034 IEEE TRANSACTIONS ON VERY LARGE SCALE INTEGRATION (VLSI) SYSTEMS, VOL.",
     "1036 IEEE TRANSACTIONS ON VERY LARGE SCALE INTEGRATION (VLSI) SYSTEMS, VOL.",
@@ -8,7 +8,7 @@
     "1042 IEEE TRANSACTIONS ON VERY LARGE SCALE INTEGRATION (VLSI) SYSTEMS, VOL.",
     "1044 IEEE TRANSACTIONS ON VERY LARGE SCALE INTEGRATION (VLSI) SYSTEMS, VOL."
   ],
-  "89": [
+  "90": [
     "32, NO.",
     "32, NO.",
     "32, NO.",
@@ -17,251 +17,251 @@
     "32, NO.",
     "32, NO."
   ],
-  "11": [
-    "6, JUNE 2024 CV32RT: Enabling Fast Interrupt and Context Switching for RISC-V Microcontrollers Robert Balas , Graduate Student Member, IEEE, Alessandro Ottaviano , Graduate Student Member, IEEE, and Luca Benini , Fellow, IEEE Abstract Processors using the open RISC-V instruction set architecture (ISA) are finding increasing adoption in the embed- ded world.",
-    "In this work, we implement a CLIC for the CV32E40P, an industrially supported open-source 32-bit microcontroller unit (MCU)-class RISC-V core, and enhance it with fastirq: a custom extension that provides interrupt latency as low as six cycles.",
-    "To address these open challenges, we propose CV32RT, a 32-bit RISC-V core that extends the interrupt handling capabilities of CV32E40P 16, 17, an industrially supported open-source core, to achieve best-in-class interrupt latency and fast context switching against commercial off-the-shelf (COTS) processor vendors, paving the road for RISC-V archi- tectures in time-critical systems.",
-    "1) We replace the CV32E40P interrupt controller with an implementation of the RISC-V CLIC specification, which provides the core with key features such as prioritization by level and priority, selective hardware vectoring (SHV), and non-nested interrupt optimization tail-chaining through the xnxti 15 control and status register (CSR) directly as RISC-V standard extension (see Section III-A).",
-    "BACKGROUND We give a brief overview of the full-system platform used to design and implement the proposed interrupt extension in Section II-A, motivate and explain the relevant target metrics in Section II-B3, and describe the current status of interrupt handling in RISC-V in Section II-C. A. RISC-V System Platform We rely on the CV32E40P core 16abbreviated to CV32 in this articlean open-source, industry-grade, 32-bit, in- order, four-stage RISC-V core, as the basis for implementing our extensions.",
-    "A. CV32RT Overview We start with the CV32 core as the baseline, whose native CLINT interrupt controller we replace with the CLIC (hereafter, CV32RTCLIC), and then introduce fastirq into the core microarchitecture, the extension proposed in this work (hereafter, CV32RTfastirq).",
-    "B. CV32RTCLIC: CLIC Fast Interrupt Controller We implement the CLIC interrupt controller in CV32RTCLIC 15 according to the draft specification which is to be included in the RISC-V Privileged Specification 14.",
-    "TABLE II FEATURE COMPARISON OF VARIOUS FLAVORS OF RISC-V CORE- SPECIFIC INTERRUPT CONTROLLERS Our proposed fastirq extension addresses these weak- nesses by extending the CLIC base capabilities with a mechanism to lower interrupt latency while still keeping HW vectored interrupts and allowing the skipping of redundant context restore operations.",
-    "CONCLUSION In this work, we present fastirq, a fast interrupt exten- sion for RISC-V embedded systems.",
-    "We implement the extension on CV32RT, a 32-bit, in-order, single-issue core designed with the RISC-V CLIC fast interrupt controller.",
-    "27 B. Mao, N. Tan, T. Chong, and L. Li, A CLIC extension based fast interrupt system for embedded RISC-V processors, in Proc."
+  "24": [
+    "6, JUNE 2024 CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING FOR RISC-V MICROCONTROLLERS ROBERT BALAS , GRADUATE STUDENT MEMBER, IEEE, ALESSANDRO OTTAVIANO , GRADUATE STUDENT MEMBER, IEEE, AND LUCA BENINI , FELLOW, IEEE ABSTRACT PROCESSORS USING THE OPEN RISC-V INSTRUCTION SET ARCHITECTURE (ISA) ARE FINDING INCREASING ADOPTION IN THE EMBED- DED WORLD.",
+    "IN THIS WORK, WE IMPLEMENT A CLIC FOR THE CV32E40P, AN INDUSTRIALLY SUPPORTED OPEN-SOURCE 32-BIT MICROCONTROLLER UNIT (MCU)-CLASS RISC-V CORE, AND ENHANCE IT WITH FASTIRQ: A CUSTOM EXTENSION THAT PROVIDES INTERRUPT LATENCY AS LOW AS SIX CYCLES.",
+    "TO ADDRESS THESE OPEN CHALLENGES, WE PROPOSE CV32RT, A 32-BIT RISC-V CORE THAT EXTENDS THE INTERRUPT HANDLING CAPABILITIES OF CV32E40P 16, 17, AN INDUSTRIALLY SUPPORTED OPEN-SOURCE CORE, TO ACHIEVE BEST-IN-CLASS INTERRUPT LATENCY AND FAST CONTEXT SWITCHING AGAINST COMMERCIAL OFF-THE-SHELF (COTS) PROCESSOR VENDORS, PAVING THE ROAD FOR RISC-V ARCHI- TECTURES IN TIME-CRITICAL SYSTEMS.",
+    "1) WE REPLACE THE CV32E40P INTERRUPT CONTROLLER WITH AN IMPLEMENTATION OF THE RISC-V CLIC SPECIFICATION, WHICH PROVIDES THE CORE WITH KEY FEATURES SUCH AS PRIORITIZATION BY LEVEL AND PRIORITY, SELECTIVE HARDWARE VECTORING (SHV), AND NON-NESTED INTERRUPT OPTIMIZATION TAIL-CHAINING THROUGH THE XNXTI 15 CONTROL AND STATUS REGISTER (CSR) DIRECTLY AS RISC-V STANDARD EXTENSION (SEE SECTION III-A).",
+    "BACKGROUND WE GIVE A BRIEF OVERVIEW OF THE FULL-SYSTEM PLATFORM USED TO DESIGN AND IMPLEMENT THE PROPOSED INTERRUPT EXTENSION IN SECTION II-A, MOTIVATE AND EXPLAIN THE RELEVANT TARGET METRICS IN SECTION II-B3, AND DESCRIBE THE CURRENT STATUS OF INTERRUPT HANDLING IN RISC-V IN SECTION II-C. A. RISC-V SYSTEM PLATFORM WE RELY ON THE CV32E40P CORE 16ABBREVIATED TO CV32 IN THIS ARTICLEAN OPEN-SOURCE, INDUSTRY-GRADE, 32-BIT, IN- ORDER, FOUR-STAGE RISC-V CORE, AS THE BASIS FOR IMPLEMENTING OUR EXTENSIONS.",
+    "A. CV32RT OVERVIEW WE START WITH THE CV32 CORE AS THE BASELINE, WHOSE NATIVE CLINT INTERRUPT CONTROLLER WE REPLACE WITH THE CLIC (HEREAFTER, CV32RTCLIC), AND THEN INTRODUCE FASTIRQ INTO THE CORE MICROARCHITECTURE, THE EXTENSION PROPOSED IN THIS WORK (HEREAFTER, CV32RTFASTIRQ).",
+    "B. CV32RTCLIC: CLIC FAST INTERRUPT CONTROLLER WE IMPLEMENT THE CLIC INTERRUPT CONTROLLER IN CV32RTCLIC 15 ACCORDING TO THE DRAFT SPECIFICATION WHICH IS TO BE INCLUDED IN THE RISC-V PRIVILEGED SPECIFICATION 14.",
+    "TABLE II FEATURE COMPARISON OF VARIOUS FLAVORS OF RISC-V CORE- SPECIFIC INTERRUPT CONTROLLERS OUR PROPOSED FASTIRQ EXTENSION ADDRESSES THESE WEAK- NESSES BY EXTENDING THE CLIC BASE CAPABILITIES WITH A MECHANISM TO LOWER INTERRUPT LATENCY WHILE STILL KEEPING HW VECTORED INTERRUPTS AND ALLOWING THE SKIPPING OF REDUNDANT CONTEXT RESTORE OPERATIONS.",
+    "CONCLUSION IN THIS WORK, WE PRESENT FASTIRQ, A FAST INTERRUPT EXTEN- SION FOR RISC-V EMBEDDED SYSTEMS.",
+    "WE IMPLEMENT THE EXTENSION ON CV32RT, A 32-BIT, IN-ORDER, SINGLE-ISSUE CORE DESIGNED WITH THE RISC-V CLIC FAST INTERRUPT CONTROLLER.",
+    "27 B. MAO, N. TAN, T. CHONG, AND L. LI, A CLIC EXTENSION BASED FAST INTERRUPT SYSTEM FOR EMBEDDED RISC-V PROCESSORS, IN PROC."
   ],
-  "218": [
-    "Many embedded use cases have real-time constraints and require flexible, predictable, and fast reactive handling of incoming events."
+  "221": [
+    "MANY EMBEDDED USE CASES HAVE REAL-TIME CONSTRAINTS AND REQUIRE FLEXIBLE, PREDICTABLE, AND FAST REACTIVE HANDLING OF INCOMING EVENTS."
   ],
-  "236": [
-    "However, RISC-V processors are still lagging in this area compared to more mature proprietary architectures, such as ARM Cortex-M and TriCore, which have been tuned for years."
+  "239": [
+    "HOWEVER, RISC-V PROCESSORS ARE STILL LAGGING IN THIS AREA COMPARED TO MORE MATURE PROPRIETARY ARCHITECTURES, SUCH AS ARM CORTEX-M AND TRICORE, WHICH HAVE BEEN TUNED FOR YEARS."
   ],
-  "409": [
-    "The default interrupt controller standardized by RISC- V, the core local interruptor (CLINT), lacks configurability in prioritization and preemption of interrupts."
+  "413": [
+    "THE DEFAULT INTERRUPT CONTROLLER STANDARDIZED BY RISC- V, THE CORE LOCAL INTERRUPTOR (CLINT), LACKS CONFIGURABILITY IN PRIORITIZATION AND PREEMPTION OF INTERRUPTS."
   ],
-  "10": [
-    "The RISC-V core local interrupt controller (CLIC) specification addresses this concern by enabling preemptible, low-latency vectored interrupts while also envisioning optional extensions to improve interrupt latency.",
-    "For this reason, the RISC-V community has been developing an extension to the Privileged specifications 14 with the proposal of the RISC-V core local interrupt controller (CLIC) 15, currently under ratification by the community, to handle such real-time scenarios.",
-    "C. Interrupt Handling in RISC-V 1) CLINT and PLIC: We distinguish between CLICs, local to each hardware thread (HART), and platform level interrupt controllers (PLICs), centralized interrupt controllers capable of managing multiple HARTs.",
-    "A. Platform-Level Interrupt Controllers Controllers that belong to this category, such as the RISC-V PLIC and advanced PLIC (APLIC) for wire-based inter- rupt communication and RISC-V incoming message signaled interrupt controller (IMSIC) for message-signaled interrupt communication, are not designed to distribute time-critical interrupts to the running HARTs.",
-    "B. Core-Local Interrupt Controllers CLICs are often specialized in providing fast interrupt-handling capabilities in real-time embedded application domains.",
-    "Available: http: www2.eecs.berkeley.eduPubsTechRpts2016EECS-2016-129.html 15 RISC-V SMCLIC Core-Local Interrupt Controller (CLIC) RISC-V Privileged Architecture Extension."
+  "23": [
+    "THE RISC-V CORE LOCAL INTERRUPT CONTROLLER (CLIC) SPECIFICATION ADDRESSES THIS CONCERN BY ENABLING PREEMPTIBLE, LOW-LATENCY VECTORED INTERRUPTS WHILE ALSO ENVISIONING OPTIONAL EXTENSIONS TO IMPROVE INTERRUPT LATENCY.",
+    "FOR THIS REASON, THE RISC-V COMMUNITY HAS BEEN DEVELOPING AN EXTENSION TO THE PRIVILEGED SPECIFICATIONS 14 WITH THE PROPOSAL OF THE RISC-V CORE LOCAL INTERRUPT CONTROLLER (CLIC) 15, CURRENTLY UNDER RATIFICATION BY THE COMMUNITY, TO HANDLE SUCH REAL-TIME SCENARIOS.",
+    "C. INTERRUPT HANDLING IN RISC-V 1) CLINT AND PLIC: WE DISTINGUISH BETWEEN CLICS, LOCAL TO EACH HARDWARE THREAD (HART), AND PLATFORM LEVEL INTERRUPT CONTROLLERS (PLICS), CENTRALIZED INTERRUPT CONTROLLERS CAPABLE OF MANAGING MULTIPLE HARTS.",
+    "A. PLATFORM-LEVEL INTERRUPT CONTROLLERS CONTROLLERS THAT BELONG TO THIS CATEGORY, SUCH AS THE RISC-V PLIC AND ADVANCED PLIC (APLIC) FOR WIRE-BASED INTER- RUPT COMMUNICATION AND RISC-V INCOMING MESSAGE SIGNALED INTERRUPT CONTROLLER (IMSIC) FOR MESSAGE-SIGNALED INTERRUPT COMMUNICATION, ARE NOT DESIGNED TO DISTRIBUTE TIME-CRITICAL INTERRUPTS TO THE RUNNING HARTS.",
+    "B. CORE-LOCAL INTERRUPT CONTROLLERS CLICS ARE OFTEN SPECIALIZED IN PROVIDING FAST INTERRUPT-HANDLING CAPABILITIES IN REAL-TIME EMBEDDED APPLICATION DOMAINS.",
+    "AVAILABLE: HTTP: WWW2.EECS.BERKELEY.EDUPUBSTECHRPTS2016EECS-2016-129.HTML 15 RISC-V SMCLIC CORE-LOCAL INTERRUPT CONTROLLER (CLIC) RISC-V PRIVILEGED ARCHITECTURE EXTENSION."
   ],
-  "365": [
-    "We call CV32RT our enhanced core."
+  "368": [
+    "WE CALL CV32RT OUR ENHANCED CORE."
   ],
-  "20": [
-    "To the best of our knowledge, CV32RT is the first fully open-source RV32 core with competitive interrupt-handling features compared to the Arm Cortex-M series and TriCore.",
-    "3) We integrate CV32RT within an open-source system on chip (SoC) 19.2 We evaluate CV32RT interrupt handling capabilities while showing the negligible area overhead introduced by the extension in a modern technology node against its performance benefits (see Section IV).",
-    "Then, we show how the various CV32RT versions perform in terms of interrupt latency and context switch times and finally quantify the overhead these additions incur in terms of area and timing."
+  "43": [
+    "TO THE BEST OF OUR KNOWLEDGE, CV32RT IS THE FIRST FULLY OPEN-SOURCE RV32 CORE WITH COMPETITIVE INTERRUPT-HANDLING FEATURES COMPARED TO THE ARM CORTEX-M SERIES AND TRICORE.",
+    "3) WE INTEGRATE CV32RT WITHIN AN OPEN-SOURCE SYSTEM ON CHIP (SOC) 19.2 WE EVALUATE CV32RT INTERRUPT HANDLING CAPABILITIES WHILE SHOWING THE NEGLIGIBLE AREA OVERHEAD INTRODUCED BY THE EXTENSION IN A MODERN TECHNOLOGY NODE AGAINST ITS PERFORMANCE BENEFITS (SEE SECTION IV).",
+    "THEN, WE SHOW HOW THE VARIOUS CV32RT VERSIONS PERFORM IN TERMS OF INTERRUPT LATENCY AND CONTEXT SWITCH TIMES AND FINALLY QUANTIFY THE OVERHEAD THESE ADDITIONS INCUR IN TERMS OF AREA AND TIMING."
   ],
-  "357": [
-    "The proposed extensions are also demonstrated to improve task context switching in real-time operating systems (RTOSs)."
+  "360": [
+    "THE PROPOSED EXTENSIONS ARE ALSO DEMONSTRATED TO IMPROVE TASK CONTEXT SWITCHING IN REAL-TIME OPERATING SYSTEMS (RTOSS)."
   ],
-  "369": [
-    "Index Terms Context switching, embedded, interrupt latency, microcontroller unit (MCU), real-time, RISC-V."
-  ],
-  "319": [
-    "INTRODUCTION S EVERAL markets, from automotive to aerospace and robotics, rely on real-time an SW-based solution 1."
-  ],
-  "214": [
-    "For example, the automotive industry employs hundreds of electronic control units (ECUs) for real-time applications, such as electronic engine control, gearbox control, cruise control, anti-lock brake systems, and many other tasks."
-  ],
-  "254": [
-    "General-purpose operating systems (GPOSs) are typi- cally tuned for average throughput rather than real-time Manuscript received 18 August 2023; revised 25 January 2024; accepted 4 March 2024."
-  ],
-  "291": [
-    "Date of publication 21 March 2024; date of current version 23 May 2024."
-  ],
-  "395": [
-    "This work was supported in part by the HORIZON Key Digital Technologies Joint Undertaking (KDT JU) Programme through the TRISTAN project under Grant 101095947."
-  ],
-  "377": [
-    "(Corresponding author: Robert Balas.)"
-  ],
-  "211": [
-    "Robert Balas and Alessandro Ottaviano are with the Integrated Sys- tems Laboratory (IIS), ETH Zrich, 8092 Zrich, Switzerland (e-mail: balasriis.ee.ethz.ch; aottavianoiis.ee.ethz.ch)."
-  ],
-  "335": [
-    "Luca Benini is with the Integrated Systems Laboratory (IIS), ETH Zrich, Zrich, Switzerland, and also with the Department of Electrical, Electronic and Information Engineering (DEI), University of Bologna, 40126 Bologna, Italy (e-mail: lbeniniiis.ee.ethz.ch)."
-  ],
-  "245": [
-    "Color versions of one or more figures in this article are available at https:doi.org10.1109TVLSI.2024.3377130."
-  ],
-  "355": [
-    "Digital Object Identifier 10.1109TVLSI.2024.3377130 requirements imposed by such scenarios."
-  ],
-  "244": [
-    "For example, the development of Linux, a popular open-source GPOS kernel, is focused on average performance, making it less suitable to be used for real-time applications 2."
-  ],
-  "407": [
-    "Albeit extensions and modifications that aim at improving determinism and latencies of critical operations in Linux have been proposed and implemented 2, 3, 4, 5, and they do not guarantee strict bounds on maximum latencies of operations and lack industry-grade maturity to be employed in hard real-time scenarios."
-  ],
-  "37": [
-    "Real-time operating systems (RTOSs) kernels are special- purpose operating systems (OSs) designed to provide real-time guarantees, such as task scheduling according to a given expected completion deadline and deterministic latencies of various operations 6.",
-    "A. Stankovic, Scheduling algorithms and operating systems support for real-time systems, Proc."
+  "375": [
+    "INDEX TERMS CONTEXT SWITCHING, EMBEDDED, INTERRUPT LATENCY, MICROCONTROLLER UNIT (MCU), REAL-TIME, RISC-V."
   ],
   "323": [
-    "The RTOS scheduler might add a significant overhead due to the combined effect of both the context switches required to handle the transition from a foreground to a background task and the amount of time elapsed from the source event that causes the preemption and the first instruction of the awakened task (known as interrupt latency 7), thus increasing the worst case execution time (WCET) 2, 8, 9."
+    "INTRODUCTION S EVERAL MARKETS, FROM AUTOMOTIVE TO AEROSPACE AND ROBOTICS, RELY ON REAL-TIME AN SW-BASED SOLUTION 1."
   ],
-  "42": [
-    "The cost of saving and restoring the task state during a context switch is a significant concern as it remains relatively high.",
-    "Long context switch times reduce available task utilization and the minimum viable switching granularity."
+  "217": [
+    "FOR EXAMPLE, THE AUTOMOTIVE INDUSTRY EMPLOYS HUNDREDS OF ELECTRONIC CONTROL UNITS (ECUS) FOR REAL-TIME APPLICATIONS, SUCH AS ELECTRONIC ENGINE CONTROL, GEARBOX CONTROL, CRUISE CONTROL, ANTI-LOCK BRAKE SYSTEMS, AND MANY OTHER TASKS."
   ],
-  "251": [
-    "For instance, the process state that needs to be saved on a context switch includes the program counter, register files (RF)s, status registers, address space mapping, etc."
+  "259": [
+    "GENERAL-PURPOSE OPERATING SYSTEMS (GPOSS) ARE TYPI- CALLY TUNED FOR AVERAGE THROUGHPUT RATHER THAN REAL-TIME MANUSCRIPT RECEIVED 18 AUGUST 2023; REVISED 25 JANUARY 2024; ACCEPTED 4 MARCH 2024."
   ],
-  "378": [
-    "Therefore, a significant number of memory access operations need to be performed to store the state of the preempted task and restore the state of the new task to be executed 10."
+  "295": [
+    "DATE OF PUBLICATION 21 MARCH 2024; DATE OF CURRENT VERSION 23 MAY 2024."
   ],
-  "351": [
-    "Besides the tasks context switching, a switch into an interrupt context from normal program execution happens each time an asynchronous event is triggered from, e.g., an IO peripheral device."
+  "411": [
+    "THIS WORK WAS SUPPORTED IN PART BY THE HORIZON KEY DIGITAL TECHNOLOGIES JOINT UNDERTAKING (KDT JU) PROGRAMME THROUGH THE TRISTAN PROJECT UNDER GRANT 101095947."
   ],
-  "393": [
-    "Behnke et al."
+  "383": [
+    "(CORRESPONDING AUTHOR: ROBERT BALAS.)"
   ],
-  "307": [
-    "11 provide a meaningful example of the impact on interrupt latency of network loads in time-critical microcontroller units (MCUs), where a high overhead generated by the receiving of packets can be seen in continuous floods as well as short transmission bursts, reaching up to 50 task latenessthe additional time a task takes to finish than its deadline allows, which will start to accumulate over iterations from the critical network loadincrease per packet per second."
+  "324": [
+    "ROBERT BALAS AND ALESSANDRO OTTAVIANO ARE WITH THE INTEGRATED SYS- TEMS LABORATORY (IIS), ETH ZRICH, 8092 ZRICH, SWITZERLAND (E-MAIL: BALASRIIS.EE.ETHZ.CH; AOTTAVIANOIIS.EE.ETHZ.CH)."
   ],
-  "49": [
-    "Furthermore, HW-induced interrupt latency is only one part of the problem: SW-induced interrupt latency, 1063-8210  2024 IEEE.",
-    "Interrupt latency breakdown into SW- and HW-dependent contribu- tions."
+  "401": [
+    "LUCA BENINI IS WITH THE INTEGRATED SYSTEMS LABORATORY (IIS), ETH ZRICH, ZRICH, SWITZERLAND, AND ALSO WITH THE DEPARTMENT OF ELECTRICAL, ELECTRONIC AND INFORMATION ENGINEERING (DEI), UNIVERSITY OF BOLOGNA, 40126 BOLOGNA, ITALY (E-MAIL: LBENINIIIS.EE.ETHZ.CH)."
   ],
-  "336": [
-    "Personal use is permitted, but republicationredistribution requires IEEE permission."
+  "359": [
+    "COLOR VERSIONS OF ONE OR MORE FIGURES IN THIS ARTICLE ARE AVAILABLE AT HTTPS:DOI.ORG10.1109TVLSI.2024.3377130."
   ],
-  "76": [
-    "See https:www.ieee.orgpublicationsrightsindex.html for more information.",
-    "IEEE, vol.",
-    "IEEE 39th Int."
+  "279": [
+    "DIGITAL OBJECT IDENTIFIER 10.1109TVLSI.2024.3377130 REQUIREMENTS IMPOSED BY SUCH SCENARIOS."
   ],
-  "12": [
-    "Authorized licensed use limited to: California Polytechnic State University San Luis Obispo.",
-    "It can route a Authorized licensed use limited to: California Polytechnic State University San Luis Obispo.",
-    "The CLIC design proposed in Authorized licensed use limited to: California Polytechnic State University San Luis Obispo.",
-    "This can be achieved since we know how the interrupt state gets pushed Authorized licensed use limited to: California Polytechnic State University San Luis Obispo.",
-    "Authorized licensed use limited to: California Polytechnic State University San Luis Obispo.",
-    "Authorized licensed use limited to: California Polytechnic State University San Luis Obispo.",
-    "The latter reduces the execution time of the Authorized licensed use limited to: California Polytechnic State University San Luis Obispo.",
-    "Authorized licensed use limited to: California Polytechnic State University San Luis Obispo.",
-    "Authorized licensed use limited to: California Polytechnic State University San Luis Obispo."
+  "227": [
+    "FOR EXAMPLE, THE DEVELOPMENT OF LINUX, A POPULAR OPEN-SOURCE GPOS KERNEL, IS FOCUSED ON AVERAGE PERFORMANCE, MAKING IT LESS SUITABLE TO BE USED FOR REAL-TIME APPLICATIONS 2."
   ],
-  "114": [
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore.",
-    "Downloaded on May 28,2025 at 17:50:39 UTC from IEEE Xplore."
+  "415": [
+    "ALBEIT EXTENSIONS AND MODIFICATIONS THAT AIM AT IMPROVING DETERMINISM AND LATENCIES OF CRITICAL OPERATIONS IN LINUX HAVE BEEN PROPOSED AND IMPLEMENTED 2, 3, 4, 5, AND THEY DO NOT GUARANTEE STRICT BOUNDS ON MAXIMUM LATENCIES OF OPERATIONS AND LACK INDUSTRY-GRADE MATURITY TO BE EMPLOYED IN HARD REAL-TIME SCENARIOS."
   ],
-  "64": [
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply.",
-    "Restrictions apply."
+  "37": [
+    "REAL-TIME OPERATING SYSTEMS (RTOSS) KERNELS ARE SPECIAL- PURPOSE OPERATING SYSTEMS (OSS) DESIGNED TO PROVIDE REAL-TIME GUARANTEES, SUCH AS TASK SCHEDULING ACCORDING TO A GIVEN EXPECTED COMPLETION DEADLINE AND DETERMINISTIC LATENCIES OF VARIOUS OPERATIONS 6.",
+    "A. STANKOVIC, SCHEDULING ALGORITHMS AND OPERATING SYSTEMS SUPPORT FOR REAL-TIME SYSTEMS, PROC."
+  ],
+  "327": [
+    "THE RTOS SCHEDULER MIGHT ADD A SIGNIFICANT OVERHEAD DUE TO THE COMBINED EFFECT OF BOTH THE CONTEXT SWITCHES REQUIRED TO HANDLE THE TRANSITION FROM A FOREGROUND TO A BACKGROUND TASK AND THE AMOUNT OF TIME ELAPSED FROM THE SOURCE EVENT THAT CAUSES THE PREEMPTION AND THE FIRST INSTRUCTION OF THE AWAKENED TASK (KNOWN AS INTERRUPT LATENCY 7), THUS INCREASING THE WORST CASE EXECUTION TIME (WCET) 2, 8, 9."
+  ],
+  "88": [
+    "THE COST OF SAVING AND RESTORING THE TASK STATE DURING A CONTEXT SWITCH IS A SIGNIFICANT CONCERN AS IT REMAINS RELATIVELY HIGH.",
+    "LONG CONTEXT SWITCH TIMES REDUCE AVAILABLE TASK UTILIZATION AND THE MINIMUM VIABLE SWITCHING GRANULARITY."
+  ],
+  "256": [
+    "FOR INSTANCE, THE PROCESS STATE THAT NEEDS TO BE SAVED ON A CONTEXT SWITCH INCLUDES THE PROGRAM COUNTER, REGISTER FILES (RF)S, STATUS REGISTERS, ADDRESS SPACE MAPPING, ETC."
+  ],
+  "380": [
+    "THEREFORE, A SIGNIFICANT NUMBER OF MEMORY ACCESS OPERATIONS NEED TO BE PERFORMED TO STORE THE STATE OF THE PREEMPTED TASK AND RESTORE THE STATE OF THE NEW TASK TO BE EXECUTED 10."
   ],
   "354": [
-    "BALAS et al.",
-    "BALAS et al.",
-    "BALAS et al.",
-    "BALAS et al.",
-    "BALAS et al.",
-    "BALAS et al."
+    "BESIDES THE TASKS CONTEXT SWITCHING, A SWITCH INTO AN INTERRUPT CONTEXT FROM NORMAL PROGRAM EXECUTION HAPPENS EACH TIME AN ASYNCHRONOUS EVENT IS TRIGGERED FROM, E.G., AN IO PERIPHERAL DEVICE."
   ],
-  "29": [
-    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1033 introduced by the GPOSRTOS scheduler and the user code, primarily impacts the capability of the system to provide timely responses to asynchronous events.",
+  "396": [
+    "BEHNKE ET AL."
+  ],
+  "312": [
+    "11 PROVIDE A MEANINGFUL EXAMPLE OF THE IMPACT ON INTERRUPT LATENCY OF NETWORK LOADS IN TIME-CRITICAL MICROCONTROLLER UNITS (MCUS), WHERE A HIGH OVERHEAD GENERATED BY THE RECEIVING OF PACKETS CAN BE SEEN IN CONTINUOUS FLOODS AS WELL AS SHORT TRANSMISSION BURSTS, REACHING UP TO 50 TASK LATENESSTHE ADDITIONAL TIME A TASK TAKES TO FINISH THAN ITS DEADLINE ALLOWS, WHICH WILL START TO ACCUMULATE OVER ITERATIONS FROM THE CRITICAL NETWORK LOADINCREASE PER PACKET PER SECOND."
+  ],
+  "104": [
+    "FURTHERMORE, HW-INDUCED INTERRUPT LATENCY IS ONLY ONE PART OF THE PROBLEM: SW-INDUCED INTERRUPT LATENCY, 1063-8210  2024 IEEE.",
+    "INTERRUPT LATENCY BREAKDOWN INTO SW- AND HW-DEPENDENT CONTRIBU- TIONS."
+  ],
+  "331": [
+    "PERSONAL USE IS PERMITTED, BUT REPUBLICATIONREDISTRIBUTION REQUIRES IEEE PERMISSION."
+  ],
+  "51": [
+    "SEE HTTPS:WWW.IEEE.ORGPUBLICATIONSRIGHTSINDEX.HTML FOR MORE INFORMATION.",
+    "IEEE, VOL.",
+    "IEEE 39TH INT."
+  ],
+  "26": [
+    "AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO.",
+    "IT CAN ROUTE A AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO.",
+    "THE CLIC DESIGN PROPOSED IN AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO.",
+    "THIS CAN BE ACHIEVED SINCE WE KNOW HOW THE INTERRUPT STATE GETS PUSHED AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO.",
+    "AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO.",
+    "AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO.",
+    "THE LATTER REDUCES THE EXECUTION TIME OF THE AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO.",
+    "AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO.",
+    "AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO."
+  ],
+  "111": [
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE.",
+    "DOWNLOADED ON MAY 28,2025 AT 17:50:39 UTC FROM IEEE XPLORE."
+  ],
+  "64": [
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY.",
+    "RESTRICTIONS APPLY."
+  ],
+  "177": [
+    "BALAS ET AL.",
+    "BALAS ET AL.",
+    "BALAS ET AL.",
+    "BALAS ET AL.",
+    "BALAS ET AL.",
+    "BALAS ET AL."
+  ],
+  "72": [
+    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1033 INTRODUCED BY THE GPOSRTOS SCHEDULER AND THE USER CODE, PRIMARILY IMPACTS THE CAPABILITY OF THE SYSTEM TO PROVIDE TIMELY RESPONSES TO ASYNCHRONOUS EVENTS.",
     ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1035 TABLE I NESTED INTERRUPT PREEMPTION SCHEME ACCORDING TO RISC-V CLIC.",
-    "CV32RTfastirq optimizes interrupt latency in the non-nested interrupt case by com- bining bank switching and the nested interrupt case with an automatic context-saving mechanism in the background.",
-    "C. CV32RTfastirq: Fast Interrupt Extension 1) Automatic Hardware Context Saving and Bank Switch- ing: A block diagram of CV32RTfastirq is shown in Fig.",
-    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1037 Fig.",
-    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1039 pointer appropriately before triggering an SW interrupt (write to CLICs memory map).",
-    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1041 Fig.",
-    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1043 instruction in machine mode (i.e., emret), which is able to skip redundant context saving and restoring sequences by directly jumping to the next available interrupt handler."
+    "CV32RTFASTIRQ OPTIMIZES INTERRUPT LATENCY IN THE NON-NESTED INTERRUPT CASE BY COM- BINING BANK SWITCHING AND THE NESTED INTERRUPT CASE WITH AN AUTOMATIC CONTEXT-SAVING MECHANISM IN THE BACKGROUND.",
+    "C. CV32RTFASTIRQ: FAST INTERRUPT EXTENSION 1) AUTOMATIC HARDWARE CONTEXT SAVING AND BANK SWITCH- ING: A BLOCK DIAGRAM OF CV32RTFASTIRQ IS SHOWN IN FIG.",
+    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1037 FIG.",
+    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1039 POINTER APPROPRIATELY BEFORE TRIGGERING AN SW INTERRUPT (WRITE TO CLICS MEMORY MAP).",
+    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1041 FIG.",
+    ": CV32RT: ENABLING FAST INTERRUPT AND CONTEXT SWITCHING 1043 INSTRUCTION IN MACHINE MODE (I.E., EMRET), WHICH IS ABLE TO SKIP REDUNDANT CONTEXT SAVING AND RESTORING SEQUENCES BY DIRECTLY JUMPING TO THE NEXT AVAILABLE INTERRUPT HANDLER."
   ],
-  "253": [
-    "Low interrupt latency and context switch time are crucial metrics for a wide range of platforms ranging from commodity MCU-class embedded systems to more advanced and complex application-class mixed criticality systems (MCSs), where timesafety-critical and non-critical applications coexist on different isolated partitions of the same HW platform 12."
+  "244": [
+    "LOW INTERRUPT LATENCY AND CONTEXT SWITCH TIME ARE CRUCIAL METRICS FOR A WIDE RANGE OF PLATFORMS RANGING FROM COMMODITY MCU-CLASS EMBEDDED SYSTEMS TO MORE ADVANCED AND COMPLEX APPLICATION-CLASS MIXED CRITICALITY SYSTEMS (MCSS), WHERE TIMESAFETY-CRITICAL AND NON-CRITICAL APPLICATIONS COEXIST ON DIFFERENT ISOLATED PARTITIONS OF THE SAME HW PLATFORM 12."
   ],
-  "386": [
-    "Response and context switch time minimization thus become a challenge to be tackled at the HWSW interface, where SW programming techniques and HW interrupt controller archi- tectures can cooperate to ensure minimal response time 7."
+  "389": [
+    "RESPONSE AND CONTEXT SWITCH TIME MINIMIZATION THUS BECOME A CHALLENGE TO BE TACKLED AT THE HWSW INTERFACE, WHERE SW PROGRAMMING TECHNIQUES AND HW INTERRUPT CONTROLLER ARCHI- TECTURES CAN COOPERATE TO ENSURE MINIMAL RESPONSE TIME 7."
   ],
-  "267": [
-    "Although commercial vendors and IP providers offer such features as in-house solutions, they are often proprietary and tightly coupled with the vendors instruction set architecture (ISA), target HW family, and associated SW stack."
-  ],
-  "237": [
-    "On the other hand, in the last decade, the ever-growing RISC-V ecosystem 13 has been offering a modular, free, and open- source ISA which is rapidly becoming the de facto lingua franca of computing."
-  ],
-  "15": [
-    "Nevertheless, RISC-V support for fast interrupt and context switch handling is still not mature enough to compete with incumbent proprietary architectures, as it lacks flexible inter- rupt prioritization, preemption mechanisms, and low interrupt latency.",
-    "While the modular RISC-V ISA enables developing orthog- onal custom extensions, to the best of the authors knowledge, there are few published works that 1) tackle the problem of minimizing interrupt latency and context switch time from a holistic (HW and SW) viewpoint for RISC-V; 2) try to close the gap with more established proprietary solutions, thereby promoting RISC-V as a valuable candidate for time- and safety-critical application domains such as automotive and aerospace; and 3) provide an open-source solution to be shared with the community.",
-    "Interrupt latency of various flavors of RISC-V core-specific inter- rupt controllers for interrupt handlers that support nesting and the calling of C-functions within it (i.e., savingrestoring state following the C-ABI).",
-    "With our design, we can achieve interrupt latencies of six clock cycles and efficient back-to-back interrupt handling in 12 cycles which is as low as the fastest available approaches currently implemented in the RISC-V landscape, fully open- source, and competitive against closed-source and proprietary commercial solutions."
-  ],
-  "379": [
-    "In particular, this article makes the following contributions."
-  ],
-  "321": [
-    "We make the implementation avail- able under a permissive open-source license.1 1https:github.compulp-platformclic 2) We design a fast interrupt extension (fastirq) to accelerate both nested (see Section III-A) and non- nested (see Section III-D) interrupt case scenarios."
-  ],
-  "136": [
-    "fastirq reduces interrupt latency by hiding the latency through memory banks and a background-saving mechanism.",
-    "Compared to the baseline CLINT and CLIC which both have about 33 cycles interrupt latency, the fastirq extension is able to reduce this down to six cycles."
-  ],
-  "213": [
-    "The same mechanism allows one also to accelerate context switching through HWSW coopera- tion."
-  ],
-  "249": [
-    "Furthermore, we propose early mret (emret), a novel instruction that further optimizes tail-chaining compared to the baseline strategy proposed in the CLIC standard (i.e., xnxti) and its enhancement from 18 (jalxnxti)."
-  ],
-  "302": [
-    "4) Finally, we compare CV32RT with leading COTS sys- tems in both nested and non-nested interrupt scenarios (see Section V)."
-  ],
-  "339": [
-    "We show that the proposed solution pro- motes RISC-V as a competitive candidate for building the next generation of time-critical systems."
+  "271": [
+    "ALTHOUGH COMMERCIAL VENDORS AND IP PROVIDERS OFFER SUCH FEATURES AS IN-HOUSE SOLUTIONS, THEY ARE OFTEN PROPRIETARY AND TIGHTLY COUPLED WITH THE VENDORS INSTRUCTION SET ARCHITECTURE (ISA), TARGET HW FAMILY, AND ASSOCIATED SW STACK."
   ],
   "297": [
+    "ON THE OTHER HAND, IN THE LAST DECADE, THE EVER-GROWING RISC-V ECOSYSTEM 13 HAS BEEN OFFERING A MODULAR, FREE, AND OPEN- SOURCE ISA WHICH IS RAPIDLY BECOMING THE DE FACTO LINGUA FRANCA OF COMPUTING."
+  ],
+  "8": [
+    "NEVERTHELESS, RISC-V SUPPORT FOR FAST INTERRUPT AND CONTEXT SWITCH HANDLING IS STILL NOT MATURE ENOUGH TO COMPETE WITH INCUMBENT PROPRIETARY ARCHITECTURES, AS IT LACKS FLEXIBLE INTER- RUPT PRIORITIZATION, PREEMPTION MECHANISMS, AND LOW INTERRUPT LATENCY.",
+    "WHILE THE MODULAR RISC-V ISA ENABLES DEVELOPING ORTHOG- ONAL CUSTOM EXTENSIONS, TO THE BEST OF THE AUTHORS KNOWLEDGE, THERE ARE FEW PUBLISHED WORKS THAT 1) TACKLE THE PROBLEM OF MINIMIZING INTERRUPT LATENCY AND CONTEXT SWITCH TIME FROM A HOLISTIC (HW AND SW) VIEWPOINT FOR RISC-V; 2) TRY TO CLOSE THE GAP WITH MORE ESTABLISHED PROPRIETARY SOLUTIONS, THEREBY PROMOTING RISC-V AS A VALUABLE CANDIDATE FOR TIME- AND SAFETY-CRITICAL APPLICATION DOMAINS SUCH AS AUTOMOTIVE AND AEROSPACE; AND 3) PROVIDE AN OPEN-SOURCE SOLUTION TO BE SHARED WITH THE COMMUNITY.",
+    "INTERRUPT LATENCY OF VARIOUS FLAVORS OF RISC-V CORE-SPECIFIC INTER- RUPT CONTROLLERS FOR INTERRUPT HANDLERS THAT SUPPORT NESTING AND THE CALLING OF C-FUNCTIONS WITHIN IT (I.E., SAVINGRESTORING STATE FOLLOWING THE C-ABI).",
+    "WITH OUR DESIGN, WE CAN ACHIEVE INTERRUPT LATENCIES OF SIX CLOCK CYCLES AND EFFICIENT BACK-TO-BACK INTERRUPT HANDLING IN 12 CYCLES WHICH IS AS LOW AS THE FASTEST AVAILABLE APPROACHES CURRENTLY IMPLEMENTED IN THE RISC-V LANDSCAPE, FULLY OPEN- SOURCE, AND COMPETITIVE AGAINST CLOSED-SOURCE AND PROPRIETARY COMMERCIAL SOLUTIONS."
+  ],
+  "395": [
+    "IN PARTICULAR, THIS ARTICLE MAKES THE FOLLOWING CONTRIBUTIONS."
+  ],
+  "326": [
+    "WE MAKE THE IMPLEMENTATION AVAIL- ABLE UNDER A PERMISSIVE OPEN-SOURCE LICENSE.1 1HTTPS:GITHUB.COMPULP-PLATFORMCLIC 2) WE DESIGN A FAST INTERRUPT EXTENSION (FASTIRQ) TO ACCELERATE BOTH NESTED (SEE SECTION III-A) AND NON- NESTED (SEE SECTION III-D) INTERRUPT CASE SCENARIOS."
+  ],
+  "85": [
+    "FASTIRQ REDUCES INTERRUPT LATENCY BY HIDING THE LATENCY THROUGH MEMORY BANKS AND A BACKGROUND-SAVING MECHANISM.",
+    "COMPARED TO THE BASELINE CLINT AND CLIC WHICH BOTH HAVE ABOUT 33 CYCLES INTERRUPT LATENCY, THE FASTIRQ EXTENSION IS ABLE TO REDUCE THIS DOWN TO SIX CYCLES."
+  ],
+  "216": [
+    "THE SAME MECHANISM ALLOWS ONE ALSO TO ACCELERATE CONTEXT SWITCHING THROUGH HWSW COOPERA- TION."
+  ],
+  "253": [
+    "FURTHERMORE, WE PROPOSE EARLY MRET (EMRET), A NOVEL INSTRUCTION THAT FURTHER OPTIMIZES TAIL-CHAINING COMPARED TO THE BASELINE STRATEGY PROPOSED IN THE CLIC STANDARD (I.E., XNXTI) AND ITS ENHANCEMENT FROM 18 (JALXNXTI)."
+  ],
+  "307": [
+    "4) FINALLY, WE COMPARE CV32RT WITH LEADING COTS SYS- TEMS IN BOTH NESTED AND NON-NESTED INTERRUPT SCENARIOS (SEE SECTION V)."
+  ],
+  "345": [
+    "WE SHOW THAT THE PROPOSED SOLUTION PRO- MOTES RISC-V AS A COMPETITIVE CANDIDATE FOR BUILDING THE NEXT GENERATION OF TIME-CRITICAL SYSTEMS."
+  ],
+  "301": [
     "II."
   ],
-  "264": [
-    "This core is embedded in ControlPULP 19, a SoC specialized in running real-time workloads."
+  "269": [
+    "THIS CORE IS EMBEDDED IN CONTROLPULP 19, A SOC SPECIALIZED IN RUNNING REAL-TIME WORKLOADS."
   ],
-  "310": [
-    "The system contains a CV32 manager core, a programmable accelerator subsystem consisting of eight CV32 cores, and a set of standard peripherals such as quad serial peripheral interface (QSPI), inter-integrated circuit (I2C), and universal asyn- chronous receiver-transmitter (UART)."
+  "315": [
+    "THE SYSTEM CONTAINS A CV32 MANAGER CORE, A PROGRAMMABLE ACCELERATOR SUBSYSTEM CONSISTING OF EIGHT CV32 CORES, AND A SET OF STANDARD PERIPHERALS SUCH AS QUAD SERIAL PERIPHERAL INTERFACE (QSPI), INTER-INTEGRATED CIRCUIT (I2C), AND UNIVERSAL ASYN- CHRONOUS RECEIVER-TRANSMITTER (UART)."
   ],
-  "258": [
-    "The manager core is responsible for scheduling tasks, communicating with the peripherals, offloading tasks to the accelerator subsystem, and being responsive to asynchronous external events, e.g., interrupts."
+  "397": [
+    "THE MANAGER CORE IS RESPONSIBLE FOR SCHEDULING TASKS, COMMUNICATING WITH THE PERIPHERALS, OFFLOADING TASKS TO THE ACCELERATOR SUBSYSTEM, AND BEING RESPONSIVE TO ASYNCHRONOUS EXTERNAL EVENTS, E.G., INTERRUPTS."
   ],
-  "273": [
-    "ControlPULP hosts a set of scratchpad memories (SPMs) that guarantee single-cycle access time from the CV32 man- ager core."
+  "277": [
+    "CONTROLPULP HOSTS A SET OF SCRATCHPAD MEMORIES (SPMS) THAT GUARANTEE SINGLE-CYCLE ACCESS TIME FROM THE CV32 MAN- AGER CORE."
   ],
-  "252": [
-    "This design choice enables deterministic memory access latency for both data load, store, and instruction fetch, bounding the worst case latency when handling unpredictable events."
+  "257": [
+    "THIS DESIGN CHOICE ENABLES DETERMINISTIC MEMORY ACCESS LATENCY FOR BOTH DATA LOAD, STORE, AND INSTRUCTION FETCH, BOUNDING THE WORST CASE LATENCY WHEN HANDLING UNPREDICTABLE EVENTS."
   ],
-  "370": [
-    "Applications run on top of FreeRTOS 20, an open-source, priority-based preemptive RTOS, in the manager core from where tasks are scheduled and run."
+  "372": [
+    "APPLICATIONS RUN ON TOP OF FREERTOS 20, AN OPEN-SOURCE, PRIORITY-BASED PREEMPTIVE RTOS, IN THE MANAGER CORE FROM WHERE TASKS ARE SCHEDULED AND RUN."
   ],
-  "232": [
-    "2https:github.compulp-platformcontrol-pulp Authorized licensed use limited to: California Polytechnic State University San Luis Obispo."
+  "235": [
+    "2HTTPS:GITHUB.COMPULP-PLATFORMCONTROL-PULP AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO."
   ],
-  "129": [
-    "6, JUNE 2024 Fig.",
-    "6, JUNE 2024 Fig.",
-    "6, JUNE 2024 Fig."
+  "49": [
+    "6, JUNE 2024 FIG.",
+    "6, JUNE 2024 FIG.",
+    "6, JUNE 2024 FIG."
   ],
   "0": [
     "1.",
@@ -280,1176 +280,1195 @@
     "10.",
     "1."
   ],
-  "2": [
-    "B. Interrupts 1) Level- and Edge-Triggered Interrupts: Interrupt sources can signal interrupts either through a level change of the interrupt line, called a edge-triggered interrupt, or by the logic level itself, a level-triggered interrupt.",
-    "2) Nested Interrupts: Following the notation adopted in Section II-B5, the case of nested interrupts entails preemption of a low-level interrupt by a high-level interrupt, as shown in Fig.",
-    "(a) Transition between different interrupt levels."
-  ],
-  "225": [
-    "While the latter requires the receiving side of the interrupt to clear the source often through accessing appropriate HW registers, the former is unidirectional notification without confirmation."
-  ],
-  "28": [
-    "This results in faster processing but may lead to dropping interrupt requests accidentally.",
-    "This increases the worst case interrupt latency by the time they remain disabled.",
-    "This allows execution of the interrupt handler before all interrupt state has been pushed to memory, lowering interrupt latency."
-  ],
-  "329": [
-    "2) Vectored and Direct Interrupts: Interrupts are asyn- chronous events that alter the normal program order execution and require a switch to a different context to handle the event."
-  ],
-  "14": [
-    "A processor supports vectored interrupts when each interrupt traps to a specific interrupt service routine (ISR) according to an interrupt vector table, granting fast interrupt response at the cost of increased code size.",
-    "To improve interrupt latencies, interrupt vectoring is sup- ported."
-  ],
-  "346": [
-    "Conversely, non-vectored or direct interrupts trap to a shared ISR."
-  ],
-  "294": [
-    "The latter approach trades code size off for a slower interrupt response since the overhead of resolving the interruption cause and jumping to the correct ISR are handled in explicit instructions while the interrupt table can be made much more compact."
-  ],
   "6": [
-    "3) Interrupt Latency: Multiple sources determine the inter- rupt latency in a system: the underlying HW, the scheduler or OS, and the application running on top as detailed.",
-    "In this article, we focus on minimizing the latency imposed by the HW; thus, whenever we refer to interrupt latency, we mean its HW-contributed part.",
-    "The latter consists of restor- ing the interrupt context and the regular interrupt latency."
-  ],
-  "212": [
-    "This breakdown is detailed in Fig."
-  ],
-  "92": [
-    "Interrupt latency is defined as the time it takes from an interrupt edge arriving at the HW, usually the interrupt controller, to the execution of the first instruction of the corresponding interrupt handler routine.",
-    "The interrupt latency is measured as the number of cycles it takes for an interrupt to arrive at the interrupt controller input to the first instruction of an interrupt handler that allows the calling of a C-function."
-  ],
-  "36": [
-    "To make a fair comparison between SW-based and more HW-oriented interrupt solutions, we have to delineate what exactly constitutes the first instruction of the interrupt handler.",
-    "Each HW configuration has a handwrit- ten optimized interrupt handler that stores all required general-purpose and machine-specific registers for nesting interrupts."
-  ],
-  "371": [
-    "We count as the first instruction the one after all necessary interrupt context has been saved on the stack to be able to call a function."
-  ],
-  "322": [
-    "What exactly entails a function call is dictated by the used application binary interface (ABI) or, more precisely, its calling convention."
-  ],
-  "5": [
-    "Note that when the interrupt handler and interrupt context saving code can be interleaved, some of the context saving code can be removed as it might be redundant.",
-    "The active interrupt handlers context must be restored on interrupt return but is immediately saved again due to the next pending interrupt firing.",
-    "Restoring the pre-interrupt context is entirely handled in SW for the nested interrupt case."
-  ],
-  "405": [
-    "4) Context Switching Time: The time it takes for a context switch determines the responsiveness of the architecture in swapping from one execution context to another."
-  ],
-  "277": [
-    "The execu- tion context is dependent on the OS being used but usually consists of the state of the architectural registers of the ISA and the chosen ABI."
-  ],
-  "16": [
-    "5) Interrupt Nesting: Preemption refers to an event, such as an interrupt request, temporarily interrupting a current task with the purpose of resuming its execution later.",
-    "The simplest case for preemption occurs with non-nested interrupt handlers, where interrupts are globally disabled during the execution of an ISR.",
-    "A more complex case for preemption occurs with nested interrupt handlers to handle the case of multiple interrupts at a time.",
-    "This situation does not result in preemption, rather causes pending interrupts to be serviced in sequence according to increas- ing priority."
-  ],
-  "72": [
-    "In the case of levelpriority interrupt schemes, this means that: 1) if the levelpriority arbitration is SW-driven, e.g., with priority simplestandard interrupt handlers, the highest priority interrupt identification code is not executed, and 2) if the levelpriority arbitration logic is designed within the interrupt controller, the high- est levelpriority interrupt is pending but disabled, hence not propagated to the core.",
-    "With a levelpriority interrupt scheme (either SW or HW driven), this introduces additional masking of incoming interrupts of equal or lower levelpriority than the executing ISR, and sometimes larger than a configurable levelpriority threshold."
-  ],
-  "31": [
-    "This scenario is not ideal for real-time and complex embedded systems, as interrupts are served sequentially.",
-    "This is insufficient for the embedded and real-time domain, and attempts to handle a more complex interrupt scheme would require SW emulation, which incurs untenable interrupt latencies."
-  ],
-  "352": [
-    "A high-priority interrupt has to wait for a lower-priority interrupt to finish."
-  ],
-  "39": [
-    "In this scenario, interrupts are globally enabled within the scope of an executing ISR.",
-    "Whenever an interrupt handler is entered, global interrupts are disabled."
-  ],
-  "215": [
-    "The ISR need to care designed to ensure the they are reentrant."
-  ],
-  "333": [
-    "The nesting allows higher priority interrupts to preempt a current lower priority ISR executing."
-  ],
-  "85": [
-    "6) Redundant Interrupt Context: Back-to-back interrupts, i.e., interrupts that need to be served sequentially, can happen whenever there are multiple interrupts pending.",
-    "The transition from one interrupt to the next one causes a redundant sequence of context restores and context saves.",
-    "These redundant context restore sequences negatively impact interrupt latency on higher interrupt loads 21.",
-    "D. Interrupt Scenario Analysis 1) Non-Nested Interrupts: As discussed in Section II-B, redundant context restore with non-nested or nested horizontal interrupts can introduce unwanted additional interrupt latency.",
-    "(b) Redundant context restore of two non-preemptive interrupts (e.g., two interrupts with same level but different priorities) and tail-chaining to optimize it.",
-    "3) Redundant Context Restoring: As described in Section II-B, whenever there are back-to-back interrupts, the interrupt context restore and store sequence between them can be considered redundant.",
-    "In this case, the redundant context restoring sequences contains the full interrupt exit code sequence.",
-    "3) Optimizations for Non-Nested Interrupt Handling: Redundant context restore with non-nested interrupts is addressed by chaining two back-to-back interrupts and bypass- ing the superfluous restoresave operation."
-  ],
-  "283": [
-    "Section III-D explores the optimizations implemented in this work to address this scenario."
-  ],
-  "13": [
-    "In the RISC-V ecosystem, the privileged specification 14 defines a simple interrupt scheme with a set of timer and inter-processor interrupts.",
-    "Compared to standard RISC-V privileged specifications, pending and enabled interrupts are further selectively masked according to a threshold value representing an interrupt level, configured through a CSR.",
-    "RISC-V Platform-Level Interrupt Con- troller Specification."
-  ],
-  "290": [
-    "We refer to it as the core local interruptor (CLINT)."
-  ],
-  "279": [
-    "For 32-bit cores, it defines a fixed priority interrupt scheme with 16 predefined or reserved and 16 implementation-defined inter- rupts that can be optionally vectored."
-  ],
-  "7": [
-    "The CLINT itself only supports prioritization of interrupts based on privilege mode.",
-    "Due to the inflexible interrupt scheme of the CLINT-mode, much more work needs to be done in managing interrupt mask (SOMEIRQMASK) and other machine state.",
-    "Note that in CLINT-mode interrupts with lower priority than the current interrupt running can fire when global interrupts are re-enabled.",
-    "For the embedded use cases, the CLINT lacks fine-grained control over interrupt prioritization."
-  ],
-  "406": [
-    "To increase the number of custom interrupts, a PLIC 22 can be attached to the CLINT."
-  ],
-  "96": [
-    "WE ASSUME AN INTERRUPT REQUEST I R Q2 IS BEING SERVICED WHILE ANOTHER REQUEST I R Q1 IS ENABLED AND PENDING.",
-    "We consider an active interrupt handler servicing irq2 while irq1 is pending."
-  ],
-  "23": [
-    "PREEMPTION IS REGULATED BY PRIVILEGE MODE (Vertical INTERRUPTS) AND INTERRUPT LEVEL WHEN THE PRIVILEGE MODE IS THE SAME (Horizontal INTER- RUPTS) flexible (at design time) number of interrupts to one or more targets.",
-    "Interrupts that are assigned a higher level can pre-empt lower-level interrupts."
-  ],
-  "320": [
-    "A single HART can correspond to multiple targets."
-  ],
-  "3": [
-    "Each interrupt can be assigned a priority, and each target can select a threshold below which interrupts are disabled.",
-    "Interrupt selection is driven by the CLIC in HW (see Section III-B), which propagates the highest level, highest priority pending interrupt to the cores interface.",
-    "Interrupt priority serves as a tie-breaker for the case of multiple interrupts pending with the same level.",
-    "Assuming n interrupt sources, selecting the interrupt with maximum level and priority is implemented with three binary trees.",
-    "Enabled interrupts and their level and priority information are then further sent to prioritization logic which uses a binary arbitration tree to select the highest-level interrupt.",
-    "Interrupts can be dynamically assigned a priority and a level.",
-    "The priorities allow concurrent pending interrupts to be taken in the order preferred by the programmer, while the level information enables pre-emption of same-privilege level interrupts (also called horizontal interrupts)."
-  ],
-  "404": [
-    "This scheme allows interrupts to be divided according to their priorities on the PLIC-level allowing for some flexibility in terms of prioritization, but does not address the flexibility problem on the core local-level."
-  ],
-  "18": [
-    "2) CLIC: The CLIC 15 addresses these limitations by allowing interrupts to be prioritized by so-called levels and priorities.",
-    "Analogously, the case where multiple horizontal interrupts have equal levels and priorities results in the CLIC selecting the highest numbered interrupt (identification number id) 15, which is an arbitrary assignment decided at design time."
-  ],
-  "380": [
-    "Interrupts that are enabled, pending, and have a level below the threshold are masked, while others can be propagated."
-  ],
-  "90": [
-    "This feature is useful for, e.g., RTOSs that only want to disable a subset of all interrupts during critical sections.",
-    "This can be useful in critical sections where only a subset of interrupts need to be disabled."
-  ],
-  "301": [
-    "Interrupts that do not interfere with the data accessed in such a critical section can still fire."
-  ],
-  "17": [
-    "Consider two interrupts requests irq1 and irq2 with interrupt privilege modes, levels and priorities (priv1, l1, p1) and (priv2, l2, p2), respectively.",
-    "In general, irq1 preempts irq2 whenever its level is higher than both the interrupt threshold and irq2s level."
-  ],
-  "332": [
-    "Following the termi- nology introduced in Section II-B and by the CLIC, we will refer to interrupts fired from different privilege modes as ver- tical interrupts and to interrupts fired from the same privilege mode as horizontal interrupts throughout this article."
-  ],
-  "219": [
-    "Table I shows preemption conditions of two nested inter- rupts irq2 and irq1 according to the CLIC specification."
-  ],
-  "202": [
-    "Finally, the CLIC specification addresses the case of redundant context restore (see Section II-B6) by introducing xnxti, a CSR short for Next Interrupt Handler Address and Interrupt-Enable CSRs meant for use with non-vectored interrupts."
-  ],
-  "374": [
-    "Reading from this CSR, while the core is within an active handler, allows to fast-track interrupts that arrive late or to avoid redundant context saverestore by running through pending interrupts back-to-back."
-  ],
-  "361": [
-    "ARCHITECTURE Entering an interrupt context or performing a context switch requires the HW to store enough information to resume operation correctly after returning from the aforementioned context."
-  ],
-  "255": [
-    "This needs to be done as fast as possible."
-  ],
-  "400": [
-    "From a high-level point of view, we can effectively improve interrupt latency and context switch times by: 1) controlling the amount of state that needs to be preserved to enter and leave an interrupt context; 2) increasing the bandwidth and decreasing the latency to memory; 3) relying on latency-hiding techniques that defer the effec- tive saving of the state to a later point in time."
-  ],
-  "285": [
-    "In the following, we detail the architectural features and HWSW codesign of CV32RT (see Sections III-AIII-C), and then describe how the proposed architecture tackles typical case scenarios (see Section III-D)."
-  ],
-  "411": [
-    "The background-saving mechanism updates the stack pointer and stores the bank-switched contents in memory while the execution of the core proceeds in parallel."
-  ],
-  "300": [
-    "2 provides an overview of the design."
-  ],
-  "27": [
-    "Incoming interrupts are filtered with a Gateway module that decides whether there is a pending and enabled request for each interrupt source i (IRQ i).",
-    "For each interrupt source, they track: 1) interrupt level and priority; 2) interrupt id; and 3) pending state from the gateway module.",
-    "Interrupts arrive at the gateway, where they are combined with programmable configuration information about each interrupt line consisting of level, priority, enable status, and sensitivity (leveledge)."
-  ],
-  "184": [
-    "The Interrupt Prioritization module traverses the tree from leaves to the root, where the sought-after maximum level and priority interrupt is found."
-  ],
-  "268": [
-    "Each tree has low overhead in terms of area and delay, O(n) and O(log(n)), respectively."
-  ],
-  "324": [
-    "CLIC architecture overview."
-  ],
-  "350": [
-    "The interrupt is then presented to the core with a handshake-based interface."
-  ],
-  "337": [
-    "The additional kill signal is there to allow for a handshake to restart so that a potentially more important interrupt can be presented to the core."
-  ],
-  "362": [
-    "this work can scale up to n  4096 local interrupt sources."
-  ],
-  "281": [
-    "Optionally, additional pipeline stages can be inserted in the arbitration tree to relax timing."
-  ],
-  "396": [
-    "Finally, our version of the CLIC supports SHV and the xnxti CSR in the core."
-  ],
-  "47": [
-    "Albeit improving the interrupt handling capabilities of CV32 by introducing priority and levels management in HW, critical operations such as interrupt state and context saverestore are not natively covered by the CLIC and need to be handled in SW. CV32fastirq aims at filling this gap.",
-    "The CLIC addresses this with the levelpriority scheme and fastirq improves upon that by moving the interrupt state saving logic in HW and adding emret to handle redundant interrupt context sequences."
-  ],
-  "314": [
-    "Conceptually, we can think of fastirq as a wrapper around the cores RF."
-  ],
-  "338": [
-    "We extend the RF by an additional read port for the background-saving mechanism and registers for latching the additional processor state required for proper interrupt nesting."
-  ],
-  "363": [
-    "A new interrupt at the CLIC will first be checked whether the interrupt level exceeds the configured threshold."
-  ],
-  "373": [
-    "If this is the case, it will be dispatched to the cores main state machine while concurrently triggering the saving logic finite state machine (FSM) in the extended RF."
-  ],
-  "269": [
-    "The cores state machine will flush the pipeline and update the program counter according to the vector table entry."
-  ],
-  "56": [
-    "Meanwhile, in the extended RF, the saving logic triggers a bank switch, allowing the interrupt context to have a fresh set of registers while draining the other bank contents through a separate port to the main memory.",
-    "On an interrupt, the RF banks are switched."
-  ],
-  "293": [
-    "2) Stack Pointer Handling: During a bank switch, we need to update the stack pointer."
-  ],
-  "207": [
-    "For that, we have a dedicated adder between the two RFs."
-  ],
-  "38": [
-    "The RISC-V embedded and integer ABI dictate that the stack pointer points below the last saved register on the stack.",
-    "The stack pointer is adjusted appropriately to maintain ABI invariants."
-  ],
-  "311": [
-    "Furthermore, if we did not adjust the pointer, the program code running in the interrupt handler could clobber the values on the stack."
-  ],
-  "246": [
-    "We could do away with this mechanism for leaf-type interrupts, but this would require a new ABI considering a virtual stack pointer offset when generating code for interrupt handlers, and it would not solve the nested interrupt case."
-  ],
-  "392": [
-    "3) Conflict Handling: There are interactions between the background-saving mechanism and regular loadstore instruc- tions of the core that could potentially result in incorrect execution."
-  ],
-  "358": [
-    "In the case where a load instruction is trying to update an architectural register while the background-saving mechanism is trying to read the same register, no conflict arises because interrupts are injected into the pipeline and only acted upon in the write-back stage of the core."
-  ],
-  "376": [
-    "At this point, updates to the RF are resolved, and then the bank switching operation takes place ensuring correctness of the execution."
-  ],
-  "40": [
-    "While the interrupt handler is already executing, we also need to ensure that loads or stores accessing stack memory regions where the background-saving mechanism is writing to are properly resolved.",
-    "If this happens while the background-saving mechanism is still at work, the execution of the handler has to wait."
-  ],
-  "327": [
-    "Otherwise, we could read stale data or write data that is immediately overwritten."
-  ],
-  "150": [
-    "This is handled by informing the load-store unit of the core of the ongoing state being written to memory."
-  ],
-  "397": [
-    "A straightforward solution is to stall the cores pipeline while the background-saving mechanism is at work."
-  ],
-  "326": [
-    "This, though, partially negates the advantage of executing ahead since we likely want to issue a load soon in the interrupt handler."
-  ],
-  "233": [
-    "We address this problem by additionally checking whether the load-store unit tries to access the memory in the range of the stack pointer."
-  ],
-  "299": [
-    "More precisely, on an interrupt the stack pointer is decremented, making space available, while the background-saving mechanism will start storing the interrupt state word by word."
-  ],
-  "243": [
-    "In the load-store unit, the address offset of the last word pushed out by the background-saving mechanism is compared against any incoming load and stores."
-  ],
-  "188": [
-    "Load and stores that try to access data that is not yet pushed to memory cause the cores pipeline to stall."
-  ],
-  "394": [
-    "This mechanism ensures the correctness of loads and stores issued by the core."
-  ],
-  "401": [
-    "4) Co-Operation of Compiler and Hardware: Accessing stack memory locations during the execution of an interrupt handler typically happens in two use cases."
-  ],
-  "303": [
-    "1) A system call handler (issued through the ecall instruction in RISC-V) wants to access user-provided arguments."
-  ],
-  "410": [
-    "Most will be passed through general-purpose registers, but some might be placed on the stack 2) Short interrupt handlers that want to return before the full interrupt state has been saved."
-  ],
-  "266": [
-    "Each of these cases would potentially engage the stalling logic outlined in Section III-C3, causing higher interrupt latencies."
-  ],
-  "223": [
-    "An HW solution to mitigate the stalling issue would be to add forwarding logic that checks in the load-store unit what is being written by the background-saving mechanism and directly forward these values from the store queue instead of going through the memory subsystem outside the core."
-  ],
-  "383": [
-    "Some register values still cannot be forwarded because they might not have reached the load-store unit yet."
-  ],
-  "313": [
-    "Furthermore, the approach increases HW complexity, requiring a dynamic address lookup into a queue-like buffer."
-  ],
-  "331": [
-    "We propose instead an SW-based solution that does not cause any kind of stalling."
-  ],
-  "381": [
-    "The insight is that we do not need to engage the pipeline stalling logic by ordering the loads to access the already stored interrupt state first."
-  ],
-  "1": [
-    "Overview of the fast interrupt architecture.",
-    "and potential nesting interrupt handlers, albeit with a larger delay.",
-    "We give an analysis of the functional improvements and argue that these allow more flexible and efficient handling of regular and nested interrupts."
-  ],
-  "226": [
-    "The cv32s RF is extended with additional logic for the background-saving mechanism."
-  ],
-  "125": [
-    "Parts of the old memory bank (the interrupt context) are copied to the cores stack location, while execution can go ahead by using the new bank."
+    "B. INTERRUPTS 1) LEVEL- AND EDGE-TRIGGERED INTERRUPTS: INTERRUPT SOURCES CAN SIGNAL INTERRUPTS EITHER THROUGH A LEVEL CHANGE OF THE INTERRUPT LINE, CALLED A EDGE-TRIGGERED INTERRUPT, OR BY THE LOGIC LEVEL ITSELF, A LEVEL-TRIGGERED INTERRUPT.",
+    "2) NESTED INTERRUPTS: FOLLOWING THE NOTATION ADOPTED IN SECTION II-B5, THE CASE OF NESTED INTERRUPTS ENTAILS PREEMPTION OF A LOW-LEVEL INTERRUPT BY A HIGH-LEVEL INTERRUPT, AS SHOWN IN FIG.",
+    "(A) TRANSITION BETWEEN DIFFERENT INTERRUPT LEVELS."
+  ],
+  "228": [
+    "WHILE THE LATTER REQUIRES THE RECEIVING SIDE OF THE INTERRUPT TO CLEAR THE SOURCE OFTEN THROUGH ACCESSING APPROPRIATE HW REGISTERS, THE FORMER IS UNIDIRECTIONAL NOTIFICATION WITHOUT CONFIRMATION."
+  ],
+  "65": [
+    "THIS RESULTS IN FASTER PROCESSING BUT MAY LEAD TO DROPPING INTERRUPT REQUESTS ACCIDENTALLY.",
+    "THIS INCREASES THE WORST CASE INTERRUPT LATENCY BY THE TIME THEY REMAIN DISABLED.",
+    "THIS ALLOWS EXECUTION OF THE INTERRUPT HANDLER BEFORE ALL INTERRUPT STATE HAS BEEN PUSHED TO MEMORY, LOWERING INTERRUPT LATENCY."
   ],
   "334": [
-    "In this design, there is a dedicated memory port for the background-saving mechanism, but optionally it can also be shared with the port from the load-store unit."
+    "2) VECTORED AND DIRECT INTERRUPTS: INTERRUPTS ARE ASYN- CHRONOUS EVENTS THAT ALTER THE NORMAL PROGRAM ORDER EXECUTION AND REQUIRE A SWITCH TO A DIFFERENT CONTEXT TO HANDLE THE EVENT."
   ],
-  "235": [
-    "For example, if we push out the general-purpose registers x1, x2, ."
+  "11": [
+    "A PROCESSOR SUPPORTS VECTORED INTERRUPTS WHEN EACH INTERRUPT TRAPS TO A SPECIFIC INTERRUPT SERVICE ROUTINE (ISR) ACCORDING TO AN INTERRUPT VECTOR TABLE, GRANTING FAST INTERRUPT RESPONSE AT THE COST OF INCREASED CODE SIZE.",
+    "TO IMPROVE INTERRUPT LATENCIES, INTERRUPT VECTORING IS SUP- PORTED."
   ],
-  "375": [
-    "in that very same order, then we need to ensure that in the interrupt handler, we use the same order to load words back."
-  ],
-  "325": [
-    "Note that this is a performance issue and does not affect correctness."
-  ],
-  "146": [
-    "When writing assembly, the program- mer has to be aware of that to achieve the best pos- sible latency."
-  ],
-  "105": [
-    "In the case that the programmer uses compiler-specific attributes to write his interrupt handlers, such as attribute((interrupt)) in GCC, the compiler needs to be made aware of that fact."
-  ],
-  "408": [
-    "5) Interrupt Handler Routines: In Fig."
-  ],
-  "44": [
-    "4, we give an overview of how nested interrupt handling code works for the basic CLINT-mode, the baseline CLIC, and our fastirq extension.",
-    "Routines for saving state for vectored nesting interrupts using (a) CLINT, (b) CLIC, and (c) proposed fastirq extension."
-  ],
-  "368": [
-    "6) Register File Overhead: RISC-V defines RV32E as a variant of RV32I, which only has 16 registers instead of 32."
-  ],
-  "359": [
-    "Reducing the RF size helps lower context switch times but does not affect the interrupt latency since the set of caller-save registers remains the same when using the embedded-application binary interface (EABI)."
-  ],
-  "372": [
-    "Our imple- mentation allows the core to dynamically switch between RV32I and RV32E with fastirq depending on the work- load."
-  ],
-  "328": [
-    "This allows for the reuse of the unused half of the RF."
-  ],
-  "149": [
-    "If the increased pressure on the RF is not acceptable, instead of doubling the RF size for the banking logic, one could just add additional registers for the seven caller-save registers to save area."
-  ],
-  "306": [
-    "With the proposed approach, the interrupt state can be quickly restored by simply switching register banks."
-  ],
-  "133": [
-    "To differentiate between a regular return from an interrupt handler using mret, which assumes the interrupt state has been restored by SW, we add a new instruction emret instead."
-  ],
-  "175": [
-    "This instruction performs the same function as mret in addition to switching register banks."
-  ],
-  "382": [
-    "In the RISC-V ecosystem, this situation can be optimized by directly checking for other interrupts pending on the same level before restoring the executions interrupt context."
-  ],
-  "289": [
-    "The CLIC offers an HW-assisted solution to address such a scenario with the xnxti CSRs (see Section II-C2)."
-  ],
-  "33": [
-    "Nucleis enhanced CLIC (ECLIC) 18 extends xnxti by embedding the jump to the queuing interrupt handler in the xnxti HW (jalxnxti).",
-    "Nuclei System Technology ECLIC 39 extends traditional xnxti with a novel CSR for machine privilege mode, jalmnxti 18, already discussed in this work in Section IV."
-  ],
-  "308": [
-    "In our case, this is implemented through the emret instruction."
-  ],
-  "248": [
-    "Besides checking whether a bank switch is appropriate, it also looks at interrupts pending with the same or lower level."
-  ],
-  "144": [
-    "If such an interrupt exists, emret redirects the control flow to the pending interrupts handler."
-  ],
-  "399": [
-    "Some HW refers to this concept of removing redundant context restores as tail-chaining 23."
-  ],
-  "349": [
-    "This situation is visualized in Fig."
-  ],
-  "50": [
-    "5(b).",
-    "5(a)."
-  ],
-  "22": [
-    "We address this scenario by minimizing interrupt latency through hiding latency.",
-    "Minimizing Interrupt Response Time."
-  ],
-  "402": [
-    "For nesting interrupts, the first instruction will be re-enabling global interrupts."
-  ],
-  "391": [
-    "At this point, a high-level interrupt could preempt the current running interrupt handler."
-  ],
-  "398": [
-    "This combination of latency hiding and background saving allows the core to quickly enter a first-level interrupt handler Authorized licensed use limited to: California Polytechnic State University San Luis Obispo."
-  ],
-  "160": [
-    "This assumes the regular RISC-V embedded ABI."
-  ],
-  "161": [
-    "In order to prevent that, mie has to be manually adjusted such that the corresponding lower-priority interrupts are disabled."
-  ],
-  "282": [
-    "While this return path could also be handled in HW by adding an additional write port to the cores RF, exiting an interrupt handler is less time-critical since we mostly care about how quickly an external event is addressed."
-  ],
-  "315": [
-    "E. Context Switching Acceleration We can divide context switches into OS-specific and HW- specific parts."
-  ],
-  "229": [
-    "The OS part entails all contributions to the context switch time that is specific to the OS itself, such as computing the next task to be scheduled and bookkeeping operations."
-  ],
-  "185": [
-    "The remainder is the HW-dependent saving and restoring of the state belonging to the new context."
-  ],
-  "195": [
-    "The idea is to use the background-saving mechanism to accelerate the state saving and restoring part of context Fig."
-  ],
-  "67": [
-    "switches by interleaving the loading of a new state with the automatic saving HW pushing out the previous register state to memory in the background.",
-    "This will engage the HW mechanism to swap the registers and save them in the background while we can already proceed with the rest of the context switch routine."
-  ],
-  "80": [
-    "For that, the initial part of the context switch routine changes.",
-    "any impact on context switching."
-  ],
-  "162": [
-    "At the beginning of the routine, we want to save the current running tasks state to memory."
-  ],
-  "360": [
-    "Instead of manually saving the general-purpose registers, we set up the stack Authorized licensed use limited to: California Polytechnic State University San Luis Obispo."
-  ],
-  "238": [
-    "Additional RISC-V extensions that introduce more context switching state run contrary to the goals of fastirq regard- ing latencies."
-  ],
-  "364": [
-    "While there are no technical limitations with respect to adding more state to fastirq, the resulting design would incur a significant increase in area and power."
-  ],
-  "112": [
-    "If a specific extension is still required, a dirty bit to make context lazy switchable could help to keep the fast path competitive."
-  ],
-  "284": [
-    "EVALUATION This section gives a functional and quantitative evaluation of the various flavors of the CV32RT."
-  ],
-  "276": [
-    "Feature Comparison As discussed in Section II, the CLINT is the first stan- dardized RISC-V interrupt controller."
-  ],
-  "348": [
-    "It supports pre-emption based on privilege modes (machine, hypervisor, supervisor, user), but the interrupt lines have a hardwired prioritiza- tion scheme."
-  ],
-  "240": [
-    "The baseline CLIC addresses these weaknesses."
-  ],
-  "209": [
-    "In addition to that, a level threshold register per privilege level (xintthresh) controls the set of allowed horizontal interrupts by limiting it to those whose level exceeds the given value in the register."
-  ],
-  "46": [
-    "Vectoring can be selectively enabled or disabled per interrupt line.",
-    "This solution works for both vectored and non-vectored interrupts."
-  ],
-  "295": [
-    "This allows for better control of the vector table size."
-  ],
-  "312": [
-    "The baseline CLIC does not differ from the regular CLINT in terms of storing and restoring the interrupt context which is fully handled in SW."
-  ],
-  "87": [
-    "The optional xnxti extension allows multiple horizon- tal interrupts to be serviced in sequence without redundant context-restoring operations in between.",
-    "In addition, the first interrupt has to still pay the full latency cost since xnxti does not touch the interrupt context storing part itself."
-  ],
-  "203": [
-    "Reading the xnxti CSR yields a pointer to the vector table entry for the next pending and qualifying interrupt, if available, which then allows a direct jump there."
-  ],
-  "155": [
-    "This approach loses the latency advantage of HW vectoring by basically running an SW emulation thereof."
-  ],
-  "187": [
-    "The discussed differences are summarized in Table II."
-  ],
-  "296": [
-    "B. Functional Performance 1) Measurement Setup: We take measurements by running RTL simulations of the different versions of CV32RT as part of ControlPULP."
-  ],
-  "343": [
-    "For the memory subsystem, this means we have single cycle (zero wait state) access to static random access memory (SRAM) (see Section II-A)."
-  ],
-  "330": [
-    "The memory bank we are using is not contended by other bus masters which is achieved by placing data and instructions into specific private banks."
-  ],
-  "224": [
-    "On the system level, there are no additional latencies introduced on interrupt lines between interrupt sources and the CLIC."
-  ],
-  "24": [
-    "2) Interrupt Latency: We measure the HW contributed interrupt latency (as described in Section II-B3) of our fastirq extension and compare it to the CV32 and CV32RT variations (standard CLIC, xnxti, jalxnxti).",
-    "9 reports the area breakdown comparison of CV32RT with baseline CLIC (including mnxti and jalmnxti CSRs) and fastirq extensions with 256 input interrupts."
-  ],
-  "138": [
-    "This implies that all caller-save registers need to be saved, which is the general case.",
-    "Depending on the function and the ABI, this might be fewer than all caller- save registers.",
-    "The saved general-purpose registers are all caller-save registers in the respective ABI."
-  ],
-  "81": [
-    "Interrupt handler routines that save the interrupt context in SW can only save the minimum state if the compiler is able to fully inline the handlers function body.",
-    "Interrupt handler routines that use SW-based mechanisms to save and restore interrupt state can, if the compiler permits, fully inline the handler code and save some caller-save registers."
-  ],
-  "189": [
-    "To also consider these cases, we measure the interrupt latency in the optimal case, i.e., only one caller-save register needs saving for SW-based interrupt handlers."
-  ],
-  "121": [
-    "Interrupts are injected into the design at the interrupt controller inputs."
-  ],
-  "278": [
-    "We evaluate both the EABI and regular integer ABI of RISC-V."
-  ],
-  "159": [
-    "This allows for directly calling into C-code functions from interrupt handlers."
-  ],
-  "286": [
-    "For our fastirq extension, this amount of state is always saved since the HW does not know a priori which caller-save registers need to be saved."
-  ],
-  "41": [
-    "6, JUNE 2024 TABLE III COMPARISON OF THE MAIN TECHNIQUES FOR OPTIMIZING INTERRUPT CONTEXT AND TASK CONTEXT SAVERESTORE WITH NESTED AND NON-NESTED INTERRUPTS EMPLOYED BY INDUSTRY AND ACADEMIA IN THE EMBEDDED AND REAL-TIME APPLICATION DOMAINS The results are summarized in Fig.",
-    "1) Interrupt Context SaveRestore Acceleration: Several designs automatically save and restore the interrupt context directly in HW.",
-    "Albeit automatic interrupt context saverestore reduces SW housekeeping overhead before and after handling the interrupt routine, it only partially addresses the acceleration of the complete task context switch.",
-    "While the presented solutions are effective in optimizing context, saverestore with HW and SW cooperation, they lack: 1) a cohesive approach to address both interrupt context and task context switch acceleration and 2) none of the existing RISC-V-based approaches can close the gap with well-established industry vendors.",
-    "Interrupt context saverestore especially takes advantage of the former by deferring those operations to the HW."
-  ],
-  "8": [
-    "xnxti and jalxnxti perform even worse (requiring 42 and 35 cycles, respectively) since they both insert additional instructions in the code path between the handler and interrupt event.",
-    "xnxti and jalxnxti improve upon this situation by checking for pending interrupts and directly jumping to the respective handlers.",
-    "While xnxti only returns a pointer to the address of the next handler and thus needs a small code sequence (load, jump, and retry loop), jalxnxti fuses these operations into one instruction resulting in saving nine cycles."
-  ],
-  "53": [
-    "As a comparison, the Arm Cortex- M4 has an interrupt latency of 12 cycles given a single-cycle memory 24.",
-    "The Arm Cortex-M4 is able to do the same task in six cycles assuming it has access to single-cycle memory 24."
-  ],
-  "86": [
-    "In Fig.",
-    "As shown in Fig."
-  ],
-  "163": [
-    "6, we show the cost in clock cycles of such sequences."
-  ],
-  "200": [
-    "For the baseline CLIC, it takes 68 or 50 cycles when using the integer or embedded ABI, respectively."
-  ],
-  "126": [
-    "Note that this is independent of the ABI since no interrupt state is affected."
-  ],
-  "356": [
-    "The emret mechanism of fastirq works similarly and costs eight clock cycles but is not restricted to non-vectored interrupts."
-  ],
-  "270": [
-    "4) Context Switch Time: In Fig."
-  ],
-  "173": [
-    "7, we show the context switch time in number of clock cycles between two FreeR- TOS dummy tasks when comparing the baseline CV32RT against CV32RTfastirq.",
-    "Average context switch time in FreeRTOS for two tasks of various flavors of CV32RT."
-  ],
-  "263": [
-    "All compile time options such as tracing, stack overflow signaling, and the more generic task selection mechanism were turned off to minimize the context switch code."
-  ],
-  "265": [
-    "We left out configurations that do not have Fig."
-  ],
-  "387": [
-    "As a comparison, we mention the generic Cortex-M4 core, assuming it has single-cycle access to memory."
-  ],
-  "164": [
-    "Note that Arm Cortex-M only has 16 core registers."
-  ],
-  "148": [
-    "fastirq allows us to skip ahead the saving of the general-purpose registers by triggering an SW interrupt as part of the save sequence.",
-    "The SW interrupt will trigger the fastirq mechanism, which starts saving the general-purpose registers to memory."
-  ],
-  "340": [
-    "By making sure not to use registers that are still being saved by the background-saving mechanism (as described in Section III-C4), we can save up to 31 cycles (19) for a context switch when using the I-extension, and 16 cycles (12) for the E-extension, respectively."
-  ],
-  "250": [
-    "The FreeRTOS website 20 claims context switches as low as 96 cycles for a Cortex-M4 implementation.3 C. Implementation We synthesize CV32RT as part of the ControlPULP plat- form using Synopsys Design Compiler 2022.03, targeting GlobalFoundries 12LP FinFet technology at 500 MHz, TT cor- ner, and 25 C. One gate equivalent (GE) for this technology equals 0.121 m2."
-  ],
-  "111": [
-    "3This can be seen as a lower bound as on some SoCs such as the STM32L476RG we observed higher latencies due to memory access stalls and other implementation choices in the memory subsystem."
-  ],
-  "309": [
-    "The RISC-V E-Extension reduces the available general-purpose registers from 32 to 16, consequently lowering the context switch state that needs to be saved and restored."
-  ],
-  "68": [
-    "RISC-V CLIC area breakdown at varying numbers of interrupt sources.",
-    "8 reports the area breakdown of the CLIC implemented in the proposed with different interrupt sources."
-  ],
-  "230": [
-    "Area overhead of CV32RT in the two main configurations."
-  ],
-  "389": [
-    "The overhead of fastirq in CV32RTfastirq core results in a minimal 10 area increase concentrated around the ID stage."
-  ],
-  "271": [
-    "The design has been synthesized in GF12LP technology (500 MHz, TT corner, 25 C, 0.8 V, super low VT standard cells)."
-  ],
-  "257": [
-    "Area breakdown of CV32E40PRT ID stage with the proposed HW extensions."
-  ],
-  "156": [
-    "8, for each scenario, more than half of the resources implement the configuration registers required to control the CLIC, whose size linearly increases with the number of input interrupts."
-  ],
-  "231": [
-    "In particular, each interrupt is associated with one 32-bit register incurring an area overhead of about 176 GE."
-  ],
-  "220": [
-    "The remaining area implements the gateway and binary tree arbitration logic at the core of the CLIC working principle, as discussed in Section III-B, and additional housekeeping control logic that scales linearly with the number of interrupt sources."
-  ],
-  "247": [
-    "8 also shows that the fraction of the design occupied by the arbitration tree is kept constant when increas- ing the number of sources."
-  ],
-  "345": [
-    "While it is apparent that this design incurs a larger area overhead compared to traditional RISC-V CLINT 14, the gain in flexibility enables a broader application scope with time-critical systems."
-  ],
-  "204": [
-    "From Table II, CV32RTfastirq incurs a 10 overall area increase compared to baseline CLIC only."
-  ],
-  "123": [
-    "While other HW blocks of the core remain primarily unaffected, the instruction decode (ID) stage incurs an area overhead of 21 compared to CV32RTCLIC."
-  ],
-  "198": [
-    "The ID stage is the HW block where the addi- tional registers and the automatic stackingunstacking logic are localized."
-  ],
-  "256": [
-    "A breakdown of the ID stage is shown in Fig."
-  ],
-  "242": [
-    "We notice that the additional storage space for automatic context save and restore in HW increases the area of the RF by about 36 in the proposed implementation."
-  ],
-  "178": [
-    "Similarly, the logic for managing the shadow registers accounts for an overhead of 40 on the baseline ID stage controller."
-  ],
-  "341": [
-    "The HW overhead coming from the additional emret instruction dis- cussed in Section IV is negligible."
-  ],
-  "318": [
-    "Nevertheless, the increased size of the ID stage trades off the benefits of: 1) a simplified programming model that moves several SW operations in HW and 2) significantly lowered interrupt latency than standard RISC-V while not impacting the critical path of the base core design."
-  ],
-  "142": [
-    "Finally, time-critical systems shift design priorities from area efficiency to safety, security, and reliability."
-  ],
-  "366": [
-    "V. RELATED WORK In this section, we describe the leading solutions to opti- mize handling asynchronous events in state-of-the-art (SOTA) embedded and real-time MCUs."
-  ],
-  "9": [
-    "We first differentiate between existing PLICs and CLICs as introduced in Section II-C. Then, we focus on the latter and discuss solutions across various platforms in industry and academia, addressing: 1) interrupt context saverestore techniques; 2) context switch techniques; and 3) dedicated strategies to optimize redundant context restore with back-to-back interrupts.",
-    "To address redundant context restore with back-to-back interrupts, we propose a modified version of the return Authorized licensed use limited to: California Polytechnic State University San Luis Obispo."
-  ],
-  "106": [
-    "Table III summarizes the overview."
-  ],
-  "166": [
-    "For the interrupt latency, we assume that the definition presented in Section II-B and explicitly provide references to different variants adopted by SOTA when needed in Table III."
-  ],
-  "109": [
-    "Conversely, Arms generic interrupt controller (GIC) redistributes incoming asynchronous events as either non-critical (IRQ) or critical interrupts (fast IRQ, or FIQ)."
-  ],
-  "134": [
-    "6, JUNE 2024 interrupt handler through a dedicated register bank, with up to eight registers employed to minimize context switching."
-  ],
-  "239": [
-    "This allows the core to start fetching the jump address from the interrupt vector table simultaneously during context save and embed context restore within the return instruction."
-  ],
-  "275": [
-    "A reference example in the field is the Arm Cortex-M series integrating the nested vectored inter- rupt controller (NVIC)."
-  ],
-  "167": [
-    "It implements a state machine 32 that performs caller-save register stacking in the background."
-  ],
-  "287": [
-    "Likewise, upon returning from the ISR, the HW encodes in the link register a value (EXCRETURN), which notifies the core to start unwinding the stack to return to normal program execution."
-  ],
-  "165": [
-    "Analogously, in Infineon AURIX MCU- class TriCore familys interrupt control unit (ICU) 33, 34, 35, the context of the calling routine is saved in memory autonomously while restoring the context is embedded in the RET instruction and happens in parallel with the return jump 36."
-  ],
-  "292": [
-    "From academia, Mao et al."
-  ],
-  "385": [
-    "27 are the first to propose extensions for the RISC-V CLIC."
-  ],
-  "403": [
-    "Though implemen- tation details are omitted, the interrupt handling is enhanced with automatic stacking in HW that benefits from the cores Harvard architecture and simultaneous data and instruction memory access."
-  ],
-  "35": [
-    "2) Task Context SaveRestore Acceleration: Register bank- ing is a technique adopted by several architectures to swap a tasks context without pushingpopping register values to the stack at the cost of an additional area overhead in the design.",
-    "A tasks context switch benefits from quickly transferring the suspended context to the ded- icated register bank while already restoring the next task to be executed."
-  ],
-  "181": [
-    "As discussed above, in Arm designs, this is the case of HW register banking in PLICs (GIC)."
-  ],
-  "74": [
-    "A similar approach is implemented in the Renesas M32C80 series 30."
-  ],
-  "177": [
-    "A dual register bank allows quickly swapping the context without savingrestoring tofrom the stack, as the second register bank is reserved for high-speed interrupts."
-  ],
-  "172": [
-    "The Aurix family instead implements an SW managed solution, featuring a specific organization of the context layout in the system memory based on context save area (CSA) chained in a linked list fashion 36."
-  ],
-  "137": [
-    "A more complex approach based on the intuition that often the content of some register remains untouched after a context switch is introduced by Huang et al."
-  ],
-  "317": [
-    "28, which adopts a valid-based mechanism in HW to block context switch on selected registers, reducing register movement by almost 50."
-  ],
-  "221": [
-    "This feature is combined with semi-shadowing, similar to register banking but using the top (flip) and bottom (flop) halves of the RF as RF copies."
-  ],
-  "132": [
-    "The latter approach is similar to leveraging RISC-Vs RV32E base instruction set by re-using the lower 16 architectural registers of the RF, as proposed in this work."
-  ],
-  "305": [
-    "The evaluation in 28 lacks HW implementation and area overhead assessment but reduces con- text switching overhead by 24 on the DSPstone benchmark."
-  ],
-  "119": [
-    "These approaches trade-off HW- and SW-induced latencies when handling asynchronous events, as depicted in Fig."
-  ],
-  "344": [
-    "Gaitan et al."
-  ],
-  "141": [
-    "26 propose a full HW solution based on a hard- ware scheduling engine (HSE) that directly attaches interrupts to running tasks without the need for a specialized inter- rupt controller."
-  ],
-  "196": [
-    "While this approach allows lowering interrupt latency and task context switches dramatically, as reported in Table III, it lacks flexibility and its area overhead grows for a high number of tasks, as it requires replicating hardware resources per task."
-  ],
-  "70": [
-    "Despite exceeding the scope of real-time execution, we mention that fast context switching is often required in architectures such as superscalar central processing units (CPUs) or to hide latency in graphic processing units (GPUs) 37, 38."
-  ],
-  "199": [
-    "Besides highlighting the difference in memory footprint between such architectures (MB size RFs) and low-end embedded microcontrollers targeted in this work, such works typically adopt RF caching rather than register shadowing or banking for performance reasons, i.e., lower access latency to the RF and higher thread-level parallelism (TLP), respectively."
-  ],
-  "140": [
-    "In the real-time application scenario of this work, such techniques may deteriorate the systems pre- dictability and thus are not considered."
-  ],
-  "216": [
-    "RISC-V addresses this scenario by adding the xnxti CSR with SW-managed interrupt service loops as part of the CLIC specifications and finds early commercial examples with 31."
-  ],
-  "205": [
-    "Among MSI solutions, RISC-V AIA without APLIC has a similar approach to mnxti with the xtopi CSR that reports the highest- priority, pending, and enabled interrupt for a specific privilege mode, allowing both late arrival and redundant context restore mechanisms."
-  ],
-  "201": [
-    "This work proposes a combination of the background-saving with a register banking approach."
-  ],
-  "182": [
-    "Furthermore, we improve task con- text switch times in FreeRTOS to 104 clock cycles using fastirq, which is 20 faster than an SW-only approach."
-  ],
-  "158": [
-    "Some research directions involving the proposed extension that the authors consider for future work are analyzing fastirqs impact on timing channels or its integration with different RISC-V extensions."
-  ],
-  "222": [
-    "REFERENCES 1 C. Rochange, S. Uhrig, and P. Sainrat, Time-Predictable Archi- tectures (FOCUSComputer Engineering Series)."
-  ],
-  "122": [
-    "Hoboken, NJ, USA: Wiley, 2014."
-  ],
-  "217": [
-    "Available: http:eu.wiley.comWileyCDA WileyTitleproductCd-1848215932.html 2 L. M. Pinho et al., High-Performance and Time-Predictable Embedded Computing."
-  ],
-  "154": [
-    "Wharton, TX, USA: River, 2018."
-  ],
-  "97": [
-    "3 F. Reghenzani, G. Massari, and W. Fornaciari, The real-time Linux kernel: A survey on PREEMPTRT, ACM Comput."
-  ],
-  "124": [
-    "Surv., vol."
-  ],
-  "88": [
-    "52, no."
-  ],
-  "73": [
-    "1, pp.",
-    "7, pp.",
-    "1, pp.",
-    "1, pp.",
-    "10, pp.",
-    "9, pp.",
-    "9, pp.",
-    "14, pp."
-  ],
-  "26": [
-    "136, Feb. 2019, doi: 10.11453297714.",
-    "16, doi: 10.1109IPCCC50635.2020.9391536.",
-    "136, Jan. 2021, doi: 10.11453419973."
-  ],
-  "367": [
-    "4 M. Liu, D. Liu, Y. Wang, M. Wang, and Z. Shao, On improving real-time interrupt latencies of hybrid operating systems with two-level hardware interrupts, IEEE Trans."
-  ],
-  "115": [
-    "Comput., vol."
-  ],
-  "208": [
-    "60, no."
-  ],
-  "174": [
-    "978991, Jul."
-  ],
-  "384": [
-    "2011."
-  ],
-  "342": [
-    "5 P. Mantegazza, E. L. Dozio, and S. Papacharalambous, RTAI: Real time application interface, Linux J., vol."
-  ],
-  "113": [
-    "2000, no.",
-    "2000."
-  ],
-  "131": [
-    "72, p. 10, Apr."
-  ],
-  "388": [
-    "6 K. Ramamritham and J."
-  ],
-  "262": [
-    "82, no."
-  ],
-  "288": [
-    "5567, Jan. 1994."
-  ],
-  "153": [
-    "(2005)."
-  ],
-  "169": [
-    "Available: http:web.engr.oregonstate.edutraylorece473 pdfsminimizeinterruptresponsetime.pdf 8 J. Valvano, Introduction to Embedded Systems."
-  ],
-  "128": [
-    "Scotts Valley, CA, USA: CreateSpace, Aug. 2016."
-  ],
-  "108": [
-    "9 Y. Huang, L. Shi, J. Li, Q. Li, and C. J. Xue, WCET-aware re- scheduling register allocation for real-time embedded systems with clustered VLIW architecture, IEEE Trans."
-  ],
-  "69": [
-    "Very Large Scale Integr.",
-    "Very Large Scale Integr.",
-    "Very Large Scale Integr."
-  ],
-  "45": [
-    "(VLSI) Syst., vol.",
-    "(VLSI) Syst., vol.",
-    "Syst., vol.",
-    "(VLSI) Syst., vol.",
-    "Syst., vol."
-  ],
-  "54": [
-    "22, no.",
-    "25, no.",
-    "23, no."
-  ],
-  "171": [
-    "168180, Jan. 2014."
-  ],
-  "170": [
-    "10 X. Zhou and P. Petrov, Rapid and low-cost context-switch through embedded processor customization for real-time and control applica- tions, in Proc."
-  ],
-  "110": [
-    "43rd Annu."
-  ],
-  "95": [
-    "Conf.",
-    "Conf.",
-    "Conf.",
-    "Conf.",
-    "Conf.",
-    "Conf."
-  ],
-  "135": [
-    "Design Autom.",
-    "Design, Autom.",
-    "Design, Autom."
-  ],
-  "316": [
-    "(DAC)."
-  ],
-  "197": [
-    "New York, NY, USA: Association for Computing Machinery, 2006, p. 352, doi: 10.11451146909.1147001."
-  ],
-  "179": [
-    "11 I. Behnke, L. Pirl, L. Thamsen, R. Danicki, A. Polze, and O. Kao, Interrupting real-time IoT tasks: How bad can it be to connect your critical embedded system to the Internet?"
-  ],
-  "98": [
-    "in Proc."
-  ],
-  "60": [
-    "Commun."
-  ],
-  "84": [
-    "(IPCCC), Nov. 2020, pp."
-  ],
-  "100": [
-    "12 F. Rehm et al., The road towards predictable automotive high Performance platforms, in Proc."
-  ],
-  "25": [
-    "Test Eur.",
-    "Test Eur."
+  "350": [
+    "CONVERSELY, NON-VECTORED OR DIRECT INTERRUPTS TRAP TO A SHARED ISR."
   ],
   "298": [
-    "(DATE), Feb. 2021, pp.",
-    "(DATE), Feb. 2021, pp."
+    "THE LATTER APPROACH TRADES CODE SIZE OFF FOR A SLOWER INTERRUPT RESPONSE SINCE THE OVERHEAD OF RESOLVING THE INTERRUPTION CAUSE AND JUMPING TO THE CORRECT ISR ARE HANDLED IN EXPLICIT INSTRUCTIONS WHILE THE INTERRUPT TABLE CAN BE MADE MUCH MORE COMPACT."
   ],
-  "118": [
-    "19151924."
+  "13": [
+    "3) INTERRUPT LATENCY: MULTIPLE SOURCES DETERMINE THE INTER- RUPT LATENCY IN A SYSTEM: THE UNDERLYING HW, THE SCHEDULER OR OS, AND THE APPLICATION RUNNING ON TOP AS DETAILED.",
+    "IN THIS ARTICLE, WE FOCUS ON MINIMIZING THE LATENCY IMPOSED BY THE HW; THUS, WHENEVER WE REFER TO INTERRUPT LATENCY, WE MEAN ITS HW-CONTRIBUTED PART.",
+    "THE LATTER CONSISTS OF RESTOR- ING THE INTERRUPT CONTEXT AND THE REGULAR INTERRUPT LATENCY."
   ],
-  "21": [
-    "13 K. Asanovic and D. A. Patterson, Instruction sets should be free: The case for RISC-V, Dept.",
-    "Available: http:www2.eecs.berkeley.eduPubsTechRpts2014EECS- 2014-146.html 14 A. Waterman, Y. Lee, R. Avizienis, D. A. Patterson, and K. Asanovic, The RISC-V instruction set manual volume II: Privileged architec- ture version 1.9, Dept."
+  "281": [
+    "THIS BREAKDOWN IS DETAILED IN FIG."
   ],
-  "180": [
-    "EECS, Univ.",
-    "EECS, Univ."
+  "93": [
+    "INTERRUPT LATENCY IS DEFINED AS THE TIME IT TAKES FROM AN INTERRUPT EDGE ARRIVING AT THE HW, USUALLY THE INTERRUPT CONTROLLER, TO THE EXECUTION OF THE FIRST INSTRUCTION OF THE CORRESPONDING INTERRUPT HANDLER ROUTINE.",
+    "THE INTERRUPT LATENCY IS MEASURED AS THE NUMBER OF CYCLES IT TAKES FOR AN INTERRUPT TO ARRIVE AT THE INTERRUPT CONTROLLER INPUT TO THE FIRST INSTRUCTION OF AN INTERRUPT HANDLER THAT ALLOWS THE CALLING OF A C-FUNCTION."
   ],
-  "34": [
-    "California, Berkeley, CA, USA, Tech.",
-    "California, Berkeley, CA, USA, Tech."
+  "31": [
+    "TO MAKE A FAIR COMPARISON BETWEEN SW-BASED AND MORE HW-ORIENTED INTERRUPT SOLUTIONS, WE HAVE TO DELINEATE WHAT EXACTLY CONSTITUTES THE FIRST INSTRUCTION OF THE INTERRUPT HANDLER.",
+    "EACH HW CONFIGURATION HAS A HANDWRIT- TEN OPTIMIZED INTERRUPT HANDLER THAT STORES ALL REQUIRED GENERAL-PURPOSE AND MACHINE-SPECIFIC REGISTERS FOR NESTING INTERRUPTS."
+  ],
+  "374": [
+    "WE COUNT AS THE FIRST INSTRUCTION THE ONE AFTER ALL NECESSARY INTERRUPT CONTEXT HAS BEEN SAVED ON THE STACK TO BE ABLE TO CALL A FUNCTION."
+  ],
+  "325": [
+    "WHAT EXACTLY ENTAILS A FUNCTION CALL IS DICTATED BY THE USED APPLICATION BINARY INTERFACE (ABI) OR, MORE PRECISELY, ITS CALLING CONVENTION."
+  ],
+  "7": [
+    "NOTE THAT WHEN THE INTERRUPT HANDLER AND INTERRUPT CONTEXT SAVING CODE CAN BE INTERLEAVED, SOME OF THE CONTEXT SAVING CODE CAN BE REMOVED AS IT MIGHT BE REDUNDANT.",
+    "THE ACTIVE INTERRUPT HANDLERS CONTEXT MUST BE RESTORED ON INTERRUPT RETURN BUT IS IMMEDIATELY SAVED AGAIN DUE TO THE NEXT PENDING INTERRUPT FIRING.",
+    "RESTORING THE PRE-INTERRUPT CONTEXT IS ENTIRELY HANDLED IN SW FOR THE NESTED INTERRUPT CASE."
+  ],
+  "408": [
+    "4) CONTEXT SWITCHING TIME: THE TIME IT TAKES FOR A CONTEXT SWITCH DETERMINES THE RESPONSIVENESS OF THE ARCHITECTURE IN SWAPPING FROM ONE EXECUTION CONTEXT TO ANOTHER."
+  ],
+  "309": [
+    "THE EXECU- TION CONTEXT IS DEPENDENT ON THE OS BEING USED BUT USUALLY CONSISTS OF THE STATE OF THE ARCHITECTURAL REGISTERS OF THE ISA AND THE CHOSEN ABI."
+  ],
+  "35": [
+    "5) INTERRUPT NESTING: PREEMPTION REFERS TO AN EVENT, SUCH AS AN INTERRUPT REQUEST, TEMPORARILY INTERRUPTING A CURRENT TASK WITH THE PURPOSE OF RESUMING ITS EXECUTION LATER.",
+    "THE SIMPLEST CASE FOR PREEMPTION OCCURS WITH NON-NESTED INTERRUPT HANDLERS, WHERE INTERRUPTS ARE GLOBALLY DISABLED DURING THE EXECUTION OF AN ISR.",
+    "A MORE COMPLEX CASE FOR PREEMPTION OCCURS WITH NESTED INTERRUPT HANDLERS TO HANDLE THE CASE OF MULTIPLE INTERRUPTS AT A TIME.",
+    "THIS SITUATION DOES NOT RESULT IN PREEMPTION, RATHER CAUSES PENDING INTERRUPTS TO BE SERVICED IN SEQUENCE ACCORDING TO INCREAS- ING PRIORITY."
+  ],
+  "36": [
+    "IN THE CASE OF LEVELPRIORITY INTERRUPT SCHEMES, THIS MEANS THAT: 1) IF THE LEVELPRIORITY ARBITRATION IS SW-DRIVEN, E.G., WITH PRIORITY SIMPLESTANDARD INTERRUPT HANDLERS, THE HIGHEST PRIORITY INTERRUPT IDENTIFICATION CODE IS NOT EXECUTED, AND 2) IF THE LEVELPRIORITY ARBITRATION LOGIC IS DESIGNED WITHIN THE INTERRUPT CONTROLLER, THE HIGH- EST LEVELPRIORITY INTERRUPT IS PENDING BUT DISABLED, HENCE NOT PROPAGATED TO THE CORE.",
+    "WITH A LEVELPRIORITY INTERRUPT SCHEME (EITHER SW OR HW DRIVEN), THIS INTRODUCES ADDITIONAL MASKING OF INCOMING INTERRUPTS OF EQUAL OR LOWER LEVELPRIORITY THAN THE EXECUTING ISR, AND SOMETIMES LARGER THAN A CONFIGURABLE LEVELPRIORITY THRESHOLD."
+  ],
+  "33": [
+    "THIS SCENARIO IS NOT IDEAL FOR REAL-TIME AND COMPLEX EMBEDDED SYSTEMS, AS INTERRUPTS ARE SERVED SEQUENTIALLY.",
+    "THIS IS INSUFFICIENT FOR THE EMBEDDED AND REAL-TIME DOMAIN, AND ATTEMPTS TO HANDLE A MORE COMPLEX INTERRUPT SCHEME WOULD REQUIRE SW EMULATION, WHICH INCURS UNTENABLE INTERRUPT LATENCIES."
+  ],
+  "355": [
+    "A HIGH-PRIORITY INTERRUPT HAS TO WAIT FOR A LOWER-PRIORITY INTERRUPT TO FINISH."
+  ],
+  "17": [
+    "IN THIS SCENARIO, INTERRUPTS ARE GLOBALLY ENABLED WITHIN THE SCOPE OF AN EXECUTING ISR.",
+    "WHENEVER AN INTERRUPT HANDLER IS ENTERED, GLOBAL INTERRUPTS ARE DISABLED."
+  ],
+  "287": [
+    "THE ISR NEED TO CARE DESIGNED TO ENSURE THE THEY ARE REENTRANT."
+  ],
+  "338": [
+    "THE NESTING ALLOWS HIGHER PRIORITY INTERRUPTS TO PREEMPT A CURRENT LOWER PRIORITY ISR EXECUTING."
+  ],
+  "42": [
+    "6) REDUNDANT INTERRUPT CONTEXT: BACK-TO-BACK INTERRUPTS, I.E., INTERRUPTS THAT NEED TO BE SERVED SEQUENTIALLY, CAN HAPPEN WHENEVER THERE ARE MULTIPLE INTERRUPTS PENDING.",
+    "THE TRANSITION FROM ONE INTERRUPT TO THE NEXT ONE CAUSES A REDUNDANT SEQUENCE OF CONTEXT RESTORES AND CONTEXT SAVES.",
+    "THESE REDUNDANT CONTEXT RESTORE SEQUENCES NEGATIVELY IMPACT INTERRUPT LATENCY ON HIGHER INTERRUPT LOADS 21.",
+    "D. INTERRUPT SCENARIO ANALYSIS 1) NON-NESTED INTERRUPTS: AS DISCUSSED IN SECTION II-B, REDUNDANT CONTEXT RESTORE WITH NON-NESTED OR NESTED HORIZONTAL INTERRUPTS CAN INTRODUCE UNWANTED ADDITIONAL INTERRUPT LATENCY.",
+    "(B) REDUNDANT CONTEXT RESTORE OF TWO NON-PREEMPTIVE INTERRUPTS (E.G., TWO INTERRUPTS WITH SAME LEVEL BUT DIFFERENT PRIORITIES) AND TAIL-CHAINING TO OPTIMIZE IT.",
+    "3) REDUNDANT CONTEXT RESTORING: AS DESCRIBED IN SECTION II-B, WHENEVER THERE ARE BACK-TO-BACK INTERRUPTS, THE INTERRUPT CONTEXT RESTORE AND STORE SEQUENCE BETWEEN THEM CAN BE CONSIDERED REDUNDANT.",
+    "IN THIS CASE, THE REDUNDANT CONTEXT RESTORING SEQUENCES CONTAINS THE FULL INTERRUPT EXIT CODE SEQUENCE.",
+    "3) OPTIMIZATIONS FOR NON-NESTED INTERRUPT HANDLING: REDUNDANT CONTEXT RESTORE WITH NON-NESTED INTERRUPTS IS ADDRESSED BY CHAINING TWO BACK-TO-BACK INTERRUPTS AND BYPASS- ING THE SUPERFLUOUS RESTORESAVE OPERATION."
+  ],
+  "289": [
+    "SECTION III-D EXPLORES THE OPTIMIZATIONS IMPLEMENTED IN THIS WORK TO ADDRESS THIS SCENARIO."
+  ],
+  "14": [
+    "IN THE RISC-V ECOSYSTEM, THE PRIVILEGED SPECIFICATION 14 DEFINES A SIMPLE INTERRUPT SCHEME WITH A SET OF TIMER AND INTER-PROCESSOR INTERRUPTS.",
+    "COMPARED TO STANDARD RISC-V PRIVILEGED SPECIFICATIONS, PENDING AND ENABLED INTERRUPTS ARE FURTHER SELECTIVELY MASKED ACCORDING TO A THRESHOLD VALUE REPRESENTING AN INTERRUPT LEVEL, CONFIGURED THROUGH A CSR.",
+    "RISC-V PLATFORM-LEVEL INTERRUPT CON- TROLLER SPECIFICATION."
+  ],
+  "294": [
+    "WE REFER TO IT AS THE CORE LOCAL INTERRUPTOR (CLINT)."
+  ],
+  "284": [
+    "FOR 32-BIT CORES, IT DEFINES A FIXED PRIORITY INTERRUPT SCHEME WITH 16 PREDEFINED OR RESERVED AND 16 IMPLEMENTATION-DEFINED INTER- RUPTS THAT CAN BE OPTIONALLY VECTORED."
+  ],
+  "3": [
+    "THE CLINT ITSELF ONLY SUPPORTS PRIORITIZATION OF INTERRUPTS BASED ON PRIVILEGE MODE.",
+    "DUE TO THE INFLEXIBLE INTERRUPT SCHEME OF THE CLINT-MODE, MUCH MORE WORK NEEDS TO BE DONE IN MANAGING INTERRUPT MASK (SOMEIRQMASK) AND OTHER MACHINE STATE.",
+    "NOTE THAT IN CLINT-MODE INTERRUPTS WITH LOWER PRIORITY THAN THE CURRENT INTERRUPT RUNNING CAN FIRE WHEN GLOBAL INTERRUPTS ARE RE-ENABLED.",
+    "FOR THE EMBEDDED USE CASES, THE CLINT LACKS FINE-GRAINED CONTROL OVER INTERRUPT PRIORITIZATION."
+  ],
+  "414": [
+    "TO INCREASE THE NUMBER OF CUSTOM INTERRUPTS, A PLIC 22 CAN BE ATTACHED TO THE CLINT."
+  ],
+  "48": [
+    "WE ASSUME AN INTERRUPT REQUEST I R Q2 IS BEING SERVICED WHILE ANOTHER REQUEST I R Q1 IS ENABLED AND PENDING.",
+    "WE CONSIDER AN ACTIVE INTERRUPT HANDLER SERVICING IRQ2 WHILE IRQ1 IS PENDING."
+  ],
+  "25": [
+    "PREEMPTION IS REGULATED BY PRIVILEGE MODE (VERTICAL INTERRUPTS) AND INTERRUPT LEVEL WHEN THE PRIVILEGE MODE IS THE SAME (HORIZONTAL INTER- RUPTS) FLEXIBLE (AT DESIGN TIME) NUMBER OF INTERRUPTS TO ONE OR MORE TARGETS.",
+    "INTERRUPTS THAT ARE ASSIGNED A HIGHER LEVEL CAN PRE-EMPT LOWER-LEVEL INTERRUPTS."
+  ],
+  "319": [
+    "A SINGLE HART CAN CORRESPOND TO MULTIPLE TARGETS."
+  ],
+  "4": [
+    "EACH INTERRUPT CAN BE ASSIGNED A PRIORITY, AND EACH TARGET CAN SELECT A THRESHOLD BELOW WHICH INTERRUPTS ARE DISABLED.",
+    "INTERRUPT SELECTION IS DRIVEN BY THE CLIC IN HW (SEE SECTION III-B), WHICH PROPAGATES THE HIGHEST LEVEL, HIGHEST PRIORITY PENDING INTERRUPT TO THE CORES INTERFACE.",
+    "INTERRUPT PRIORITY SERVES AS A TIE-BREAKER FOR THE CASE OF MULTIPLE INTERRUPTS PENDING WITH THE SAME LEVEL.",
+    "ASSUMING N INTERRUPT SOURCES, SELECTING THE INTERRUPT WITH MAXIMUM LEVEL AND PRIORITY IS IMPLEMENTED WITH THREE BINARY TREES.",
+    "ENABLED INTERRUPTS AND THEIR LEVEL AND PRIORITY INFORMATION ARE THEN FURTHER SENT TO PRIORITIZATION LOGIC WHICH USES A BINARY ARBITRATION TREE TO SELECT THE HIGHEST-LEVEL INTERRUPT.",
+    "INTERRUPTS CAN BE DYNAMICALLY ASSIGNED A PRIORITY AND A LEVEL.",
+    "THE PRIORITIES ALLOW CONCURRENT PENDING INTERRUPTS TO BE TAKEN IN THE ORDER PREFERRED BY THE PROGRAMMER, WHILE THE LEVEL INFORMATION ENABLES PRE-EMPTION OF SAME-PRIVILEGE LEVEL INTERRUPTS (ALSO CALLED HORIZONTAL INTERRUPTS)."
+  ],
+  "407": [
+    "THIS SCHEME ALLOWS INTERRUPTS TO BE DIVIDED ACCORDING TO THEIR PRIORITIES ON THE PLIC-LEVEL ALLOWING FOR SOME FLEXIBILITY IN TERMS OF PRIORITIZATION, BUT DOES NOT ADDRESS THE FLEXIBILITY PROBLEM ON THE CORE LOCAL-LEVEL."
+  ],
+  "12": [
+    "2) CLIC: THE CLIC 15 ADDRESSES THESE LIMITATIONS BY ALLOWING INTERRUPTS TO BE PRIORITIZED BY SO-CALLED LEVELS AND PRIORITIES.",
+    "ANALOGOUSLY, THE CASE WHERE MULTIPLE HORIZONTAL INTERRUPTS HAVE EQUAL LEVELS AND PRIORITIES RESULTS IN THE CLIC SELECTING THE HIGHEST NUMBERED INTERRUPT (IDENTIFICATION NUMBER ID) 15, WHICH IS AN ARBITRARY ASSIGNMENT DECIDED AT DESIGN TIME."
+  ],
+  "382": [
+    "INTERRUPTS THAT ARE ENABLED, PENDING, AND HAVE A LEVEL BELOW THE THRESHOLD ARE MASKED, WHILE OTHERS CAN BE PROPAGATED."
+  ],
+  "45": [
+    "THIS FEATURE IS USEFUL FOR, E.G., RTOSS THAT ONLY WANT TO DISABLE A SUBSET OF ALL INTERRUPTS DURING CRITICAL SECTIONS.",
+    "THIS CAN BE USEFUL IN CRITICAL SECTIONS WHERE ONLY A SUBSET OF INTERRUPTS NEED TO BE DISABLED."
+  ],
+  "305": [
+    "INTERRUPTS THAT DO NOT INTERFERE WITH THE DATA ACCESSED IN SUCH A CRITICAL SECTION CAN STILL FIRE."
+  ],
+  "22": [
+    "CONSIDER TWO INTERRUPTS REQUESTS IRQ1 AND IRQ2 WITH INTERRUPT PRIVILEGE MODES, LEVELS AND PRIORITIES (PRIV1, L1, P1) AND (PRIV2, L2, P2), RESPECTIVELY.",
+    "IN GENERAL, IRQ1 PREEMPTS IRQ2 WHENEVER ITS LEVEL IS HIGHER THAN BOTH THE INTERRUPT THRESHOLD AND IRQ2S LEVEL."
+  ],
+  "337": [
+    "FOLLOWING THE TERMI- NOLOGY INTRODUCED IN SECTION II-B AND BY THE CLIC, WE WILL REFER TO INTERRUPTS FIRED FROM DIFFERENT PRIVILEGE MODES AS VER- TICAL INTERRUPTS AND TO INTERRUPTS FIRED FROM THE SAME PRIVILEGE MODE AS HORIZONTAL INTERRUPTS THROUGHOUT THIS ARTICLE."
+  ],
+  "225": [
+    "TABLE I SHOWS PREEMPTION CONDITIONS OF TWO NESTED INTER- RUPTS IRQ2 AND IRQ1 ACCORDING TO THE CLIC SPECIFICATION."
+  ],
+  "409": [
+    "FINALLY, THE CLIC SPECIFICATION ADDRESSES THE CASE OF REDUNDANT CONTEXT RESTORE (SEE SECTION II-B6) BY INTRODUCING XNXTI, A CSR SHORT FOR NEXT INTERRUPT HANDLER ADDRESS AND INTERRUPT-ENABLE CSRS MEANT FOR USE WITH NON-VECTORED INTERRUPTS."
+  ],
+  "377": [
+    "READING FROM THIS CSR, WHILE THE CORE IS WITHIN AN ACTIVE HANDLER, ALLOWS TO FAST-TRACK INTERRUPTS THAT ARRIVE LATE OR TO AVOID REDUNDANT CONTEXT SAVERESTORE BY RUNNING THROUGH PENDING INTERRUPTS BACK-TO-BACK."
+  ],
+  "364": [
+    "ARCHITECTURE ENTERING AN INTERRUPT CONTEXT OR PERFORMING A CONTEXT SWITCH REQUIRES THE HW TO STORE ENOUGH INFORMATION TO RESUME OPERATION CORRECTLY AFTER RETURNING FROM THE AFOREMENTIONED CONTEXT."
+  ],
+  "247": [
+    "THIS NEEDS TO BE DONE AS FAST AS POSSIBLE."
+  ],
+  "403": [
+    "FROM A HIGH-LEVEL POINT OF VIEW, WE CAN EFFECTIVELY IMPROVE INTERRUPT LATENCY AND CONTEXT SWITCH TIMES BY: 1) CONTROLLING THE AMOUNT OF STATE THAT NEEDS TO BE PRESERVED TO ENTER AND LEAVE AN INTERRUPT CONTEXT; 2) INCREASING THE BANDWIDTH AND DECREASING THE LATENCY TO MEMORY; 3) RELYING ON LATENCY-HIDING TECHNIQUES THAT DEFER THE EFFEC- TIVE SAVING OF THE STATE TO A LATER POINT IN TIME."
+  ],
+  "290": [
+    "IN THE FOLLOWING, WE DETAIL THE ARCHITECTURAL FEATURES AND HWSW CODESIGN OF CV32RT (SEE SECTIONS III-AIII-C), AND THEN DESCRIBE HOW THE PROPOSED ARCHITECTURE TACKLES TYPICAL CASE SCENARIOS (SEE SECTION III-D)."
+  ],
+  "207": [
+    "THE BACKGROUND-SAVING MECHANISM UPDATES THE STACK POINTER AND STORES THE BANK-SWITCHED CONTENTS IN MEMORY WHILE THE EXECUTION OF THE CORE PROCEEDS IN PARALLEL."
+  ],
+  "125": [
+    "FIG.",
+    "IN FIG.",
+    "FIG.",
+    "FIG.",
+    "FIG.",
+    "FIG.",
+    "FIG.",
+    "FIG."
+  ],
+  "306": [
+    "2 PROVIDES AN OVERVIEW OF THE DESIGN."
+  ],
+  "27": [
+    "INCOMING INTERRUPTS ARE FILTERED WITH A GATEWAY MODULE THAT DECIDES WHETHER THERE IS A PENDING AND ENABLED REQUEST FOR EACH INTERRUPT SOURCE I (IRQ I).",
+    "FOR EACH INTERRUPT SOURCE, THEY TRACK: 1) INTERRUPT LEVEL AND PRIORITY; 2) INTERRUPT ID; AND 3) PENDING STATE FROM THE GATEWAY MODULE.",
+    "INTERRUPTS ARRIVE AT THE GATEWAY, WHERE THEY ARE COMBINED WITH PROGRAMMABLE CONFIGURATION INFORMATION ABOUT EACH INTERRUPT LINE CONSISTING OF LEVEL, PRIORITY, ENABLE STATUS, AND SENSITIVITY (LEVELEDGE)."
+  ],
+  "373": [
+    "THE INTERRUPT PRIORITIZATION MODULE TRAVERSES THE TREE FROM LEAVES TO THE ROOT, WHERE THE SOUGHT-AFTER MAXIMUM LEVEL AND PRIORITY INTERRUPT IS FOUND."
+  ],
+  "275": [
+    "EACH TREE HAS LOW OVERHEAD IN TERMS OF AREA AND DELAY, O(N) AND O(LOG(N)), RESPECTIVELY."
+  ],
+  "328": [
+    "CLIC ARCHITECTURE OVERVIEW."
+  ],
+  "353": [
+    "THE INTERRUPT IS THEN PRESENTED TO THE CORE WITH A HANDSHAKE-BASED INTERFACE."
+  ],
+  "341": [
+    "THE ADDITIONAL KILL SIGNAL IS THERE TO ALLOW FOR A HANDSHAKE TO RESTART SO THAT A POTENTIALLY MORE IMPORTANT INTERRUPT CAN BE PRESENTED TO THE CORE."
+  ],
+  "367": [
+    "THIS WORK CAN SCALE UP TO N  4096 LOCAL INTERRUPT SOURCES."
+  ],
+  "286": [
+    "OPTIONALLY, ADDITIONAL PIPELINE STAGES CAN BE INSERTED IN THE ARBITRATION TREE TO RELAX TIMING."
+  ],
+  "398": [
+    "FINALLY, OUR VERSION OF THE CLIC SUPPORTS SHV AND THE XNXTI CSR IN THE CORE."
+  ],
+  "96": [
+    "ALBEIT IMPROVING THE INTERRUPT HANDLING CAPABILITIES OF CV32 BY INTRODUCING PRIORITY AND LEVELS MANAGEMENT IN HW, CRITICAL OPERATIONS SUCH AS INTERRUPT STATE AND CONTEXT SAVERESTORE ARE NOT NATIVELY COVERED BY THE CLIC AND NEED TO BE HANDLED IN SW. CV32FASTIRQ AIMS AT FILLING THIS GAP.",
+    "THE CLIC ADDRESSES THIS WITH THE LEVELPRIORITY SCHEME AND FASTIRQ IMPROVES UPON THAT BY MOVING THE INTERRUPT STATE SAVING LOGIC IN HW AND ADDING EMRET TO HANDLE REDUNDANT INTERRUPT CONTEXT SEQUENCES."
+  ],
+  "320": [
+    "CONCEPTUALLY, WE CAN THINK OF FASTIRQ AS A WRAPPER AROUND THE CORES RF."
+  ],
+  "342": [
+    "WE EXTEND THE RF BY AN ADDITIONAL READ PORT FOR THE BACKGROUND-SAVING MECHANISM AND REGISTERS FOR LATCHING THE ADDITIONAL PROCESSOR STATE REQUIRED FOR PROPER INTERRUPT NESTING."
+  ],
+  "366": [
+    "A NEW INTERRUPT AT THE CLIC WILL FIRST BE CHECKED WHETHER THE INTERRUPT LEVEL EXCEEDS THE CONFIGURED THRESHOLD."
+  ],
+  "379": [
+    "IF THIS IS THE CASE, IT WILL BE DISPATCHED TO THE CORES MAIN STATE MACHINE WHILE CONCURRENTLY TRIGGERING THE SAVING LOGIC FINITE STATE MACHINE (FSM) IN THE EXTENDED RF."
+  ],
+  "273": [
+    "THE CORES STATE MACHINE WILL FLUSH THE PIPELINE AND UPDATE THE PROGRAM COUNTER ACCORDING TO THE VECTOR TABLE ENTRY."
+  ],
+  "29": [
+    "MEANWHILE, IN THE EXTENDED RF, THE SAVING LOGIC TRIGGERS A BANK SWITCH, ALLOWING THE INTERRUPT CONTEXT TO HAVE A FRESH SET OF REGISTERS WHILE DRAINING THE OTHER BANK CONTENTS THROUGH A SEPARATE PORT TO THE MAIN MEMORY.",
+    "ON AN INTERRUPT, THE RF BANKS ARE SWITCHED."
+  ],
+  "148": [
+    "2) STACK POINTER HANDLING: DURING A BANK SWITCH, WE NEED TO UPDATE THE STACK POINTER."
+  ],
+  "211": [
+    "FOR THAT, WE HAVE A DEDICATED ADDER BETWEEN THE TWO RFS."
+  ],
+  "32": [
+    "THE RISC-V EMBEDDED AND INTEGER ABI DICTATE THAT THE STACK POINTER POINTS BELOW THE LAST SAVED REGISTER ON THE STACK.",
+    "THE STACK POINTER IS ADJUSTED APPROPRIATELY TO MAINTAIN ABI INVARIANTS."
+  ],
+  "316": [
+    "FURTHERMORE, IF WE DID NOT ADJUST THE POINTER, THE PROGRAM CODE RUNNING IN THE INTERRUPT HANDLER COULD CLOBBER THE VALUES ON THE STACK."
+  ],
+  "248": [
+    "WE COULD DO AWAY WITH THIS MECHANISM FOR LEAF-TYPE INTERRUPTS, BUT THIS WOULD REQUIRE A NEW ABI CONSIDERING A VIRTUAL STACK POINTER OFFSET WHEN GENERATING CODE FOR INTERRUPT HANDLERS, AND IT WOULD NOT SOLVE THE NESTED INTERRUPT CASE."
+  ],
+  "197": [
+    "3) CONFLICT HANDLING: THERE ARE INTERACTIONS BETWEEN THE BACKGROUND-SAVING MECHANISM AND REGULAR LOADSTORE INSTRUC- TIONS OF THE CORE THAT COULD POTENTIALLY RESULT IN INCORRECT EXECUTION."
+  ],
+  "285": [
+    "IN THE CASE WHERE A LOAD INSTRUCTION IS TRYING TO UPDATE AN ARCHITECTURAL REGISTER WHILE THE BACKGROUND-SAVING MECHANISM IS TRYING TO READ THE SAME REGISTER, NO CONFLICT ARISES BECAUSE INTERRUPTS ARE INJECTED INTO THE PIPELINE AND ONLY ACTED UPON IN THE WRITE-BACK STAGE OF THE CORE."
+  ],
+  "189": [
+    "AT THIS POINT, UPDATES TO THE RF ARE RESOLVED, AND THEN THE BANK SWITCHING OPERATION TAKES PLACE ENSURING CORRECTNESS OF THE EXECUTION."
+  ],
+  "41": [
+    "WHILE THE INTERRUPT HANDLER IS ALREADY EXECUTING, WE ALSO NEED TO ENSURE THAT LOADS OR STORES ACCESSING STACK MEMORY REGIONS WHERE THE BACKGROUND-SAVING MECHANISM IS WRITING TO ARE PROPERLY RESOLVED.",
+    "IF THIS HAPPENS WHILE THE BACKGROUND-SAVING MECHANISM IS STILL AT WORK, THE EXECUTION OF THE HANDLER HAS TO WAIT."
+  ],
+  "333": [
+    "OTHERWISE, WE COULD READ STALE DATA OR WRITE DATA THAT IS IMMEDIATELY OVERWRITTEN."
+  ],
+  "152": [
+    "THIS IS HANDLED BY INFORMING THE LOAD-STORE UNIT OF THE CORE OF THE ONGOING STATE BEING WRITTEN TO MEMORY."
+  ],
+  "400": [
+    "A STRAIGHTFORWARD SOLUTION IS TO STALL THE CORES PIPELINE WHILE THE BACKGROUND-SAVING MECHANISM IS AT WORK."
+  ],
+  "332": [
+    "THIS, THOUGH, PARTIALLY NEGATES THE ADVANTAGE OF EXECUTING AHEAD SINCE WE LIKELY WANT TO ISSUE A LOAD SOON IN THE INTERRUPT HANDLER."
+  ],
+  "236": [
+    "WE ADDRESS THIS PROBLEM BY ADDITIONALLY CHECKING WHETHER THE LOAD-STORE UNIT TRIES TO ACCESS THE MEMORY IN THE RANGE OF THE STACK POINTER."
+  ],
+  "303": [
+    "MORE PRECISELY, ON AN INTERRUPT THE STACK POINTER IS DECREMENTED, MAKING SPACE AVAILABLE, WHILE THE BACKGROUND-SAVING MECHANISM WILL START STORING THE INTERRUPT STATE WORD BY WORD."
+  ],
+  "263": [
+    "IN THE LOAD-STORE UNIT, THE ADDRESS OFFSET OF THE LAST WORD PUSHED OUT BY THE BACKGROUND-SAVING MECHANISM IS COMPARED AGAINST ANY INCOMING LOAD AND STORES."
+  ],
+  "381": [
+    "LOAD AND STORES THAT TRY TO ACCESS DATA THAT IS NOT YET PUSHED TO MEMORY CAUSE THE CORES PIPELINE TO STALL."
+  ],
+  "232": [
+    "THIS MECHANISM ENSURES THE CORRECTNESS OF LOADS AND STORES ISSUED BY THE CORE."
+  ],
+  "404": [
+    "4) CO-OPERATION OF COMPILER AND HARDWARE: ACCESSING STACK MEMORY LOCATIONS DURING THE EXECUTION OF AN INTERRUPT HANDLER TYPICALLY HAPPENS IN TWO USE CASES."
+  ],
+  "308": [
+    "1) A SYSTEM CALL HANDLER (ISSUED THROUGH THE ECALL INSTRUCTION IN RISC-V) WANTS TO ACCESS USER-PROVIDED ARGUMENTS."
+  ],
+  "410": [
+    "MOST WILL BE PASSED THROUGH GENERAL-PURPOSE REGISTERS, BUT SOME MIGHT BE PLACED ON THE STACK 2) SHORT INTERRUPT HANDLERS THAT WANT TO RETURN BEFORE THE FULL INTERRUPT STATE HAS BEEN SAVED."
+  ],
+  "270": [
+    "EACH OF THESE CASES WOULD POTENTIALLY ENGAGE THE STALLING LOGIC OUTLINED IN SECTION III-C3, CAUSING HIGHER INTERRUPT LATENCIES."
+  ],
+  "233": [
+    "AN HW SOLUTION TO MITIGATE THE STALLING ISSUE WOULD BE TO ADD FORWARDING LOGIC THAT CHECKS IN THE LOAD-STORE UNIT WHAT IS BEING WRITTEN BY THE BACKGROUND-SAVING MECHANISM AND DIRECTLY FORWARD THESE VALUES FROM THE STORE QUEUE INSTEAD OF GOING THROUGH THE MEMORY SUBSYSTEM OUTSIDE THE CORE."
+  ],
+  "255": [
+    "SOME REGISTER VALUES STILL CANNOT BE FORWARDED BECAUSE THEY MIGHT NOT HAVE REACHED THE LOAD-STORE UNIT YET."
+  ],
+  "317": [
+    "FURTHERMORE, THE APPROACH INCREASES HW COMPLEXITY, REQUIRING A DYNAMIC ADDRESS LOOKUP INTO A QUEUE-LIKE BUFFER."
+  ],
+  "343": [
+    "WE PROPOSE INSTEAD AN SW-BASED SOLUTION THAT DOES NOT CAUSE ANY KIND OF STALLING."
+  ],
+  "260": [
+    "THE INSIGHT IS THAT WE DO NOT NEED TO ENGAGE THE PIPELINE STALLING LOGIC BY ORDERING THE LOADS TO ACCESS THE ALREADY STORED INTERRUPT STATE FIRST."
+  ],
+  "1": [
+    "OVERVIEW OF THE FAST INTERRUPT ARCHITECTURE.",
+    "AND POTENTIAL NESTING INTERRUPT HANDLERS, ALBEIT WITH A LARGER DELAY.",
+    "WE GIVE AN ANALYSIS OF THE FUNCTIONAL IMPROVEMENTS AND ARGUE THAT THESE ALLOW MORE FLEXIBLE AND EFFICIENT HANDLING OF REGULAR AND NESTED INTERRUPTS."
+  ],
+  "252": [
+    "THE CV32S RF IS EXTENDED WITH ADDITIONAL LOGIC FOR THE BACKGROUND-SAVING MECHANISM."
+  ],
+  "243": [
+    "PARTS OF THE OLD MEMORY BANK (THE INTERRUPT CONTEXT) ARE COPIED TO THE CORES STACK LOCATION, WHILE EXECUTION CAN GO AHEAD BY USING THE NEW BANK."
+  ],
+  "215": [
+    "IN THIS DESIGN, THERE IS A DEDICATED MEMORY PORT FOR THE BACKGROUND-SAVING MECHANISM, BUT OPTIONALLY IT CAN ALSO BE SHARED WITH THE PORT FROM THE LOAD-STORE UNIT."
+  ],
+  "238": [
+    "FOR EXAMPLE, IF WE PUSH OUT THE GENERAL-PURPOSE REGISTERS X1, X2, ."
+  ],
+  "391": [
+    "IN THAT VERY SAME ORDER, THEN WE NEED TO ENSURE THAT IN THE INTERRUPT HANDLER, WE USE THE SAME ORDER TO LOAD WORDS BACK."
+  ],
+  "387": [
+    "NOTE THAT THIS IS A PERFORMANCE ISSUE AND DOES NOT AFFECT CORRECTNESS."
+  ],
+  "142": [
+    "WHEN WRITING ASSEMBLY, THE PROGRAM- MER HAS TO BE AWARE OF THAT TO ACHIEVE THE BEST POS- SIBLE LATENCY."
+  ],
+  "107": [
+    "IN THE CASE THAT THE PROGRAMMER USES COMPILER-SPECIFIC ATTRIBUTES TO WRITE HIS INTERRUPT HANDLERS, SUCH AS ATTRIBUTE((INTERRUPT)) IN GCC, THE COMPILER NEEDS TO BE MADE AWARE OF THAT FACT."
+  ],
+  "412": [
+    "5) INTERRUPT HANDLER ROUTINES: IN FIG."
+  ],
+  "44": [
+    "4, WE GIVE AN OVERVIEW OF HOW NESTED INTERRUPT HANDLING CODE WORKS FOR THE BASIC CLINT-MODE, THE BASELINE CLIC, AND OUR FASTIRQ EXTENSION.",
+    "ROUTINES FOR SAVING STATE FOR VECTORED NESTING INTERRUPTS USING (A) CLINT, (B) CLIC, AND (C) PROPOSED FASTIRQ EXTENSION."
+  ],
+  "371": [
+    "6) REGISTER FILE OVERHEAD: RISC-V DEFINES RV32E AS A VARIANT OF RV32I, WHICH ONLY HAS 16 REGISTERS INSTEAD OF 32."
+  ],
+  "168": [
+    "REDUCING THE RF SIZE HELPS LOWER CONTEXT SWITCH TIMES BUT DOES NOT AFFECT THE INTERRUPT LATENCY SINCE THE SET OF CALLER-SAVE REGISTERS REMAINS THE SAME WHEN USING THE EMBEDDED-APPLICATION BINARY INTERFACE (EABI)."
+  ],
+  "378": [
+    "OUR IMPLE- MENTATION ALLOWS THE CORE TO DYNAMICALLY SWITCH BETWEEN RV32I AND RV32E WITH FASTIRQ DEPENDING ON THE WORK- LOAD."
+  ],
+  "165": [
+    "THIS ALLOWS FOR THE REUSE OF THE UNUSED HALF OF THE RF."
+  ],
+  "304": [
+    "IF THE INCREASED PRESSURE ON THE RF IS NOT ACCEPTABLE, INSTEAD OF DOUBLING THE RF SIZE FOR THE BANKING LOGIC, ONE COULD JUST ADD ADDITIONAL REGISTERS FOR THE SEVEN CALLER-SAVE REGISTERS TO SAVE AREA."
+  ],
+  "311": [
+    "WITH THE PROPOSED APPROACH, THE INTERRUPT STATE CAN BE QUICKLY RESTORED BY SIMPLY SWITCHING REGISTER BANKS."
+  ],
+  "272": [
+    "TO DIFFERENTIATE BETWEEN A REGULAR RETURN FROM AN INTERRUPT HANDLER USING MRET, WHICH ASSUMES THE INTERRUPT STATE HAS BEEN RESTORED BY SW, WE ADD A NEW INSTRUCTION EMRET INSTEAD."
+  ],
+  "185": [
+    "THIS INSTRUCTION PERFORMS THE SAME FUNCTION AS MRET IN ADDITION TO SWITCHING REGISTER BANKS."
+  ],
+  "385": [
+    "IN THE RISC-V ECOSYSTEM, THIS SITUATION CAN BE OPTIMIZED BY DIRECTLY CHECKING FOR OTHER INTERRUPTS PENDING ON THE SAME LEVEL BEFORE RESTORING THE EXECUTIONS INTERRUPT CONTEXT."
+  ],
+  "302": [
+    "THE CLIC OFFERS AN HW-ASSISTED SOLUTION TO ADDRESS SUCH A SCENARIO WITH THE XNXTI CSRS (SEE SECTION II-C2)."
+  ],
+  "16": [
+    "NUCLEIS ENHANCED CLIC (ECLIC) 18 EXTENDS XNXTI BY EMBEDDING THE JUMP TO THE QUEUING INTERRUPT HANDLER IN THE XNXTI HW (JALXNXTI).",
+    "NUCLEI SYSTEM TECHNOLOGY ECLIC 39 EXTENDS TRADITIONAL XNXTI WITH A NOVEL CSR FOR MACHINE PRIVILEGE MODE, JALMNXTI 18, ALREADY DISCUSSED IN THIS WORK IN SECTION IV."
+  ],
+  "155": [
+    "IN OUR CASE, THIS IS IMPLEMENTED THROUGH THE EMRET INSTRUCTION."
+  ],
+  "254": [
+    "BESIDES CHECKING WHETHER A BANK SWITCH IS APPROPRIATE, IT ALSO LOOKS AT INTERRUPTS PENDING WITH THE SAME OR LOWER LEVEL."
+  ],
+  "335": [
+    "IF SUCH AN INTERRUPT EXISTS, EMRET REDIRECTS THE CONTROL FLOW TO THE PENDING INTERRUPTS HANDLER."
+  ],
+  "201": [
+    "SOME HW REFERS TO THIS CONCEPT OF REMOVING REDUNDANT CONTEXT RESTORES AS TAIL-CHAINING 23."
+  ],
+  "30": [
+    "THIS SITUATION IS VISUALIZED IN FIG.",
+    "AS SHOWN IN FIG."
+  ],
+  "103": [
+    "5(B).",
+    "5(A)."
+  ],
+  "19": [
+    "WE ADDRESS THIS SCENARIO BY MINIMIZING INTERRUPT LATENCY THROUGH HIDING LATENCY.",
+    "MINIMIZING INTERRUPT RESPONSE TIME."
+  ],
+  "405": [
+    "FOR NESTING INTERRUPTS, THE FIRST INSTRUCTION WILL BE RE-ENABLING GLOBAL INTERRUPTS."
+  ],
+  "394": [
+    "AT THIS POINT, A HIGH-LEVEL INTERRUPT COULD PREEMPT THE CURRENT RUNNING INTERRUPT HANDLER."
+  ],
+  "399": [
+    "THIS COMBINATION OF LATENCY HIDING AND BACKGROUND SAVING ALLOWS THE CORE TO QUICKLY ENTER A FIRST-LEVEL INTERRUPT HANDLER AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO."
+  ],
+  "163": [
+    "THIS ASSUMES THE REGULAR RISC-V EMBEDDED ABI."
+  ],
+  "166": [
+    "IN ORDER TO PREVENT THAT, MIE HAS TO BE MANUALLY ADJUSTED SUCH THAT THE CORRESPONDING LOWER-PRIORITY INTERRUPTS ARE DISABLED."
+  ],
+  "288": [
+    "WHILE THIS RETURN PATH COULD ALSO BE HANDLED IN HW BY ADDING AN ADDITIONAL WRITE PORT TO THE CORES RF, EXITING AN INTERRUPT HANDLER IS LESS TIME-CRITICAL SINCE WE MOSTLY CARE ABOUT HOW QUICKLY AN EXTERNAL EVENT IS ADDRESSED."
+  ],
+  "159": [
+    "E. CONTEXT SWITCHING ACCELERATION WE CAN DIVIDE CONTEXT SWITCHES INTO OS-SPECIFIC AND HW- SPECIFIC PARTS."
+  ],
+  "282": [
+    "THE OS PART ENTAILS ALL CONTRIBUTIONS TO THE CONTEXT SWITCH TIME THAT IS SPECIFIC TO THE OS ITSELF, SUCH AS COMPUTING THE NEXT TASK TO BE SCHEDULED AND BOOKKEEPING OPERATIONS."
+  ],
+  "283": [
+    "THE REMAINDER IS THE HW-DEPENDENT SAVING AND RESTORING OF THE STATE BELONGING TO THE NEW CONTEXT."
+  ],
+  "393": [
+    "THE IDEA IS TO USE THE BACKGROUND-SAVING MECHANISM TO ACCELERATE THE STATE SAVING AND RESTORING PART OF CONTEXT FIG."
+  ],
+  "28": [
+    "SWITCHES BY INTERLEAVING THE LOADING OF A NEW STATE WITH THE AUTOMATIC SAVING HW PUSHING OUT THE PREVIOUS REGISTER STATE TO MEMORY IN THE BACKGROUND.",
+    "THIS WILL ENGAGE THE HW MECHANISM TO SWAP THE REGISTERS AND SAVE THEM IN THE BACKGROUND WHILE WE CAN ALREADY PROCEED WITH THE REST OF THE CONTEXT SWITCH ROUTINE."
+  ],
+  "40": [
+    "FOR THAT, THE INITIAL PART OF THE CONTEXT SWITCH ROUTINE CHANGES.",
+    "ANY IMPACT ON CONTEXT SWITCHING."
+  ],
+  "230": [
+    "AT THE BEGINNING OF THE ROUTINE, WE WANT TO SAVE THE CURRENT RUNNING TASKS STATE TO MEMORY."
+  ],
+  "362": [
+    "INSTEAD OF MANUALLY SAVING THE GENERAL-PURPOSE REGISTERS, WE SET UP THE STACK AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO."
+  ],
+  "241": [
+    "ADDITIONAL RISC-V EXTENSIONS THAT INTRODUCE MORE CONTEXT SWITCHING STATE RUN CONTRARY TO THE GOALS OF FASTIRQ REGARD- ING LATENCIES."
+  ],
+  "186": [
+    "WHILE THERE ARE NO TECHNICAL LIMITATIONS WITH RESPECT TO ADDING MORE STATE TO FASTIRQ, THE RESULTING DESIGN WOULD INCUR A SIGNIFICANT INCREASE IN AREA AND POWER."
+  ],
+  "231": [
+    "IF A SPECIFIC EXTENSION IS STILL REQUIRED, A DIRTY BIT TO MAKE CONTEXT LAZY SWITCHABLE COULD HELP TO KEEP THE FAST PATH COMPETITIVE."
+  ],
+  "351": [
+    "EVALUATION THIS SECTION GIVES A FUNCTIONAL AND QUANTITATIVE EVALUATION OF THE VARIOUS FLAVORS OF THE CV32RT."
+  ],
+  "386": [
+    "FEATURE COMPARISON AS DISCUSSED IN SECTION II, THE CLINT IS THE FIRST STAN- DARDIZED RISC-V INTERRUPT CONTROLLER."
+  ],
+  "352": [
+    "IT SUPPORTS PRE-EMPTION BASED ON PRIVILEGE MODES (MACHINE, HYPERVISOR, SUPERVISOR, USER), BUT THE INTERRUPT LINES HAVE A HARDWIRED PRIORITIZA- TION SCHEME."
+  ],
+  "218": [
+    "THE BASELINE CLIC ADDRESSES THESE WEAKNESSES."
   ],
   "176": [
-    "Rep. UCBEECS-2014-146, Aug. 2014.",
-    "Rep. UCBEECS-2016-129, Jul."
+    "IN ADDITION TO THAT, A LEVEL THRESHOLD REGISTER PER PRIVILEGE LEVEL (XINTTHRESH) CONTROLS THE SET OF ALLOWED HORIZONTAL INTERRUPTS BY LIMITING IT TO THOSE WHOSE LEVEL EXCEEDS THE GIVEN VALUE IN THE REGISTER."
   ],
-  "191": [
+  "46": [
+    "VECTORING CAN BE SELECTIVELY ENABLED OR DISABLED PER INTERRUPT LINE.",
+    "THIS SOLUTION WORKS FOR BOTH VECTORED AND NON-VECTORED INTERRUPTS."
+  ],
+  "296": [
+    "THIS ALLOWS FOR BETTER CONTROL OF THE VECTOR TABLE SIZE."
+  ],
+  "318": [
+    "THE BASELINE CLIC DOES NOT DIFFER FROM THE REGULAR CLINT IN TERMS OF STORING AND RESTORING THE INTERRUPT CONTEXT WHICH IS FULLY HANDLED IN SW."
+  ],
+  "178": [
+    "THE OPTIONAL XNXTI EXTENSION ALLOWS MULTIPLE HORIZON- TAL INTERRUPTS TO BE SERVICED IN SEQUENCE WITHOUT REDUNDANT CONTEXT-RESTORING OPERATIONS IN BETWEEN.",
+    "IN ADDITION, THE FIRST INTERRUPT HAS TO STILL PAY THE FULL LATENCY COST SINCE XNXTI DOES NOT TOUCH THE INTERRUPT CONTEXT STORING PART ITSELF."
+  ],
+  "204": [
+    "READING THE XNXTI CSR YIELDS A POINTER TO THE VECTOR TABLE ENTRY FOR THE NEXT PENDING AND QUALIFYING INTERRUPT, IF AVAILABLE, WHICH THEN ALLOWS A DIRECT JUMP THERE."
+  ],
+  "135": [
+    "THIS APPROACH LOSES THE LATENCY ADVANTAGE OF HW VECTORING BY BASICALLY RUNNING AN SW EMULATION THEREOF."
+  ],
+  "188": [
+    "THE DISCUSSED DIFFERENCES ARE SUMMARIZED IN TABLE II."
+  ],
+  "300": [
+    "B. FUNCTIONAL PERFORMANCE 1) MEASUREMENT SETUP: WE TAKE MEASUREMENTS BY RUNNING RTL SIMULATIONS OF THE DIFFERENT VERSIONS OF CV32RT AS PART OF CONTROLPULP."
+  ],
+  "349": [
+    "FOR THE MEMORY SUBSYSTEM, THIS MEANS WE HAVE SINGLE CYCLE (ZERO WAIT STATE) ACCESS TO STATIC RANDOM ACCESS MEMORY (SRAM) (SEE SECTION II-A)."
+  ],
+  "336": [
+    "THE MEMORY BANK WE ARE USING IS NOT CONTENDED BY OTHER BUS MASTERS WHICH IS ACHIEVED BY PLACING DATA AND INSTRUCTIONS INTO SPECIFIC PRIVATE BANKS."
+  ],
+  "115": [
+    "ON THE SYSTEM LEVEL, THERE ARE NO ADDITIONAL LATENCIES INTRODUCED ON INTERRUPT LINES BETWEEN INTERRUPT SOURCES AND THE CLIC."
+  ],
+  "47": [
+    "2) INTERRUPT LATENCY: WE MEASURE THE HW CONTRIBUTED INTERRUPT LATENCY (AS DESCRIBED IN SECTION II-B3) OF OUR FASTIRQ EXTENSION AND COMPARE IT TO THE CV32 AND CV32RT VARIATIONS (STANDARD CLIC, XNXTI, JALXNXTI).",
+    "9 REPORTS THE AREA BREAKDOWN COMPARISON OF CV32RT WITH BASELINE CLIC (INCLUDING MNXTI AND JALMNXTI CSRS) AND FASTIRQ EXTENSIONS WITH 256 INPUT INTERRUPTS."
+  ],
+  "68": [
+    "THIS IMPLIES THAT ALL CALLER-SAVE REGISTERS NEED TO BE SAVED, WHICH IS THE GENERAL CASE.",
+    "DEPENDING ON THE FUNCTION AND THE ABI, THIS MIGHT BE FEWER THAN ALL CALLER- SAVE REGISTERS.",
+    "THE SAVED GENERAL-PURPOSE REGISTERS ARE ALL CALLER-SAVE REGISTERS IN THE RESPECTIVE ABI."
+  ],
+  "83": [
+    "INTERRUPT HANDLER ROUTINES THAT SAVE THE INTERRUPT CONTEXT IN SW CAN ONLY SAVE THE MINIMUM STATE IF THE COMPILER IS ABLE TO FULLY INLINE THE HANDLERS FUNCTION BODY.",
+    "INTERRUPT HANDLER ROUTINES THAT USE SW-BASED MECHANISMS TO SAVE AND RESTORE INTERRUPT STATE CAN, IF THE COMPILER PERMITS, FULLY INLINE THE HANDLER CODE AND SAVE SOME CALLER-SAVE REGISTERS."
+  ],
+  "384": [
+    "TO ALSO CONSIDER THESE CASES, WE MEASURE THE INTERRUPT LATENCY IN THE OPTIMAL CASE, I.E., ONLY ONE CALLER-SAVE REGISTER NEEDS SAVING FOR SW-BASED INTERRUPT HANDLERS."
+  ],
+  "141": [
+    "INTERRUPTS ARE INJECTED INTO THE DESIGN AT THE INTERRUPT CONTROLLER INPUTS."
+  ],
+  "157": [
+    "WE EVALUATE BOTH THE EABI AND REGULAR INTEGER ABI OF RISC-V."
+  ],
+  "162": [
+    "THIS ALLOWS FOR DIRECTLY CALLING INTO C-CODE FUNCTIONS FROM INTERRUPT HANDLERS."
+  ],
+  "291": [
+    "FOR OUR FASTIRQ EXTENSION, THIS AMOUNT OF STATE IS ALWAYS SAVED SINCE THE HW DOES NOT KNOW A PRIORI WHICH CALLER-SAVE REGISTERS NEED TO BE SAVED."
+  ],
+  "15": [
+    "6, JUNE 2024 TABLE III COMPARISON OF THE MAIN TECHNIQUES FOR OPTIMIZING INTERRUPT CONTEXT AND TASK CONTEXT SAVERESTORE WITH NESTED AND NON-NESTED INTERRUPTS EMPLOYED BY INDUSTRY AND ACADEMIA IN THE EMBEDDED AND REAL-TIME APPLICATION DOMAINS THE RESULTS ARE SUMMARIZED IN FIG.",
+    "1) INTERRUPT CONTEXT SAVERESTORE ACCELERATION: SEVERAL DESIGNS AUTOMATICALLY SAVE AND RESTORE THE INTERRUPT CONTEXT DIRECTLY IN HW.",
+    "ALBEIT AUTOMATIC INTERRUPT CONTEXT SAVERESTORE REDUCES SW HOUSEKEEPING OVERHEAD BEFORE AND AFTER HANDLING THE INTERRUPT ROUTINE, IT ONLY PARTIALLY ADDRESSES THE ACCELERATION OF THE COMPLETE TASK CONTEXT SWITCH.",
+    "WHILE THE PRESENTED SOLUTIONS ARE EFFECTIVE IN OPTIMIZING CONTEXT, SAVERESTORE WITH HW AND SW COOPERATION, THEY LACK: 1) A COHESIVE APPROACH TO ADDRESS BOTH INTERRUPT CONTEXT AND TASK CONTEXT SWITCH ACCELERATION AND 2) NONE OF THE EXISTING RISC-V-BASED APPROACHES CAN CLOSE THE GAP WITH WELL-ESTABLISHED INDUSTRY VENDORS.",
+    "INTERRUPT CONTEXT SAVERESTORE ESPECIALLY TAKES ADVANTAGE OF THE FORMER BY DEFERRING THOSE OPERATIONS TO THE HW."
+  ],
+  "18": [
+    "XNXTI AND JALXNXTI PERFORM EVEN WORSE (REQUIRING 42 AND 35 CYCLES, RESPECTIVELY) SINCE THEY BOTH INSERT ADDITIONAL INSTRUCTIONS IN THE CODE PATH BETWEEN THE HANDLER AND INTERRUPT EVENT.",
+    "XNXTI AND JALXNXTI IMPROVE UPON THIS SITUATION BY CHECKING FOR PENDING INTERRUPTS AND DIRECTLY JUMPING TO THE RESPECTIVE HANDLERS.",
+    "WHILE XNXTI ONLY RETURNS A POINTER TO THE ADDRESS OF THE NEXT HANDLER AND THUS NEEDS A SMALL CODE SEQUENCE (LOAD, JUMP, AND RETRY LOOP), JALXNXTI FUSES THESE OPERATIONS INTO ONE INSTRUCTION RESULTING IN SAVING NINE CYCLES."
+  ],
+  "60": [
+    "AS A COMPARISON, THE ARM CORTEX- M4 HAS AN INTERRUPT LATENCY OF 12 CYCLES GIVEN A SINGLE-CYCLE MEMORY 24.",
+    "THE ARM CORTEX-M4 IS ABLE TO DO THE SAME TASK IN SIX CYCLES ASSUMING IT HAS ACCESS TO SINGLE-CYCLE MEMORY 24."
+  ],
+  "339": [
+    "6, WE SHOW THE COST IN CLOCK CYCLES OF SUCH SEQUENCES."
+  ],
+  "406": [
+    "FOR THE BASELINE CLIC, IT TAKES 68 OR 50 CYCLES WHEN USING THE INTEGER OR EMBEDDED ABI, RESPECTIVELY."
+  ],
+  "258": [
+    "NOTE THAT THIS IS INDEPENDENT OF THE ABI SINCE NO INTERRUPT STATE IS AFFECTED."
+  ],
+  "179": [
+    "THE EMRET MECHANISM OF FASTIRQ WORKS SIMILARLY AND COSTS EIGHT CLOCK CYCLES BUT IS NOT RESTRICTED TO NON-VECTORED INTERRUPTS."
+  ],
+  "249": [
+    "4) CONTEXT SWITCH TIME: IN FIG."
+  ],
+  "34": [
+    "7, WE SHOW THE CONTEXT SWITCH TIME IN NUMBER OF CLOCK CYCLES BETWEEN TWO FREER- TOS DUMMY TASKS WHEN COMPARING THE BASELINE CV32RT AGAINST CV32RTFASTIRQ.",
+    "AVERAGE CONTEXT SWITCH TIME IN FREERTOS FOR TWO TASKS OF VARIOUS FLAVORS OF CV32RT."
+  ],
+  "268": [
+    "ALL COMPILE TIME OPTIONS SUCH AS TRACING, STACK OVERFLOW SIGNALING, AND THE MORE GENERIC TASK SELECTION MECHANISM WERE TURNED OFF TO MINIMIZE THE CONTEXT SWITCH CODE."
+  ],
+  "276": [
+    "WE LEFT OUT CONFIGURATIONS THAT DO NOT HAVE FIG."
+  ],
+  "390": [
+    "AS A COMPARISON, WE MENTION THE GENERIC CORTEX-M4 CORE, ASSUMING IT HAS SINGLE-CYCLE ACCESS TO MEMORY."
+  ],
+  "82": [
+    "NOTE THAT ARM CORTEX-M ONLY HAS 16 CORE REGISTERS."
+  ],
+  "74": [
+    "FASTIRQ ALLOWS US TO SKIP AHEAD THE SAVING OF THE GENERAL-PURPOSE REGISTERS BY TRIGGERING AN SW INTERRUPT AS PART OF THE SAVE SEQUENCE.",
+    "THE SW INTERRUPT WILL TRIGGER THE FASTIRQ MECHANISM, WHICH STARTS SAVING THE GENERAL-PURPOSE REGISTERS TO MEMORY."
+  ],
+  "344": [
+    "BY MAKING SURE NOT TO USE REGISTERS THAT ARE STILL BEING SAVED BY THE BACKGROUND-SAVING MECHANISM (AS DESCRIBED IN SECTION III-C4), WE CAN SAVE UP TO 31 CYCLES (19) FOR A CONTEXT SWITCH WHEN USING THE I-EXTENSION, AND 16 CYCLES (12) FOR THE E-EXTENSION, RESPECTIVELY."
+  ],
+  "126": [
+    "THE FREERTOS WEBSITE 20 CLAIMS CONTEXT SWITCHES AS LOW AS 96 CYCLES FOR A CORTEX-M4 IMPLEMENTATION.3 C. IMPLEMENTATION WE SYNTHESIZE CV32RT AS PART OF THE CONTROLPULP PLAT- FORM USING SYNOPSYS DESIGN COMPILER 2022.03, TARGETING GLOBALFOUNDRIES 12LP FINFET TECHNOLOGY AT 500 MHZ, TT COR- NER, AND 25 C. ONE GATE EQUIVALENT (GE) FOR THIS TECHNOLOGY EQUALS 0.121 M2."
+  ],
+  "226": [
+    "3THIS CAN BE SEEN AS A LOWER BOUND AS ON SOME SOCS SUCH AS THE STM32L476RG WE OBSERVED HIGHER LATENCIES DUE TO MEMORY ACCESS STALLS AND OTHER IMPLEMENTATION CHOICES IN THE MEMORY SUBSYSTEM."
+  ],
+  "150": [
+    "THE RISC-V E-EXTENSION REDUCES THE AVAILABLE GENERAL-PURPOSE REGISTERS FROM 32 TO 16, CONSEQUENTLY LOWERING THE CONTEXT SWITCH STATE THAT NEEDS TO BE SAVED AND RESTORED."
+  ],
+  "69": [
+    "RISC-V CLIC AREA BREAKDOWN AT VARYING NUMBERS OF INTERRUPT SOURCES.",
+    "8 REPORTS THE AREA BREAKDOWN OF THE CLIC IMPLEMENTED IN THE PROPOSED WITH DIFFERENT INTERRUPT SOURCES."
+  ],
+  "229": [
+    "AREA OVERHEAD OF CV32RT IN THE TWO MAIN CONFIGURATIONS."
+  ],
+  "392": [
+    "THE OVERHEAD OF FASTIRQ IN CV32RTFASTIRQ CORE RESULTS IN A MINIMAL 10 AREA INCREASE CONCENTRATED AROUND THE ID STAGE."
+  ],
+  "192": [
+    "THE DESIGN HAS BEEN SYNTHESIZED IN GF12LP TECHNOLOGY (500 MHZ, TT CORNER, 25 C, 0.8 V, SUPER LOW VT STANDARD CELLS)."
+  ],
+  "262": [
+    "AREA BREAKDOWN OF CV32E40PRT ID STAGE WITH THE PROPOSED HW EXTENSIONS."
+  ],
+  "158": [
+    "8, FOR EACH SCENARIO, MORE THAN HALF OF THE RESOURCES IMPLEMENT THE CONFIGURATION REGISTERS REQUIRED TO CONTROL THE CLIC, WHOSE SIZE LINEARLY INCREASES WITH THE NUMBER OF INPUT INTERRUPTS."
+  ],
+  "242": [
+    "IN PARTICULAR, EACH INTERRUPT IS ASSOCIATED WITH ONE 32-BIT REGISTER INCURRING AN AREA OVERHEAD OF ABOUT 176 GE."
+  ],
+  "223": [
+    "THE REMAINING AREA IMPLEMENTS THE GATEWAY AND BINARY TREE ARBITRATION LOGIC AT THE CORE OF THE CLIC WORKING PRINCIPLE, AS DISCUSSED IN SECTION III-B, AND ADDITIONAL HOUSEKEEPING CONTROL LOGIC THAT SCALES LINEARLY WITH THE NUMBER OF INTERRUPT SOURCES."
+  ],
+  "108": [
+    "8 ALSO SHOWS THAT THE FRACTION OF THE DESIGN OCCUPIED BY THE ARBITRATION TREE IS KEPT CONSTANT WHEN INCREAS- ING THE NUMBER OF SOURCES."
+  ],
+  "174": [
+    "WHILE IT IS APPARENT THAT THIS DESIGN INCURS A LARGER AREA OVERHEAD COMPARED TO TRADITIONAL RISC-V CLINT 14, THE GAIN IN FLEXIBILITY ENABLES A BROADER APPLICATION SCOPE WITH TIME-CRITICAL SYSTEMS."
+  ],
+  "198": [
+    "FROM TABLE II, CV32RTFASTIRQ INCURS A 10 OVERALL AREA INCREASE COMPARED TO BASELINE CLIC ONLY."
+  ],
+  "246": [
+    "WHILE OTHER HW BLOCKS OF THE CORE REMAIN PRIMARILY UNAFFECTED, THE INSTRUCTION DECODE (ID) STAGE INCURS AN AREA OVERHEAD OF 21 COMPARED TO CV32RTCLIC."
+  ],
+  "402": [
+    "THE ID STAGE IS THE HW BLOCK WHERE THE ADDI- TIONAL REGISTERS AND THE AUTOMATIC STACKINGUNSTACKING LOGIC ARE LOCALIZED."
+  ],
+  "278": [
+    "A BREAKDOWN OF THE ID STAGE IS SHOWN IN FIG."
+  ],
+  "245": [
+    "WE NOTICE THAT THE ADDITIONAL STORAGE SPACE FOR AUTOMATIC CONTEXT SAVE AND RESTORE IN HW INCREASES THE AREA OF THE RF BY ABOUT 36 IN THE PROPOSED IMPLEMENTATION."
+  ],
+  "363": [
+    "SIMILARLY, THE LOGIC FOR MANAGING THE SHADOW REGISTERS ACCOUNTS FOR AN OVERHEAD OF 40 ON THE BASELINE ID STAGE CONTROLLER."
+  ],
+  "329": [
+    "THE HW OVERHEAD COMING FROM THE ADDITIONAL EMRET INSTRUCTION DIS- CUSSED IN SECTION IV IS NEGLIGIBLE."
+  ],
+  "293": [
+    "NEVERTHELESS, THE INCREASED SIZE OF THE ID STAGE TRADES OFF THE BENEFITS OF: 1) A SIMPLIFIED PROGRAMMING MODEL THAT MOVES SEVERAL SW OPERATIONS IN HW AND 2) SIGNIFICANTLY LOWERED INTERRUPT LATENCY THAN STANDARD RISC-V WHILE NOT IMPACTING THE CRITICAL PATH OF THE BASE CORE DESIGN."
+  ],
+  "313": [
+    "FINALLY, TIME-CRITICAL SYSTEMS SHIFT DESIGN PRIORITIES FROM AREA EFFICIENCY TO SAFETY, SECURITY, AND RELIABILITY."
+  ],
+  "365": [
+    "V. RELATED WORK IN THIS SECTION, WE DESCRIBE THE LEADING SOLUTIONS TO OPTI- MIZE HANDLING ASYNCHRONOUS EVENTS IN STATE-OF-THE-ART (SOTA) EMBEDDED AND REAL-TIME MCUS."
+  ],
+  "62": [
+    "WE FIRST DIFFERENTIATE BETWEEN EXISTING PLICS AND CLICS AS INTRODUCED IN SECTION II-C. THEN, WE FOCUS ON THE LATTER AND DISCUSS SOLUTIONS ACROSS VARIOUS PLATFORMS IN INDUSTRY AND ACADEMIA, ADDRESSING: 1) INTERRUPT CONTEXT SAVERESTORE TECHNIQUES; 2) CONTEXT SWITCH TECHNIQUES; AND 3) DEDICATED STRATEGIES TO OPTIMIZE REDUNDANT CONTEXT RESTORE WITH BACK-TO-BACK INTERRUPTS.",
+    "TO ADDRESS REDUNDANT CONTEXT RESTORE WITH BACK-TO-BACK INTERRUPTS, WE PROPOSE A MODIFIED VERSION OF THE RETURN AUTHORIZED LICENSED USE LIMITED TO: CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO."
+  ],
+  "213": [
+    "TABLE III SUMMARIZES THE OVERVIEW."
+  ],
+  "340": [
+    "FOR THE INTERRUPT LATENCY, WE ASSUME THAT THE DEFINITION PRESENTED IN SECTION II-B AND EXPLICITLY PROVIDE REFERENCES TO DIFFERENT VARIANTS ADOPTED BY SOTA WHEN NEEDED IN TABLE III."
+  ],
+  "222": [
+    "CONVERSELY, ARMS GENERIC INTERRUPT CONTROLLER (GIC) REDISTRIBUTES INCOMING ASYNCHRONOUS EVENTS AS EITHER NON-CRITICAL (IRQ) OR CRITICAL INTERRUPTS (FAST IRQ, OR FIQ)."
+  ],
+  "274": [
+    "6, JUNE 2024 INTERRUPT HANDLER THROUGH A DEDICATED REGISTER BANK, WITH UP TO EIGHT REGISTERS EMPLOYED TO MINIMIZE CONTEXT SWITCHING."
+  ],
+  "170": [
+    "THIS ALLOWS THE CORE TO START FETCHING THE JUMP ADDRESS FROM THE INTERRUPT VECTOR TABLE SIMULTANEOUSLY DURING CONTEXT SAVE AND EMBED CONTEXT RESTORE WITHIN THE RETURN INSTRUCTION."
+  ],
+  "70": [
+    "A REFERENCE EXAMPLE IN THE FIELD IS THE ARM CORTEX-M SERIES INTEGRATING THE NESTED VECTORED INTER- RUPT CONTROLLER (NVIC)."
+  ],
+  "169": [
+    "IT IMPLEMENTS A STATE MACHINE 32 THAT PERFORMS CALLER-SAVE REGISTER STACKING IN THE BACKGROUND."
+  ],
+  "321": [
+    "LIKEWISE, UPON RETURNING FROM THE ISR, THE HW ENCODES IN THE LINK REGISTER A VALUE (EXCRETURN), WHICH NOTIFIES THE CORE TO START UNWINDING THE STACK TO RETURN TO NORMAL PROGRAM EXECUTION."
+  ],
+  "167": [
+    "ANALOGOUSLY, IN INFINEON AURIX MCU- CLASS TRICORE FAMILYS INTERRUPT CONTROL UNIT (ICU) 33, 34, 35, THE CONTEXT OF THE CALLING ROUTINE IS SAVED IN MEMORY AUTONOMOUSLY WHILE RESTORING THE CONTEXT IS EMBEDDED IN THE RET INSTRUCTION AND HAPPENS IN PARALLEL WITH THE RETURN JUMP 36."
+  ],
+  "203": [
+    "FROM ACADEMIA, MAO ET AL."
+  ],
+  "194": [
+    "27 ARE THE FIRST TO PROPOSE EXTENSIONS FOR THE RISC-V CLIC."
+  ],
+  "202": [
+    "THOUGH IMPLEMEN- TATION DETAILS ARE OMITTED, THE INTERRUPT HANDLING IS ENHANCED WITH AUTOMATIC STACKING IN HW THAT BENEFITS FROM THE CORES HARVARD ARCHITECTURE AND SIMULTANEOUS DATA AND INSTRUCTION MEMORY ACCESS."
+  ],
+  "38": [
+    "2) TASK CONTEXT SAVERESTORE ACCELERATION: REGISTER BANK- ING IS A TECHNIQUE ADOPTED BY SEVERAL ARCHITECTURES TO SWAP A TASKS CONTEXT WITHOUT PUSHINGPOPPING REGISTER VALUES TO THE STACK AT THE COST OF AN ADDITIONAL AREA OVERHEAD IN THE DESIGN.",
+    "A TASKS CONTEXT SWITCH BENEFITS FROM QUICKLY TRANSFERRING THE SUSPENDED CONTEXT TO THE DED- ICATED REGISTER BANK WHILE ALREADY RESTORING THE NEXT TASK TO BE EXECUTED."
+  ],
+  "369": [
+    "AS DISCUSSED ABOVE, IN ARM DESIGNS, THIS IS THE CASE OF HW REGISTER BANKING IN PLICS (GIC)."
+  ],
+  "299": [
+    "A SIMILAR APPROACH IS IMPLEMENTED IN THE RENESAS M32C80 SERIES 30."
+  ],
+  "358": [
+    "A DUAL REGISTER BANK ALLOWS QUICKLY SWAPPING THE CONTEXT WITHOUT SAVINGRESTORING TOFROM THE STACK, AS THE SECOND REGISTER BANK IS RESERVED FOR HIGH-SPEED INTERRUPTS."
+  ],
+  "175": [
+    "THE AURIX FAMILY INSTEAD IMPLEMENTS AN SW MANAGED SOLUTION, FEATURING A SPECIFIC ORGANIZATION OF THE CONTEXT LAYOUT IN THE SYSTEM MEMORY BASED ON CONTEXT SAVE AREA (CSA) CHAINED IN A LINKED LIST FASHION 36."
+  ],
+  "280": [
+    "A MORE COMPLEX APPROACH BASED ON THE INTUITION THAT OFTEN THE CONTENT OF SOME REGISTER REMAINS UNTOUCHED AFTER A CONTEXT SWITCH IS INTRODUCED BY HUANG ET AL."
+  ],
+  "261": [
+    "28, WHICH ADOPTS A VALID-BASED MECHANISM IN HW TO BLOCK CONTEXT SWITCH ON SELECTED REGISTERS, REDUCING REGISTER MOVEMENT BY ALMOST 50."
+  ],
+  "212": [
+    "THIS FEATURE IS COMBINED WITH SEMI-SHADOWING, SIMILAR TO REGISTER BANKING BUT USING THE TOP (FLIP) AND BOTTOM (FLOP) HALVES OF THE RF AS RF COPIES."
+  ],
+  "314": [
+    "THE LATTER APPROACH IS SIMILAR TO LEVERAGING RISC-VS RV32E BASE INSTRUCTION SET BY RE-USING THE LOWER 16 ARCHITECTURAL REGISTERS OF THE RF, AS PROPOSED IN THIS WORK."
+  ],
+  "153": [
+    "THE EVALUATION IN 28 LACKS HW IMPLEMENTATION AND AREA OVERHEAD ASSESSMENT BUT REDUCES CON- TEXT SWITCHING OVERHEAD BY 24 ON THE DSPSTONE BENCHMARK."
+  ],
+  "240": [
+    "THESE APPROACHES TRADE-OFF HW- AND SW-INDUCED LATENCIES WHEN HANDLING ASYNCHRONOUS EVENTS, AS DEPICTED IN FIG."
+  ],
+  "210": [
+    "GAITAN ET AL."
+  ],
+  "143": [
+    "26 PROPOSE A FULL HW SOLUTION BASED ON A HARD- WARE SCHEDULING ENGINE (HSE) THAT DIRECTLY ATTACHES INTERRUPTS TO RUNNING TASKS WITHOUT THE NEED FOR A SPECIALIZED INTER- RUPT CONTROLLER."
+  ],
+  "114": [
+    "WHILE THIS APPROACH ALLOWS LOWERING INTERRUPT LATENCY AND TASK CONTEXT SWITCHES DRAMATICALLY, AS REPORTED IN TABLE III, IT LACKS FLEXIBILITY AND ITS AREA OVERHEAD GROWS FOR A HIGH NUMBER OF TASKS, AS IT REQUIRES REPLICATING HARDWARE RESOURCES PER TASK."
+  ],
+  "140": [
+    "DESPITE EXCEEDING THE SCOPE OF REAL-TIME EXECUTION, WE MENTION THAT FAST CONTEXT SWITCHING IS OFTEN REQUIRED IN ARCHITECTURES SUCH AS SUPERSCALAR CENTRAL PROCESSING UNITS (CPUS) OR TO HIDE LATENCY IN GRAPHIC PROCESSING UNITS (GPUS) 37, 38."
+  ],
+  "199": [
+    "BESIDES HIGHLIGHTING THE DIFFERENCE IN MEMORY FOOTPRINT BETWEEN SUCH ARCHITECTURES (MB SIZE RFS) AND LOW-END EMBEDDED MICROCONTROLLERS TARGETED IN THIS WORK, SUCH WORKS TYPICALLY ADOPT RF CACHING RATHER THAN REGISTER SHADOWING OR BANKING FOR PERFORMANCE REASONS, I.E., LOWER ACCESS LATENCY TO THE RF AND HIGHER THREAD-LEVEL PARALLELISM (TLP), RESPECTIVELY."
+  ],
+  "322": [
+    "IN THE REAL-TIME APPLICATION SCENARIO OF THIS WORK, SUCH TECHNIQUES MAY DETERIORATE THE SYSTEMS PRE- DICTABILITY AND THUS ARE NOT CONSIDERED."
+  ],
+  "196": [
+    "RISC-V ADDRESSES THIS SCENARIO BY ADDING THE XNXTI CSR WITH SW-MANAGED INTERRUPT SERVICE LOOPS AS PART OF THE CLIC SPECIFICATIONS AND FINDS EARLY COMMERCIAL EXAMPLES WITH 31."
+  ],
+  "209": [
+    "AMONG MSI SOLUTIONS, RISC-V AIA WITHOUT APLIC HAS A SIMILAR APPROACH TO MNXTI WITH THE XTOPI CSR THAT REPORTS THE HIGHEST- PRIORITY, PENDING, AND ENABLED INTERRUPT FOR A SPECIFIC PRIVILEGE MODE, ALLOWING BOTH LATE ARRIVAL AND REDUNDANT CONTEXT RESTORE MECHANISMS."
+  ],
+  "101": [
+    "THIS WORK PROPOSES A COMBINATION OF THE BACKGROUND-SAVING WITH A REGISTER BANKING APPROACH."
+  ],
+  "183": [
+    "FURTHERMORE, WE IMPROVE TASK CON- TEXT SWITCH TIMES IN FREERTOS TO 104 CLOCK CYCLES USING FASTIRQ, WHICH IS 20 FASTER THAN AN SW-ONLY APPROACH."
+  ],
+  "160": [
+    "SOME RESEARCH DIRECTIONS INVOLVING THE PROPOSED EXTENSION THAT THE AUTHORS CONSIDER FOR FUTURE WORK ARE ANALYZING FASTIRQS IMPACT ON TIMING CHANNELS OR ITS INTEGRATION WITH DIFFERENT RISC-V EXTENSIONS."
+  ],
+  "112": [
+    "REFERENCES 1 C. ROCHANGE, S. UHRIG, AND P. SAINRAT, TIME-PREDICTABLE ARCHI- TECTURES (FOCUSCOMPUTER ENGINEERING SERIES)."
+  ],
+  "250": [
+    "HOBOKEN, NJ, USA: WILEY, 2014."
+  ],
+  "220": [
+    "AVAILABLE: HTTP:EU.WILEY.COMWILEYCDA WILEYTITLEPRODUCTCD-1848215932.HTML 2 L. M. PINHO ET AL., HIGH-PERFORMANCE AND TIME-PREDICTABLE EMBEDDED COMPUTING."
+  ],
+  "156": [
+    "WHARTON, TX, USA: RIVER, 2018."
+  ],
+  "98": [
+    "3 F. REGHENZANI, G. MASSARI, AND W. FORNACIARI, THE REAL-TIME LINUX KERNEL: A SURVEY ON PREEMPTRT, ACM COMPUT."
+  ],
+  "127": [
+    "SURV., VOL."
+  ],
+  "361": [
+    "52, NO."
+  ],
+  "109": [
+    "1, PP.",
+    "7, PP.",
+    "1, PP.",
+    "1, PP.",
+    "10, PP.",
+    "9, PP.",
+    "9, PP.",
+    "14, PP."
+  ],
+  "54": [
+    "136, FEB. 2019, DOI: 10.11453297714.",
+    "16, DOI: 10.1109IPCCC50635.2020.9391536.",
+    "136, JAN. 2021, DOI: 10.11453419973."
+  ],
+  "370": [
+    "4 M. LIU, D. LIU, Y. WANG, M. WANG, AND Z. SHAO, ON IMPROVING REAL-TIME INTERRUPT LATENCIES OF HYBRID OPERATING SYSTEMS WITH TWO-LEVEL HARDWARE INTERRUPTS, IEEE TRANS."
+  ],
+  "234": [
+    "COMPUT., VOL."
+  ],
+  "205": [
+    "60, NO."
+  ],
+  "356": [
+    "978991, JUL."
+  ],
+  "388": [
+    "2011."
+  ],
+  "346": [
+    "5 P. MANTEGAZZA, E. L. DOZIO, AND S. PAPACHARALAMBOUS, RTAI: REAL TIME APPLICATION INTERFACE, LINUX J., VOL."
+  ],
+  "116": [
+    "2000, NO.",
+    "2000."
+  ],
+  "267": [
+    "72, P. 10, APR."
+  ],
+  "100": [
+    "6 K. RAMAMRITHAM AND J."
+  ],
+  "133": [
+    "82, NO."
+  ],
+  "292": [
+    "5567, JAN. 1994."
+  ],
+  "124": [
+    "7 D. KLEIDERMACHER."
+  ],
+  "77": [
+    "(2005)."
+  ],
+  "347": [
+    "AVAILABLE: HTTP:WEB.ENGR.OREGONSTATE.EDUTRAYLORECE473 PDFSMINIMIZEINTERRUPTRESPONSETIME.PDF 8 J. VALVANO, INTRODUCTION TO EMBEDDED SYSTEMS."
+  ],
+  "136": [
+    "SCOTTS VALLEY, CA, USA: CREATESPACE, AUG. 2016."
+  ],
+  "110": [
+    "9 Y. HUANG, L. SHI, J. LI, Q. LI, AND C. J. XUE, WCET-AWARE RE- SCHEDULING REGISTER ALLOCATION FOR REAL-TIME EMBEDDED SYSTEMS WITH CLUSTERED VLIW ARCHITECTURE, IEEE TRANS."
+  ],
+  "52": [
+    "VERY LARGE SCALE INTEGR.",
+    "VERY LARGE SCALE INTEGR.",
+    "VERY LARGE SCALE INTEGR."
+  ],
+  "86": [
+    "(VLSI) SYST., VOL.",
+    "(VLSI) SYST., VOL.",
+    "SYST., VOL.",
+    "(VLSI) SYST., VOL.",
+    "SYST., VOL."
+  ],
+  "58": [
+    "22, NO.",
+    "25, NO.",
+    "23, NO."
+  ],
+  "348": [
+    "168180, JAN. 2014."
+  ],
+  "171": [
+    "10 X. ZHOU AND P. PETROV, RAPID AND LOW-COST CONTEXT-SWITCH THROUGH EMBEDDED PROCESSOR CUSTOMIZATION FOR REAL-TIME AND CONTROL APPLICA- TIONS, IN PROC."
+  ],
+  "184": [
+    "43RD ANNU."
+  ],
+  "137": [
+    "DESIGN AUTOM.",
+    "DESIGN, AUTOM.",
+    "DESIGN, AUTOM."
+  ],
+  "161": [
+    "(DAC)."
+  ],
+  "200": [
+    "NEW YORK, NY, USA: ASSOCIATION FOR COMPUTING MACHINERY, 2006, P. 352, DOI: 10.11451146909.1147001."
+  ],
+  "181": [
+    "11 I. BEHNKE, L. PIRL, L. THAMSEN, R. DANICKI, A. POLZE, AND O. KAO, INTERRUPTING REAL-TIME IOT TASKS: HOW BAD CAN IT BE TO CONNECT YOUR CRITICAL EMBEDDED SYSTEM TO THE INTERNET?"
+  ],
+  "376": [
+    "IN PROC."
+  ],
+  "251": [
+    "COMMUN."
+  ],
+  "172": [
+    "(IPCCC), NOV. 2020, PP."
+  ],
+  "208": [
+    "12 F. REHM ET AL., THE ROAD TOWARDS PREDICTABLE AUTOMOTIVE HIGH PERFORMANCE PLATFORMS, IN PROC."
+  ],
+  "219": [
+    "TEST EUR.",
+    "TEST EUR."
+  ],
+  "131": [
+    "EXHIB.",
+    "EXHIB."
+  ],
+  "132": [
+    "(DATE), FEB. 2021, PP.",
+    "(DATE), FEB. 2021, PP."
+  ],
+  "119": [
+    "19151924."
+  ],
+  "10": [
+    "13 K. ASANOVIC AND D. A. PATTERSON, INSTRUCTION SETS SHOULD BE FREE: THE CASE FOR RISC-V, DEPT.",
+    "AVAILABLE: HTTP:WWW2.EECS.BERKELEY.EDUPUBSTECHRPTS2014EECS- 2014-146.HTML 14 A. WATERMAN, Y. LEE, R. AVIZIENIS, D. A. PATTERSON, AND K. ASANOVIC, THE RISC-V INSTRUCTION SET MANUAL VOLUME II: PRIVILEGED ARCHITEC- TURE VERSION 1.9, DEPT."
+  ],
+  "95": [
+    "EECS, UNIV.",
+    "EECS, UNIV."
+  ],
+  "145": [
+    "CALIFORNIA, BERKELEY, CA, USA, TECH.",
+    "CALIFORNIA, BERKELEY, CA, USA, TECH."
+  ],
+  "89": [
+    "REP. UCBEECS-2014-146, AUG. 2014.",
+    "REP. UCBEECS-2016-129, JUL."
+  ],
+  "193": [
     "2016."
   ],
-  "57": [
-    "Accessed: Jul.",
-    "Accessed: Jun."
+  "78": [
+    "ACCESSED: JUL.",
+    "ACCESSED: JUN."
   ],
-  "120": [
+  "55": [
     "18, 2023.",
     "2, 2023.",
     "(2023).",
     "(2023).",
     "(2023)."
   ],
-  "234": [
-    "Available: https:github.comriscvriscv-fast-interruptblobmasterclic."
+  "237": [
+    "AVAILABLE: HTTPS:GITHUB.COMRISCVRISCV-FAST-INTERRUPTBLOBMASTERCLIC."
   ],
-  "145": [
-    "adoc 16 M. Gautschi et al., Near-threshold RISC-V core with DSP extensions for scalable IoT endpoint devices, IEEE Trans."
+  "147": [
+    "ADOC 16 M. GAUTSCHI ET AL., NEAR-THRESHOLD RISC-V CORE WITH DSP EXTENSIONS FOR SCALABLE IOT ENDPOINT DEVICES, IEEE TRANS."
   ],
-  "66": [
-    "27002713, Oct. 2017."
+  "67": [
+    "27002713, OCT. 2017."
   ],
-  "99": [
-    "17 D. Schiavone."
+  "84": [
+    "17 D. SCHIAVONE."
   ],
-  "304": [
-    "OpenHW Group CV32E40P User Manual."
+  "310": [
+    "OPENHW GROUP CV32E40P USER MANUAL."
   ],
-  "103": [
-    "OpenHW Group."
+  "117": [
+    "OPENHW GROUP."
   ],
-  "210": [
-    "Available: https:cv32e40p."
+  "214": [
+    "AVAILABLE: HTTPS:CV32E40P."
   ],
-  "4": [
-    "readthedocs.ioenlatest 18 Nuclei System Technology.",
-    "39 Nuclei System Technology Co. Ltd. ECLIC Unit Introduction."
+  "9": [
+    "READTHEDOCS.IOENLATEST 18 NUCLEI SYSTEM TECHNOLOGY.",
+    "39 NUCLEI SYSTEM TECHNOLOGY CO. LTD. ECLIC UNIT INTRODUCTION."
   ],
-  "78": [
+  "80": [
     "(2021).",
     "(2020).",
     "(2020)."
   ],
-  "101": [
-    "Nuclei ISA Spec."
+  "206": [
+    "NUCLEI ISA SPEC."
   ],
-  "183": [
-    "Available: https:doc.nucleisys.comnucleispecisaintroduction.html 19 A. Ottaviano et al., ControlPULP: A RISC-V on-chip parallel power controller for many-core HPC processors with FPGA-based hardware- in-the-loop power and thermal emulation, Int."
+  "190": [
+    "AVAILABLE: HTTPS:DOC.NUCLEISYS.COMNUCLEISPECISAINTRODUCTION.HTML 19 A. OTTAVIANO ET AL., CONTROLPULP: A RISC-V ON-CHIP PARALLEL POWER CONTROLLER FOR MANY-CORE HPC PROCESSORS WITH FPGA-BASED HARDWARE- IN-THE-LOOP POWER AND THERMAL EMULATION, INT."
   ],
-  "390": [
-    "Parallel Program., Feb. 2024, doi: 10.1007s10766-024-00761-4."
+  "106": [
+    "PARALLEL PROGRAM., FEB. 2024, DOI: 10.1007S10766-024-00761-4."
   ],
-  "55": [
-    "20 R. Barry."
+  "113": [
+    "20 R. BARRY."
   ],
-  "77": [
-    "FreeRTOS: Real-Time Operating System for Microcontrollers."
+  "139": [
+    "FREERTOS: REAL-TIME OPERATING SYSTEM FOR MICROCONTROLLERS."
   ],
-  "91": [
-    "Real Time Engineers Ltd. Online."
+  "79": [
+    "REAL TIME ENGINEERS LTD. ONLINE."
   ],
-  "261": [
-    "Available: https:www.freertos.orgindex.html 21 C.-M. Lin, Nested interrupt analysis of low cost and high performance embedded systems using GSPN framework, IEICE Trans."
+  "266": [
+    "AVAILABLE: HTTPS:WWW.FREERTOS.ORGINDEX.HTML 21 C.-M. LIN, NESTED INTERRUPT ANALYSIS OF LOW COST AND HIGH PERFORMANCE EMBEDDED SYSTEMS USING GSPN FRAMEWORK, IEICE TRANS."
   ],
-  "168": [
+  "151": [
     "25092519, 2010."
   ],
-  "127": [
-    "22 RISC-V Internationa."
+  "122": [
+    "22 RISC-V INTERNATIONA."
   ],
-  "259": [
-    "Available: https:github.comriscvriscv- plic-specblobmasterriscv-plic-1.0.0.pdf 23 J. Yiu, The Definitive Guide to ARM Cortex-M3 Cortex-M4 Processors, 3rd ed."
+  "264": [
+    "AVAILABLE: HTTPS:GITHUB.COMRISCVRISCV- PLIC-SPECBLOBMASTERRISCV-PLIC-1.0.0.PDF 23 J. YIU, THE DEFINITIVE GUIDE TO ARM CORTEX-M3 CORTEX-M4 PROCESSORS, 3RD ED."
   ],
-  "353": [
-    "Boston, MA, USA: Newnes, 2013."
+  "180": [
+    "BOSTON, MA, USA: NEWNES, 2013."
   ],
-  "62": [
+  "128": [
     "24 ARM."
   ],
-  "206": [
-    "Cortex-M4 Tech."
+  "191": [
+    "CORTEX-M4 TECH."
   ],
-  "107": [
-    "Reference Manual."
+  "224": [
+    "REFERENCE MANUAL."
   ],
-  "147": [
-    "Available: https:developer.arm.comdocumentation1001660001 25 J. Yiu."
+  "149": [
+    "AVAILABLE: HTTPS:DEVELOPER.ARM.COMDOCUMENTATION1001660001 25 J. YIU."
   ],
-  "75": [
+  "71": [
     "(2012).",
     "(2014).",
     "(2012)."
   ],
-  "43": [
-    "A Beginners Guide Interrupt LatencyInterrupt Latency Arm Cortex-M Processors.",
-    "Available: https:community.arm.comarm-community-blogsbarchitectures-and -processors-blogpostsbeginner-guide-on-interrupt-latency-and- interrupt-latency-of-the-arm-cortex-m-processors?pifragment-227142 26 V. G. Gaitan, N. C. Gaitan, and I. Ungurean, CPU architecture based on a hardware scheduler and independent pipeline registers, IEEE Trans."
+  "21": [
+    "A BEGINNERS GUIDE INTERRUPT LATENCYINTERRUPT LATENCY ARM CORTEX-M PROCESSORS.",
+    "AVAILABLE: HTTPS:COMMUNITY.ARM.COMARM-COMMUNITY-BLOGSBARCHITECTURES-AND -PROCESSORS-BLOGPOSTSBEGINNER-GUIDE-ON-INTERRUPT-LATENCY-AND- INTERRUPT-LATENCY-OF-THE-ARM-CORTEX-M-PROCESSORS?PIFRAGMENT-227142 26 V. G. GAITAN, N. C. GAITAN, AND I. UNGUREAN, CPU ARCHITECTURE BASED ON A HARDWARE SCHEDULER AND INDEPENDENT PIPELINE REGISTERS, IEEE TRANS."
   ],
-  "190": [
-    "16611674, Sep. 2015."
+  "330": [
+    "16611674, SEP. 2015."
   ],
-  "280": [
-    "6th Int."
-  ],
-  "347": [
-    "Circuits Microsystems (ICICM), Oct. 2021, pp."
-  ],
-  "65": [
-    "109113."
-  ],
-  "79": [
-    "28 C.-W. Huang, K.-Y."
-  ],
-  "143": [
-    "Hsieh, J.-J."
-  ],
-  "61": [
-    "Li, and J. K. Lee, Support of paged register files for improving context switching on embedded processors, in Proc."
-  ],
-  "104": [
-    "Eng., 2009, pp."
-  ],
-  "194": [
-    "352357."
-  ],
-  "93": [
-    "29 R. Balas and L. Benini, RISC-V for real-time MCUsSoftware opti- mization and microarchitectural gap analysis, in Proc."
-  ],
-  "192": [
-    "874877."
-  ],
-  "51": [
-    "30 Renesas."
-  ],
-  "186": [
-    "Hardware ManualRENESAS MCU M16C."
-  ],
-  "48": [
-    "Available: https:www.renesas.comusendocumentmahm32c87- group-m32c87-m32c87a-m32c87b-hardware-manual 31 SiFive Inc. (2021)."
-  ],
-  "260": [
-    "SiFive E21 Core Complex Manual."
-  ],
-  "139": [
-    "Available: https:sifive.cdn.prismic.iosifive7c22c2ec-8af4-4b6c-a5fe- 9327d91e7808e21corecomplexmanual21G1.pdf 32 STMicroelectronics."
-  ],
-  "52": [
-    "Available: https:www.st.comcontentcccresourcetrainingtechnicalproducttrain inggroup16135d207346f4e83STM32L5-System-NestedVectore dInterruptControlNVICfilesSTM32L5-System-NestedVectored InterruptControlNVIC.pdfjcrcontenttranslationsen.STM32L5- System-NestedVectoredInterruptControlNVIC.pdf 33 Infineon Technologies AG."
+  "39": [
+    "6TH INT.",
+    "INT.",
+    "INT."
   ],
   "102": [
-    "A Fast Powertrain Microcontroller."
+    "INTEGR."
   ],
-  "19": [
-    "Available: https:old.hotchips.orgwp-contentuploads hcarchiveshc163Tue6HC16Sess7Pres1bw.pdf 34 Infineon Technologies AG.",
-    "Available: https:hitex.co.ukfileadminuk- filesdownloadsShieldBuddytc27xDumv2.2.pdf 35 Infineon Technologies AG."
+  "357": [
+    "CIRCUITS MICROSYSTEMS (ICICM), OCT. 2021, PP."
   ],
-  "241": [
-    "TC27x D-Step, 32-Bit Single-Chip Microcontroller."
+  "134": [
+    "109113."
   ],
-  "117": [
-    "TriCore V1.6, Core Archi- tecture."
+  "146": [
+    "28 C.-W. HUANG, K.-Y."
   ],
-  "227": [
-    "Available: https:www.infineon.comdgdltc16 architecturevol1.pdf?fileIddb3a3043372d5cc801373b0f374d5d67 36 Infineon Technologies AG, Task context switching RTOS, U.S. Patent 7 434 222 B2, Oct. 2008."
+  "195": [
+    "HSIEH, J.-J."
   ],
-  "32": [
-    "6, JUNE 2024 37 H. Zeng and K. Ghose, Register file caching for energy efficiency, in ISLPED Proc."
+  "123": [
+    "LI, AND J. K. LEE, SUPPORT OF PAGED REGISTER FILES FOR IMPROVING CONTEXT SWITCHING ON EMBEDDED PROCESSORS, IN PROC."
   ],
-  "151": [
-    "Low Power Electron."
-  ],
-  "63": [
-    "Design, Oct. 2006, pp."
-  ],
-  "152": [
-    "244249."
-  ],
-  "30": [
-    "38 M. Sadrosadati et al., Highly concurrent latency-tolerant register files for GPUs, ACM Trans."
-  ],
-  "82": [
-    "37, nos."
-  ],
-  "83": [
-    "Accessed: Aug. 4, 2023."
-  ],
-  "272": [
-    "Available: https:doc.nucleisys.comnuclei specisaeclic.html Robert Balas (Graduate Student Member, IEEE) received the B.Sc."
-  ],
-  "59": [
-    "degrees in electrical engineering and information technology from ETH Zrich, Zrich, Switzerland, in 2015 and 2017, respectively, where he is currently working toward the Ph.D. degree at the Digital Circuits and Systems Group of Prof. Benini.",
-    "He is currently working toward the Ph.D. degree at the Digital Circuits and Systems Group of Prof. Benini, ETH Zrich, Zrich, Switzerland.",
-    "He currently holds the Chair of the Digital Circuits and Systems Group, ETH Zrich (ETHZ), Zrich, Switzerland, and is also a Full Professor at the Universit di Bologna, Bologna, Italy."
-  ],
-  "116": [
-    "His research interests include real-time computing, compilers, and operating systems.",
-    "His research interests include real-time computing, power management of HPC processors, and energy-efficient processor archi- tecture."
-  ],
-  "193": [
-    "Alessandro Ottaviano (Graduate Student Member, IEEE) received the B.Sc."
-  ],
-  "71": [
-    "degree in physical engi- neering from the Politecnico di Turino, Turin, Italy, in 2018, and the joint M.Sc."
-  ],
-  "130": [
-    "degree in electrical engineering from the Politecnico di Turino, Grenoble INP-Phelma, Grenoble, France, and EPFL Lausanne, Lausanne, Switzerland, in 2020."
-  ],
-  "157": [
-    "Luca Benini (Fellow, IEEE) received the Ph.D. degree in electrical engineering from Stanford Uni- versity, Stanford, CA, USA, in 1997."
+  "73": [
+    "SCI."
   ],
   "94": [
-    "Dr. Benini is a fellow of the ACM and a member of the Academia Europaea."
+    "ENG., 2009, PP."
   ],
-  "274": [
-    "He was a recipient of the 2023 IEEE CS E.J."
+  "97": [
+    "352357."
   ],
-  "228": [
-    "McCluskey Award."
+  "144": [
+    "29 R. BALAS AND L. BENINI, RISC-V FOR REAL-TIME MCUSSOFTWARE OPTI- MIZATION AND MICROARCHITECTURAL GAP ANALYSIS, IN PROC."
+  ],
+  "130": [
+    "874877."
+  ],
+  "105": [
+    "30 RENESAS."
+  ],
+  "92": [
+    "HARDWARE MANUALRENESAS MCU M16C."
+  ],
+  "99": [
+    "AVAILABLE: HTTPS:WWW.RENESAS.COMUSENDOCUMENTMAHM32C87- GROUP-M32C87-M32C87A-M32C87B-HARDWARE-MANUAL 31 SIFIVE INC. (2021)."
+  ],
+  "265": [
+    "SIFIVE E21 CORE COMPLEX MANUAL."
+  ],
+  "173": [
+    "AVAILABLE: HTTPS:SIFIVE.CDN.PRISMIC.IOSIFIVE7C22C2EC-8AF4-4B6C-A5FE- 9327D91E7808E21CORECOMPLEXMANUAL21G1.PDF 32 STMICROELECTRONICS."
+  ],
+  "66": [
+    "AVAILABLE: HTTPS:WWW.ST.COMCONTENTCCCRESOURCETRAININGTECHNICALPRODUCTTRAIN INGGROUP16135D207346F4E83STM32L5-SYSTEM-NESTEDVECTORE DINTERRUPTCONTROLNVICFILESSTM32L5-SYSTEM-NESTEDVECTORED INTERRUPTCONTROLNVIC.PDFJCRCONTENTTRANSLATIONSEN.STM32L5- SYSTEM-NESTEDVECTOREDINTERRUPTCONTROLNVIC.PDF 33 INFINEON TECHNOLOGIES AG."
+  ],
+  "120": [
+    "A FAST POWERTRAIN MICROCONTROLLER."
+  ],
+  "20": [
+    "AVAILABLE: HTTPS:OLD.HOTCHIPS.ORGWP-CONTENTUPLOADS HCARCHIVESHC163TUE6HC16SESS7PRES1BW.PDF 34 INFINEON TECHNOLOGIES AG.",
+    "AVAILABLE: HTTPS:HITEX.CO.UKFILEADMINUK- FILESDOWNLOADSSHIELDBUDDYTC27XDUMV2.2.PDF 35 INFINEON TECHNOLOGIES AG."
+  ],
+  "61": [
+    "TC27X D-STEP, 32-BIT SINGLE-CHIP MICROCONTROLLER."
+  ],
+  "121": [
+    "TRICORE V1.6, CORE ARCHI- TECTURE."
+  ],
+  "56": [
+    "AVAILABLE: HTTPS:WWW.INFINEON.COMDGDLTC16 ARCHITECTUREVOL1.PDF?FILEIDDB3A3043372D5CC801373B0F374D5D67 36 INFINEON TECHNOLOGIES AG, TASK CONTEXT SWITCHING RTOS, U.S. PATENT 7 434 222 B2, OCT. 2008."
+  ],
+  "59": [
+    "6, JUNE 2024 37 H. ZENG AND K. GHOSE, REGISTER FILE CACHING FOR ENERGY EFFICIENCY, IN ISLPED PROC."
+  ],
+  "164": [
+    "LOW POWER ELECTRON."
+  ],
+  "81": [
+    "DESIGN, OCT. 2006, PP."
+  ],
+  "154": [
+    "244249."
+  ],
+  "129": [
+    "38 M. SADROSADATI ET AL., HIGHLY CONCURRENT LATENCY-TOLERANT REGISTER FILES FOR GPUS, ACM TRANS."
+  ],
+  "91": [
+    "37, NOS."
+  ],
+  "187": [
+    "ACCESSED: AUG. 4, 2023."
+  ],
+  "182": [
+    "AVAILABLE: HTTPS:DOC.NUCLEISYS.COMNUCLEI SPECISAECLIC.HTML ROBERT BALAS (GRADUATE STUDENT MEMBER, IEEE) RECEIVED THE B.SC."
+  ],
+  "57": [
+    "DEGREES IN ELECTRICAL ENGINEERING AND INFORMATION TECHNOLOGY FROM ETH ZRICH, ZRICH, SWITZERLAND, IN 2015 AND 2017, RESPECTIVELY, WHERE HE IS CURRENTLY WORKING TOWARD THE PH.D.",
+    "HE CURRENTLY HOLDS THE CHAIR OF THE DIGITAL CIRCUITS AND SYSTEMS GROUP, ETH ZRICH (ETHZ), ZRICH, SWITZERLAND, AND IS ALSO A FULL PROFESSOR AT THE UNIVERSIT DI BOLOGNA, BOLOGNA, ITALY."
+  ],
+  "63": [
+    "DEGREE AT THE DIGITAL CIRCUITS AND SYSTEMS GROUP OF PROF. BENINI.",
+    "DEGREE AT THE DIGITAL CIRCUITS AND SYSTEMS GROUP OF PROF. BENINI, ETH ZRICH, ZRICH, SWITZERLAND."
+  ],
+  "118": [
+    "HIS RESEARCH INTERESTS INCLUDE REAL-TIME COMPUTING, COMPILERS, AND OPERATING SYSTEMS.",
+    "HIS RESEARCH INTERESTS INCLUDE REAL-TIME COMPUTING, POWER MANAGEMENT OF HPC PROCESSORS, AND ENERGY-EFFICIENT PROCESSOR ARCHI- TECTURE."
+  ],
+  "2": [
+    "ALESSANDRO OTTAVIANO (GRADUATE STUDENT MEMBER, IEEE) RECEIVED THE B.SC.",
+    "LUCA BENINI (FELLOW, IEEE) RECEIVED THE PH.D."
+  ],
+  "50": [
+    "DEGREE IN PHYSICAL ENGI- NEERING FROM THE POLITECNICO DI TURINO, TURIN, ITALY, IN 2018, AND THE JOINT M.SC."
+  ],
+  "5": [
+    "DEGREE IN ELECTRICAL ENGINEERING FROM THE POLITECNICO DI TURINO, GRENOBLE INP-PHELMA, GRENOBLE, FRANCE, AND EPFL LAUSANNE, LAUSANNE, SWITZERLAND, IN 2020.",
+    "DEGREE IN ELECTRICAL ENGINEERING FROM STANFORD UNI- VERSITY, STANFORD, CA, USA, IN 1997."
+  ],
+  "75": [
+    "HE IS CURRENTLY WORKING TOWARD THE PH.D."
+  ],
+  "53": [
+    "DR. BENINI IS A FELLOW OF THE ACM AND A MEMBER OF THE ACADEMIA EUROPAEA."
+  ],
+  "138": [
+    "HE WAS A RECIPIENT OF THE 2023 IEEE CS E.J."
+  ],
+  "87": [
+    "MCCLUSKEY AWARD."
   ]
 }

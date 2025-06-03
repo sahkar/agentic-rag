@@ -9,8 +9,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 client = AsyncOpenAI()
 
+# currently options are pipeswitch, riscv, vLLM
+input_paper = 'vLLM'
+
+print(f'Extracting triples for paper: {input_paper}')
+
 # Load clustered chunks
-with open("clustered_chunks_riscv.json", "r", encoding="utf-8") as f:
+with open(f"clustered_chunks_{input_paper}.json", "r", encoding="utf-8") as f:
     clustered_chunks = json.load(f)
 
 # Flatten all text groups
@@ -70,8 +75,8 @@ async def main():
 
     deduped = [t for idx, t in enumerate(triples) if idx not in to_remove]
 
-    with open("triples_relevant_riscv.json", "w", encoding="utf-8") as f:
+    with open(f"triples_relevant_{input_paper}.json", "w", encoding="utf-8") as f:
         json.dump(deduped, f, indent=2, ensure_ascii=False)
-    print("Saved triples to triples_relevant_riscv.json")
+    print(f"Saved triples to triples_relevant_{input_paper}.json")
 
 asyncio.run(main())

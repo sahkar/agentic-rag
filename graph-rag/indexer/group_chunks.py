@@ -13,6 +13,9 @@ from keybert import KeyBERT
 nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
 
+# currently options are pipeswitch, riscv, vLLM
+input_paper = 'vLLM'
+
 # Load models
 model = SentenceTransformer('all-MiniLM-L6-v2')
 kw_model = KeyBERT(model=model)
@@ -25,11 +28,12 @@ def extract_text_from_pdf(path):
     return text
 
 # PDF to text
-text = extract_text_from_pdf("input_pdf/riscv.pdf")
+text = extract_text_from_pdf(f"input_pdf/{input_paper}.pdf")
 
 # Basic regex clean
 text = re.sub(r'\s+', ' ', text)
 text = re.sub(r'[^a-zA-Z0-9.,;:!?()\'\" -]', '', text)
+text = text.upper() # we don't care about case sensitivity, so make everything uppercase
 
 # Sentence chunking
 chunks = sent_tokenize(text)
@@ -81,7 +85,7 @@ for cluster_id, group in clustered_chunks.items():
 
 serializable_clusters = {str(cluster_id): group for cluster_id, group in clustered_chunks.items()}
 
-with open("clustered_chunks_riscv.json", "w", encoding="utf-8") as f:
+with open(f"clustered_chunks_{input_paper}.json", "w", encoding="utf-8") as f:
     json.dump(serializable_clusters, f, indent=2, ensure_ascii=False)
 
-print("Clusters saved to clustered_chunks_riscv.json")
+print(f"Clusters saved to clustered_chunks_{input_paper}.json")

@@ -10,6 +10,46 @@
     "object": "increasing adoption in the embedded world"
   },
   {
+    "subject": "Robert Balas",
+    "predicate": "is",
+    "object": "graduate student member, IEEE"
+  },
+  {
+    "subject": "Alessandro Ottaviano",
+    "predicate": "is",
+    "object": "graduate student member, IEEE"
+  },
+  {
+    "subject": "Luca Benini",
+    "predicate": "is",
+    "object": "fellow, IEEE"
+  },
+  {
+    "subject": "We",
+    "predicate": "implement",
+    "object": "a CLIC for the CV32E40P"
+  },
+  {
+    "subject": "CV32E40P",
+    "predicate": "is",
+    "object": "an industrially supported open-source 32-bit microcontroller unit (MCU)-class RISC-V core"
+  },
+  {
+    "subject": "We",
+    "predicate": "enhance",
+    "object": "CV32E40P with FastIRQ"
+  },
+  {
+    "subject": "FastIRQ",
+    "predicate": "is",
+    "object": "a custom extension"
+  },
+  {
+    "subject": "FastIRQ",
+    "predicate": "provides",
+    "object": "interrupt latency as low as six cycles"
+  },
+  {
     "subject": "CV32RT",
     "predicate": "is",
     "object": "a 32-bit RISC-V core"
@@ -36,13 +76,43 @@
   },
   {
     "subject": "CV32RT",
-    "predicate": "performs better than",
+    "predicate": "competes against",
     "object": "commercial off-the-shelf (COTS) processor vendors"
   },
   {
     "subject": "CV32RT",
     "predicate": "paves the road for",
     "object": "RISC-V architectures in time-critical systems"
+  },
+  {
+    "subject": "We",
+    "predicate": "replace",
+    "object": "the CV32E40P interrupt controller with an implementation of the RISC-V CLIC specification"
+  },
+  {
+    "subject": "The RISC-V CLIC specification",
+    "predicate": "provides",
+    "object": "the core with key features"
+  },
+  {
+    "subject": "Key features",
+    "predicate": "include",
+    "object": "prioritization by level and priority"
+  },
+  {
+    "subject": "Key features",
+    "predicate": "include",
+    "object": "selective hardware vectoring (SHV)"
+  },
+  {
+    "subject": "Key features",
+    "predicate": "include",
+    "object": "non-nested interrupt optimization tail-chaining through the XNXTI 15 control and status register (CSR)"
+  },
+  {
+    "subject": "XNXTI 15 control and status register (CSR)",
+    "predicate": "is",
+    "object": "directly a RISC-V standard extension"
   },
   {
     "subject": "We",
@@ -58,6 +128,11 @@
     "subject": "We",
     "predicate": "describe",
     "object": "the current status of interrupt handling in RISC-V in Section II-C"
+  },
+  {
+    "subject": "RISC-V system platform",
+    "predicate": "relies on",
+    "object": "the CV32E40P core"
   },
   {
     "subject": "CV32E40P core",
@@ -77,7 +152,7 @@
   {
     "subject": "CV32 core",
     "predicate": "is",
-    "object": "baseline"
+    "object": "the baseline"
   },
   {
     "subject": "native CLINT interrupt controller",
@@ -90,19 +165,19 @@
     "object": "CV32RTCLIC"
   },
   {
-    "subject": "fastirq",
+    "subject": "FASTIRQ",
     "predicate": "is introduced into",
     "object": "core microarchitecture"
   },
   {
-    "subject": "fastirq",
-    "predicate": "is",
-    "object": "extension proposed in this work"
+    "subject": "FASTIRQ",
+    "predicate": "is the extension proposed in",
+    "object": "this work"
   },
   {
-    "subject": "extension proposed in this work",
+    "subject": "FASTIRQ",
     "predicate": "is referred to as",
-    "object": "CV32RTfastirq"
+    "object": "CV32RTFASTIRQ"
   },
   {
     "subject": "CV32RTCLIC",
@@ -111,48 +186,53 @@
   },
   {
     "subject": "CLIC interrupt controller",
-    "predicate": "is implemented according to",
+    "predicate": "is implemented in",
+    "object": "CV32RTCLIC"
+  },
+  {
+    "subject": "CLIC interrupt controller",
+    "predicate": "is according to",
     "object": "draft specification"
   },
   {
     "subject": "draft specification",
     "predicate": "is to be included in",
-    "object": "RISC-V Privileged Specification"
+    "object": "RISC-V privileged specification"
   },
   {
-    "subject": "Our proposed fastirq extension",
+    "subject": "Our proposed FastIRQ extension",
     "predicate": "addresses",
-    "object": "these weaknesses"
+    "object": "weaknesses of various flavors of RISC-V core-specific interrupt controllers"
   },
   {
-    "subject": "fastirq extension",
+    "subject": "Our proposed FastIRQ extension",
     "predicate": "extends",
     "object": "the CLIC base capabilities"
   },
   {
-    "subject": "fastirq extension",
-    "predicate": "lowers",
-    "object": "interrupt latency"
+    "subject": "Our proposed FastIRQ extension",
+    "predicate": "provides",
+    "object": "a mechanism to lower interrupt latency"
   },
   {
-    "subject": "fastirq extension",
+    "subject": "Our proposed FastIRQ extension",
     "predicate": "keeps",
     "object": "HW vectored interrupts"
   },
   {
-    "subject": "fastirq extension",
+    "subject": "Our proposed FastIRQ extension",
     "predicate": "allows",
     "object": "skipping of redundant context restore operations"
   },
   {
-    "subject": "fastirq",
-    "predicate": "is",
-    "object": "a fast interrupt extension for RISC-V embedded systems"
+    "subject": "We",
+    "predicate": "present",
+    "object": "FASTIRQ, a fast interrupt extension for RISC-V embedded systems"
   },
   {
-    "subject": "We",
-    "predicate": "implement",
-    "object": "the extension on CV32RT"
+    "subject": "the extension",
+    "predicate": "is implemented on",
+    "object": "CV32RT"
   },
   {
     "subject": "CV32RT",
@@ -165,9 +245,14 @@
     "object": "the RISC-V CLIC fast interrupt controller"
   },
   {
-    "subject": "A CLIC extension based fast interrupt system",
-    "predicate": "is for",
-    "object": "embedded RISC-V processors"
+    "subject": "27 B. MAO, N. TAN, T. CHONG, AND L. LI",
+    "predicate": "authored",
+    "object": "A CLIC EXTENSION BASED FAST INTERRUPT SYSTEM FOR EMBEDDED RISC-V PROCESSORS"
+  },
+  {
+    "subject": "A CLIC EXTENSION BASED FAST INTERRUPT SYSTEM FOR EMBEDDED RISC-V PROCESSORS",
+    "predicate": "published in",
+    "object": "PROC."
   },
   {
     "subject": "Many embedded use cases",
@@ -196,138 +281,108 @@
   },
   {
     "subject": "ARM Cortex-M and TriCore",
-    "predicate": "have been tuned for",
-    "object": "years"
+    "predicate": "have been",
+    "object": "tuned for years"
   },
   {
-    "subject": "The default interrupt controller standardized by RISC-V",
-    "predicate": "is",
-    "object": "the core local interruptor (CLINT)"
+    "subject": "THE DEFAULT INTERRUPT CONTROLLER",
+    "predicate": "is standardized by",
+    "object": "RISC-V"
   },
   {
-    "subject": "The core local interruptor (CLINT)",
+    "subject": "THE DEFAULT INTERRUPT CONTROLLER",
+    "predicate": "is called",
+    "object": "THE CORE LOCAL INTERRUPTOR (CLINT)"
+  },
+  {
+    "subject": "THE CORE LOCAL INTERRUPTOR (CLINT)",
     "predicate": "lacks",
     "object": "configurability in prioritization and preemption of interrupts"
   },
   {
-    "subject": "The RISC-V core local interrupt controller (CLIC) specification",
-    "predicate": "addresses",
-    "object": "this concern"
-  },
-  {
-    "subject": "The RISC-V core local interrupt controller (CLIC) specification",
-    "predicate": "enables",
-    "object": "preemptible, low-latency vectored interrupts"
-  },
-  {
-    "subject": "The RISC-V core local interrupt controller (CLIC) specification",
-    "predicate": "envisions",
-    "object": "optional extensions to improve interrupt latency"
-  },
-  {
-    "subject": "the RISC-V community",
+    "subject": "The RISC-V community",
     "predicate": "has been developing",
-    "object": "an extension to the Privileged specifications 14"
+    "object": "an extension to the privileged specifications 14"
   },
   {
-    "subject": "the extension to the Privileged specifications 14",
+    "subject": "The extension to the privileged specifications 14",
     "predicate": "is",
-    "object": "the proposal of the RISC-V core local interrupt controller (CLIC) 15"
+    "object": "the RISC-V Core Local Interrupt Controller (CLIC) 15"
   },
   {
-    "subject": "the proposal of the RISC-V core local interrupt controller (CLIC) 15",
+    "subject": "The RISC-V Core Local Interrupt Controller (CLIC) 15",
     "predicate": "is",
     "object": "currently under ratification by the community"
   },
   {
-    "subject": "the RISC-V core local interrupt controller (CLIC) 15",
-    "predicate": "is designed to handle",
+    "subject": "The RISC-V Core Local Interrupt Controller (CLIC) 15",
+    "predicate": "is developed to handle",
     "object": "real-time scenarios"
   },
   {
-    "subject": "CLICs",
+    "subject": "CLICS",
     "predicate": "are",
     "object": "local to each hardware thread (HART)"
   },
   {
-    "subject": "PLICs",
+    "subject": "PLICS",
     "predicate": "are",
     "object": "platform level interrupt controllers"
   },
   {
-    "subject": "PLICs",
+    "subject": "PLICS",
     "predicate": "are",
     "object": "centralized interrupt controllers"
   },
   {
-    "subject": "PLICs",
+    "subject": "PLICS",
     "predicate": "are capable of",
     "object": "managing multiple HARTs"
   },
   {
-    "subject": "RISC-V PLIC",
-    "predicate": "belongs to",
-    "object": "Platform-Level Interrupt Controllers"
+    "subject": "Platform-level interrupt controllers",
+    "predicate": "include",
+    "object": "RISC-V PLIC"
   },
   {
-    "subject": "advanced PLIC (APLIC)",
-    "predicate": "belongs to",
-    "object": "Platform-Level Interrupt Controllers"
+    "subject": "Platform-level interrupt controllers",
+    "predicate": "include",
+    "object": "Advanced PLIC (APLIC)"
   },
   {
-    "subject": "RISC-V incoming message signaled interrupt controller (IMSIC)",
-    "predicate": "belongs to",
-    "object": "Platform-Level Interrupt Controllers"
+    "subject": "Platform-level interrupt controllers",
+    "predicate": "include",
+    "object": "RISC-V Incoming Message Signaled Interrupt Controller (IMSIC)"
   },
   {
-    "subject": "RISC-V PLIC and advanced PLIC (APLIC)",
-    "predicate": "are for",
+    "subject": "RISC-V PLIC and Advanced PLIC (APLIC)",
+    "predicate": "are used for",
     "object": "wire-based interrupt communication"
   },
   {
-    "subject": "RISC-V incoming message signaled interrupt controller (IMSIC)",
-    "predicate": "is for",
+    "subject": "RISC-V Incoming Message Signaled Interrupt Controller (IMSIC)",
+    "predicate": "is used for",
     "object": "message-signaled interrupt communication"
   },
   {
-    "subject": "Platform-Level Interrupt Controllers",
+    "subject": "Platform-level interrupt controllers",
     "predicate": "are not designed to",
-    "object": "distribute time-critical interrupts to the running HARTs"
+    "object": "distribute time-critical interrupts to the running harts"
   },
   {
-    "subject": "B. Core-Local Interrupt Controllers CLICs",
+    "subject": "B. CORE-LOCAL INTERRUPT CONTROLLERS (CLICS)",
     "predicate": "are specialized in",
     "object": "providing fast interrupt-handling capabilities in real-time embedded application domains"
   },
   {
-    "subject": "RISC-V SMCLIC Core-Local Interrupt Controller (CLIC)",
-    "predicate": "is part of",
-    "object": "RISC-V Privileged Architecture Extension"
-  },
-  {
-    "subject": "Document",
-    "predicate": "is available at",
-    "object": "http://www2.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-129.html"
-  },
-  {
-    "subject": "We",
+    "subject": "WE",
     "predicate": "call",
-    "object": "CV32RT our enhanced core"
+    "object": "CV32RT OUR ENHANCED CORE"
   },
   {
     "subject": "CV32RT",
     "predicate": "is",
-    "object": "the first fully open-source RV32 core with competitive interrupt-handling features"
-  },
-  {
-    "subject": "CV32RT",
-    "predicate": "has competitive interrupt-handling features compared to",
-    "object": "Arm Cortex-M series"
-  },
-  {
-    "subject": "CV32RT",
-    "predicate": "has competitive interrupt-handling features compared to",
-    "object": "TriCore"
+    "object": "the first fully open-source RV32 core with competitive interrupt-handling features compared to the ARM Cortex-M series and TriCore"
   },
   {
     "subject": "We",
@@ -340,12 +395,12 @@
     "object": "CV32RT interrupt handling capabilities"
   },
   {
-    "subject": "extension",
+    "subject": "The extension",
     "predicate": "introduces",
     "object": "negligible area overhead in a modern technology node"
   },
   {
-    "subject": "extension",
+    "subject": "The extension",
     "predicate": "provides",
     "object": "performance benefits"
   },
@@ -360,109 +415,109 @@
     "object": "overhead in terms of area and timing"
   },
   {
-    "subject": "The proposed extensions",
+    "subject": "THE PROPOSED EXTENSIONS",
     "predicate": "are demonstrated to improve",
-    "object": "task context switching in real-time operating systems (RTOSs)"
+    "object": "TASK CONTEXT SWITCHING IN REAL-TIME OPERATING SYSTEMS (RTOSS)"
   },
   {
-    "subject": "Index Terms",
+    "subject": "INDEX TERMS",
     "predicate": "include",
-    "object": "Context switching"
+    "object": "CONTEXT SWITCHING"
   },
   {
-    "subject": "Index Terms",
+    "subject": "INDEX TERMS",
     "predicate": "include",
-    "object": "embedded"
+    "object": "EMBEDDED"
   },
   {
-    "subject": "Index Terms",
+    "subject": "INDEX TERMS",
     "predicate": "include",
-    "object": "interrupt latency"
+    "object": "INTERRUPT LATENCY"
   },
   {
-    "subject": "Index Terms",
+    "subject": "INDEX TERMS",
     "predicate": "include",
-    "object": "microcontroller unit (MCU)"
+    "object": "MICROCONTROLLER UNIT (MCU)"
   },
   {
-    "subject": "Index Terms",
+    "subject": "INDEX TERMS",
     "predicate": "include",
-    "object": "real-time"
+    "object": "REAL-TIME"
   },
   {
-    "subject": "Index Terms",
+    "subject": "INDEX TERMS",
     "predicate": "include",
     "object": "RISC-V"
   },
   {
-    "subject": "several markets",
+    "subject": "Several markets",
     "predicate": "rely on",
-    "object": "real-time and SW-based solution"
+    "object": "real-time AN SW-based solution"
   },
   {
-    "subject": "the automotive industry",
+    "subject": "The automotive industry",
     "predicate": "employs",
     "object": "hundreds of electronic control units (ECUs)"
   },
   {
-    "subject": "electronic control units (ECUs)",
+    "subject": "Electronic control units (ECUs)",
     "predicate": "are used for",
     "object": "real-time applications"
   },
   {
-    "subject": "real-time applications",
+    "subject": "Real-time applications",
     "predicate": "include",
     "object": "electronic engine control"
   },
   {
-    "subject": "real-time applications",
+    "subject": "Real-time applications",
     "predicate": "include",
     "object": "gearbox control"
   },
   {
-    "subject": "real-time applications",
+    "subject": "Real-time applications",
     "predicate": "include",
     "object": "cruise control"
   },
   {
-    "subject": "real-time applications",
+    "subject": "Real-time applications",
     "predicate": "include",
     "object": "anti-lock brake systems"
   },
   {
-    "subject": "General-purpose operating systems (GPOSs)",
+    "subject": "Real-time applications",
+    "predicate": "include",
+    "object": "many other tasks"
+  },
+  {
+    "subject": "General-purpose operating systems (GPOSS)",
     "predicate": "are typically tuned for",
-    "object": "average throughput rather than real-time"
+    "object": "average throughput"
   },
   {
-    "subject": "Date of publication",
+    "subject": "DATE OF PUBLICATION",
     "predicate": "is",
-    "object": "21 March 2024"
+    "object": "21 MARCH 2024"
   },
   {
-    "subject": "date of current version",
+    "subject": "DATE OF CURRENT VERSION",
     "predicate": "is",
-    "object": "23 May 2024"
+    "object": "23 MAY 2024"
   },
   {
-    "subject": "This work",
-    "predicate": "was supported by",
-    "object": "the HORIZON Key Digital Technologies Joint Undertaking (KDT JU) Programme"
+    "subject": "THIS WORK",
+    "predicate": "was supported in part by",
+    "object": "THE HORIZON KEY DIGITAL TECHNOLOGIES JOINT UNDERTAKING (KDT JU) PROGRAMME"
   },
   {
-    "subject": "This work",
-    "predicate": "was supported through",
-    "object": "the TRISTAN project"
+    "subject": "THE HORIZON KEY DIGITAL TECHNOLOGIES JOINT UNDERTAKING (KDT JU) PROGRAMME",
+    "predicate": "supported through",
+    "object": "THE TRISTAN PROJECT"
   },
   {
-    "subject": "the TRISTAN project",
-    "predicate": "is under",
-    "object": "Grant 101095947"
-  },
-  {
-    "subject": "Robert Balas",
-    "predicate": "is",
-    "object": "corresponding author"
+    "subject": "THE TRISTAN PROJECT",
+    "predicate": "was under grant",
+    "object": "101095947"
   },
   {
     "subject": "Robert Balas",
@@ -475,27 +530,37 @@
     "object": "Integrated Systems Laboratory (IIS), ETH Zurich, 8092 Zurich, Switzerland"
   },
   {
-    "subject": "Luca Benini",
-    "predicate": "is with",
-    "object": "Integrated Systems Laboratory (IIS), ETH Zurich, Zurich, Switzerland"
+    "subject": "Robert Balas",
+    "predicate": "email",
+    "object": "balas@iis.ee.ethz.ch"
+  },
+  {
+    "subject": "Alessandro Ottaviano",
+    "predicate": "email",
+    "object": "aottaviano@iis.ee.ethz.ch"
   },
   {
     "subject": "Luca Benini",
     "predicate": "is with",
-    "object": "Department of Electrical, Electronic and Information Engineering (DEI), University of Bologna, 40126 Bologna, Italy"
+    "object": "the Integrated Systems Laboratory (IIS), ETH Zurich, Zurich, Switzerland"
   },
   {
-    "subject": "Color versions of one or more figures in this article",
+    "subject": "Luca Benini",
+    "predicate": "is with",
+    "object": "the Department of Electrical, Electronic and Information Engineering (DEI), University of Bologna, 40126 Bologna, Italy"
+  },
+  {
+    "subject": "color versions of one or more figures in this article",
     "predicate": "are available at",
-    "object": "https:doi.org10.1109TVLSI.2024.3377130"
+    "object": "https://doi.org/10.1109/TVLSI.2024.3377130"
   },
   {
-    "subject": "Digital Object Identifier",
+    "subject": "DIGITAL OBJECT IDENTIFIER",
     "predicate": "is",
     "object": "10.1109TVLSI.2024.3377130"
   },
   {
-    "subject": "the development of Linux",
+    "subject": "The development of Linux",
     "predicate": "is focused on",
     "object": "average performance"
   },
@@ -510,32 +575,32 @@
     "object": "real-time applications"
   },
   {
-    "subject": "extensions and modifications",
+    "subject": "Extensions and modifications",
     "predicate": "aim at",
     "object": "improving determinism and latencies of critical operations in Linux"
   },
   {
-    "subject": "extensions and modifications",
+    "subject": "Extensions and modifications",
     "predicate": "have been",
     "object": "proposed and implemented"
   },
   {
-    "subject": "extensions and modifications",
+    "subject": "Extensions and modifications",
     "predicate": "do not guarantee",
     "object": "strict bounds on maximum latencies of operations"
   },
   {
-    "subject": "extensions and modifications",
+    "subject": "Extensions and modifications",
     "predicate": "lack",
     "object": "industry-grade maturity to be employed in hard real-time scenarios"
   },
   {
-    "subject": "Real-time operating systems (RTOSs) kernels",
+    "subject": "REAL-TIME OPERATING SYSTEMS (RTOSS) KERNELS",
     "predicate": "are",
-    "object": "special-purpose operating systems (OSs)"
+    "object": "special-purpose operating systems (OSS)"
   },
   {
-    "subject": "Real-time operating systems (RTOSs) kernels",
+    "subject": "REAL-TIME OPERATING SYSTEMS (RTOSS) KERNELS",
     "predicate": "are designed to provide",
     "object": "real-time guarantees"
   },
@@ -550,14 +615,34 @@
     "object": "deterministic latencies of various operations"
   },
   {
-    "subject": "A. Stankovic",
+    "subject": "A. STANKOVIC",
     "predicate": "authored",
-    "object": "Scheduling algorithms and operating systems support for real-time systems"
+    "object": "SCHEDULING ALGORITHMS AND OPERATING SYSTEMS SUPPORT FOR REAL-TIME SYSTEMS"
   },
   {
-    "subject": "Scheduling algorithms and operating systems support for real-time systems",
+    "subject": "SCHEDULING ALGORITHMS AND OPERATING SYSTEMS SUPPORT FOR REAL-TIME SYSTEMS",
     "predicate": "published in",
-    "object": "Proc."
+    "object": "PROC."
+  },
+  {
+    "subject": "The RTOS scheduler",
+    "predicate": "might add",
+    "object": "a significant overhead"
+  },
+  {
+    "subject": "The significant overhead",
+    "predicate": "is due to",
+    "object": "the combined effect of both the context switches required to handle the transition from a foreground to a background task and the amount of time elapsed from the source event that causes the preemption and the first instruction of the awakened task"
+  },
+  {
+    "subject": "The amount of time elapsed from the source event that causes the preemption and the first instruction of the awakened task",
+    "predicate": "is known as",
+    "object": "interrupt latency"
+  },
+  {
+    "subject": "The significant overhead",
+    "predicate": "thus increases",
+    "object": "the worst case execution time (WCET)"
   },
   {
     "subject": "The cost of saving and restoring the task state during a context switch",
@@ -570,14 +655,14 @@
     "object": "relatively high"
   },
   {
-    "subject": "Long context switch times",
+    "subject": "LONG CONTEXT SWITCH TIMES",
     "predicate": "reduce",
-    "object": "available task utilization"
+    "object": "AVAILABLE TASK UTILIZATION"
   },
   {
-    "subject": "Long context switch times",
+    "subject": "LONG CONTEXT SWITCH TIMES",
     "predicate": "reduce",
-    "object": "the minimum viable switching granularity"
+    "object": "THE MINIMUM VIABLE SWITCHING GRANULARITY"
   },
   {
     "subject": "process state",
@@ -592,7 +677,7 @@
   {
     "subject": "process state",
     "predicate": "includes",
-    "object": "register files (RF)s"
+    "object": "register files (RFs)"
   },
   {
     "subject": "process state",
@@ -605,19 +690,19 @@
     "object": "address space mapping"
   },
   {
-    "subject": "a significant number of memory access operations",
-    "predicate": "need to be performed to",
-    "object": "store the state of the preempted task"
+    "subject": "A significant number of memory access operations",
+    "predicate": "need to be performed",
+    "object": "to store the state of the preempted task"
   },
   {
-    "subject": "a significant number of memory access operations",
-    "predicate": "need to be performed to",
-    "object": "restore the state of the new task to be executed"
+    "subject": "A significant number of memory access operations",
+    "predicate": "need to be performed",
+    "object": "to restore the state of the new task to be executed"
   },
   {
-    "subject": "network loads",
-    "predicate": "impact",
-    "object": "interrupt latency in time-critical microcontroller units (MCUs)"
+    "subject": "a switch into an interrupt context from normal program execution",
+    "predicate": "happens each time",
+    "object": "an asynchronous event is triggered from an IO peripheral device"
   },
   {
     "subject": "high overhead generated by the receiving of packets",
@@ -630,13 +715,13 @@
     "object": "short transmission bursts"
   },
   {
-    "subject": "interrupt latency",
+    "subject": "high overhead generated by the receiving of packets",
     "predicate": "reaches up to",
     "object": "50 task lateness"
   },
   {
     "subject": "task lateness",
-    "predicate": "is defined as",
+    "predicate": "is",
     "object": "the additional time a task takes to finish than its deadline allows"
   },
   {
@@ -647,16 +732,21 @@
   {
     "subject": "HW-induced interrupt latency",
     "predicate": "is",
-    "object": "one part of the problem"
+    "object": "only one part of the problem"
   },
   {
-    "subject": "Interrupt latency",
-    "predicate": "breaks down into",
+    "subject": "SW-induced interrupt latency",
+    "predicate": "is",
+    "object": "part of the problem"
+  },
+  {
+    "subject": "INTERRUPT LATENCY",
+    "predicate": "is broken down into",
     "object": "SW-dependent contributions"
   },
   {
-    "subject": "Interrupt latency",
-    "predicate": "breaks down into",
+    "subject": "INTERRUPT LATENCY",
+    "predicate": "is broken down into",
     "object": "HW-dependent contributions"
   },
   {
@@ -665,39 +755,39 @@
     "object": "permitted"
   },
   {
-    "subject": "republicationredistribution",
+    "subject": "Republication redistribution",
     "predicate": "requires",
     "object": "IEEE permission"
   },
   {
-    "subject": "Authorized licensed use",
+    "subject": "AUTHORIZED LICENSED USE",
     "predicate": "is limited to",
-    "object": "California Polytechnic State University San Luis Obispo"
+    "object": "CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO"
+  },
+  {
+    "subject": "THE CLIC DESIGN",
+    "predicate": "proposed in authorized licensed use limited to",
+    "object": "CALIFORNIA POLYTECHNIC STATE UNIVERSITY SAN LUIS OBISPO"
   },
   {
     "subject": "interrupt state",
     "predicate": "gets pushed",
-    "object": "unknown (implied process)"
+    "object": "this"
   },
   {
     "subject": "The latter",
     "predicate": "reduces",
-    "object": "the execution time of the Authorized licensed use limited to California Polytechnic State University San Luis Obispo"
+    "object": "the execution time of the authorized licensed use limited to California Polytechnic State University San Luis Obispo"
   },
   {
-    "subject": "Document",
+    "subject": "document",
     "predicate": "was downloaded on",
     "object": "May 28, 2025 at 17:50:39 UTC"
   },
   {
-    "subject": "Document",
+    "subject": "document",
     "predicate": "was downloaded from",
     "object": "IEEE Xplore"
-  },
-  {
-    "subject": "GPOSRTOS scheduler and the user code",
-    "predicate": "primarily impacts",
-    "object": "the capability of the system to provide timely responses to asynchronous events"
   },
   {
     "subject": "CV32RT",
@@ -705,84 +795,89 @@
     "object": "fast interrupt and context switching"
   },
   {
+    "subject": "fast interrupt and context switching",
+    "predicate": "is introduced by",
+    "object": "the GPOSRTOS scheduler and the user code"
+  },
+  {
+    "subject": "fast interrupt and context switching",
+    "predicate": "primarily impacts",
+    "object": "the capability of the system to provide timely responses to asynchronous events"
+  },
+  {
     "subject": "Table I",
     "predicate": "describes",
     "object": "nested interrupt preemption scheme according to RISC-V CLIC"
   },
   {
-    "subject": "CV32RTfastirq",
+    "subject": "CV32RTFASTIRQ",
     "predicate": "optimizes",
     "object": "interrupt latency in the non-nested interrupt case"
   },
   {
-    "subject": "CV32RTfastirq",
+    "subject": "CV32RTFASTIRQ",
     "predicate": "optimizes",
     "object": "interrupt latency in the nested interrupt case"
   },
   {
-    "subject": "CV32RTfastirq",
+    "subject": "CV32RTFASTIRQ",
     "predicate": "combines",
-    "object": "bank switching in the non-nested interrupt case"
+    "object": "bank switching and the nested interrupt case with an automatic context-saving mechanism in the background"
   },
   {
-    "subject": "CV32RTfastirq",
-    "predicate": "uses",
-    "object": "an automatic context-saving mechanism in the background for the nested interrupt case"
+    "subject": "CV32RTFASTIRQ",
+    "predicate": "is",
+    "object": "FAST INTERRUPT EXTENSION"
   },
   {
-    "subject": "CV32RTfastirq",
-    "predicate": "has feature",
-    "object": "Fast Interrupt Extension"
+    "subject": "CV32RTFASTIRQ",
+    "predicate": "has",
+    "object": "automatic hardware context saving and bank switching"
   },
   {
-    "subject": "Fast Interrupt Extension",
-    "predicate": "includes",
-    "object": "Automatic Hardware Context Saving and Bank Switching"
-  },
-  {
-    "subject": "A block diagram",
+    "subject": "block diagram",
     "predicate": "of",
-    "object": "CV32RTfastirq"
-  },
-  {
-    "subject": "A block diagram of CV32RTfastirq",
-    "predicate": "is shown in",
-    "object": "Fig."
+    "object": "CV32RTFASTIRQ"
   },
   {
     "subject": "pointer",
-    "predicate": "is adjusted",
+    "predicate": "is set",
     "object": "appropriately before triggering an SW interrupt"
   },
   {
     "subject": "SW interrupt",
     "predicate": "is triggered by",
-    "object": "write to CLICs memory map"
+    "object": "write to CLICS memory map"
   },
   {
-    "subject": "instruction in machine mode (emret)",
+    "subject": "CV32RT",
+    "predicate": "enables",
+    "object": "fast interrupt and context switching 1043 instruction in machine mode (i.e., EMRET)"
+  },
+  {
+    "subject": "EMRET",
     "predicate": "is able to",
     "object": "skip redundant context saving and restoring sequences"
   },
   {
-    "subject": "instruction in machine mode (emret)",
-    "predicate": "enables",
-    "object": "fast interrupt and context switching"
-  },
-  {
-    "subject": "instruction in machine mode (emret)",
-    "predicate": "does this by",
+    "subject": "EMRET",
+    "predicate": "achieves this by",
     "object": "directly jumping to the next available interrupt handler"
   },
   {
     "subject": "Low interrupt latency and context switch time",
     "predicate": "are",
-    "object": "crucial metrics for a wide range of platforms"
+    "object": "crucial metrics"
+  },
+  {
+    "subject": "Crucial metrics",
+    "predicate": "apply to",
+    "object": "a wide range of platforms"
   },
   {
     "subject": "Platforms",
     "predicate": "range from",
-    "object": "commodity MCU-class embedded systems to more advanced and complex application-class mixed criticality systems (MCSs)"
+    "object": "commodity MCU-class embedded systems to more advanced and complex application-class mixed criticality systems (MCSS)"
   },
   {
     "subject": "Timesafety-critical and non-critical applications",
@@ -790,7 +885,7 @@
     "object": "different isolated partitions of the same HW platform"
   },
   {
-    "subject": "Response and context switch time minimization",
+    "subject": "response and context switch time minimization",
     "predicate": "become",
     "object": "a challenge to be tackled at the HWSW interface"
   },
@@ -811,8 +906,8 @@
   },
   {
     "subject": "such features as in-house solutions",
-    "predicate": "are tightly coupled with",
-    "object": "the vendors instruction set architecture (ISA), target HW family, and associated SW stack"
+    "predicate": "are",
+    "object": "tightly coupled with the vendors instruction set architecture (ISA), target HW family, and associated SW stack"
   },
   {
     "subject": "RISC-V ecosystem",
@@ -823,16 +918,6 @@
     "subject": "RISC-V ecosystem",
     "predicate": "is becoming",
     "object": "the de facto lingua franca of computing"
-  },
-  {
-    "subject": "RISC-V ecosystem",
-    "predicate": "is",
-    "object": "ever-growing"
-  },
-  {
-    "subject": "time period",
-    "predicate": "is",
-    "object": "the last decade"
   },
   {
     "subject": "RISC-V support for fast interrupt and context switch handling",
@@ -855,49 +940,24 @@
     "object": "low interrupt latency"
   },
   {
-    "subject": "modular RISC-V ISA",
-    "predicate": "enables",
-    "object": "developing orthogonal custom extensions"
-  },
-  {
-    "subject": "few published works",
-    "predicate": "tackle",
-    "object": "the problem of minimizing interrupt latency and context switch time from a holistic (HW and SW) viewpoint for RISC-V"
-  },
-  {
-    "subject": "few published works",
-    "predicate": "try to close",
-    "object": "the gap with more established proprietary solutions"
-  },
-  {
-    "subject": "closing the gap with more established proprietary solutions",
-    "predicate": "promotes",
-    "object": "RISC-V as a valuable candidate for time- and safety-critical application domains such as automotive and aerospace"
-  },
-  {
-    "subject": "few published works",
-    "predicate": "provide",
-    "object": "an open-source solution to be shared with the community"
-  },
-  {
-    "subject": "RISC-V core-specific interrupt controllers",
-    "predicate": "have",
-    "object": "various flavors"
-  },
-  {
-    "subject": "interrupt controllers",
+    "subject": "interrupt handlers",
     "predicate": "support",
     "object": "nesting"
   },
   {
-    "subject": "interrupt controllers",
+    "subject": "interrupt handlers",
     "predicate": "support",
     "object": "calling of C-functions within it"
   },
   {
-    "subject": "calling of C-functions within interrupt controllers",
+    "subject": "calling of C-functions within interrupt handlers",
     "predicate": "involves",
     "object": "saving and restoring state following the C-ABI"
+  },
+  {
+    "subject": "various flavors of RISC-V core-specific interrupt controllers",
+    "predicate": "have",
+    "object": "interrupt latency"
   },
   {
     "subject": "our design",
@@ -932,20 +992,20 @@
   {
     "subject": "We",
     "predicate": "design",
-    "object": "a fast interrupt extension (fastirq)"
+    "object": "a fast interrupt extension (FASTIRQ)"
   },
   {
-    "subject": "fast interrupt extension (fastirq)",
+    "subject": "FASTIRQ",
     "predicate": "accelerates",
     "object": "both nested and non-nested interrupt case scenarios"
   },
   {
-    "subject": "fastirq",
+    "subject": "FASTIRQ",
     "predicate": "reduces",
     "object": "interrupt latency"
   },
   {
-    "subject": "fastirq",
+    "subject": "FASTIRQ",
     "predicate": "reduces interrupt latency by",
     "object": "hiding the latency through memory banks and a background-saving mechanism"
   },
@@ -960,94 +1020,59 @@
     "object": "about 33 cycles interrupt latency"
   },
   {
-    "subject": "fastirq extension",
-    "predicate": "is able to reduce",
-    "object": "interrupt latency down to six cycles"
+    "subject": "FASTIRQ extension",
+    "predicate": "is able to reduce interrupt latency to",
+    "object": "six cycles"
   },
   {
-    "subject": "The same mechanism",
+    "subject": "THE SAME MECHANISM",
     "predicate": "allows",
     "object": "one to accelerate context switching through HWSW cooperation"
   },
   {
-    "subject": "early mret (emret)",
+    "subject": "We",
+    "predicate": "propose",
+    "object": "Early MRET (EMRET)"
+  },
+  {
+    "subject": "Early MRET (EMRET)",
     "predicate": "is",
     "object": "a novel instruction"
   },
   {
-    "subject": "early mret (emret)",
+    "subject": "Early MRET (EMRET)",
     "predicate": "optimizes",
     "object": "tail-chaining"
   },
   {
-    "subject": "early mret (emret)",
+    "subject": "Early MRET (EMRET)",
     "predicate": "optimizes tail-chaining compared to",
-    "object": "the baseline strategy proposed in the CLIC standard (xnxti)"
+    "object": "the baseline strategy proposed in the CLIC standard (i.e., XNXTI)"
   },
   {
-    "subject": "early mret (emret)",
+    "subject": "Early MRET (EMRET)",
     "predicate": "optimizes tail-chaining compared to",
-    "object": "its enhancement from 18 (jalxnxti)"
+    "object": "its enhancement from 18 (JALXNXTI)"
   },
   {
-    "subject": "we",
+    "subject": "We",
     "predicate": "compare",
     "object": "CV32RT with leading COTS systems in both nested and non-nested interrupt scenarios"
   },
   {
-    "subject": "the proposed solution",
-    "predicate": "promotes",
-    "object": "RISC-V"
+    "subject": "THE PROPOSED SOLUTION",
+    "predicate": "PROMOTES",
+    "object": "RISC-V AS A COMPETITIVE CANDIDATE FOR BUILDING THE NEXT GENERATION OF TIME-CRITICAL SYSTEMS"
   },
   {
-    "subject": "RISC-V",
-    "predicate": "is",
-    "object": "a competitive candidate for building the next generation of time-critical systems"
-  },
-  {
-    "subject": "This core",
+    "subject": "THIS CORE",
     "predicate": "is embedded in",
-    "object": "ControlPULP 19"
+    "object": "CONTROLPULP 19"
   },
   {
-    "subject": "ControlPULP 19",
+    "subject": "CONTROLPULP 19",
     "predicate": "is",
     "object": "a SoC specialized in running real-time workloads"
-  },
-  {
-    "subject": "The system",
-    "predicate": "contains",
-    "object": "a CV32 manager core"
-  },
-  {
-    "subject": "The system",
-    "predicate": "contains",
-    "object": "a programmable accelerator subsystem"
-  },
-  {
-    "subject": "a programmable accelerator subsystem",
-    "predicate": "consists of",
-    "object": "eight CV32 cores"
-  },
-  {
-    "subject": "The system",
-    "predicate": "contains",
-    "object": "a set of standard peripherals"
-  },
-  {
-    "subject": "a set of standard peripherals",
-    "predicate": "includes",
-    "object": "quad serial peripheral interface (QSPI)"
-  },
-  {
-    "subject": "a set of standard peripherals",
-    "predicate": "includes",
-    "object": "inter-integrated circuit (I2C)"
-  },
-  {
-    "subject": "a set of standard peripherals",
-    "predicate": "includes",
-    "object": "universal asynchronous receiver-transmitter (UART)"
   },
   {
     "subject": "The manager core",
@@ -1075,7 +1100,7 @@
     "object": "interrupts"
   },
   {
-    "subject": "ControlPULP",
+    "subject": "CONTROLPULP",
     "predicate": "hosts",
     "object": "a set of scratchpad memories (SPMs)"
   },
@@ -1085,12 +1110,12 @@
     "object": "single-cycle access time from the CV32 manager core"
   },
   {
-    "subject": "This design choice",
+    "subject": "this design choice",
     "predicate": "enables",
     "object": "deterministic memory access latency for both data load, store, and instruction fetch"
   },
   {
-    "subject": "This design choice",
+    "subject": "this design choice",
     "predicate": "bounds",
     "object": "the worst case latency when handling unpredictable events"
   },
@@ -1110,9 +1135,34 @@
     "object": "the manager core"
   },
   {
-    "subject": "tasks",
+    "subject": "Tasks",
     "predicate": "are scheduled and run from",
     "object": "the manager core"
+  },
+  {
+    "subject": "interrupt sources",
+    "predicate": "can signal",
+    "object": "interrupts"
+  },
+  {
+    "subject": "interrupt sources",
+    "predicate": "signal interrupts through",
+    "object": "a level change of the interrupt line"
+  },
+  {
+    "subject": "a level change of the interrupt line",
+    "predicate": "is called",
+    "object": "an edge-triggered interrupt"
+  },
+  {
+    "subject": "interrupt sources",
+    "predicate": "signal interrupts through",
+    "object": "the logic level itself"
+  },
+  {
+    "subject": "the logic level itself",
+    "predicate": "is called",
+    "object": "a level-triggered interrupt"
   },
   {
     "subject": "nested interrupts",
@@ -1135,16 +1185,6 @@
     "object": "unidirectional notification without confirmation"
   },
   {
-    "subject": "the worst case interrupt latency",
-    "predicate": "increases by",
-    "object": "the time they remain disabled"
-  },
-  {
-    "subject": "execution of the interrupt handler before all interrupt state has been pushed to memory",
-    "predicate": "lowers",
-    "object": "interrupt latency"
-  },
-  {
     "subject": "Interrupts",
     "predicate": "are",
     "object": "asynchronous events"
@@ -1165,67 +1205,67 @@
     "object": "vectored interrupts"
   },
   {
-    "subject": "each interrupt",
+    "subject": "Each interrupt",
     "predicate": "traps to",
     "object": "a specific interrupt service routine (ISR)"
   },
   {
-    "subject": "each interrupt",
-    "predicate": "traps according to",
+    "subject": "Trapping to a specific ISR",
+    "predicate": "is according to",
     "object": "an interrupt vector table"
   },
   {
-    "subject": "vectored interrupts",
+    "subject": "Vectored interrupts",
     "predicate": "grant",
     "object": "fast interrupt response"
   },
   {
-    "subject": "fast interrupt response",
-    "predicate": "comes at the cost of",
+    "subject": "Vectored interrupts",
+    "predicate": "have",
     "object": "increased code size"
   },
   {
     "subject": "interrupt vectoring",
-    "predicate": "is supported to",
-    "object": "improve interrupt latencies"
+    "predicate": "is supported",
+    "object": "to improve interrupt latencies"
   },
   {
-    "subject": "non-vectored or direct interrupts",
+    "subject": "NON-VECTORED OR DIRECT INTERRUPTS",
     "predicate": "trap to",
-    "object": "a shared ISR"
+    "object": "a SHARED ISR"
   },
   {
-    "subject": "The latter approach",
+    "subject": "THE LATTER APPROACH",
     "predicate": "trades off",
     "object": "code size for a slower interrupt response"
   },
   {
-    "subject": "The overhead of resolving the interruption cause and jumping to the correct ISR",
+    "subject": "the overhead of resolving the interruption cause and jumping to the correct ISR",
     "predicate": "are handled in",
     "object": "explicit instructions"
   },
   {
-    "subject": "The interrupt table",
+    "subject": "the interrupt table",
     "predicate": "can be made",
     "object": "much more compact"
   },
   {
-    "subject": "Multiple sources",
+    "subject": "multiple sources",
     "predicate": "determine",
-    "object": "the interrupt latency in a system"
+    "object": "interrupt latency in a system"
   },
   {
-    "subject": "the underlying HW",
+    "subject": "underlying HW",
     "predicate": "is a source of",
     "object": "interrupt latency"
   },
   {
-    "subject": "the scheduler or OS",
+    "subject": "scheduler or OS",
     "predicate": "is a source of",
     "object": "interrupt latency"
   },
   {
-    "subject": "the application running on top",
+    "subject": "application running on top",
     "predicate": "is a source of",
     "object": "interrupt latency"
   },
@@ -1240,29 +1280,14 @@
     "object": "its HW-contributed part"
   },
   {
-    "subject": "The latter",
+    "subject": "THE LATTER",
     "predicate": "consists of",
     "object": "restoring the interrupt context and the regular interrupt latency"
   },
   {
-    "subject": "This breakdown",
-    "predicate": "is detailed in",
-    "object": "Fig."
-  },
-  {
     "subject": "Interrupt latency",
     "predicate": "is defined as",
-    "object": "the time it takes from an interrupt edge arriving at the HW to the execution of the first instruction of the corresponding interrupt handler routine"
-  },
-  {
-    "subject": "interrupt edge",
-    "predicate": "arrives at",
-    "object": "the HW"
-  },
-  {
-    "subject": "HW",
-    "predicate": "is usually",
-    "object": "the interrupt controller"
+    "object": "the time it takes from an interrupt edge arriving at the HW, usually the interrupt controller, to the execution of the first instruction of the corresponding interrupt handler routine"
   },
   {
     "subject": "interrupt latency",
@@ -1270,44 +1295,34 @@
     "object": "the number of cycles it takes for an interrupt to arrive at the interrupt controller input to the first instruction of an interrupt handler that allows the calling of a C-function"
   },
   {
-    "subject": "To make a fair comparison between SW-based and more HW-oriented interrupt solutions",
-    "predicate": "we have to delineate",
+    "subject": "we",
+    "predicate": "have to delineate",
     "object": "what exactly constitutes the first instruction of the interrupt handler"
   },
   {
-    "subject": "Each HW configuration",
+    "subject": "each HW configuration",
     "predicate": "has",
     "object": "a handwritten optimized interrupt handler"
   },
   {
-    "subject": "a handwritten optimized interrupt handler",
+    "subject": "handwritten optimized interrupt handler",
     "predicate": "stores",
     "object": "all required general-purpose and machine-specific registers for nesting interrupts"
   },
   {
     "subject": "the first instruction",
-    "predicate": "is counted as",
+    "predicate": "is",
     "object": "the one after all necessary interrupt context has been saved on the stack to be able to call a function"
-  },
-  {
-    "subject": "what exactly entails a function call",
-    "predicate": "is dictated by",
-    "object": "the used application binary interface (ABI)"
-  },
-  {
-    "subject": "what exactly entails a function call",
-    "predicate": "is dictated by",
-    "object": "its calling convention"
   },
   {
     "subject": "interrupt handler and interrupt context saving code",
     "predicate": "can be interleaved",
-    "object": ""
+    "object": "true"
   },
   {
     "subject": "some of the context saving code",
     "predicate": "can be removed",
-    "object": ""
+    "object": "true"
   },
   {
     "subject": "some of the context saving code",
@@ -1315,39 +1330,39 @@
     "object": "redundant"
   },
   {
-    "subject": "The active interrupt handlers context",
-    "predicate": "must be restored on",
-    "object": "interrupt return"
+    "subject": "THE ACTIVE INTERRUPT HANDLERS CONTEXT",
+    "predicate": "MUST BE RESTORED ON",
+    "object": "INTERRUPT RETURN"
   },
   {
-    "subject": "The active interrupt handlers context",
-    "predicate": "is immediately saved again due to",
-    "object": "the next pending interrupt firing"
+    "subject": "THE ACTIVE INTERRUPT HANDLERS CONTEXT",
+    "predicate": "IS IMMEDIATELY SAVED AGAIN DUE TO",
+    "object": "THE NEXT PENDING INTERRUPT FIRING"
   },
   {
-    "subject": "Restoring the pre-interrupt context",
+    "subject": "restoring the pre-interrupt context",
     "predicate": "is handled in",
     "object": "SW for the nested interrupt case"
   },
   {
-    "subject": "Context Switching Time",
+    "subject": "context switching time",
     "predicate": "determines",
     "object": "the responsiveness of the architecture in swapping from one execution context to another"
   },
   {
-    "subject": "The execution context",
-    "predicate": "is dependent on",
-    "object": "the OS being used"
-  },
-  {
-    "subject": "The execution context",
-    "predicate": "usually consists of",
-    "object": "the state of the architectural registers of the ISA and the chosen ABI"
-  },
-  {
     "subject": "Preemption",
     "predicate": "refers to",
-    "object": "an event such as an interrupt request temporarily interrupting a current task with the purpose of resuming its execution later"
+    "object": "an event such as an interrupt request"
+  },
+  {
+    "subject": "An interrupt request",
+    "predicate": "temporarily interrupts",
+    "object": "a current task"
+  },
+  {
+    "subject": "The purpose of preemption",
+    "predicate": "is",
+    "object": "resuming its execution later"
   },
   {
     "subject": "The simplest case for preemption",
@@ -1355,9 +1370,9 @@
     "object": "non-nested interrupt handlers"
   },
   {
-    "subject": "interrupts",
-    "predicate": "are disabled",
-    "object": "globally during the execution of an ISR"
+    "subject": "Interrupts",
+    "predicate": "are globally disabled during",
+    "object": "the execution of an ISR"
   },
   {
     "subject": "A more complex case for preemption",
@@ -1365,72 +1380,67 @@
     "object": "nested interrupt handlers"
   },
   {
-    "subject": "nested interrupt handlers",
+    "subject": "Nested interrupt handlers",
     "predicate": "handle",
     "object": "the case of multiple interrupts at a time"
   },
   {
-    "subject": "This situation",
+    "subject": "THIS SITUATION",
     "predicate": "does not result in",
-    "object": "preemption"
+    "object": "PREEMPTION"
   },
   {
-    "subject": "This situation",
+    "subject": "THIS SITUATION",
     "predicate": "causes",
-    "object": "pending interrupts to be serviced in sequence according to increasing priority"
+    "object": "PENDING INTERRUPTS TO BE SERVICED IN SEQUENCE ACCORDING TO INCREASING PRIORITY"
   },
   {
-    "subject": "levelpriority arbitration",
+    "subject": "LEVELPRIORITY arbitration",
     "predicate": "is",
     "object": "SW-driven"
   },
   {
-    "subject": "levelpriority arbitration",
-    "predicate": "is driven by",
+    "subject": "SW-driven LEVELPRIORITY arbitration",
+    "predicate": "uses",
     "object": "priority simplestandard interrupt handlers"
   },
   {
     "subject": "highest priority interrupt identification code",
-    "predicate": "is",
-    "object": "not executed"
+    "predicate": "is not executed",
+    "object": null
   },
   {
-    "subject": "levelpriority arbitration logic",
+    "subject": "LEVELPRIORITY arbitration logic",
     "predicate": "is designed within",
     "object": "interrupt controller"
   },
   {
-    "subject": "highest levelpriority interrupt",
+    "subject": "highest LEVELPRIORITY interrupt",
     "predicate": "is",
     "object": "pending but disabled"
   },
   {
-    "subject": "highest levelpriority interrupt",
+    "subject": "highest LEVELPRIORITY interrupt",
     "predicate": "is not propagated to",
     "object": "core"
   },
   {
-    "subject": "levelpriority interrupt scheme",
-    "predicate": "can be",
-    "object": "SW or HW driven"
-  },
-  {
-    "subject": "levelpriority interrupt scheme",
+    "subject": "A levelpriority interrupt scheme",
     "predicate": "introduces",
-    "object": "additional masking of incoming interrupts"
+    "object": "additional masking of incoming interrupts of equal or lower levelpriority than the executing ISR"
   },
   {
-    "subject": "additional masking",
-    "predicate": "applies to",
-    "object": "incoming interrupts of equal or lower levelpriority than the executing ISR"
+    "subject": "A levelpriority interrupt scheme",
+    "predicate": "introduces",
+    "object": "additional masking of incoming interrupts sometimes larger than a configurable levelpriority threshold"
   },
   {
-    "subject": "additional masking",
-    "predicate": "sometimes applies to",
-    "object": "incoming interrupts larger than a configurable levelpriority threshold"
+    "subject": "A levelpriority interrupt scheme",
+    "predicate": "can be",
+    "object": "either software or hardware driven"
   },
   {
-    "subject": "This scenario",
+    "subject": "this scenario",
     "predicate": "is not ideal for",
     "object": "real-time and complex embedded systems"
   },
@@ -1440,19 +1450,9 @@
     "object": "sequentially"
   },
   {
-    "subject": "attempts to handle a more complex interrupt scheme",
-    "predicate": "would require",
-    "object": "SW emulation"
-  },
-  {
-    "subject": "SW emulation",
-    "predicate": "incurs",
-    "object": "untenable interrupt latencies"
-  },
-  {
-    "subject": "A high-priority interrupt",
+    "subject": "A HIGH-PRIORITY INTERRUPT",
     "predicate": "has to wait for",
-    "object": "a lower-priority interrupt to finish"
+    "object": "A LOWER-PRIORITY INTERRUPT TO FINISH"
   },
   {
     "subject": "interrupts",
@@ -1462,35 +1462,30 @@
   {
     "subject": "interrupt handler",
     "predicate": "is entered",
-    "object": "whenever"
+    "object": "global interrupts are disabled"
   },
   {
-    "subject": "global interrupts",
-    "predicate": "are",
-    "object": "disabled"
-  },
-  {
-    "subject": "The ISR",
+    "subject": "ISR",
     "predicate": "need to be",
-    "object": "designed to ensure they are reentrant"
+    "object": "carefully designed"
   },
   {
-    "subject": "The nesting",
+    "subject": "ISR",
+    "predicate": "are designed to ensure",
+    "object": "they are reentrant"
+  },
+  {
+    "subject": "THE NESTING",
     "predicate": "allows",
     "object": "higher priority interrupts to preempt a current lower priority ISR executing"
   },
   {
-    "subject": "Redundant Interrupt Context",
-    "predicate": "is",
-    "object": "back-to-back interrupts"
+    "subject": "Back-to-back interrupts",
+    "predicate": "are",
+    "object": "interrupts that need to be served sequentially"
   },
   {
-    "subject": "back-to-back interrupts",
-    "predicate": "need to be",
-    "object": "served sequentially"
-  },
-  {
-    "subject": "back-to-back interrupts",
+    "subject": "Back-to-back interrupts",
     "predicate": "can happen",
     "object": "whenever there are multiple interrupts pending"
   },
@@ -1500,72 +1495,57 @@
     "object": "a redundant sequence of context restores and context saves"
   },
   {
-    "subject": "redundant context restore sequences",
+    "subject": "Redundant context restore sequences",
     "predicate": "negatively impact",
     "object": "interrupt latency on higher interrupt loads"
   },
   {
-    "subject": "redundant context restore",
+    "subject": "Redundant context restore with non-nested or nested horizontal interrupts",
     "predicate": "can introduce",
     "object": "unwanted additional interrupt latency"
   },
   {
-    "subject": "redundant context restore",
-    "predicate": "occurs with",
-    "object": "non-nested or nested horizontal interrupts"
+    "subject": "REDUNDANT CONTEXT RESTORE",
+    "predicate": "applies to",
+    "object": "TWO NON-PREEMPTIVE INTERRUPTS"
   },
   {
-    "subject": "Redundant context restore",
-    "predicate": "occurs for",
-    "object": "two non-preemptive interrupts"
-  },
-  {
-    "subject": "two non-preemptive interrupts",
+    "subject": "TWO NON-PREEMPTIVE INTERRUPTS",
     "predicate": "example",
-    "object": "two interrupts with same level but different priorities"
+    "object": "TWO INTERRUPTS WITH SAME LEVEL BUT DIFFERENT PRIORITIES"
   },
   {
-    "subject": "tail-chaining",
-    "predicate": "is used to",
-    "object": "optimize redundant context restore"
+    "subject": "TAIL-CHAINING",
+    "predicate": "used to",
+    "object": "OPTIMIZE IT"
   },
   {
-    "subject": "interrupt context restore and store sequence",
+    "subject": "interrupt context restore and store sequence between back-to-back interrupts",
     "predicate": "can be considered",
     "object": "redundant"
   },
   {
-    "subject": "interrupt context restore and store sequence",
-    "predicate": "occurs",
-    "object": "between back-to-back interrupts"
-  },
-  {
-    "subject": "Redundant Context Restoring",
-    "predicate": "is described in",
-    "object": "Section II-B"
-  },
-  {
-    "subject": "the redundant context restoring sequences",
+    "subject": "REDUNDANT CONTEXT RESTORING SEQUENCES",
     "predicate": "contains",
-    "object": "the full interrupt exit code sequence"
+    "object": "FULL INTERRUPT EXIT CODE SEQUENCE"
   },
   {
     "subject": "Redundant context restore with non-nested interrupts",
     "predicate": "is addressed by",
-    "object": "chaining two back-to-back interrupts and bypassing the superfluous restoresave operation"
+    "object": "chaining two back-to-back interrupts and bypassing the superfluous restore-save operation"
   },
   {
-    "subject": "Section III-D",
+    "subject": "SECTION III-D",
     "predicate": "explores",
     "object": "the optimizations implemented in this work to address this scenario"
   },
   {
-    "subject": "privileged specification 14",
+    "subject": "The privileged specification 14",
     "predicate": "defines",
     "object": "a simple interrupt scheme with a set of timer and inter-processor interrupts"
   },
   {
-    "subject": "privileged specification 14",
+    "subject": "The simple interrupt scheme",
     "predicate": "is in",
     "object": "the RISC-V ecosystem"
   },
@@ -1580,19 +1560,9 @@
     "object": "a CSR"
   },
   {
-    "subject": "pending and enabled interrupts",
-    "predicate": "are masked",
-    "object": "selectively"
-  },
-  {
-    "subject": "masking of interrupts",
-    "predicate": "is compared to",
-    "object": "standard RISC-V privileged specifications"
-  },
-  {
-    "subject": "RISC-V",
-    "predicate": "has",
-    "object": "Platform-Level Interrupt Controller Specification"
+    "subject": "32-bit cores",
+    "predicate": "define",
+    "object": "a fixed priority interrupt scheme"
   },
   {
     "subject": "fixed priority interrupt scheme",
@@ -1605,112 +1575,92 @@
     "object": "16 implementation-defined interrupts"
   },
   {
-    "subject": "interrupts",
+    "subject": "16 predefined or reserved interrupts and 16 implementation-defined interrupts",
     "predicate": "can be",
     "object": "optionally vectored"
   },
   {
-    "subject": "cores",
-    "predicate": "are",
-    "object": "32-bit"
-  },
-  {
-    "subject": "The CLINT",
+    "subject": "THE CLINT ITSELF",
     "predicate": "supports",
     "object": "prioritization of interrupts based on privilege mode"
   },
   {
-    "subject": "CLINT-mode",
+    "subject": "CLINT-MODE",
     "predicate": "has",
     "object": "inflexible interrupt scheme"
   },
   {
-    "subject": "much more work",
-    "predicate": "needs to be done in",
-    "object": "managing interrupt mask (SOMEIRQMASK) and other machine state"
+    "subject": "inflexible interrupt scheme of the CLINT-MODE",
+    "predicate": "causes",
+    "object": "much more work to be done in managing interrupt mask (SOMEIRQMASK) and other machine state"
   },
   {
     "subject": "interrupts with lower priority than the current interrupt running",
     "predicate": "can fire",
-    "object": "when global interrupts are re-enabled"
+    "object": "in CLINT-mode when global interrupts are re-enabled"
   },
   {
-    "subject": "interrupts with lower priority than the current interrupt running",
-    "predicate": "occur in",
-    "object": "CLINT-mode"
-  },
-  {
-    "subject": "CLINT",
+    "subject": "the Clint",
     "predicate": "lacks",
-    "object": "fine-grained control over interrupt prioritization for the embedded use cases"
+    "object": "fine-grained control over interrupt prioritization"
   },
   {
     "subject": "PLIC 22",
     "predicate": "can be attached to",
-    "object": "CLINT"
+    "object": "the CLINT"
   },
   {
     "subject": "PLIC 22",
     "predicate": "increases",
-    "object": "number of custom interrupts"
+    "object": "the number of custom interrupts"
   },
   {
-    "subject": "interrupt request IRQ2",
-    "predicate": "is being",
-    "object": "serviced"
+    "subject": "an interrupt request IRQ2",
+    "predicate": "is being serviced",
+    "object": ""
   },
   {
     "subject": "another request IRQ1",
-    "predicate": "is",
-    "object": "enabled and pending"
+    "predicate": "is enabled and pending",
+    "object": ""
   },
   {
     "subject": "an active interrupt handler",
     "predicate": "is servicing",
-    "object": "irq2"
+    "object": "IRQ2"
   },
   {
-    "subject": "irq1",
+    "subject": "IRQ1",
     "predicate": "is",
     "object": "pending"
   },
   {
-    "subject": "PREEMPTION",
-    "predicate": "is regulated by",
-    "object": "PRIVILEGE MODE (Vertical INTERRUPTS) and INTERRUPT LEVEL when the PRIVILEGE MODE is the same (Horizontal INTERRUPTS)"
-  },
-  {
-    "subject": "number of interrupts",
-    "predicate": "is",
-    "object": "flexible (at design time)"
-  },
-  {
-    "subject": "number of interrupts",
-    "predicate": "can be assigned to",
-    "object": "one or more targets"
-  },
-  {
-    "subject": "Interrupts that are assigned a higher level",
+    "subject": "interrupts that are assigned a higher level",
     "predicate": "can pre-empt",
     "object": "lower-level interrupts"
   },
   {
-    "subject": "A single HART",
+    "subject": "A single hart",
     "predicate": "can correspond to",
     "object": "multiple targets"
   },
   {
-    "subject": "Each interrupt",
+    "subject": "each interrupt",
     "predicate": "can be assigned",
     "object": "a priority"
   },
   {
-    "subject": "Each target",
+    "subject": "each target",
     "predicate": "can select",
-    "object": "a threshold below which interrupts are disabled"
+    "object": "a threshold"
   },
   {
-    "subject": "Interrupt selection",
+    "subject": "interrupts",
+    "predicate": "are disabled",
+    "object": "below the threshold"
+  },
+  {
+    "subject": "INTERRUPT SELECTION",
     "predicate": "is driven by",
     "object": "the CLIC in HW"
   },
@@ -1725,12 +1675,7 @@
     "object": "a tie-breaker for the case of multiple interrupts pending with the same level"
   },
   {
-    "subject": "selecting the interrupt with maximum level and priority",
-    "predicate": "is implemented with",
-    "object": "three binary trees"
-  },
-  {
-    "subject": "Enabled interrupts and their level and priority information",
+    "subject": "enabled interrupts and their level and priority information",
     "predicate": "are sent to",
     "object": "prioritization logic"
   },
@@ -1745,12 +1690,12 @@
     "object": "the highest-level interrupt"
   },
   {
-    "subject": "Interrupts",
+    "subject": "interrupts",
     "predicate": "can be assigned",
     "object": "a priority"
   },
   {
-    "subject": "Interrupts",
+    "subject": "interrupts",
     "predicate": "can be assigned",
     "object": "a level"
   },
@@ -1760,7 +1705,7 @@
     "object": "concurrent pending interrupts to be taken in the order preferred by the programmer"
   },
   {
-    "subject": "the level information",
+    "subject": "The level information",
     "predicate": "enables",
     "object": "pre-emption of same-privilege level interrupts"
   },
@@ -1770,17 +1715,17 @@
     "object": "horizontal interrupts"
   },
   {
-    "subject": "This scheme",
+    "subject": "THIS SCHEME",
     "predicate": "allows",
     "object": "interrupts to be divided according to their priorities on the PLIC-level"
   },
   {
-    "subject": "This scheme",
+    "subject": "THIS SCHEME",
     "predicate": "allows",
     "object": "some flexibility in terms of prioritization"
   },
   {
-    "subject": "This scheme",
+    "subject": "THIS SCHEME",
     "predicate": "does not address",
     "object": "the flexibility problem on the core local-level"
   },
@@ -1792,7 +1737,7 @@
   {
     "subject": "CLIC 15",
     "predicate": "allows",
-    "object": "interrupts to be prioritized by levels and priorities"
+    "object": "interrupts to be prioritized by so-called levels and priorities"
   },
   {
     "subject": "multiple horizontal interrupts",
@@ -1800,49 +1745,34 @@
     "object": "equal levels and priorities"
   },
   {
-    "subject": "CLIC",
+    "subject": "the CLIC",
     "predicate": "selects",
-    "object": "the highest numbered interrupt 15"
+    "object": "the highest numbered interrupt (identification number ID 15)"
   },
   {
-    "subject": "the highest numbered interrupt 15",
+    "subject": "the highest numbered interrupt (identification number ID 15)",
     "predicate": "is",
     "object": "an arbitrary assignment decided at design time"
   },
   {
-    "subject": "Interrupts that are enabled, pending, and have a level below the threshold",
-    "predicate": "are",
-    "object": "masked"
-  },
-  {
-    "subject": "others",
-    "predicate": "can be",
-    "object": "propagated"
-  },
-  {
-    "subject": "This feature",
+    "subject": "this feature",
     "predicate": "is useful for",
     "object": "RTOSs that only want to disable a subset of all interrupts during critical sections"
   },
   {
-    "subject": "Interrupts that do not interfere with the data accessed in such a critical section",
+    "subject": "interrupts that do not interfere with the data accessed in such a critical section",
     "predicate": "can",
     "object": "still fire"
   },
   {
-    "subject": "irq1",
+    "subject": "IRQ1",
     "predicate": "preempts",
-    "object": "irq2"
+    "object": "IRQ2"
   },
   {
-    "subject": "irq1 level",
-    "predicate": "is higher than",
-    "object": "interrupt threshold"
-  },
-  {
-    "subject": "irq1 level",
-    "predicate": "is higher than",
-    "object": "irq2 level"
+    "subject": "IRQ1",
+    "predicate": "preempts IRQ2 when",
+    "object": "its level is higher than both the interrupt threshold and IRQ2's level"
   },
   {
     "subject": "interrupts fired from different privilege modes",
@@ -1855,48 +1785,63 @@
     "object": "horizontal interrupts"
   },
   {
-    "subject": "Table I",
+    "subject": "TABLE I",
     "predicate": "shows",
-    "object": "preemption conditions of two nested interrupts irq2 and irq1 according to the CLIC specification"
+    "object": "preemption conditions of two nested interrupts IRQ2 and IRQ1 according to the CLIC specification"
   },
   {
-    "subject": "Reading from this CSR",
+    "subject": "THE CLIC SPECIFICATION",
+    "predicate": "addresses",
+    "object": "the case of redundant context restore (see Section II-B6)"
+  },
+  {
+    "subject": "XNXTI",
+    "predicate": "is",
+    "object": "a CSR short for next interrupt handler address"
+  },
+  {
+    "subject": "XNXTI and interrupt-enable CSRs",
+    "predicate": "are meant for use with",
+    "object": "non-vectored interrupts"
+  },
+  {
+    "subject": "READING FROM THIS CSR",
     "predicate": "allows",
     "object": "to fast-track interrupts that arrive late"
   },
   {
-    "subject": "Reading from this CSR",
+    "subject": "READING FROM THIS CSR",
     "predicate": "allows",
-    "object": "to avoid redundant context saverestore by running through pending interrupts back-to-back"
+    "object": "to avoid redundant context save-restore by running through pending interrupts back-to-back"
   },
   {
     "subject": "the core",
-    "predicate": "is",
-    "object": "within an active handler"
+    "predicate": "is within",
+    "object": "an active handler"
   },
   {
-    "subject": "Entering an interrupt context or performing a context switch",
+    "subject": "architecture entering an interrupt context or performing a context switch",
     "predicate": "requires",
     "object": "the HW to store enough information to resume operation correctly after returning from the aforementioned context"
   },
   {
-    "subject": "we",
+    "subject": "We",
     "predicate": "can improve",
     "object": "interrupt latency and context switch times"
   },
   {
-    "subject": "improving interrupt latency and context switch times",
-    "predicate": "is done by",
+    "subject": "Improving interrupt latency and context switch times",
+    "predicate": "can be done by",
     "object": "controlling the amount of state that needs to be preserved to enter and leave an interrupt context"
   },
   {
-    "subject": "improving interrupt latency and context switch times",
-    "predicate": "is done by",
+    "subject": "Improving interrupt latency and context switch times",
+    "predicate": "can be done by",
     "object": "increasing the bandwidth and decreasing the latency to memory"
   },
   {
-    "subject": "improving interrupt latency and context switch times",
-    "predicate": "is done by",
+    "subject": "Improving interrupt latency and context switch times",
+    "predicate": "can be done by",
     "object": "relying on latency-hiding techniques that defer the effective saving of the state to a later point in time"
   },
   {
@@ -1910,19 +1855,19 @@
     "object": "typical case scenarios"
   },
   {
-    "subject": "The background-saving mechanism",
-    "predicate": "updates",
-    "object": "the stack pointer"
+    "subject": "THE BACKGROUND-SAVING MECHANISM",
+    "predicate": "UPDATES",
+    "object": "THE STACK POINTER"
   },
   {
-    "subject": "The background-saving mechanism",
-    "predicate": "stores",
-    "object": "the bank-switched contents in memory"
+    "subject": "THE BACKGROUND-SAVING MECHANISM",
+    "predicate": "STORES",
+    "object": "THE BANK-SWITCHED CONTENTS IN MEMORY"
   },
   {
-    "subject": "the execution of the core",
-    "predicate": "proceeds",
-    "object": "in parallel"
+    "subject": "THE EXECUTION OF THE CORE",
+    "predicate": "PROCEEDS",
+    "object": "IN PARALLEL"
   },
   {
     "subject": "2",
@@ -1930,22 +1875,12 @@
     "object": "an overview of the design"
   },
   {
-    "subject": "Incoming interrupts",
-    "predicate": "are filtered with",
-    "object": "a Gateway module"
-  },
-  {
-    "subject": "Gateway module",
-    "predicate": "decides whether",
-    "object": "there is a pending and enabled request for each interrupt source i (IRQ i)"
-  },
-  {
-    "subject": "Interrupts",
+    "subject": "interrupts",
     "predicate": "arrive at",
     "object": "the gateway"
   },
   {
-    "subject": "Interrupts",
+    "subject": "interrupts",
     "predicate": "are combined with",
     "object": "programmable configuration information"
   },
@@ -1957,57 +1892,42 @@
   {
     "subject": "programmable configuration information",
     "predicate": "consists of",
-    "object": "level"
+    "object": "level, priority, enable status, and sensitivity (leveledge)"
   },
   {
-    "subject": "programmable configuration information",
-    "predicate": "consists of",
-    "object": "priority"
+    "subject": "THE INTERRUPT PRIORITIZATION MODULE",
+    "predicate": "TRAVERSES",
+    "object": "THE TREE FROM LEAVES TO THE ROOT"
   },
   {
-    "subject": "programmable configuration information",
-    "predicate": "consists of",
-    "object": "enable status"
+    "subject": "THE SOUGHT-AFTER MAXIMUM LEVEL AND PRIORITY INTERRUPT",
+    "predicate": "IS FOUND",
+    "object": "AT THE ROOT"
   },
   {
-    "subject": "programmable configuration information",
-    "predicate": "consists of",
-    "object": "sensitivity (leveledge)"
-  },
-  {
-    "subject": "The Interrupt Prioritization module",
-    "predicate": "traverses",
-    "object": "the tree from leaves to the root"
-  },
-  {
-    "subject": "the sought-after maximum level and priority interrupt",
-    "predicate": "is found",
-    "object": "the root"
-  },
-  {
-    "subject": "Each tree",
+    "subject": "each tree",
     "predicate": "has",
     "object": "low overhead in terms of area and delay"
   },
   {
     "subject": "overhead in terms of area",
     "predicate": "is",
-    "object": "O(n)"
+    "object": "O(N)"
   },
   {
     "subject": "overhead in terms of delay",
     "predicate": "is",
-    "object": "O(log(n))"
+    "object": "O(LOG(N))"
   },
   {
-    "subject": "The interrupt",
+    "subject": "THE INTERRUPT",
     "predicate": "is presented to",
-    "object": "the core"
+    "object": "THE CORE"
   },
   {
-    "subject": "The interrupt",
+    "subject": "THE INTERRUPT",
     "predicate": "is presented with",
-    "object": "a handshake-based interface"
+    "object": "A HANDSHAKE-BASED INTERFACE"
   },
   {
     "subject": "The additional kill signal",
@@ -2015,19 +1935,19 @@
     "object": "a handshake to restart"
   },
   {
-    "subject": "a handshake to restart",
+    "subject": "A handshake",
     "predicate": "allows",
     "object": "a potentially more important interrupt to be presented to the core"
   },
   {
-    "subject": "this work",
+    "subject": "THIS WORK",
     "predicate": "can scale up to",
-    "object": "n 4096 local interrupt sources"
+    "object": "N 4096 LOCAL INTERRUPT SOURCES"
   },
   {
     "subject": "additional pipeline stages",
-    "predicate": "can be inserted in",
-    "object": "the arbitration tree"
+    "predicate": "can be inserted",
+    "object": "in the arbitration tree"
   },
   {
     "subject": "additional pipeline stages",
@@ -2035,14 +1955,14 @@
     "object": "relax timing"
   },
   {
-    "subject": "our version of the CLIC",
+    "subject": "OUR VERSION OF THE CLIC",
     "predicate": "supports",
     "object": "SHV"
   },
   {
-    "subject": "our version of the CLIC",
+    "subject": "OUR VERSION OF THE CLIC",
     "predicate": "supports",
-    "object": "the xnxti CSR in the core"
+    "object": "THE XNXTI CSR IN THE CORE"
   },
   {
     "subject": "CV32",
@@ -2055,42 +1975,42 @@
     "object": "introducing priority and levels management in HW"
   },
   {
-    "subject": "critical operations such as interrupt state and context saverestore",
+    "subject": "critical operations such as interrupt state and context save/restore",
     "predicate": "are not natively covered by",
     "object": "the CLIC"
   },
   {
-    "subject": "critical operations such as interrupt state and context saverestore",
+    "subject": "critical operations such as interrupt state and context save/restore",
     "predicate": "need to be handled in",
     "object": "SW"
   },
   {
-    "subject": "CV32fastirq",
+    "subject": "CV32FASTIRQ",
     "predicate": "aims at",
     "object": "filling this gap"
   },
   {
-    "subject": "The CLIC",
+    "subject": "THE CLIC",
     "predicate": "addresses",
-    "object": "this with the levelpriority scheme"
+    "object": "this with the LEVELPRIORITY scheme"
   },
   {
-    "subject": "fastirq",
+    "subject": "FASTIRQ",
     "predicate": "improves upon",
     "object": "that"
   },
   {
-    "subject": "fastirq",
-    "predicate": "moves",
-    "object": "the interrupt state saving logic in HW"
+    "subject": "FASTIRQ",
+    "predicate": "improves upon that by",
+    "object": "moving the interrupt state saving logic in HW"
   },
   {
-    "subject": "fastirq",
-    "predicate": "adds",
-    "object": "emret to handle redundant interrupt context sequences"
+    "subject": "FASTIRQ",
+    "predicate": "improves upon that by",
+    "object": "adding EMRET to handle redundant interrupt context sequences"
   },
   {
-    "subject": "fastirq",
+    "subject": "FASTIRQ",
     "predicate": "is",
     "object": "a wrapper around the cores RF"
   },
@@ -2110,12 +2030,12 @@
     "object": "whether the interrupt level exceeds the configured threshold"
   },
   {
-    "subject": "The cores state machine",
+    "subject": "THE CORES STATE MACHINE",
     "predicate": "will flush",
     "object": "the pipeline"
   },
   {
-    "subject": "The cores state machine",
+    "subject": "THE CORES STATE MACHINE",
     "predicate": "will update",
     "object": "the program counter"
   },
@@ -2135,24 +2055,19 @@
     "object": "the interrupt context to have a fresh set of registers"
   },
   {
-    "subject": "the bank switch",
-    "predicate": "allows",
-    "object": "draining the other bank contents through a separate port to the main memory"
+    "subject": "the other bank contents",
+    "predicate": "are drained through",
+    "object": "a separate port to the main memory"
   },
   {
-    "subject": "RF banks",
+    "subject": "RF BANKS",
     "predicate": "are switched",
     "object": "on an interrupt"
   },
   {
     "subject": "we",
     "predicate": "need to update",
-    "object": "the stack pointer"
-  },
-  {
-    "subject": "stack pointer",
-    "predicate": "is updated",
-    "object": "during a bank switch"
+    "object": "the stack pointer during a bank switch"
   },
   {
     "subject": "we",
@@ -2160,19 +2075,34 @@
     "object": "a dedicated adder between the two RFs"
   },
   {
-    "subject": "The RISC-V embedded and integer ABI",
+    "subject": "THE RISC-V EMBEDDED AND INTEGER ABI",
     "predicate": "dictate",
-    "object": "that the stack pointer points below the last saved register on the stack"
+    "object": "THE STACK POINTER POINTS BELOW THE LAST SAVED REGISTER ON THE STACK"
   },
   {
-    "subject": "The stack pointer",
-    "predicate": "is adjusted",
-    "object": "appropriately to maintain ABI invariants"
+    "subject": "THE STACK POINTER",
+    "predicate": "IS ADJUSTED",
+    "object": "APPROPRIATELY TO MAINTAIN ABI INVARIANTS"
   },
   {
-    "subject": "program code running in the interrupt handler",
+    "subject": "the program code running in the interrupt handler",
     "predicate": "could clobber",
     "object": "the values on the stack"
+  },
+  {
+    "subject": "We",
+    "predicate": "could do away with",
+    "object": "this mechanism for leaf-type interrupts"
+  },
+  {
+    "subject": "Doing away with this mechanism for leaf-type interrupts",
+    "predicate": "would require",
+    "object": "a new ABI considering a virtual stack pointer offset when generating code for interrupt handlers"
+  },
+  {
+    "subject": "Doing away with this mechanism for leaf-type interrupts",
+    "predicate": "would not solve",
+    "object": "the nested interrupt case"
   },
   {
     "subject": "interactions",
@@ -2185,27 +2115,27 @@
     "object": "incorrect execution"
   },
   {
-    "subject": "a load instruction",
+    "subject": "A load instruction",
     "predicate": "is trying to update",
     "object": "an architectural register"
   },
   {
-    "subject": "the background-saving mechanism",
+    "subject": "The background-saving mechanism",
     "predicate": "is trying to read",
     "object": "the same register"
   },
   {
-    "subject": "no conflict",
-    "predicate": "arises because",
-    "object": "interrupts are injected into the pipeline and only acted upon in the write-back stage of the core"
+    "subject": "No conflict",
+    "predicate": "arises",
+    "object": "when a load instruction is trying to update an architectural register while the background-saving mechanism is trying to read the same register"
   },
   {
-    "subject": "interrupts",
+    "subject": "Interrupts",
     "predicate": "are injected into",
     "object": "the pipeline"
   },
   {
-    "subject": "interrupts",
+    "subject": "Interrupts",
     "predicate": "are only acted upon in",
     "object": "the write-back stage of the core"
   },
@@ -2225,19 +2155,9 @@
     "object": "correctness of the execution"
   },
   {
-    "subject": "interrupt handler",
-    "predicate": "is",
-    "object": "already executing"
-  },
-  {
-    "subject": "loads or stores accessing stack memory regions",
+    "subject": "loads or stores accessing stack memory regions where the background-saving mechanism is writing to",
     "predicate": "need to be",
     "object": "properly resolved"
-  },
-  {
-    "subject": "stack memory regions",
-    "predicate": "are",
-    "object": "where the background-saving mechanism is writing to"
   },
   {
     "subject": "execution of the handler",
@@ -2255,24 +2175,24 @@
     "object": "data that is immediately overwritten"
   },
   {
+    "subject": "the load-store unit of the core",
+    "predicate": "is informed of",
+    "object": "the ongoing state being written to memory"
+  },
+  {
     "subject": "A straightforward solution",
-    "predicate": "is",
-    "object": "to stall the cores pipeline while the background-saving mechanism is at work"
+    "predicate": "is to",
+    "object": "stall the cores pipeline while the background-saving mechanism is at work"
   },
   {
-    "subject": "we",
+    "subject": "WE",
     "predicate": "want to issue",
-    "object": "a load soon in the interrupt handler"
+    "object": "A LOAD SOON IN THE INTERRUPT HANDLER"
   },
   {
-    "subject": "We",
-    "predicate": "address",
-    "object": "this problem"
-  },
-  {
-    "subject": "We",
-    "predicate": "check",
-    "object": "whether the load-store unit tries to access the memory in the range of the stack pointer"
+    "subject": "the load-store unit",
+    "predicate": "tries to access",
+    "object": "the memory in the range of the stack pointer"
   },
   {
     "subject": "the stack pointer",
@@ -2295,32 +2215,32 @@
     "object": "any incoming load and stores"
   },
   {
-    "subject": "the address offset of the last word pushed out by the background-saving mechanism",
-    "predicate": "is in",
-    "object": "the load-store unit"
+    "subject": "LOAD AND STORES THAT TRY TO ACCESS DATA THAT IS NOT YET PUSHED TO MEMORY",
+    "predicate": "CAUSE",
+    "object": "THE CORES PIPELINE TO STALL"
   },
   {
-    "subject": "Load and stores that try to access data that is not yet pushed to memory",
-    "predicate": "cause",
-    "object": "the cores pipeline to stall"
-  },
-  {
-    "subject": "This mechanism",
+    "subject": "THIS MECHANISM",
     "predicate": "ensures",
-    "object": "the correctness of loads and stores issued by the core"
+    "object": "THE CORRECTNESS OF LOADS AND STORES ISSUED BY THE CORE"
   },
   {
-    "subject": "A system call handler",
+    "subject": "Accessing stack memory locations during the execution of an interrupt handler",
+    "predicate": "happens in",
+    "object": "two use cases"
+  },
+  {
+    "subject": "A SYSTEM CALL HANDLER",
     "predicate": "is issued through",
-    "object": "the ecall instruction in RISC-V"
+    "object": "the ECALL instruction in RISC-V"
   },
   {
-    "subject": "A system call handler",
+    "subject": "A SYSTEM CALL HANDLER",
     "predicate": "wants to access",
     "object": "user-provided arguments"
   },
   {
-    "subject": "Most",
+    "subject": "most",
     "predicate": "will be passed through",
     "object": "general-purpose registers"
   },
@@ -2330,34 +2250,64 @@
     "object": "the stack"
   },
   {
-    "subject": "Short interrupt handlers",
+    "subject": "short interrupt handlers",
     "predicate": "want to return before",
     "object": "the full interrupt state has been saved"
   },
   {
-    "subject": "Each of these cases",
+    "subject": "each of these cases",
     "predicate": "would potentially engage",
     "object": "the stalling logic outlined in Section III-C3"
   },
   {
-    "subject": "the stalling logic outlined in Section III-C3",
+    "subject": "engaging the stalling logic outlined in Section III-C3",
     "predicate": "causes",
     "object": "higher interrupt latencies"
   },
   {
-    "subject": "Some register values",
+    "subject": "a hardware solution",
+    "predicate": "would be to add",
+    "object": "forwarding logic"
+  },
+  {
+    "subject": "forwarding logic",
+    "predicate": "checks in",
+    "object": "the load-store unit"
+  },
+  {
+    "subject": "forwarding logic",
+    "predicate": "checks",
+    "object": "what is being written by the background-saving mechanism"
+  },
+  {
+    "subject": "forwarding logic",
+    "predicate": "forwards",
+    "object": "these values from the store queue"
+  },
+  {
+    "subject": "these values",
+    "predicate": "are forwarded from",
+    "object": "the store queue"
+  },
+  {
+    "subject": "these values",
+    "predicate": "are forwarded instead of going through",
+    "object": "the memory subsystem outside the core"
+  },
+  {
+    "subject": "some register values",
     "predicate": "cannot be forwarded",
     "object": "because they might not have reached the load-store unit yet"
   },
   {
-    "subject": "the approach",
-    "predicate": "increases",
-    "object": "HW complexity"
+    "subject": "THE APPROACH",
+    "predicate": "INCREASES",
+    "object": "HW COMPLEXITY"
   },
   {
-    "subject": "the approach",
-    "predicate": "requires",
-    "object": "a dynamic address lookup into a queue-like buffer"
+    "subject": "THE APPROACH",
+    "predicate": "REQUIRES",
+    "object": "A DYNAMIC ADDRESS LOOKUP INTO A QUEUE-LIKE BUFFER"
   },
   {
     "subject": "We",
@@ -2367,25 +2317,20 @@
   {
     "subject": "we",
     "predicate": "do not need to engage",
-    "object": "the pipeline stalling logic"
+    "object": "the pipeline stalling logic by ordering the loads to access the already stored interrupt state first"
   },
   {
-    "subject": "the pipeline stalling logic",
-    "predicate": "is engaged by",
-    "object": "ordering the loads to access the already stored interrupt state first"
-  },
-  {
-    "subject": "We",
+    "subject": "we",
     "predicate": "give",
     "object": "an analysis of the functional improvements"
   },
   {
-    "subject": "The cv32s RF",
+    "subject": "THE CV32S RF",
     "predicate": "is extended with",
     "object": "additional logic for the background-saving mechanism"
   },
   {
-    "subject": "Parts of the old memory bank (the interrupt context)",
+    "subject": "parts of the old memory bank (the interrupt context)",
     "predicate": "are copied to",
     "object": "the cores stack location"
   },
@@ -2400,14 +2345,19 @@
     "object": "a dedicated memory port for the background-saving mechanism"
   },
   {
-    "subject": "the dedicated memory port for the background-saving mechanism",
+    "subject": "the dedicated memory port",
     "predicate": "can be shared with",
     "object": "the port from the load-store unit"
   },
   {
     "subject": "we",
     "predicate": "push out",
-    "object": "the general-purpose registers x1, x2"
+    "object": "the general-purpose registers X1, X2"
+  },
+  {
+    "subject": "we",
+    "predicate": "need to ensure",
+    "object": "in the interrupt handler, we use the same order to load words back"
   },
   {
     "subject": "the programmer",
@@ -2415,52 +2365,52 @@
     "object": "that to achieve the best possible latency"
   },
   {
-    "subject": "4",
-    "predicate": "gives an overview of",
-    "object": "how nested interrupt handling code works for the basic CLINT-mode, the baseline CLIC, and our fastirq extension"
+    "subject": "programmer",
+    "predicate": "uses",
+    "object": "compiler-specific attributes to write his interrupt handlers"
   },
   {
-    "subject": "Routines",
+    "subject": "compiler-specific attributes",
+    "predicate": "include",
+    "object": "attribute((interrupt)) in GCC"
+  },
+  {
+    "subject": "compiler",
+    "predicate": "needs to be made aware of",
+    "object": "the fact that programmer uses compiler-specific attributes to write his interrupt handlers"
+  },
+  {
+    "subject": "we",
+    "predicate": "give an overview of",
+    "object": "how nested interrupt handling code works for the basic CLINT-mode, the baseline CLIC, and our FastIRQ extension"
+  },
+  {
+    "subject": "ROUTINES",
     "predicate": "are for",
-    "object": "saving state for vectored nesting interrupts"
+    "object": "SAVING STATE FOR VECTORED NESTING INTERRUPTS"
   },
   {
-    "subject": "Routines",
-    "predicate": "use",
+    "subject": "SAVING STATE FOR VECTORED NESTING INTERRUPTS",
+    "predicate": "uses",
     "object": "CLINT"
   },
   {
-    "subject": "Routines",
-    "predicate": "use",
+    "subject": "SAVING STATE FOR VECTORED NESTING INTERRUPTS",
+    "predicate": "uses",
     "object": "CLIC"
   },
   {
-    "subject": "Routines",
-    "predicate": "use",
-    "object": "proposed fastirq extension"
+    "subject": "SAVING STATE FOR VECTORED NESTING INTERRUPTS",
+    "predicate": "uses",
+    "object": "PROPOSED FASTIRQ EXTENSION"
   },
   {
-    "subject": "RISC-V",
-    "predicate": "defines",
-    "object": "RV32E as a variant of RV32I"
-  },
-  {
-    "subject": "RV32E",
-    "predicate": "has",
-    "object": "16 registers"
-  },
-  {
-    "subject": "RV32I",
-    "predicate": "has",
-    "object": "32 registers"
-  },
-  {
-    "subject": "Reducing the RF size",
+    "subject": "reducing the RF size",
     "predicate": "helps",
     "object": "lower context switch times"
   },
   {
-    "subject": "Reducing the RF size",
+    "subject": "reducing the RF size",
     "predicate": "does not affect",
     "object": "the interrupt latency"
   },
@@ -2470,9 +2420,19 @@
     "object": "the same when using the embedded-application binary interface (EABI)"
   },
   {
-    "subject": "Our implementation",
+    "subject": "OUR IMPLEMENTATION",
     "predicate": "allows",
-    "object": "the core to dynamically switch between RV32I and RV32E with fastirq depending on the workload"
+    "object": "the core to dynamically switch between RV32I and RV32E with FastIRQ depending on the workload"
+  },
+  {
+    "subject": "one",
+    "predicate": "could add",
+    "object": "additional registers for the seven caller-save registers to save area"
+  },
+  {
+    "subject": "doubling the RF size for the banking logic",
+    "predicate": "is alternative to",
+    "object": "adding additional registers for the seven caller-save registers to save area"
   },
   {
     "subject": "increased pressure on the RF",
@@ -2480,47 +2440,22 @@
     "object": "not acceptable"
   },
   {
-    "subject": "one",
-    "predicate": "could add",
-    "object": "additional registers for the seven caller-save registers"
-  },
-  {
-    "subject": "adding additional registers for the seven caller-save registers",
-    "predicate": "purpose",
-    "object": "to save area"
-  },
-  {
-    "subject": "instead of doubling the RF size for the banking logic",
-    "predicate": "alternative to",
-    "object": "adding additional registers for the seven caller-save registers"
-  },
-  {
     "subject": "the interrupt state",
     "predicate": "can be quickly restored by",
     "object": "simply switching register banks"
   },
   {
-    "subject": "mret",
-    "predicate": "is used for",
-    "object": "regular return from an interrupt handler"
+    "subject": "EMRET",
+    "predicate": "is added",
+    "object": "to differentiate between a regular return from an interrupt handler using MRET"
   },
   {
-    "subject": "mret",
-    "predicate": "assumes",
-    "object": "the interrupt state has been restored by SW"
+    "subject": "THIS INSTRUCTION",
+    "predicate": "performs",
+    "object": "the same function as MRET"
   },
   {
-    "subject": "we",
-    "predicate": "add",
-    "object": "a new instruction emret instead"
-  },
-  {
-    "subject": "This instruction",
-    "predicate": "performs the same function as",
-    "object": "mret"
-  },
-  {
-    "subject": "This instruction",
+    "subject": "THIS INSTRUCTION",
     "predicate": "performs",
     "object": "switching register banks"
   },
@@ -2530,42 +2465,37 @@
     "object": "directly checking for other interrupts pending on the same level before restoring the executions interrupt context"
   },
   {
-    "subject": "The CLIC",
+    "subject": "THE CLIC",
     "predicate": "offers",
-    "object": "an HW-assisted solution to address such a scenario with the xnxti CSRs"
+    "object": "an HW-assisted solution to address such a scenario with the XNXTI CSRS"
   },
   {
-    "subject": "Nucleis enhanced CLIC (ECLIC) 18",
+    "subject": "NUCLEIS ENHANCED CLIC (ECLIC) 18",
     "predicate": "extends",
-    "object": "xnxti"
+    "object": "XNXTI"
   },
   {
-    "subject": "Nucleis enhanced CLIC (ECLIC) 18",
+    "subject": "NUCLEIS ENHANCED CLIC (ECLIC) 18",
     "predicate": "embeds",
-    "object": "the jump to the queuing interrupt handler in the xnxti HW (jalxnxti)"
+    "object": "the jump to the queuing interrupt handler in the XNXTI HW (JALXNXTI)"
   },
   {
-    "subject": "Nuclei System Technology ECLIC 39",
+    "subject": "NUCLEI SYSTEM TECHNOLOGY ECLIC 39",
     "predicate": "extends",
-    "object": "traditional xnxti"
+    "object": "traditional XNXTI"
   },
   {
-    "subject": "Nuclei System Technology ECLIC 39",
-    "predicate": "has",
-    "object": "a novel CSR for machine privilege mode, jalmnxti 18"
+    "subject": "NUCLEI SYSTEM TECHNOLOGY ECLIC 39",
+    "predicate": "extends with",
+    "object": "a novel CSR for machine privilege mode, JALMNXTI 18"
   },
   {
-    "subject": "jalmnxti 18",
+    "subject": "JALMNXTI 18",
     "predicate": "is discussed in",
     "object": "this work in Section IV"
   },
   {
-    "subject": "emret",
-    "predicate": "redirects",
-    "object": "the control flow to the pending interrupts handler"
-  },
-  {
-    "subject": "Some HW",
+    "subject": "some HW",
     "predicate": "refers to",
     "object": "this concept of removing redundant context restores as tail-chaining"
   },
@@ -2590,24 +2520,14 @@
     "object": "re-enabling global interrupts"
   },
   {
-    "subject": "a high-level interrupt",
+    "subject": "A high-level interrupt",
     "predicate": "could preempt",
     "object": "the current running interrupt handler"
   },
   {
-    "subject": "This combination of latency hiding and background saving",
-    "predicate": "allows",
-    "object": "the core to quickly enter a first-level interrupt handler"
-  },
-  {
-    "subject": "mie",
+    "subject": "MIE",
     "predicate": "has to be manually adjusted",
-    "object": "to prevent that"
-  },
-  {
-    "subject": "corresponding lower-priority interrupts",
-    "predicate": "are",
-    "object": "disabled"
+    "object": "to prevent that corresponding lower-priority interrupts are disabled"
   },
   {
     "subject": "this return path",
@@ -2645,34 +2565,34 @@
     "object": "bookkeeping operations"
   },
   {
-    "subject": "The remainder",
+    "subject": "THE REMAINDER",
     "predicate": "is",
-    "object": "the HW-dependent saving and restoring of the state belonging to the new context"
+    "object": "THE HW-DEPENDENT SAVING AND RESTORING OF THE STATE BELONGING TO THE NEW CONTEXT"
   },
   {
-    "subject": "The idea",
+    "subject": "THE IDEA",
     "predicate": "is to use",
-    "object": "the background-saving mechanism"
+    "object": "THE BACKGROUND-SAVING MECHANISM"
   },
   {
-    "subject": "the background-saving mechanism",
+    "subject": "THE BACKGROUND-SAVING MECHANISM",
     "predicate": "to accelerate",
-    "object": "the state saving and restoring part of context Fig."
+    "object": "THE STATE SAVING AND RESTORING PART OF CONTEXT FIG"
   },
   {
-    "subject": "switches",
-    "predicate": "interleave",
-    "object": "the loading of a new state with the automatic saving HW pushing out the previous register state to memory in the background"
+    "subject": "HW",
+    "predicate": "pushes out",
+    "object": "the previous register state to memory in the background"
   },
   {
-    "subject": "the HW mechanism",
-    "predicate": "to swap",
-    "object": "the registers"
+    "subject": "HW mechanism",
+    "predicate": "engages to",
+    "object": "swap the registers"
   },
   {
-    "subject": "the HW mechanism",
-    "predicate": "to save",
-    "object": "them in the background"
+    "subject": "HW mechanism",
+    "predicate": "saves",
+    "object": "the registers in the background"
   },
   {
     "subject": "we",
@@ -2700,12 +2620,12 @@
     "object": "more context switching state"
   },
   {
-    "subject": "more context switching state",
-    "predicate": "run contrary to",
-    "object": "the goals of fastirq regarding latencies"
+    "subject": "More context switching state",
+    "predicate": "run",
+    "object": "contrary to the goals of FastIRQ regarding latencies"
   },
   {
-    "subject": "adding more state to fastirq",
+    "subject": "adding more state to FastIRQ",
     "predicate": "has no",
     "object": "technical limitations"
   },
@@ -2716,13 +2636,13 @@
   },
   {
     "subject": "a dirty bit",
-    "predicate": "could help to",
-    "object": "keep the fast path competitive"
+    "predicate": "could help to keep",
+    "object": "the fast path competitive"
   },
   {
-    "subject": "This section",
-    "predicate": "gives",
-    "object": "a functional and quantitative evaluation of the various flavors of the CV32RT"
+    "subject": "THIS SECTION",
+    "predicate": "GIVES",
+    "object": "A FUNCTIONAL AND QUANTITATIVE EVALUATION OF THE VARIOUS FLAVORS OF THE CV32RT"
   },
   {
     "subject": "CLINT",
@@ -2730,47 +2650,42 @@
     "object": "the first standardized RISC-V interrupt controller"
   },
   {
-    "subject": "interrupt lines",
+    "subject": "The interrupt lines",
     "predicate": "have",
     "object": "a hardwired prioritization scheme"
   },
   {
-    "subject": "The baseline CLIC",
-    "predicate": "addresses",
-    "object": "these weaknesses"
+    "subject": "THE BASELINE CLIC",
+    "predicate": "ADDRESSES",
+    "object": "THESE WEAKNESSES"
   },
   {
-    "subject": "a level threshold register per privilege level (xintthresh)",
+    "subject": "A level threshold register per privilege level (XINTTHRESH)",
     "predicate": "controls",
     "object": "the set of allowed horizontal interrupts"
   },
   {
-    "subject": "a level threshold register per privilege level (xintthresh)",
-    "predicate": "limits the set of allowed horizontal interrupts to",
-    "object": "those whose level exceeds the given value in the register"
+    "subject": "A level threshold register per privilege level (XINTTHRESH)",
+    "predicate": "limits",
+    "object": "the set of allowed horizontal interrupts to those whose level exceeds the given value in the register"
   },
   {
-    "subject": "Vectoring",
-    "predicate": "can be enabled or disabled",
-    "object": "per interrupt line"
+    "subject": "VECTORING",
+    "predicate": "can be",
+    "object": "selectively enabled or disabled per interrupt line"
   },
   {
-    "subject": "This solution",
+    "subject": "THIS SOLUTION",
     "predicate": "works for",
-    "object": "both vectored and non-vectored interrupts"
+    "object": "VECTORED INTERRUPTS"
   },
   {
-    "subject": "The baseline CLIC",
-    "predicate": "does not differ from",
-    "object": "the regular CLINT"
+    "subject": "THIS SOLUTION",
+    "predicate": "works for",
+    "object": "NON-VECTORED INTERRUPTS"
   },
   {
-    "subject": "storing and restoring the interrupt context",
-    "predicate": "is fully handled in",
-    "object": "SW"
-  },
-  {
-    "subject": "The optional xnxti extension",
+    "subject": "THE OPTIONAL XNXTI EXTENSION",
     "predicate": "allows",
     "object": "multiple horizontal interrupts to be serviced in sequence without redundant context-restoring operations in between"
   },
@@ -2780,29 +2695,34 @@
     "object": "the full latency cost"
   },
   {
-    "subject": "xnxti",
+    "subject": "XNXTI",
     "predicate": "does not touch",
-    "object": "the interrupt context storing part"
+    "object": "the interrupt context storing part itself"
   },
   {
-    "subject": "This approach",
+    "subject": "READING THE XNXTI CSR",
+    "predicate": "yields",
+    "object": "a pointer to the vector table entry for the next pending and qualifying interrupt"
+  },
+  {
+    "subject": "a pointer to the vector table entry for the next pending and qualifying interrupt",
+    "predicate": "allows",
+    "object": "a direct jump there"
+  },
+  {
+    "subject": "THIS APPROACH",
     "predicate": "loses",
-    "object": "the latency advantage of HW vectoring"
+    "object": "THE LATENCY ADVANTAGE OF HW VECTORING"
   },
   {
-    "subject": "This approach",
+    "subject": "THIS APPROACH",
     "predicate": "runs",
-    "object": "an SW emulation of HW vectoring"
+    "object": "AN SW EMULATION THEREOF"
   },
   {
-    "subject": "The discussed differences",
-    "predicate": "are summarized in",
-    "object": "Table II"
-  },
-  {
-    "subject": "We",
+    "subject": "we",
     "predicate": "take measurements by running",
-    "object": "RTL simulations of the different versions of CV32RT as part of ControlPULP"
+    "object": "RTL simulations of the different versions of CV32RT as part of CONTROLPULP"
   },
   {
     "subject": "memory subsystem",
@@ -2817,62 +2737,52 @@
   {
     "subject": "interrupt lines",
     "predicate": "have",
-    "object": "no additional latencies introduced on the system level"
+    "object": "no additional latencies introduced between interrupt sources and the CLIC"
   },
   {
-    "subject": "interrupt lines",
-    "predicate": "are between",
-    "object": "interrupt sources and the CLIC"
-  },
-  {
-    "subject": "We",
+    "subject": "WE",
     "predicate": "measure",
-    "object": "HW contributed interrupt latency of our fastirq extension"
+    "object": "the HW contributed interrupt latency of our FastIRQ extension"
   },
   {
-    "subject": "HW contributed interrupt latency",
+    "subject": "the HW contributed interrupt latency",
     "predicate": "is described in",
     "object": "Section II-B3"
   },
   {
-    "subject": "We",
+    "subject": "WE",
     "predicate": "compare",
-    "object": "HW contributed interrupt latency of our fastirq extension to the CV32 and CV32RT variations"
+    "object": "the HW contributed interrupt latency of our FastIRQ extension to the CV32 and CV32RT variations"
   },
   {
     "subject": "CV32 and CV32RT variations",
     "predicate": "include",
-    "object": "standard CLIC, xnxti, jalxnxti"
+    "object": "Standard CLIC, XNXTI, JALXNXTI"
   },
   {
     "subject": "all caller-save registers",
-    "predicate": "need to be saved",
-    "object": "true"
+    "predicate": "need to be",
+    "object": "saved"
   },
   {
-    "subject": "The saved general-purpose registers",
-    "predicate": "are",
-    "object": "all caller-save registers in the respective ABI"
+    "subject": "Interrupt handler routines that save the interrupt context in SW",
+    "predicate": "can only save",
+    "object": "the minimum state if the compiler is able to fully inline the handlers function body"
   },
   {
-    "subject": "Interrupt handler routines",
-    "predicate": "use",
-    "object": "SW-based mechanisms to save and restore interrupt state"
-  },
-  {
-    "subject": "Interrupt handler routines",
+    "subject": "interrupt handler routines that use sw-based mechanisms to save and restore interrupt state",
     "predicate": "can fully inline",
     "object": "the handler code"
   },
   {
-    "subject": "Interrupt handler routines",
+    "subject": "interrupt handler routines that use sw-based mechanisms to save and restore interrupt state",
     "predicate": "can save",
     "object": "some caller-save registers"
   },
   {
-    "subject": "Interrupt handler routines",
-    "predicate": "can fully inline the handler code and save some caller-save registers",
-    "object": "if the compiler permits"
+    "subject": "the compiler",
+    "predicate": "permits",
+    "object": "fully inlining the handler code and saving some caller-save registers"
   },
   {
     "subject": "we",
@@ -2880,167 +2790,167 @@
     "object": "the interrupt latency in the optimal case"
   },
   {
-    "subject": "the optimal case",
-    "predicate": "is",
-    "object": "only one caller-save register needs saving for SW-based interrupt handlers"
+    "subject": "only one caller-save register",
+    "predicate": "needs saving for",
+    "object": "SW-based interrupt handlers"
   },
   {
-    "subject": "Interrupts",
+    "subject": "INTERRUPTS",
     "predicate": "are injected into",
     "object": "the design at the interrupt controller inputs"
   },
   {
     "subject": "We",
     "predicate": "evaluate",
-    "object": "both the EABI and regular integer ABI of RISC-V"
+    "object": "the EABI of RISC-V"
   },
   {
-    "subject": "this amount of state",
-    "predicate": "is always saved",
-    "object": "for our fastirq extension"
+    "subject": "We",
+    "predicate": "evaluate",
+    "object": "the regular integer ABI of RISC-V"
   },
   {
-    "subject": "HW",
+    "subject": "FOR OUR FASTIRQ EXTENSION",
+    "predicate": "this amount of state",
+    "object": "is always saved"
+  },
+  {
+    "subject": "the HW",
     "predicate": "does not know a priori",
     "object": "which caller-save registers need to be saved"
   },
   {
-    "subject": "Table III",
+    "subject": "TABLE III",
     "predicate": "compares",
     "object": "the main techniques for optimizing interrupt context and task context save/restore with nested and non-nested interrupts employed by industry and academia in the embedded and real-time application domains"
   },
   {
-    "subject": "Several designs",
+    "subject": "the results",
+    "predicate": "are summarized in",
+    "object": "FIG."
+  },
+  {
+    "subject": "several designs",
     "predicate": "automatically save and restore",
     "object": "the interrupt context directly in HW"
   },
   {
-    "subject": "automatic interrupt context saverestore",
+    "subject": "AUTOMATIC INTERRUPT CONTEXT SAVERESTORE",
     "predicate": "reduces",
-    "object": "SW housekeeping overhead before and after handling the interrupt routine"
+    "object": "SW HOUSEKEEPING OVERHEAD BEFORE AND AFTER HANDLING THE INTERRUPT ROUTINE"
   },
   {
-    "subject": "automatic interrupt context saverestore",
+    "subject": "AUTOMATIC INTERRUPT CONTEXT SAVERESTORE",
     "predicate": "only partially addresses",
-    "object": "the acceleration of the complete task context switch"
+    "object": "THE ACCELERATION OF THE COMPLETE TASK CONTEXT SWITCH"
   },
   {
-    "subject": "the presented solutions",
+    "subject": "The presented solutions",
     "predicate": "are effective in",
-    "object": "optimizing context"
+    "object": "optimizing context, save/restore with HW and SW cooperation"
   },
   {
-    "subject": "saverestore",
-    "predicate": "has",
-    "object": "HW and SW cooperation"
-  },
-  {
-    "subject": "the presented solutions",
+    "subject": "The presented solutions",
     "predicate": "lack",
     "object": "a cohesive approach to address both interrupt context and task context switch acceleration"
   },
   {
-    "subject": "the presented solutions",
+    "subject": "The presented solutions",
     "predicate": "lack",
-    "object": "none of the existing RISC-V-based approaches can close the gap with well-established industry vendors"
+    "object": "existing RISC-V-based approaches that can close the gap with well-established industry vendors"
   },
   {
-    "subject": "none of the existing RISC-V-based approaches",
-    "predicate": "can close",
-    "object": "the gap with well-established industry vendors"
-  },
-  {
-    "subject": "Interrupt context saverestore",
+    "subject": "INTERRUPT CONTEXT SAVERESTORE",
     "predicate": "takes advantage of",
     "object": "the former"
   },
   {
-    "subject": "Interrupt context saverestore",
+    "subject": "INTERRUPT CONTEXT SAVERESTORE",
     "predicate": "defers operations to",
     "object": "the HW"
   },
   {
-    "subject": "xnxti",
+    "subject": "XNXTI and JALXNXTI",
     "predicate": "perform",
     "object": "even worse"
   },
   {
-    "subject": "jalxnxti",
-    "predicate": "perform",
-    "object": "even worse"
-  },
-  {
-    "subject": "xnxti",
+    "subject": "XNXTI",
     "predicate": "require",
     "object": "42 cycles"
   },
   {
-    "subject": "jalxnxti",
+    "subject": "JALXNXTI",
     "predicate": "require",
     "object": "35 cycles"
   },
   {
-    "subject": "xnxti and jalxnxti",
+    "subject": "XNXTI and JALXNXTI",
     "predicate": "insert",
     "object": "additional instructions in the code path between the handler and interrupt event"
   },
   {
-    "subject": "xnxti and jalxnxti",
+    "subject": "XNXTI AND JALXNXTI",
     "predicate": "improve upon",
     "object": "this situation"
   },
   {
-    "subject": "xnxti and jalxnxti",
-    "predicate": "improve upon this situation by",
-    "object": "checking for pending interrupts"
+    "subject": "XNXTI AND JALXNXTI",
+    "predicate": "check for",
+    "object": "pending interrupts"
   },
   {
-    "subject": "xnxti and jalxnxti",
-    "predicate": "improve upon this situation by",
-    "object": "directly jumping to the respective handlers"
+    "subject": "XNXTI AND JALXNXTI",
+    "predicate": "directly jump to",
+    "object": "the respective handlers"
   },
   {
-    "subject": "xnxti",
+    "subject": "XNXTI",
     "predicate": "returns",
     "object": "a pointer to the address of the next handler"
   },
   {
-    "subject": "xnxti",
+    "subject": "XNXTI",
     "predicate": "needs",
     "object": "a small code sequence (load, jump, and retry loop)"
   },
   {
-    "subject": "jalxnxti",
+    "subject": "JALXNXTI",
     "predicate": "fuses",
     "object": "these operations into one instruction"
   },
   {
-    "subject": "jalxnxti",
+    "subject": "fusing these operations into one instruction",
     "predicate": "results in",
     "object": "saving nine cycles"
   },
   {
-    "subject": "Arm Cortex-M4",
+    "subject": "ARM Cortex-M4",
     "predicate": "has",
     "object": "an interrupt latency of 12 cycles given a single-cycle memory"
   },
   {
-    "subject": "The Arm Cortex-M4",
+    "subject": "ARM Cortex-M4",
     "predicate": "is able to do",
     "object": "the same task in six cycles"
   },
   {
-    "subject": "The Arm Cortex-M4",
-    "predicate": "has access to",
-    "object": "single-cycle memory 24"
+    "subject": "ARM Cortex-M4",
+    "predicate": "assumes",
+    "object": "it has access to single-cycle memory 24"
   },
   {
-    "subject": "baseline CLIC",
+    "subject": "we",
+    "predicate": "show",
+    "object": "the cost in clock cycles of such sequences"
+  },
+  {
+    "subject": "the baseline CLIC",
     "predicate": "takes",
     "object": "68 cycles when using the integer ABI"
   },
   {
-    "subject": "baseline CLIC",
+    "subject": "the baseline CLIC",
     "predicate": "takes",
     "object": "50 cycles when using the embedded ABI"
   },
@@ -3050,17 +2960,17 @@
     "object": ""
   },
   {
-    "subject": "The emret mechanism of fastirq",
+    "subject": "THE EMRET MECHANISM OF FASTIRQ",
     "predicate": "works",
     "object": "similarly"
   },
   {
-    "subject": "The emret mechanism of fastirq",
+    "subject": "THE EMRET MECHANISM OF FASTIRQ",
     "predicate": "costs",
     "object": "eight clock cycles"
   },
   {
-    "subject": "The emret mechanism of fastirq",
+    "subject": "THE EMRET MECHANISM OF FASTIRQ",
     "predicate": "is not restricted to",
     "object": "non-vectored interrupts"
   },
@@ -3072,7 +2982,7 @@
   {
     "subject": "context switch time",
     "predicate": "is compared between",
-    "object": "baseline CV32RT and CV32RTfastirq"
+    "object": "baseline CV32RT and CV32RTFASTIRQ"
   },
   {
     "subject": "Average context switch time",
@@ -3080,82 +2990,62 @@
     "object": "FreeRTOS for two tasks of various flavors of CV32RT"
   },
   {
-    "subject": "All compile time options",
+    "subject": "all compile time options such as tracing, stack overflow signaling, and the more generic task selection mechanism",
     "predicate": "were turned off",
     "object": "to minimize the context switch code"
   },
   {
-    "subject": "All compile time options",
-    "predicate": "include",
-    "object": "tracing"
-  },
-  {
-    "subject": "All compile time options",
-    "predicate": "include",
-    "object": "stack overflow signaling"
-  },
-  {
-    "subject": "All compile time options",
-    "predicate": "include",
-    "object": "the more generic task selection mechanism"
-  },
-  {
     "subject": "We",
     "predicate": "left out",
-    "object": "configurations that do not have Fig."
+    "object": "configurations that do not have Fig"
   },
   {
-    "subject": "Cortex-M4 core",
+    "subject": "generic Cortex-M4 core",
     "predicate": "has",
     "object": "single-cycle access to memory"
   },
   {
-    "subject": "Arm Cortex-M",
+    "subject": "ARM Cortex-M",
     "predicate": "has",
     "object": "16 core registers"
   },
   {
-    "subject": "fastirq",
+    "subject": "FASTIRQ",
     "predicate": "allows",
     "object": "us to skip ahead the saving of the general-purpose registers"
   },
   {
-    "subject": "fastirq",
+    "subject": "FASTIRQ",
     "predicate": "triggers",
     "object": "an SW interrupt as part of the save sequence"
   },
   {
-    "subject": "The SW interrupt",
-    "predicate": "will trigger",
-    "object": "the fastirq mechanism"
+    "subject": "THE SW INTERRUPT",
+    "predicate": "WILL TRIGGER",
+    "object": "THE FASTIRQ MECHANISM"
   },
   {
-    "subject": "the fastirq mechanism",
-    "predicate": "starts",
-    "object": "saving the general-purpose registers to memory"
+    "subject": "THE FASTIRQ MECHANISM",
+    "predicate": "STARTS",
+    "object": "SAVING THE GENERAL-PURPOSE REGISTERS TO MEMORY"
   },
   {
-    "subject": "we",
+    "subject": "using the I-extension",
     "predicate": "can save up to",
-    "object": "31 cycles (19) for a context switch when using the I-extension"
+    "object": "31 cycles (19) for a context switch"
   },
   {
-    "subject": "we",
+    "subject": "using the E-extension",
     "predicate": "can save up to",
-    "object": "16 cycles (12) for the E-extension"
+    "object": "16 cycles (12) for a context switch"
   },
   {
-    "subject": "registers",
-    "predicate": "are still being saved by",
-    "object": "the background-saving mechanism"
+    "subject": "not using registers that are still being saved by the background-saving mechanism",
+    "predicate": "enables",
+    "object": "saving cycles for a context switch"
   },
   {
-    "subject": "the background-saving mechanism",
-    "predicate": "is described in",
-    "object": "Section III-C4"
-  },
-  {
-    "subject": "The FreeRTOS website 20",
+    "subject": "THE FREERTOS WEBSITE 20",
     "predicate": "claims",
     "object": "context switches as low as 96 cycles for a Cortex-M4 implementation"
   },
@@ -3165,17 +3055,17 @@
     "object": "CV32RT as part of the ControlPULP platform"
   },
   {
-    "subject": "CV32RT",
-    "predicate": "is synthesized using",
-    "object": "Synopsys Design Compiler 2022.03"
+    "subject": "SYNOPSYS DESIGN COMPILER 2022.03",
+    "predicate": "is used for",
+    "object": "synthesizing CV32RT"
   },
   {
-    "subject": "Synopsys Design Compiler 2022.03",
+    "subject": "SYNOPSYS DESIGN COMPILER 2022.03",
     "predicate": "targets",
-    "object": "GlobalFoundries 12LP FinFet technology"
+    "object": "GlobalFoundries 12LP FinFET technology"
   },
   {
-    "subject": "GlobalFoundries 12LP FinFet technology",
+    "subject": "GlobalFoundries 12LP FinFET technology",
     "predicate": "operates at",
     "object": "500 MHz, TT corner, and 25 C"
   },
@@ -3186,88 +3076,83 @@
   },
   {
     "subject": "STM32L476RG",
-    "predicate": "is a",
-    "object": "SoC"
+    "predicate": "has",
+    "object": "higher latencies due to memory access stalls and other implementation choices in the memory subsystem"
   },
   {
-    "subject": "higher latencies",
-    "predicate": "were observed on",
-    "object": "STM32L476RG"
-  },
-  {
-    "subject": "higher latencies",
-    "predicate": "are due to",
-    "object": "memory access stalls and other implementation choices in the memory subsystem"
-  },
-  {
-    "subject": "3This",
-    "predicate": "can be seen as",
-    "object": "a lower bound"
-  },
-  {
-    "subject": "The RISC-V E-Extension",
+    "subject": "RISC-V E-extension",
     "predicate": "reduces",
     "object": "the available general-purpose registers from 32 to 16"
   },
   {
-    "subject": "The RISC-V E-Extension",
+    "subject": "Reducing the available general-purpose registers from 32 to 16",
     "predicate": "lowers",
     "object": "the context switch state that needs to be saved and restored"
   },
   {
-    "subject": "RISC-V CLIC",
+    "subject": "REPORTS",
+    "predicate": "the area breakdown of",
+    "object": "the CLIC implemented in the proposed with different interrupt sources"
+  },
+  {
+    "subject": "AREA OVERHEAD",
+    "predicate": "is related to",
+    "object": "CV32RT"
+  },
+  {
+    "subject": "CV32RT",
     "predicate": "has",
-    "object": "area breakdown at varying numbers of interrupt sources"
+    "object": "two main configurations"
   },
   {
-    "subject": "8",
-    "predicate": "reports",
-    "object": "the area breakdown of the CLIC implemented in the proposed with different interrupt sources"
-  },
-  {
-    "subject": "Area overhead",
-    "predicate": "of",
-    "object": "CV32RT in the two main configurations"
-  },
-  {
-    "subject": "The overhead of fastirq in CV32RTfastirq core",
+    "subject": "FASTIRQ overhead in CV32RTFASTIRQ core",
     "predicate": "results in",
-    "object": "a minimal 10 area increase concentrated around the ID stage"
+    "object": "a minimal 10 area increase"
   },
   {
-    "subject": "The design",
+    "subject": "area increase",
+    "predicate": "is concentrated around",
+    "object": "the ID stage"
+  },
+  {
+    "subject": "THE DESIGN",
     "predicate": "has been synthesized in",
-    "object": "GF12LP technology"
+    "object": "GF12LP TECHNOLOGY"
   },
   {
-    "subject": "GF12LP technology",
+    "subject": "GF12LP TECHNOLOGY",
     "predicate": "has frequency",
-    "object": "500 MHz"
+    "object": "500 MHZ"
   },
   {
-    "subject": "GF12LP technology",
+    "subject": "GF12LP TECHNOLOGY",
     "predicate": "has corner",
-    "object": "TT corner"
+    "object": "TT CORNER"
   },
   {
-    "subject": "GF12LP technology",
+    "subject": "GF12LP TECHNOLOGY",
     "predicate": "has temperature",
     "object": "25 C"
   },
   {
-    "subject": "GF12LP technology",
+    "subject": "GF12LP TECHNOLOGY",
     "predicate": "has voltage",
     "object": "0.8 V"
   },
   {
-    "subject": "GF12LP technology",
-    "predicate": "uses",
-    "object": "super low VT standard cells"
+    "subject": "GF12LP TECHNOLOGY",
+    "predicate": "has cell type",
+    "object": "SUPER LOW VT STANDARD CELLS"
   },
   {
-    "subject": "CV32E40PRT ID stage",
-    "predicate": "has",
-    "object": "area breakdown with the proposed HW extensions"
+    "subject": "more than half of the resources",
+    "predicate": "implement",
+    "object": "the configuration registers required to control the CLIC"
+  },
+  {
+    "subject": "the size",
+    "predicate": "linearly increases with",
+    "object": "the number of input interrupts"
   },
   {
     "subject": "each interrupt",
@@ -3305,19 +3190,29 @@
     "object": "a broader application scope with time-critical systems"
   },
   {
-    "subject": "CV32RTfastirq",
+    "subject": "CV32RTFASTIRQ",
     "predicate": "incurs",
-    "object": "10 overall area increase compared to baseline CLIC only"
+    "object": "a 10 overall area increase compared to baseline CLIC only"
   },
   {
-    "subject": "The ID stage",
+    "subject": "INSTRUCTION DECODE (ID) STAGE",
+    "predicate": "incurs",
+    "object": "an area overhead of 21 compared to CV32RTCLIC"
+  },
+  {
+    "subject": "OTHER HW BLOCKS OF THE CORE",
+    "predicate": "remain",
+    "object": "primarily unaffected"
+  },
+  {
+    "subject": "ID stage",
     "predicate": "is",
-    "object": "the HW block where the additional registers and the automatic stacking-unstacking logic are localized"
+    "object": "the HW block where the additional registers and the automatic stacking/unstacking logic are localized"
   },
   {
-    "subject": "A breakdown of the ID stage",
+    "subject": "A breakdown",
     "predicate": "is shown in",
-    "object": "Fig."
+    "object": "FIG"
   },
   {
     "subject": "additional storage space for automatic context save and restore in HW",
@@ -3330,24 +3225,24 @@
     "object": "an overhead of 40 on the baseline ID stage controller"
   },
   {
-    "subject": "HW overhead",
-    "predicate": "comes from",
-    "object": "the additional emret instruction"
-  },
-  {
-    "subject": "HW overhead",
+    "subject": "HW overhead coming from the additional EMRET instruction",
     "predicate": "is",
     "object": "negligible"
   },
   {
     "subject": "increased size of the ID stage",
     "predicate": "trades off",
-    "object": "benefits of a simplified programming model that moves several SW operations in HW"
+    "object": "the benefits of a simplified programming model that moves several SW operations in HW"
   },
   {
     "subject": "increased size of the ID stage",
     "predicate": "trades off",
-    "object": "benefits of significantly lowered interrupt latency than standard RISC-V"
+    "object": "the benefits of significantly lowered interrupt latency than standard RISC-V"
+  },
+  {
+    "subject": "significantly lowered interrupt latency",
+    "predicate": "is compared to",
+    "object": "standard RISC-V"
   },
   {
     "subject": "increased size of the ID stage",
@@ -3355,14 +3250,14 @@
     "object": "the critical path of the base core design"
   },
   {
-    "subject": "time-critical systems",
-    "predicate": "shift design priorities from",
-    "object": "area efficiency"
+    "subject": "TIME-CRITICAL SYSTEMS",
+    "predicate": "SHIFT DESIGN PRIORITIES FROM",
+    "object": "AREA EFFICIENCY"
   },
   {
-    "subject": "time-critical systems",
-    "predicate": "shift design priorities to",
-    "object": "safety, security, and reliability"
+    "subject": "TIME-CRITICAL SYSTEMS",
+    "predicate": "SHIFT DESIGN PRIORITIES TO",
+    "object": "SAFETY, SECURITY, AND RELIABILITY"
   },
   {
     "subject": "this section",
@@ -3375,7 +3270,7 @@
     "object": "existing PLICs and CLICs"
   },
   {
-    "subject": "PLICs and CLICs",
+    "subject": "CLICs",
     "predicate": "are introduced in",
     "object": "Section II-C"
   },
@@ -3390,53 +3285,43 @@
     "object": "solutions across various platforms in industry and academia"
   },
   {
-    "subject": "solutions",
+    "subject": "Solutions",
     "predicate": "address",
-    "object": "interrupt context saverestore techniques"
+    "object": "interrupt context save/restore techniques"
   },
   {
-    "subject": "solutions",
+    "subject": "Solutions",
     "predicate": "address",
     "object": "context switch techniques"
   },
   {
-    "subject": "solutions",
+    "subject": "Solutions",
     "predicate": "address",
     "object": "dedicated strategies to optimize redundant context restore with back-to-back interrupts"
   },
   {
-    "subject": "We",
-    "predicate": "propose",
-    "object": "a modified version of the return"
+    "subject": "modified version of the return authorized licensed use",
+    "predicate": "is limited to",
+    "object": "California Polytechnic State University San Luis Obispo"
   },
   {
-    "subject": "Table III",
+    "subject": "TABLE III",
     "predicate": "summarizes",
-    "object": "the overview"
-  },
-  {
-    "subject": "interrupt latency",
-    "predicate": "definition",
-    "object": "presented in Section II-B"
+    "object": "THE OVERVIEW"
   },
   {
     "subject": "we",
-    "predicate": "provide references to",
-    "object": "different variants adopted by SOTA in Table III"
+    "predicate": "assume",
+    "object": "the definition presented in Section II-B for the interrupt latency"
   },
   {
-    "subject": "Arms generic interrupt controller (GIC)",
-    "predicate": "redistributes",
-    "object": "incoming asynchronous events"
-  },
-  {
-    "subject": "incoming asynchronous events",
-    "predicate": "are redistributed as",
-    "object": "non-critical (IRQ) or critical interrupts (fast IRQ, or FIQ)"
+    "subject": "we",
+    "predicate": "provide",
+    "object": "references to different variants adopted by SOTA in Table III"
   },
   {
     "subject": "interrupt handler",
-    "predicate": "uses",
+    "predicate": "operates through",
     "object": "a dedicated register bank"
   },
   {
@@ -3445,54 +3330,64 @@
     "object": "up to eight registers"
   },
   {
-    "subject": "up to eight registers",
+    "subject": "eight registers",
     "predicate": "are employed to",
     "object": "minimize context switching"
   },
   {
-    "subject": "Arm Cortex-M series",
-    "predicate": "integrates",
-    "object": "nested vectored interrupt controller (NVIC)"
+    "subject": "the core",
+    "predicate": "starts fetching",
+    "object": "the jump address from the interrupt vector table"
   },
   {
-    "subject": "a state machine 32",
-    "predicate": "performs",
+    "subject": "fetching the jump address",
+    "predicate": "occurs",
+    "object": "simultaneously during context save and embed context restore within the return instruction"
+  },
+  {
+    "subject": "ARM Cortex-M series",
+    "predicate": "integrates",
+    "object": "Nested Vectored Interrupt Controller (NVIC)"
+  },
+  {
+    "subject": "A state machine 32",
+    "predicate": "implements",
     "object": "caller-save register stacking in the background"
   },
   {
-    "subject": "the HW",
+    "subject": "HW",
     "predicate": "encodes in",
-    "object": "the link register a value (EXCRETURN)"
+    "object": "link register a value (EXCRETURN)"
   },
   {
-    "subject": "EXCRETURN",
+    "subject": "value (EXCRETURN)",
     "predicate": "notifies",
-    "object": "the core to start unwinding the stack"
+    "object": "core to start unwinding the stack"
   },
   {
-    "subject": "the core",
+    "subject": "core",
     "predicate": "starts",
     "object": "unwinding the stack to return to normal program execution"
   },
   {
-    "subject": "interrupt control unit (ICU) 33, 34, 35",
-    "predicate": "is in",
-    "object": "Infineon AURIX MCU-class TriCore family"
+    "subject": "Interrupt Control Unit (ICU) 33, 34, 35",
+    "predicate": "is part of",
+    "object": "Infineon Aurix MCU-class Tricore family"
   },
   {
-    "subject": "context of the calling routine",
+    "subject": "The context of the calling routine",
     "predicate": "is saved in",
     "object": "memory autonomously"
   },
   {
-    "subject": "restoring the context",
+    "subject": "Restoring the context",
     "predicate": "is embedded in",
-    "object": "RET instruction"
+    "object": "the RET instruction"
   },
   {
-    "subject": "restoring the context",
+    "subject": "Restoring the context",
     "predicate": "happens in parallel with",
-    "object": "return jump 36"
+    "object": "the return jump 36"
   },
   {
     "subject": "27",
@@ -3502,22 +3397,22 @@
   {
     "subject": "interrupt handling",
     "predicate": "is enhanced with",
-    "object": "automatic stacking in HW"
+    "object": "automatic stacking in hardware"
   },
   {
-    "subject": "automatic stacking in HW",
+    "subject": "automatic stacking in hardware",
     "predicate": "benefits from",
-    "object": "the cores Harvard architecture"
+    "object": "the core's Harvard architecture"
   },
   {
-    "subject": "automatic stacking in HW",
+    "subject": "automatic stacking in hardware",
     "predicate": "benefits from",
     "object": "simultaneous data and instruction memory access"
   },
   {
     "subject": "Register banking",
-    "predicate": "is a technique adopted by",
-    "object": "several architectures"
+    "predicate": "is",
+    "object": "a technique adopted by several architectures"
   },
   {
     "subject": "Register banking",
@@ -3530,24 +3425,24 @@
     "object": "an additional area overhead in the design"
   },
   {
-    "subject": "A task's context switch",
+    "subject": "A tasks context switch",
     "predicate": "benefits from",
     "object": "quickly transferring the suspended context to the dedicated register bank"
   },
   {
-    "subject": "A task's context switch",
+    "subject": "A tasks context switch",
     "predicate": "benefits from",
     "object": "already restoring the next task to be executed"
   },
   {
-    "subject": "HW register banking",
-    "predicate": "is the case of",
+    "subject": "HW REGISTER BANKING",
+    "predicate": "is in",
     "object": "PLICs (GIC)"
   },
   {
-    "subject": "HW register banking",
-    "predicate": "is used in",
-    "object": "Arm designs"
+    "subject": "HW REGISTER BANKING",
+    "predicate": "is the case of",
+    "object": "ARM designs"
   },
   {
     "subject": "A similar approach",
@@ -3565,57 +3460,102 @@
     "object": "high-speed interrupts"
   },
   {
-    "subject": "The Aurix family",
+    "subject": "THE AURIX FAMILY",
     "predicate": "implements",
     "object": "an SW managed solution"
   },
   {
-    "subject": "The SW managed solution",
+    "subject": "the SW managed solution",
     "predicate": "features",
     "object": "a specific organization of the context layout in the system memory"
   },
   {
-    "subject": "The specific organization of the context layout",
+    "subject": "the specific organization of the context layout",
     "predicate": "is based on",
     "object": "context save area (CSA) chained in a linked list fashion"
   },
   {
-    "subject": "The latter approach",
-    "predicate": "is similar to",
-    "object": "leveraging RISC-Vs RV32E base instruction set by re-using the lower 16 architectural registers of the RF"
+    "subject": "A more complex approach",
+    "predicate": "is introduced by",
+    "object": "Huang et al."
   },
   {
-    "subject": "The evaluation in 28",
-    "predicate": "lacks",
-    "object": "HW implementation"
+    "subject": "28",
+    "predicate": "adopts",
+    "object": "a valid-based mechanism in HW to block context switch on selected registers"
   },
   {
-    "subject": "The evaluation in 28",
-    "predicate": "lacks",
-    "object": "area overhead assessment"
+    "subject": "valid-based mechanism in HW",
+    "predicate": "blocks",
+    "object": "context switch on selected registers"
   },
   {
-    "subject": "The evaluation in 28",
+    "subject": "28",
     "predicate": "reduces",
-    "object": "context switching overhead by 24 on the DSPstone benchmark"
+    "object": "register movement by almost 50"
   },
   {
-    "subject": "These approaches",
+    "subject": "THIS FEATURE",
+    "predicate": "is combined with",
+    "object": "SEMI-SHADOWING"
+  },
+  {
+    "subject": "SEMI-SHADOWING",
+    "predicate": "is similar to",
+    "object": "REGISTER BANKING"
+  },
+  {
+    "subject": "SEMI-SHADOWING",
+    "predicate": "uses",
+    "object": "the top (FLIP) and bottom (FLOP) halves of the RF as RF copies"
+  },
+  {
+    "subject": "the latter approach",
+    "predicate": "is similar to",
+    "object": "leveraging RISC-V's RV32E base instruction set by re-using the lower 16 architectural registers of the RF"
+  },
+  {
+    "subject": "THE EVALUATION IN 28",
+    "predicate": "lacks",
+    "object": "HW IMPLEMENTATION"
+  },
+  {
+    "subject": "THE EVALUATION IN 28",
+    "predicate": "lacks",
+    "object": "AREA OVERHEAD ASSESSMENT"
+  },
+  {
+    "subject": "THE EVALUATION IN 28",
+    "predicate": "reduces",
+    "object": "CONTEXT SWITCHING OVERHEAD BY 24"
+  },
+  {
+    "subject": "CONTEXT SWITCHING OVERHEAD",
+    "predicate": "is reduced by",
+    "object": "24"
+  },
+  {
+    "subject": "THE EVALUATION IN 28",
+    "predicate": "reduces CON- TEXT SWITCHING OVERHEAD BY 24",
+    "object": "on THE DSPSTONE BENCHMARK"
+  },
+  {
+    "subject": "THESE APPROACHES",
     "predicate": "trade-off",
     "object": "HW- and SW-induced latencies when handling asynchronous events"
   },
   {
-    "subject": "26",
-    "predicate": "propose",
-    "object": "a full HW solution based on a hardware scheduling engine (HSE)"
+    "subject": "HSE",
+    "predicate": "is",
+    "object": "a hardware scheduling engine"
   },
   {
-    "subject": "hardware scheduling engine (HSE)",
+    "subject": "HSE",
     "predicate": "directly attaches",
     "object": "interrupts to running tasks"
   },
   {
-    "subject": "hardware scheduling engine (HSE)",
+    "subject": "HSE",
     "predicate": "does not need",
     "object": "a specialized interrupt controller"
   },
@@ -3631,8 +3571,8 @@
   },
   {
     "subject": "its area overhead",
-    "predicate": "grows for",
-    "object": "a high number of tasks"
+    "predicate": "grows",
+    "object": "for a high number of tasks"
   },
   {
     "subject": "this approach",
@@ -3646,17 +3586,17 @@
   },
   {
     "subject": "fast context switching",
-    "predicate": "is often required to",
-    "object": "hide latency in graphic processing units (GPUs)"
+    "predicate": "is often required to hide latency in",
+    "object": "graphic processing units (GPUs)"
   },
   {
-    "subject": "such works",
+    "subject": "Such works",
     "predicate": "highlight",
-    "object": "the difference in memory footprint between such architectures (MB size RFs) and low-end embedded microcontrollers targeted in this work"
+    "object": "the difference in memory footprint between architectures (MB size RFs) and low-end embedded microcontrollers targeted in this work"
   },
   {
-    "subject": "such works",
-    "predicate": "adopt",
+    "subject": "Such works",
+    "predicate": "typically adopt",
     "object": "RF caching rather than register shadowing or banking"
   },
   {
@@ -3665,19 +3605,19 @@
     "object": "performance reasons"
   },
   {
-    "subject": "RF caching",
-    "predicate": "provides",
+    "subject": "Performance reasons",
+    "predicate": "include",
     "object": "lower access latency to the RF"
   },
   {
-    "subject": "register shadowing or banking",
-    "predicate": "provides",
+    "subject": "Performance reasons",
+    "predicate": "include",
     "object": "higher thread-level parallelism (TLP)"
   },
   {
     "subject": "such techniques",
     "predicate": "may deteriorate",
-    "object": "the systems predictability"
+    "object": "the system's predictability"
   },
   {
     "subject": "such techniques",
@@ -3686,18 +3626,8 @@
   },
   {
     "subject": "RISC-V",
-    "predicate": "addresses",
-    "object": "this scenario"
-  },
-  {
-    "subject": "RISC-V",
     "predicate": "adds",
-    "object": "the xnxti CSR with SW-managed interrupt service loops"
-  },
-  {
-    "subject": "xnxti CSR with SW-managed interrupt service loops",
-    "predicate": "is part of",
-    "object": "the CLIC specifications"
+    "object": "the XNXTI CSR with SW-managed interrupt service loops as part of the CLIC specifications"
   },
   {
     "subject": "RISC-V",
@@ -3705,139 +3635,134 @@
     "object": "early commercial examples with 31"
   },
   {
-    "subject": "RISC-V AIA without APLIC",
+    "subject": "RISC-V AIA WITHOUT APLIC",
     "predicate": "has a similar approach to",
-    "object": "mnxti with the xtopi CSR"
+    "object": "MNXTI"
   },
   {
-    "subject": "xtopi CSR",
+    "subject": "RISC-V AIA WITHOUT APLIC",
+    "predicate": "has a similar approach to",
+    "object": "MNXTI with the XTOPI CSR"
+  },
+  {
+    "subject": "XTOPI CSR",
     "predicate": "reports",
     "object": "the highest-priority, pending, and enabled interrupt for a specific privilege mode"
   },
   {
-    "subject": "RISC-V AIA without APLIC",
+    "subject": "XTOPI CSR",
     "predicate": "allows",
     "object": "both late arrival and redundant context restore mechanisms"
   },
   {
-    "subject": "This work",
+    "subject": "THIS WORK",
     "predicate": "proposes",
     "object": "a combination of the background-saving with a register banking approach"
   },
   {
-    "subject": "we",
+    "subject": "We",
     "predicate": "improve",
-    "object": "task context switch times in FreeRTOS to 104 clock cycles using fastirq"
+    "object": "task context switch times in FreeRTOS to 104 clock cycles using FastIRQ"
   },
   {
-    "subject": "fastirq",
+    "subject": "FastIRQ",
     "predicate": "is",
-    "object": "20 faster than an SW-only approach"
+    "object": "20 times faster than an SW-only approach"
   },
   {
     "subject": "the authors",
     "predicate": "consider for future work",
-    "object": "analyzing fastirqs impact on timing channels"
+    "object": "analyzing FastIRQs impact on timing channels"
   },
   {
     "subject": "the authors",
     "predicate": "consider for future work",
-    "object": "its integration with different RISC-V extensions"
+    "object": "analyzing FastIRQs integration with different RISC-V extensions"
   },
   {
-    "subject": "C. Rochange, S. Uhrig, and P. Sainrat",
+    "subject": "C. ROCHANGE, S. UHRIG, AND P. SAINRAT",
     "predicate": "are authors of",
-    "object": "Time-Predictable Architectures (FOCUS Computer Engineering Series)"
+    "object": "TIME-PREDICTABLE ARCHITECTURES (FOCUS COMPUTER ENGINEERING SERIES)"
   },
   {
-    "subject": "Hoboken, NJ, USA",
-    "predicate": "is location of publisher",
-    "object": "Wiley"
+    "subject": "WILEY",
+    "predicate": "published",
+    "object": "in HOBOKEN, NJ, USA in 2014"
   },
   {
-    "subject": "Wiley",
-    "predicate": "published in year",
-    "object": "2014"
+    "subject": "L. M. PINHO ET AL.",
+    "predicate": "author of",
+    "object": "HIGH-PERFORMANCE AND TIME-PREDICTABLE EMBEDDED COMPUTING"
   },
   {
-    "subject": "2 L. M. Pinho et al.",
-    "predicate": "authored",
-    "object": "High-Performance and Time-Predictable Embedded Computing"
-  },
-  {
-    "subject": "High-Performance and Time-Predictable Embedded Computing",
+    "subject": "HIGH-PERFORMANCE AND TIME-PREDICTABLE EMBEDDED COMPUTING",
     "predicate": "available at",
-    "object": "http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1848215932.html"
+    "object": "HTTP:EU.WILEY.COMWILEYCDA WILEYTITLEPRODUCTCD-1848215932.HTML"
   },
   {
-    "subject": "River",
+    "subject": "RIVER",
     "predicate": "published in",
-    "object": "Wharton, TX, USA"
+    "object": "WHARTON, TX, USA"
   },
   {
-    "subject": "River",
+    "subject": "RIVER",
     "predicate": "published in year",
     "object": "2018"
   },
   {
     "subject": "3 F. Reghenzani, G. Massari, and W. Fornaciari",
     "predicate": "authored",
-    "object": "The real-time Linux kernel: A survey on PREEMPTRT"
+    "object": "The Real-Time Linux Kernel: A Survey on PreemptRT, ACM Comput."
   },
   {
-    "subject": "The real-time Linux kernel: A survey on PREEMPTRT",
-    "predicate": "published in",
-    "object": "ACM Comput."
-  },
-  {
-    "subject": "M. Liu, D. Liu, Y. Wang, M. Wang, and Z. Shao",
+    "subject": "4 M. LIU, D. LIU, Y. WANG, M. WANG, AND Z. SHAO",
     "predicate": "authored",
-    "object": "On improving real-time interrupt latencies of hybrid operating systems with two-level hardware interrupts"
+    "object": "ON IMPROVING REAL-TIME INTERRUPT LATENCIES OF HYBRID OPERATING SYSTEMS WITH TWO-LEVEL HARDWARE INTERRUPTS"
   },
   {
-    "subject": "On improving real-time interrupt latencies of hybrid operating systems with two-level hardware interrupts",
-    "predicate": "published_in",
-    "object": "IEEE Trans."
+    "subject": "ON IMPROVING REAL-TIME INTERRUPT LATENCIES OF HYBRID OPERATING SYSTEMS WITH TWO-LEVEL HARDWARE INTERRUPTS",
+    "predicate": "published in",
+    "object": "IEEE TRANS."
   },
   {
     "subject": "5 P. Mantegazza, E. L. Dozio, and S. Papacharalambous",
     "predicate": "authored",
-    "object": "RTAI: Real time application interface"
+    "object": "RTAI: Real Time Application Interface"
   },
   {
-    "subject": "RTAI: Real time application interface",
+    "subject": "RTAI: Real Time Application Interface",
     "predicate": "published in",
     "object": "Linux J."
   },
   {
     "subject": "J. Valvano",
-    "predicate": "author of",
+    "predicate": "authored",
     "object": "Introduction to Embedded Systems"
   },
   {
-    "subject": "http:web.engr.oregonstate.edutraylorece473 pdfsminimizeinterruptresponsetime.pdf",
+    "subject": "Introduction to Embedded Systems",
     "predicate": "is available at",
-    "object": "web.engr.oregonstate.edu"
+    "object": "http://web.engr.oregonstate.edu/traylor/ece473 PDFs/minimize_interrupt_response_time.pdf"
   },
   {
-    "subject": "CreateSpace",
-    "predicate": "published",
-    "object": "Scotts Valley, CA, USA in Aug. 2016"
+    "subject": "CREATESPACE",
+    "predicate": "location",
+    "object": "SCOTTS VALLEY, CA, USA"
   },
   {
-    "subject": "9 Y. Huang, L. Shi, J. Li, Q. Li, and C. J. Xue",
-    "predicate": "wrote",
-    "object": "WCET-aware re-scheduling register allocation for real-time embedded systems with clustered VLIW architecture"
+    "subject": "CREATESPACE",
+    "predicate": "date",
+    "object": "AUG. 2016"
   },
   {
-    "subject": "WCET-aware re-scheduling register allocation",
-    "predicate": "is for",
-    "object": "real-time embedded systems with clustered VLIW architecture"
+    "subject": "9 Y. HUANG, L. SHI, J. LI, Q. LI, AND C. J. XUE",
+    "predicate": "authored",
+    "object": "WCET-AWARE RE-SCHEDULING REGISTER ALLOCATION FOR REAL-TIME EMBEDDED SYSTEMS WITH CLUSTERED VLIW ARCHITECTURE"
   },
   {
-    "subject": "WCET-aware re-scheduling register allocation",
+    "subject": "WCET-AWARE RE-SCHEDULING REGISTER ALLOCATION FOR REAL-TIME EMBEDDED SYSTEMS WITH CLUSTERED VLIW ARCHITECTURE",
     "predicate": "published in",
-    "object": "IEEE Trans."
+    "object": "IEEE TRANS."
   },
   {
     "subject": "X. Zhou and P. Petrov",
@@ -3850,79 +3775,64 @@
     "object": "Proc."
   },
   {
-    "subject": "Association for Computing Machinery",
+    "subject": "ASSOCIATION FOR COMPUTING MACHINERY",
     "predicate": "location",
-    "object": "New York, NY, USA"
+    "object": "NEW YORK, NY, USA"
   },
   {
-    "subject": "Association for Computing Machinery",
+    "subject": "ASSOCIATION FOR COMPUTING MACHINERY",
     "predicate": "publication year",
     "object": "2006"
   },
   {
-    "subject": "Association for Computing Machinery",
+    "subject": "ASSOCIATION FOR COMPUTING MACHINERY",
     "predicate": "page",
     "object": "352"
   },
   {
-    "subject": "Association for Computing Machinery",
-    "predicate": "doi",
+    "subject": "ASSOCIATION FOR COMPUTING MACHINERY",
+    "predicate": "DOI",
     "object": "10.11451146909.1147001"
   },
   {
     "subject": "I. Behnke, L. Pirl, L. Thamsen, R. Danicki, A. Polze, and O. Kao",
     "predicate": "authored",
-    "object": "Interrupting real-time IoT tasks: How bad can it be to connect your critical embedded system to the Internet?"
-  },
-  {
-    "subject": "12 F. Rehm et al.",
-    "predicate": "wrote",
-    "object": "The road towards predictable automotive high Performance platforms"
-  },
-  {
-    "subject": "The road towards predictable automotive high Performance platforms",
-    "predicate": "was published in",
-    "object": "Proc."
+    "object": "Interrupting Real-Time IoT Tasks: How Bad Can It Be to Connect Your Critical Embedded System to the Internet?"
   },
   {
     "subject": "K. Asanovic and D. A. Patterson",
     "predicate": "wrote",
-    "object": "Instruction sets should be free: The case for RISC-V"
+    "object": "Instruction Sets Should Be Free: The Case for RISC-V"
   },
   {
-    "subject": "The RISC-V instruction set manual volume II",
-    "predicate": "is authored by",
-    "object": "A. Waterman, Y. Lee, R. Avizienis, D. A. Patterson, and K. Asanovic"
+    "subject": "THE RISC-V INSTRUCTION SET MANUAL VOLUME II: PRIVILEGED ARCHITECTURE VERSION 1.9",
+    "predicate": "authors",
+    "object": "A. WATERMAN, Y. LEE, R. AVIZIENIS, D. A. PATTERSON, AND K. ASANOVIC"
   },
   {
-    "subject": "The RISC-V instruction set manual volume II",
-    "predicate": "has version",
-    "object": "1.9"
+    "subject": "THE RISC-V INSTRUCTION SET MANUAL VOLUME II: PRIVILEGED ARCHITECTURE VERSION 1.9",
+    "predicate": "available at",
+    "object": "HTTP://WWW2.EECS.BERKELEY.EDU/PUB/STECHRPTS/2014/EECS-2014-146.HTML"
   },
   {
-    "subject": "The RISC-V instruction set manual volume II",
-    "predicate": "covers",
-    "object": "Privileged architecture"
-  },
-  {
-    "subject": "The RISC-V instruction set manual volume II",
-    "predicate": "is available at",
-    "object": "http:www2.eecs.berkeley.eduPubsTechRpts2014EECS-2014-146.html"
-  },
-  {
-    "subject": "The RISC-V instruction set manual volume II",
-    "predicate": "is published by",
-    "object": "Dept."
+    "subject": "THE RISC-V INSTRUCTION SET MANUAL VOLUME II: PRIVILEGED ARCHITECTURE VERSION 1.9",
+    "predicate": "department",
+    "object": "EECS, Berkeley"
   },
   {
     "subject": "EECS",
     "predicate": "is part of",
-    "object": "Univ."
+    "object": "UNIV."
   },
   {
     "subject": "California",
     "predicate": "contains",
     "object": "Berkeley"
+  },
+  {
+    "subject": "Berkeley",
+    "predicate": "is located in",
+    "object": "California"
   },
   {
     "subject": "Berkeley",
@@ -3936,158 +3846,138 @@
   },
   {
     "subject": "Berkeley",
-    "predicate": "has",
-    "object": "Tech"
-  },
-  {
-    "subject": "CA",
-    "predicate": "is part of",
-    "object": "USA"
-  },
-  {
-    "subject": "Berkeley",
     "predicate": "is associated with",
     "object": "Tech"
   },
   {
-    "subject": "clic",
+    "subject": "RISC-V Fast Interrupt Blob",
     "predicate": "is available at",
     "object": "https://github.com/riscv/riscv-fast-interrupt/blob/master/clic"
   },
   {
-    "subject": "M. Gautschi et al.",
-    "predicate": "authored",
-    "object": "Near-threshold RISC-V core with DSP extensions for scalable IoT endpoint devices"
+    "subject": "ADOC 16 M. GAUTSCHI ET AL.",
+    "predicate": "wrote",
+    "object": "NEAR-THRESHOLD RISC-V CORE WITH DSP EXTENSIONS FOR SCALABLE IOT ENDPOINT DEVICES"
   },
   {
-    "subject": "Near-threshold RISC-V core with DSP extensions for scalable IoT endpoint devices",
+    "subject": "NEAR-THRESHOLD RISC-V CORE WITH DSP EXTENSIONS FOR SCALABLE IOT ENDPOINT DEVICES",
     "predicate": "published in",
-    "object": "IEEE Trans."
+    "object": "IEEE TRANS."
   },
   {
-    "subject": "OpenHW Group CV32E40P",
-    "predicate": "is",
-    "object": "User Manual"
+    "subject": "OPENHW GROUP",
+    "predicate": "has",
+    "object": "CV32E40P USER MANUAL"
   },
   {
-    "subject": "OpenHW Group",
+    "subject": "OPENHW GROUP",
     "predicate": "is",
     "object": "an organization"
   },
   {
-    "subject": "cv32e40p",
+    "subject": "CV32E40P",
     "predicate": "is available at",
-    "object": "https"
+    "object": "HTTPS"
   },
   {
-    "subject": "readthedocs.io",
-    "predicate": "hosts",
-    "object": "Nuclei System Technology documentation"
+    "subject": "39 NUCLEI SYSTEM TECHNOLOGY CO. LTD.",
+    "predicate": "has unit",
+    "object": "ECLIC UNIT"
   },
   {
-    "subject": "Nuclei System Technology",
-    "predicate": "has version",
-    "object": "18"
+    "subject": "ECLIC UNIT",
+    "predicate": "is introduced in",
+    "object": "39 NUCLEI SYSTEM TECHNOLOGY CO. LTD."
   },
   {
-    "subject": "39 Nuclei System Technology Co. Ltd.",
-    "predicate": "has",
-    "object": "ECLIC Unit Introduction"
-  },
-  {
-    "subject": "Nuclei",
-    "predicate": "has",
-    "object": "ISA Spec"
+    "subject": "NUCLEI",
+    "predicate": "ISA",
+    "object": "SPEC"
   },
   {
     "subject": "A. Ottaviano et al.",
     "predicate": "authored",
-    "object": "ControlPULP: A RISC-V on-chip parallel power controller for many-core HPC processors with FPGA-based hardware-in-the-loop power and thermal emulation"
+    "object": "ControlPULP: a RISC-V on-chip parallel power controller for many-core HPC processors with FPGA-based hardware-in-the-loop power and thermal emulation"
   },
   {
     "subject": "ControlPULP",
     "predicate": "is",
-    "object": "a RISC-V on-chip parallel power controller for many-core HPC processors"
+    "object": "a RISC-V on-chip parallel power controller"
   },
   {
     "subject": "ControlPULP",
-    "predicate": "uses",
+    "predicate": "used for",
+    "object": "many-core HPC processors"
+  },
+  {
+    "subject": "ControlPULP",
+    "predicate": "features",
     "object": "FPGA-based hardware-in-the-loop power and thermal emulation"
   },
   {
-    "subject": "Text",
-    "predicate": "is available at",
+    "subject": "Document",
+    "predicate": "available at",
     "object": "https://doc.nucleisys.com/nucleispecisaintroduction.html"
   },
   {
-    "subject": "FreeRTOS",
-    "predicate": "is",
-    "object": "Real-Time Operating System for Microcontrollers"
+    "subject": "PARALLEL PROGRAM.",
+    "predicate": "published in",
+    "object": "FEB. 2024"
   },
   {
-    "subject": "Real Time Engineers Ltd.",
-    "predicate": "is",
-    "object": "Online"
+    "subject": "PARALLEL PROGRAM.",
+    "predicate": "has DOI",
+    "object": "10.1007S10766-024-00761-4"
   },
   {
-    "subject": "C.-M. Lin",
+    "subject": "FREERTOS",
+    "predicate": "is",
+    "object": "real-time operating system for microcontrollers"
+  },
+  {
+    "subject": "REAL TIME ENGINEERS LTD.",
+    "predicate": "is",
+    "object": "ONLINE"
+  },
+  {
+    "subject": "21 C.-M. Lin",
     "predicate": "authored",
-    "object": "Nested interrupt analysis of low cost and high performance embedded systems using GSPN framework"
+    "object": "Nested Interrupt Analysis of Low Cost and High Performance Embedded Systems Using GSPN Framework"
   },
   {
-    "subject": "Nested interrupt analysis of low cost and high performance embedded systems using GSPN framework",
+    "subject": "Nested Interrupt Analysis of Low Cost and High Performance Embedded Systems Using GSPN Framework",
     "predicate": "published in",
     "object": "IEICE Trans."
   },
   {
-    "subject": "Document",
+    "subject": "Text",
     "predicate": "available at",
-    "object": "https:www.freertos.orgindex.html"
+    "object": "https://www.freertos.org/index.html"
   },
   {
-    "subject": "22",
-    "predicate": "is associated with",
-    "object": "RISC-V International"
-  },
-  {
-    "subject": "The Definitive Guide to ARM Cortex-M3 Cortex-M4 Processors",
-    "predicate": "author",
-    "object": "J. Yiu"
-  },
-  {
-    "subject": "The Definitive Guide to ARM Cortex-M3 Cortex-M4 Processors",
-    "predicate": "edition",
-    "object": "3rd ed."
-  },
-  {
-    "subject": "riscv-plic-1.0.0.pdf",
-    "predicate": "available at",
+    "subject": "RISCV-PLIC-1.0.0.PDF",
+    "predicate": "is available at",
     "object": "https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic-1.0.0.pdf"
   },
   {
-    "subject": "Newnes",
-    "predicate": "published",
-    "object": "Boston, MA, USA in 2013"
-  },
-  {
-    "subject": "Cortex-M4",
-    "predicate": "is",
-    "object": "Tech"
-  },
-  {
-    "subject": "Document",
-    "predicate": "is available at",
-    "object": "https://developer.arm.com/documentation/100166/0001"
-  },
-  {
     "subject": "J. Yiu",
-    "predicate": "is author of",
-    "object": "the document"
+    "predicate": "author of",
+    "object": "The Definitive Guide to ARM Cortex-M3 Cortex-M4 Processors, 3rd ed."
   },
   {
-    "subject": "Interrupt Latency",
-    "predicate": "is related to",
-    "object": "Arm Cortex-M Processors"
+    "subject": "NEWNES",
+    "predicate": "published",
+    "object": "in BOSTON, MA, USA in 2013"
+  },
+  {
+    "subject": "HTTPS:DEVELOPER.ARM.COMDOCUMENTATION1001660001",
+    "predicate": "is available",
+    "object": "25 J. YIU"
+  },
+  {
+    "subject": "ARM Cortex-M processors",
+    "predicate": "have",
+    "object": "interrupt latency"
   },
   {
     "subject": "V. G. Gaitan, N. C. Gaitan, and I. Ungurean",
@@ -4095,209 +3985,169 @@
     "object": "CPU architecture based on a hardware scheduler and independent pipeline registers"
   },
   {
-    "subject": "CPU architecture",
-    "predicate": "is based on",
-    "object": "a hardware scheduler and independent pipeline registers"
-  },
-  {
-    "subject": "CPU architecture",
+    "subject": "CPU architecture based on a hardware scheduler and independent pipeline registers",
     "predicate": "published in",
-    "object": "IEEE Trans."
+    "object": "IEEE Transactions"
   },
   {
-    "subject": "Text",
+    "subject": "Beginner guide on interrupt latency and interrupt latency of the ARM Cortex-M processors",
     "predicate": "available at",
-    "object": "https://community.arm.com/arm-community-blogs/b-architectures-and-processors-blog/posts/beginner-guide-on-interrupt-latency-and-interrupt-latency-of-the-arm-cortex-m-processors?pifragment=227142"
+    "object": "https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/beginner-guide-on-interrupt-latency-and-interrupt-latency-of-the-arm-cortex-m-processors?pifragment=227142"
   },
   {
-    "subject": "Circuits Microsystems (ICICM)",
-    "predicate": "occurred in",
-    "object": "Oct. 2021"
-  },
-  {
-    "subject": "Li and J. K. Lee",
+    "subject": "LI and J. K. LEE",
     "predicate": "support",
     "object": "paged register files for improving context switching on embedded processors"
   },
   {
-    "subject": "29 R. Balas and L. Benini",
-    "predicate": "authored",
-    "object": "RISC-V for real-time MCUs Software optimization and microarchitectural gap analysis"
-  },
-  {
-    "subject": "RISC-V for real-time MCUs Software optimization and microarchitectural gap analysis",
-    "predicate": "was presented in",
-    "object": "Proc."
-  },
-  {
     "subject": "30",
     "predicate": "is",
-    "object": "Renesas"
+    "object": "RENESAS"
   },
   {
-    "subject": "Hardware Manual",
+    "subject": "HARDWARE MANUAL",
     "predicate": "is for",
     "object": "RENESAS MCU M16C"
   },
   {
-    "subject": "SiFive Inc.",
-    "predicate": "published",
-    "object": "hardware manual for M32C87, M32C87A, M32C87B"
-  },
-  {
-    "subject": "hardware manual",
+    "subject": "HARDWARE MANUAL",
     "predicate": "is available at",
     "object": "https://www.renesas.com/us/en/document/mahm32c87-group-m32c87-m32c87a-m32c87b-hardware-manual"
   },
   {
-    "subject": "SiFive Inc.",
+    "subject": "SIFIVE INC.",
+    "predicate": "published",
+    "object": "HARDWARE MANUAL"
+  },
+  {
+    "subject": "SIFIVE INC.",
     "predicate": "published year",
     "object": "2021"
   },
   {
-    "subject": "SiFive E21",
-    "predicate": "is described in",
-    "object": "Core Complex Manual"
-  },
-  {
-    "subject": "Document",
+    "subject": "CORECOMPLEXMANUAL21G1.PDF",
     "predicate": "is available at",
-    "object": "https:sifive.cdn.prismic.iosifive7c22c2ec-8af4-4b6c-a5fe-9327d91e7808e21corecomplexmanual21G1.pdf"
+    "object": "HTTPS:SIFIVE.CDN.PRISMIC.IOSIFIVE7C22C2EC-8AF4-4B6C-A5FE-9327D91E7808E21CORECOMPLEXMANUAL21G1.PDF"
   },
   {
-    "subject": "STMicroelectronics",
+    "subject": "STMICROELECTRONICS",
     "predicate": "is mentioned in",
-    "object": "the document"
+    "object": "the text"
   },
   {
-    "subject": "STM32L5-System-NestedVectoredInterruptControlNVIC.pdf",
+    "subject": "STM32L5-SYSTEM-NESTEDVECTOREDINTERRUPTCONTROLNVIC.PDF",
     "predicate": "is available at",
-    "object": "https://www.st.com/content/ccc/resource/training/technical/product_training/group/16135/d207346f4e83/STM32L5-System-NestedVectoredInterruptControlNVIC/files/STM32L5-System-NestedVectoredInterruptControlNVIC.pdf/jcr:content/translations/en.STM32L5-System-NestedVectoredInterruptControlNVIC.pdf"
+    "object": "https://www.st.com/content/ccc/resource/training/technical/product_training/group/16135d207346f4e83/STM32L5-SYSTEM-NESTEDVECTOREDINTERRUPTCONTROLNVIC.files/STM32L5-SYSTEM-NESTEDVECTOREDINTERRUPTCONTROLNVIC.pdf"
   },
   {
-    "subject": "Infineon Technologies AG",
+    "subject": "INFINEON TECHNOLOGIES AG",
     "predicate": "is mentioned in",
-    "object": "STM32L5-System-NestedVectoredInterruptControlNVIC.pdf"
+    "object": "STM32L5-SYSTEM-NESTEDVECTOREDINTERRUPTCONTROLNVIC.PDF"
   },
   {
-    "subject": "A Fast Powertrain Microcontroller",
+    "subject": "FAST POWERTRAIN MICROCONTROLLER",
     "predicate": "is",
     "object": "a microcontroller"
   },
   {
     "subject": "Document",
     "predicate": "is available at",
-    "object": "https://old.hotchips.org/wp-content/uploads/hcarchives/hc16/3Tue6HC16Sess7Pres1bw.pdf"
-  },
-  {
-    "subject": "Infineon Technologies AG",
-    "predicate": "is mentioned in",
-    "object": "Document at https://old.hotchips.org/wp-content/uploads/hcarchives/hc16/3Tue6HC16Sess7Pres1bw.pdf"
+    "object": "https://old.hotchips.org/wp-content/uploads/hcarchives/hc16/3tue6hc16sess7pres1bw.pdf"
   },
   {
     "subject": "Document",
+    "predicate": "is related to",
+    "object": "Infineon Technologies AG"
+  },
+  {
+    "subject": "FILE",
     "predicate": "is available at",
-    "object": "https://hitex.co.uk/fileadmin/uk-files/downloads/ShieldBuddy_tc27xDum_v2.2.pdf"
+    "object": "https://hitex.co.uk/fileadmin/uk-files/downloads/shieldbuddytc27xdumv2.2.pdf"
   },
   {
-    "subject": "Infineon Technologies AG",
-    "predicate": "is mentioned in",
-    "object": "the document"
-  },
-  {
-    "subject": "TC27x D-Step",
-    "predicate": "is",
-    "object": "32-Bit Single-Chip Microcontroller"
-  },
-  {
-    "subject": "TriCore V1.6",
-    "predicate": "has",
-    "object": "Core Architecture"
-  },
-  {
-    "subject": "Infineon Technologies AG",
-    "predicate": "has",
-    "object": "Task context switching RTOS"
-  },
-  {
-    "subject": "Task context switching RTOS",
+    "subject": "INFINEON TECHNOLOGIES AG",
     "predicate": "is associated with",
-    "object": "U.S. Patent 7 434 222 B2"
+    "object": "the file"
   },
   {
-    "subject": "U.S. Patent 7 434 222 B2",
-    "predicate": "was issued in",
-    "object": "October 2008"
+    "subject": "TC27X D-STEP",
+    "predicate": "is a",
+    "object": "32-bit single-chip microcontroller"
   },
   {
-    "subject": "Document",
+    "subject": "TRICORE V1.6",
+    "predicate": "is",
+    "object": "CORE ARCHITECTURE"
+  },
+  {
+    "subject": "HTTPS:WWW.INFINEON.COMDGDLTC16 ARCHITECTUREVOL1.PDF?FILEIDDB3A3043372D5CC801373B0F374D5D67",
     "predicate": "is available at",
-    "object": "https:www.infineon.comdgdltc16 architecturevol1.pdf?fileIddb3a3043372d5cc801373b0f374d5d67"
+    "object": "INFINEON TECHNOLOGIES AG"
   },
   {
-    "subject": "H. Zeng and K. Ghose",
+    "subject": "TASK CONTEXT SWITCHING RTOS",
+    "predicate": "is patented by",
+    "object": "U.S. PATENT 7 434 222 B2"
+  },
+  {
+    "subject": "U.S. PATENT 7 434 222 B2",
+    "predicate": "was issued in",
+    "object": "OCT. 2008"
+  },
+  {
+    "subject": "H. ZENG AND K. GHOSE",
     "predicate": "authored",
-    "object": "Register file caching for energy efficiency"
+    "object": "REGISTER FILE CACHING FOR ENERGY EFFICIENCY"
   },
   {
-    "subject": "Register file caching for energy efficiency",
-    "predicate": "was presented in",
-    "object": "ISLPED Proc."
+    "subject": "REGISTER FILE CACHING FOR ENERGY EFFICIENCY",
+    "predicate": "published in",
+    "object": "ISLPED PROC."
   },
   {
     "subject": "Date",
     "predicate": "is",
-    "object": "6, June 2024"
+    "object": "6, JUNE 2024"
   },
   {
-    "subject": "M. Sadrosadati et al.",
+    "subject": "38 M. SADROSADATI ET AL.",
     "predicate": "authored",
-    "object": "Highly concurrent latency-tolerant register files for GPUs"
+    "object": "HIGHLY CONCURRENT LATENCY-TOLERANT REGISTER FILES FOR GPUS"
   },
   {
-    "subject": "Highly concurrent latency-tolerant register files for GPUs",
+    "subject": "HIGHLY CONCURRENT LATENCY-TOLERANT REGISTER FILES FOR GPUS",
     "predicate": "published in",
-    "object": "ACM Trans."
-  },
-  {
-    "subject": "Access date",
-    "predicate": "is",
-    "object": "Aug. 4, 2023"
-  },
-  {
-    "subject": "Robert Balas",
-    "predicate": "is",
-    "object": "Graduate Student Member, IEEE"
+    "object": "ACM TRANS."
   },
   {
     "subject": "Robert Balas",
     "predicate": "received",
-    "object": "B.Sc."
+    "object": "the B.Sc."
   },
   {
-    "subject": "degrees",
+    "subject": "Degrees",
     "predicate": "are from",
     "object": "ETH Zurich, Zurich, Switzerland"
   },
   {
-    "subject": "degrees",
+    "subject": "Degrees",
     "predicate": "were obtained in",
     "object": "2015 and 2017, respectively"
   },
   {
-    "subject": "Ph.D. degree",
+    "subject": "Degree",
     "predicate": "is at",
-    "object": "Digital Circuits and Systems Group of Prof. Benini"
+    "object": "the Digital Circuits and Systems Group of Prof. Benini"
   },
   {
-    "subject": "the Digital Circuits and Systems Group",
-    "predicate": "is of",
-    "object": "Prof. Benini"
+    "subject": "Digital Circuits and Systems Group",
+    "predicate": "is part of",
+    "object": "ETH Zurich"
   },
   {
-    "subject": "Prof. Benini",
-    "predicate": "is at",
-    "object": "ETH Zurich, Zurich, Switzerland"
+    "subject": "ETH Zurich",
+    "predicate": "is located in",
+    "object": "Zurich, Switzerland"
   },
   {
     "subject": "His research interests",
@@ -4326,53 +4176,73 @@
   },
   {
     "subject": "Alessandro Ottaviano",
-    "predicate": "is",
-    "object": "Graduate Student Member of IEEE"
-  },
-  {
-    "subject": "Alessandro Ottaviano",
     "predicate": "received",
-    "object": "B.Sc."
+    "object": "the B.Sc."
   },
   {
-    "subject": "degree",
+    "subject": "LUCA BENINI",
+    "predicate": "received",
+    "object": "the Ph.D."
+  },
+  {
+    "subject": "Degree",
     "predicate": "is in",
-    "object": "physical engineering"
+    "object": "Physical Engineering"
   },
   {
-    "subject": "degree",
+    "subject": "Degree",
     "predicate": "is from",
     "object": "Politecnico di Turino, Turin, Italy"
   },
   {
-    "subject": "degree",
+    "subject": "Degree",
     "predicate": "was obtained in",
     "object": "2018"
   },
   {
-    "subject": "degree",
-    "predicate": "field",
-    "object": "electrical engineering"
+    "subject": "Degree",
+    "predicate": "is in",
+    "object": "Electrical Engineering"
   },
   {
-    "subject": "degree",
-    "predicate": "awarded by",
+    "subject": "Degree",
+    "predicate": "was obtained from",
     "object": "Politecnico di Turino"
   },
   {
-    "subject": "degree",
-    "predicate": "awarded by",
-    "object": "Grenoble INP-Phelma, Grenoble, France"
+    "subject": "Degree",
+    "predicate": "was obtained from",
+    "object": "Grenoble INP-PHELMA, Grenoble, France"
   },
   {
-    "subject": "degree",
-    "predicate": "awarded by",
+    "subject": "Degree",
+    "predicate": "was obtained from",
     "object": "EPFL Lausanne, Lausanne, Switzerland"
   },
   {
-    "subject": "degree",
-    "predicate": "year",
+    "subject": "Degree",
+    "predicate": "was obtained in",
     "object": "2020"
+  },
+  {
+    "subject": "Degree",
+    "predicate": "field",
+    "object": "Electrical Engineering"
+  },
+  {
+    "subject": "Degree",
+    "predicate": "awarded by",
+    "object": "Stanford University"
+  },
+  {
+    "subject": "Degree",
+    "predicate": "location",
+    "object": "Stanford, CA, USA"
+  },
+  {
+    "subject": "Degree",
+    "predicate": "year",
+    "object": "1997"
   },
   {
     "subject": "Dr. Benini",
@@ -4383,10 +4253,5 @@
     "subject": "Dr. Benini",
     "predicate": "is a member of",
     "object": "the Academia Europaea"
-  },
-  {
-    "subject": "McCluskey Award",
-    "predicate": "is",
-    "object": "an award"
   }
 ]

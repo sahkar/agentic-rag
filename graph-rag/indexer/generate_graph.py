@@ -2,7 +2,10 @@ import networkx as nx
 import json
 import os
 
-with open("triples_relevant_riscv.json", "r") as file:
+# currently options are pipeswitch, riscv, vLLM
+input_paper = 'vLLM'
+
+with open(f"triples_relevant_{input_paper}.json", "r") as file:
   triples = json.load(file)
 
 graph = nx.DiGraph()
@@ -35,8 +38,8 @@ for triple in triples:
   graph.add_edge(subject, object, relationship=predicate)
 
 print(f"Num triples: {num_triples}")
-print("Writing knowledge graph to indexer_kg_riscv.graphml...")
+print(f"Writing knowledge graph to indexer_kg_{input_paper}.graphml...")
 os.makedirs("output", exist_ok=True)
 os.chdir("output")
-nx.write_graphml(graph, "indexer_kg_riscv.graphml")
+nx.write_graphml(graph, f"indexer_kg_{input_paper}.graphml")
 print("Complete")

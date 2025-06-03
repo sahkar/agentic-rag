@@ -1,1665 +1,1665 @@
 {
-  "410": [
-    "This paper is included in the Proceedings of the 14th USENIX Symposium on Operating Systems Design and Implementation November 46, 2020 978-1-939133-19-9 Open access to the Proceedings of the 14th USENIX Symposium on Operating Systems Design and Implementation is sponsored by USENIX PipeSwitch: Fast Pipelined Context Switching for Deep Learning Applications Zhihao Bai and Zhen Zhang, Johns Hopkins University; Yibo Zhu, ByteDance Inc.; Xin Jin, Johns Hopkins University https:www.usenix.orgconferenceosdi20presentationbai PipeSwitch: Fast Pipelined Context Switching for Deep Learning Applications Zhihao Bai Zhen Zhang Yibo Zhu Xin Jin Johns Hopkins University ByteDance Inc. Abstract Deep learning (DL) workloads include throughput- intensive training tasks and latency-sensitive inference tasks."
+  "411": [
+    "THIS PAPER IS INCLUDED IN THE PROCEEDINGS OF THE 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION NOVEMBER 46, 2020 978-1-939133-19-9 OPEN ACCESS TO THE PROCEEDINGS OF THE 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION IS SPONSORED BY USENIX PIPESWITCH: FAST PIPELINED CONTEXT SWITCHING FOR DEEP LEARNING APPLICATIONS ZHIHAO BAI AND ZHEN ZHANG, JOHNS HOPKINS UNIVERSITY; YIBO ZHU, BYTEDANCE INC.; XIN JIN, JOHNS HOPKINS UNIVERSITY HTTPS:WWW.USENIX.ORGCONFERENCEOSDI20PRESENTATIONBAI PIPESWITCH: FAST PIPELINED CONTEXT SWITCHING FOR DEEP LEARNING APPLICATIONS ZHIHAO BAI ZHEN ZHANG YIBO ZHU XIN JIN JOHNS HOPKINS UNIVERSITY BYTEDANCE INC. ABSTRACT DEEP LEARNING (DL) WORKLOADS INCLUDE THROUGHPUT- INTENSIVE TRAINING TASKS AND LATENCY-SENSITIVE INFERENCE TASKS."
   ],
   "50": [
-    "The dominant practice today is to provision dedicated GPU clusters for training and inference separately.",
-    "The dominant practice today is to provision dedicated GPU clusters for training and inference separately.",
-    "2.1 GPU Clusters Shared GPU clusters.",
-    "Even though training and inference both use GPUs, the current practice is to build dedicated clusters for training and inference separately.",
-    "2.2 Fine-Grained Time-Sharing GPU We envision to build GPU clusters that can be shared across different applications including training and inference."
+    "THE DOMINANT PRACTICE TODAY IS TO PROVISION DEDICATED GPU CLUSTERS FOR TRAINING AND INFERENCE SEPARATELY.",
+    "THE DOMINANT PRACTICE TODAY IS TO PROVISION DEDICATED GPU CLUSTERS FOR TRAINING AND INFERENCE SEPARATELY.",
+    "2.1 GPU CLUSTERS SHARED GPU CLUSTERS.",
+    "EVEN THOUGH TRAINING AND INFERENCE BOTH USE GPUS, THE CURRENT PRACTICE IS TO BUILD DEDICATED CLUSTERS FOR TRAINING AND INFERENCE SEPARATELY.",
+    "2.2 FINE-GRAINED TIME-SHARING GPU WE ENVISION TO BUILD GPU CLUSTERS THAT CAN BE SHARED ACROSS DIFFERENT APPLICATIONS INCLUDING TRAINING AND INFERENCE."
   ],
   "454": [
-    "Due to the need to meet strict Service-Level Objectives (SLOs), GPU clus- ters are often over-provisioned based on the peak load with limited sharing between applications and task types."
-  ],
-  "74": [
-    "We present PipeSwitch, a system that enables unused cycles of an inference application to be lled by training or other inference applications.",
-    "PipeSwitch enables unused cycles of an inference application to be lled by training or other inference applica- tions."
-  ],
-  "457": [
-    "It allows multiple DL applications to time-share the same GPU with the entire GPU memory and millisecond-scale switching overhead."
-  ],
-  "5": [
-    "With PipeSwitch, GPU utilization can be signicantly improved without sacri- cing SLOs.",
-    "Experiments on a variety of DL models and GPU cards show that PipeSwitch only incurs a task startup overhead of 3.66.6 ms and a total overhead of 5.434.6 ms (1050 better than NVIDIA MPS), and achieves near 100 GPU utilization.",
-    "Experiments on a variety of DL models and GPU cards show that PipeSwitch only incurs a task startup over- head of 3.66.6 ms and a total overhead of 5.434.6 ms (1050 better than NVIDIA MPS), and achieves near 100 GPU utilization.",
-    "4.5 Discussion PipeSwitch is focused on single-GPU tasks for training and inference.",
-    "Multi-GPU inference tasks can be supported by performing PipeSwitch on each GPU with transactions.",
-    "For training tasks, PipeSwitch supports single-GPU train- ing and asynchronous multi-GPU training for data parallel strategies, as preempting one GPU does not affect other GPUs.",
-    "Thus, a signicant fraction of tasks in real- world workloads currently use a single GPU, and PipeSwitch is applicable to them out of the box.",
-    "One way to seamlessly use PipeSwitch for synchronous multi-GPU training is to use elastic synchronous training, which allows the dynamic changing of the number of GPUs used for train- ing.",
-    "PipeSwitch has high throughput close to the upper bound, achieving near 100 GPU utilization.",
-    "We demonstrate the performance of PipeSwitch with experiments on a variety of DNN models and GPU cards.",
-    "PipeSwitch can signicantly increase GPU utilization and improve the agility of DL applications."
-  ],
-  "445": [
-    "We achieve so by introducing pipelined context switching."
-  ],
-  "32": [
-    "The key idea is to leverage the layered structure of neural network models and their layer-by-layer computa- tion pattern to pipeline model transmission over the PCIe and task execution in the GPU with model-aware grouping.",
-    "Based on this observation, we design a pipelined model transmission mechanism, which pipelines model transmission over the PCIe and model computation in the GPU.",
-    "4.2 Pipelined Model Transmission Transmitting a task from CPU to GPU is bounded by the PCIe bandwidth."
-  ],
-  "116": [
-    "We also design unied memory management and active-standby worker switching mechanisms to accompany the pipelining and ensure process-level isolation.",
-    "We use an active-standby mechanism for fast worker switching and process-level isolation."
-  ],
-  "100": [
-    "We have built a PipeSwitch prototype and integrated it with PyTorch.",
-    "PipeSwitch does not modify the model structure, and only adds hooks for PyTorch to wait for transmission or synchronize the execution.",
-    "5 Implementation We have implemented a system prototype for PipeSwitch with 3600 lines of code in C and Python, and we have integrated it with PyTorch 21."
-  ],
-  "443": [
-    "1 Introduction Deep learning (DL) powers an emerging family of intelligent applications in many domains, from retail and transportation, to nance and healthcare."
-  ],
-  "290": [
-    "GPUs are one of the most widely- used classes of accelerators for DL."
-  ],
-  "347": [
-    "They provide better trade- off between performance, cost and energy consumption than CPUs for deep neural network (DNN) models."
-  ],
-  "401": [
-    "DL workloads include throughput-intensive training tasks and latency-sensitive inference tasks."
-  ],
-  "73": [
-    "Inference tasks cannot be served with training clusters under ash crowds, and training tasks cannot utilize inference clusters when the inference load is low.",
-    "However, when there is a ash crowd (e.g., an ap- plication suddenly becomes popular and the demand grows beyond the operators expectation), the training cluster can- not preempt the training tasks for inference tasks."
-  ],
-  "83": [
-    "Con- sequently, inference clusters are often over-provisioned for the peak load, in order to meet strict Service Level Objectives (SLOs).",
-    "Inference clusters are over-provisioned for the peak load, because they directly serve user requests and need to meet strict SLOs."
-  ],
-  "93": [
-    "Even for inference itself, production systems are typ- ically provisioned to each application on per-GPU granularity to limit the interference between applications.",
-    "Even for inference tasks, production systems often allocate GPUs to applications on per-GPU granularity (e.g., binding GPUs to the VMs, containers or processes of an applica- tion), in order to limit the interference between different applications and satisfy the SLO requirements."
-  ],
-  "408": [
-    "Ideally, multiple DL applications should be able to be packed to the same GPU server to maximize GPU utiliza- tion via time-sharing."
-  ],
-  "82": [
-    "This is exactly how operating systems achieve high CPU utilization via task scheduling and con- text switching.",
-    "This is inspired by the OS scheduler and context switching in the CPU world."
-  ],
-  "56": [
-    "The idea of ne-grained CPU time-sharing has been further extended to cluster scheduling.",
-    "Similar to CPU workloads, ne-grained time-sharing can provide better utilization than provisioning dedicated re- sources, while providing necessary process-level isolation.",
-    "Enabling ne-grained scheduling cycles."
-  ],
-  "305": [
-    "For example, Google Borg 1 packs online services and batch jobs, and saves 20-30 machines (compared with not packing them)."
-  ],
-  "425": [
-    "Why cant we use GPUs in the same way?"
-  ],
-  "126": [
-    "The gap is that GPU has high overhead when switching between tasks.",
-    "The gap: the precious GPU memory and slow switching."
-  ],
-  "285": [
-    "Consequently, naively using GPUs in the same way as CPUs will not satisfy the requirements of DL infer- ence that have strict SLOs in the range of tens to hundreds of milliseconds 2,3."
-  ],
-  "277": [
-    "If a GPU switches to a DNN model (e.g., ResNet) that has not been preloaded onto the GPU, it can take multiple seconds before serving the rst inference request, even with state-of-the-art tricks like CUDA unied mem- ory 4 (6)."
-  ],
-  "335": [
-    "In contrast, CPU applications can be switched in milliseconds or even microseconds 5."
-  ],
-  "2": [
-    "To avoid such switching overhead, the existing solution is to spatially share the GPU memory.",
-    "In addition, this approach does not provide strong GPU memory isolation between applications."
-  ],
-  "1": [
-    "For example, although NVIDIA Multiple Process Sharing (MPS) 6 and Salus 7 allow multiple processes to use the same GPU, they require all processes data (e.g., DNN models) to be preloaded into the GPU memory.",
-    "This is the multi-process support from NVIDIA which allows the inference process to share the GPU with the training process.",
-    "NVIDIA MPS 6 pro- vides ofcial support for sharing a GPU between multiple processes."
-  ],
-  "431": [
-    "Unfortunately, the GPU memory is much more limited than host memory and cannot preload many applica- tions."
-  ],
-  "48": [
-    "Sometimes, just one single memory-intensive training task may consume all the GPU memory.",
-    "The training task stops and cleans its GPU environment, such as freeing the GPU memory.",
-    "It stops the training task in the GPU, and then starts the inference task.",
-    "The training task occupies the entire GPU memory and does not stop when inference tasks come."
-  ],
-  "33": [
-    "Moreover, the mem- ory footprints of inference tasks are also increasingthe mod- els are getting larger, and request batching is prevalently used to increase throughput 3.",
-    "In addition, request batching is prevalently used to increase throughput 3, which further increases the GPU memory requirement of inference applications."
-  ],
-  "40": [
-    "As such, we argue that a context switching design that min- imizes the switching overhead, especially quickly switching the contents on GPU memory, is a better approach for ef- ciently time-sharing GPUs.",
-    "To our best knowledge, no existing solution offers such context switching abstraction for GPU.",
-    "We achieve so by introducing a new technology called pipelined context switching that exploits the characteristics of DL applications to achieve millisecond-scale overhead for switching tasks on GPUs.",
-    "To achieve this goal, however, we face a major challengefast GPU context switching between different processes.",
-    "Thus, it is possible to build a pipeline that overlaps the computation and GPU memory swapping for fast context switching.",
-    "There is no need for context switching if the application is already loaded in the GPU.",
-    "We introduce pipelined context switching to minimize task switch- ing overhead on GPUs for DL applications."
-  ],
-  "51": [
-    "The DNN models can be held in host memory, which is much larger and cheaper than GPU memory, and the GPU can quickly context-switch between USENIX Association 14th USENIX Symposium on Operating Systems Design and Implementation 499 the models either for training or inference.",
-    "To run DNN workloads in a large scale, enterprises build GPU clusters that are either pri- vately 10,11 or publicly 1214 shared by multiple users.",
-    "11 M. Jeon, S. Venkataraman, A. Phanishayee, u. Qian, W. Xiao, and F. Yang, Analysis of large-scale multi- tenant GPU clusters for DNN training workloads, in USENIX ATC, 2019.",
-    "512 14th USENIX Symposium on Operating Systems Design and Implementation USENIX Association 19 M. Jeon, S. Venkataraman, A. Phanishayee, J. Qian, W. Xiao, and F. Yang, Analysis of large-scale multi- tenant GPU clusters for DNN training workloads, in USENIX ATC, 2019."
-  ],
-  "392": [
-    "This way, the num- ber of applications that can be multiplexed is not limited by the GPU memory size, and each application is able to use the entire GPU compute and memory resources during its time slice."
-  ],
-  "54": [
-    "To this end, we propose PipeSwitch, a system that (i) en- ables GPU-efcient multiplexing of many DL applications on GPU servers via ne-grained time-sharing, and (ii) achieves millisecond-scale latencies and high throughput as dedicated servers.",
-    "We propose PipeSwitch, a system that enables GPU- efcient ne-grained time-sharing for multiple DL appli- cations, and achieves millisecond-scale context switching latencies and high throughput.",
-    "Combining all the ideas into our system, PipeSwitch, we close the gap of GPU memory sharing and switching, and enable the design of an efcient time-sharing GPU cluster for DL workloads.",
-    "3 PipeSwitch Overview PipeSwitch enables GPU-efcient multiplexing of multiple DL applications on GPU servers.",
-    "8 Conclusion We present PipeSwitch, a system that enables GPU-efcient ne-grained time-sharing for multiple DL applications.",
-    "With these techniques, PipeSwitch is able to achieve millisecond-scale task switching time, and enables DL applications on time-sharing GPUs to meet strict SLOs."
-  ],
-  "78": [
-    "Such small switching overhead is critical for DL applications to satisfy strict SLO requirements.",
-    "It exploits the characteristics of DL applications to achieve millisecond-scale task switch- ing overhead in order to satisfy SLO requirements."
-  ],
-  "111": [
-    "To understand the problem, we rst perform a measure- ment study to prole the task switching overhead and analyze the overhead of each component.",
-    "4.1 Proling Task Switching Overhead In order to understand the problem, we perform a measure- ment study to prole the task switching overhead."
-  ],
-  "8": [
-    "We divide the switching overhead into four components, which are old task cleaning, new task initialization, GPU memory allocation, and model transmission via PCIe from CPU to GPU.",
-    "Instance Type g4dn.2xlarge p3.2xlarge GPU Type NVIDIA T4 NVIDIA V100 Task Cleaning 155 ms 165 ms Task Initialization 5530 ms 7290 ms Memory Allocation 10 ms 13 ms Model Transmission 91 ms 81 ms Total Overhead 5787 ms 7551 ms Inference Time 105 ms 32 ms Table 1: Measurement results of task switching overhead and the breakdown of individual components."
-  ],
-  "279": [
-    "Every component takes a considerable amount of time, varying from tens of mil- liseconds to seconds."
-  ],
-  "90": [
-    "Such overhead is signicant, because an inference task itself only takes tens of milliseconds on a GPU and the latency SLOs are typically a small multiple of the inference time 3.",
-    "One source of the overhead is the contentions both on the computation and memory of the GPU, as the training task do not stop when an inference task comes."
-  ],
-  "459": [
-    "We take a holistic approach, and exploit the characteristics of DL applications to minimize the overhead of all the com- ponents."
-  ],
-  "87": [
-    "Our design is based on a key observation that DNN models have a layered structure and a layer-by-layer compu- tation pattern.",
-    "DNN models are usually deep, consisting of multiple layers stacking one on another.",
-    "Furthermore, the computation of DNN models takes place layer by layer as well.",
-    "Our key observation is that DNN models have a layered structure."
-  ],
-  "68": [
-    "As such, there is no need to wait for the entire model to be transmitted to the GPU before starting computa- tion.",
-    "In both cases, a task does not need to wait for the entire model to be transmitted to the GPU before beginning the computation."
-  ],
-  "47": [
-    "Naive pipelining on per-layer granularity introduces high overhead on tensor transmission and synchronization.",
-    "Pipelining on per-layer granularity requires synchronization for every layer."
-  ],
-  "98": [
-    "We divide layers into groups, and design an optimal model-aware grouping algorithm to nd the best grouping strategy for a given model.",
-    "Optimal model-aware grouping.",
-    "Based on these two insights, we design an algo- rithm to nd the optimal grouping strategy for a given model."
-  ],
-  "42": [
-    "The computation of a DL task is layer by layer, which has a simple, regular pattern for memory allocation.",
-    "A DL task stores two important types of data in the GPU memory: the DNN model (including the model parameters), and the intermediate results."
-  ],
-  "226": [
-    "The default general-purpose GPU memory management (e.g., CUDA uni- ed memory 4) is an overkill and incurs unnecessary over- head.",
-    "NVIDIA also provides CUDA unied memory 4 to automatically handle memory movement between the host memory and the GPU memory for applications."
-  ],
-  "181": [
-    "We design unied memory management with a dedi- cated memory daemon to minimize the overhead.",
-    "We use unied memory management with the memory daemon to both achieve minimal memory footprint and eliminate extra memory copies."
-  ],
-  "20": [
-    "The daemon pre-allocates the GPU memory, and re-allocates it to each task, without involving the expensive GPU memory manager.",
-    "To be compatible with the existing system and incur minimal changes, instead of replacing the GPU memory manager, the memory daemon uses cudaMalloc to obtain the GPU mem- ory when the system starts, and then dynamically allocates the memory to the workers at runtime."
-  ],
-  "29": [
-    "The DNN models are stored only once in the memory daemon, instead of in every worker, to minimize memory footprint.",
-    "We exploit that the memory allocation for a DNN model is deterministic to eliminate extra memory copies between the daemon and the workers and reduce the IPC overhead .",
-    "It is also important to note that no unied memory management requires each worker to keep a copy for each DNN model, which increases the memory footprint."
-  ],
-  "57": [
-    "Each server contains an active worker and multiple standby workers.",
-    "A server has one or more standby work- ers."
-  ],
-  "12": [
-    "The active worker executes the current task on the GPU; the standby workers stay on the CPU and wait for the next task.",
-    "The active worker is the worker that cur- rently executes a task in the GPU.",
-    "Here a worker is a process that executes tasks on one GPU.",
-    "After the active worker completes or stops the current task, the controller noties the memory daemon and the standby worker to load the task to GPU to execute with pipelined model transmission (4.2)."
-  ],
-  "0": [
-    "Our mechanism parallelizes old task cleaning in the active worker and new task initialization in the standby worker to minimize worker switching overhead.",
-    "As we have proled 506 14th USENIX Symposium on Operating Systems Design and Implementation USENIX Association No Task No Task Process- Cleaning Initialization Level Overhead Overhead Isolation Two Processes    One Process    Active-Standby    Table 2: Comparison of worker switching mechanisms.",
-    "We design an active and standby worker switching mecha- nism that hides the overhead of both task cleaning and task initialization, and also ensures process-level isolation."
-  ],
-  "6": [
-    "With separate worker processes, PipeSwitch enforces process-level isolation.",
-    "Un- like pipelining for the same task, PipeSwitch requires us to address new technical challenges on memory management and worker switching across different processes.",
-    "4.4 Active-Standby Worker Switching PipeSwitch aims to provide fast task switching and ensure process-level isolation.",
-    "PipeSwitch has an active worker and multiple standby workers.",
-    "6.4 Active-Standby Worker Switching To evaluate the effectiveness of active-standby worker switch- ing, we keep all other components of PipeSwitch the same, and compare the following mechanisms discussed in 4.4.",
-    "PipeSwitch It is the active-standby worker switching mech- anism used by PipeSwitch.",
-    "PipeSwitch uses an active-standby worker switching mechanism to parallelize old task cleaning and new task initialization, and incurs minimal overhead."
-  ],
-  "43": [
-    "Pipelining is a canonical technique widely used in com- puter systems to improve system performance and maxi- mize resource utilization.",
-    "Pipelining brings two sources of system overheads."
-  ],
-  "286": [
-    "Prior work in DL systems such as PipeDream 8 and ByteScheduler 9 has applied pipelining to distributed training."
+    "DUE TO THE NEED TO MEET STRICT SERVICE-LEVEL OBJECTIVES (SLOS), GPU CLUS- TERS ARE OFTEN OVER-PROVISIONED BASED ON THE PEAK LOAD WITH LIMITED SHARING BETWEEN APPLICATIONS AND TASK TYPES."
   ],
   "75": [
-    "These solutions focus on inter-batch pipelining to overlap computation and gradient transmission of different batches for training workloads of the same DNN model.",
-    "The key novelty of PipeSwitch is that it introduces intra-batch pipelining to overlap model transmission and com- putation to reduce the overhead of switching between different DNN models, which can be either inference or training."
-  ],
-  "427": [
-    "We design new techniques to not only support training, but also inference that has strict SLOs."
-  ],
-  "251": [
-    "In summary, we make the following contributions."
-  ],
-  "95": [
-    "We introduce pipelined context switching, which exploits the characteristics of DL applications, and leverages pipelined model transmission, unied memory manage- ment, and active-standby worker switching to minimize switching overhead and enforce process-level isolation.",
-    "Pipelined context switching includes three key techniques, which are pipelined model transmission, unied memory management and active- standby worker switching."
-  ],
-  "304": [
-    "We implement a system prototype and integrate it with Py- Torch."
-  ],
-  "49": [
-    "2 Motivation In this section, we identify the inefciencies in todays shared GPU clusters, and motivate running DL workloads on GPUs in the ne-grained time-sharing model.",
-    "We propose to pack multiple DL applications onto the same GPU via ne-grained time-sharing abstraction to maximize GPU utilization.",
-    "Such fast task switching enables more exible ne-grained scheduling to improve GPU utilization for dynamic workloads."
-  ],
-  "307": [
-    "Such GPU clusters are usually specically designed with ded- icated physical forms and power supplies, along with high speed networks and specialized task schedulers."
-  ],
-  "89": [
-    "500 14th USENIX Symposium on Operating Systems Design and Implementation USENIX Association Why build a shared cluster instead of a dedicated one for each user?",
-    "USENIX Association 14th USENIX Symposium on Operating Systems Design and Implementation 513 45 Kubernetes.",
-    "514 14th USENIX Symposium on Operating Systems Design and Implementation USENIX Association"
-  ],
-  "475": [
-    "The main reason is to bring down the cost."
-  ],
-  "281": [
-    "The demand of training is not well predictableit would depend on the progress of different developers."
-  ],
-  "455": [
-    "The demand of infer- ence is more predictable, e.g., an inference task for a partic- ular application usually has a daily periodical pattern based on the application usage."
-  ],
-  "379": [
-    "Nevertheless, the patterns can still vary across different tasks."
-  ],
-  "345": [
-    "Like traditional CPU workloads, a shared cluster by different tasks would increase the resource utilization via time-sharing."
-  ],
-  "376": [
-    "No sharing between training and inference."
-  ],
-  "377": [
-    "However, such shared clusters are not shared between training and infer- ence."
-  ],
-  "447": [
-    "This brings several inefciencies."
-  ],
-  "479": [
-    "Although inference clusters are not always run- ning at high utilization, they cannot be utilized by training."
-  ],
-  "428": [
-    "Training clusters are equipped with powerful GPUs to run training tasks, which are often elastic and do not have strict deadlines."
-  ],
-  "439": [
-    "One of the reasons for separately provisioning is that GPUs designed for inference tasks might be too wimpy for training tasks."
-  ],
-  "298": [
-    "This, however, has started to change with the arrival of new GPU hardware, most notably NVIDIA T4."
-  ],
-  "426": [
-    "Compared with NVIDIA V100 which has up to 32GB GPU memory and 15.7 TFLOPS (single-precision), NVIDIA T4 has compara- ble performance with 16GB GPU memory and 8.1 TFLOPS (single-precision)."
-  ],
-  "407": [
-    "Also, new algorithms and systems for dis- tributed training 8,9,15,16 enable multiple GPUs to accel- erate training, if one GPU is not fast enough."
-  ],
-  "359": [
-    "Our industry collaborator, a leading online service provider, conrms this observation."
-  ],
-  "289": [
-    "This service provider currently runs more than 10K V100 GPUs for training, and at least 5 as many T4 GPUs for inference."
-  ],
-  "247": [
-    "The computation power on both sides is within the same order of magnitude."
-  ],
-  "349": [
-    "The inference workload uctuates in correlation with the number of active users, and shows clear peaks and valleys within each day the peak demand during daytime is  2 of the valley at midnight."
-  ],
-  "489": [
-    "It would be a great match to utilize inference GPUs during less busy times for training models that require daily updates with latest data."
-  ],
-  "451": [
-    "A good example is to ne-tune BERT using daily news."
-  ],
-  "272": [
-    "This means great opportunity in improving GPU utilization by Borg-like 1 systems for GPUs."
-  ],
-  "299": [
-    "It has the following advantages."
-  ],
-  "265": [
-    "It would dramatically improve the resource utilization, es- pecially because inference and training workloads have complementary usage patterns."
-  ],
-  "327": [
-    "Online inference services are often more idle during midnight, while many training developers would start a time-consuming job at night."
-  ],
-  "419": [
-    "Be- sides, inference loads on different models have different patterns, which also benets from the time sharing."
-  ],
-  "338": [
-    "It would greatly simplify the design of load balancers and schedulers as any server would be able to run any task with low overhead to switch between different applications."
-  ],
-  "331": [
-    "A mod- ern server can be equipped with several TB of host memory, enabling it to load many applications."
-  ],
-  "438": [
-    "However, task execu- tion on GPUs require GPU memory, which is very limited even on high-end GPUs, e.g., 16 GB for T4 and 32 GB for V100."
-  ],
-  "476": [
-    "More importantly, GPU memory is purposed for task execution, not for storing the state of idle applications."
-  ],
-  "62": [
-    "DL tasks, especially training, require a large amount, or even all of the memory on a GPU.",
-    "First, DL applications have large models and generate large amounts of intermediate results, which require a lot of GPU memory."
-  ],
-  "292": [
-    "Storing the models in the GPU like Salus 7 cannot support training tasks which are memory-intensive or even multiple inference tasks which have large models."
-  ],
-  "280": [
-    "This is particularly important as state-of-the-art models are getting deeper and larger, and thus even idle applications can occupy large mem- ory space."
-  ],
-  "261": [
-    "Ideally, the active application should be able to utilize the entire GPU memory for its purpose, and the number of applications that can be served by a GPU server should only be limited by its host memory size."
-  ],
-  "391": [
-    "Consequently, switching a task would require heavy memory swapping."
-  ],
-  "19": [
-    "Unfortunately, many online inference workloads require strict SLOs that naive memory swapping between the host memory and the GPU memory cannot meet.",
-    "For inference tasks, strict SLOs require requests to be handled in small batches for low latency, so it is common to execute an inference task with a single GPU 18."
-  ],
-  "254": [
-    "For example, we test the strawman scenario where we stop a training task and then start an inference task."
-  ],
-  "362": [
-    "The rst inference batch would require several seconds to nish (4.1)."
-  ],
-  "65": [
-    "Existing support such as NVIDIA MPS is not optimized for DL workloads, and incurs hundreds of milliseconds overhead (6).",
-    "NVIDIA MPS has lower overhead compared to stop-and-start, but still incurs several hundred milliseconds overhead, which prevents MPS from meeting strict SLOs."
-  ],
-  "18": [
-    "USENIX Association 14th USENIX Symposium on Operating Systems Design and Implementation 501 Controller Active Worker GPU Memory Daemon Standby Worker Standby Worker New Task Figure 1: PipeSwitch architecture.",
-    "USENIX Association 14th USENIX Symposium on Operating Systems Design and Implementation 509 1s 2s 5s 10s 30s 0 100 200 300 400 Throughput (batchessec) Upper bound PipeSwitch MPS Stop-and-start (a) Throughput (eight p3.2xlarge instances).",
-    "They use inter-batch pipelining for training of the same task, while PipeSwitch introduces intra-batch pipelining to fast start both USENIX Association 14th USENIX Symposium on Operating Systems Design and Implementation 511 training and inference tasks and enables fast switching across tasks."
-  ],
-  "437": [
-    "The opportunity: DL workloads have well-dened struc- tures."
-  ],
-  "340": [
-    "Fortunately, the structure and computation pattern of DNN models allow us to highly optimize task switching and achieve millisecond-scale overhead."
-  ],
-  "300": [
-    "In the following sections, we will show that such pipeline is indeed feasible and effective."
-  ],
-  "142": [
-    "In addition, we will also need to resolve other challenges like memory management and worker switching."
-  ],
-  "312": [
-    "It benets switching not only between inference and training, but also between inference on different models."
-  ],
-  "259": [
-    "Here we provide an overview of the architecture and task execution."
-  ],
-  "46": [
-    "Figure 1 shows the architecture of a PipeSwitch server.",
-    "T0 T1 Tn-1 T2 Figure 2: PipeSwitch pipelines model transmission and task execution."
-  ],
-  "278": [
-    "This server contains four types of compo- nents: a controller, a memory daemon, an active worker, and multiple standby workers."
-  ],
-  "378": [
-    "Controller."
-  ],
-  "260": [
-    "The controller is the central component."
-  ],
-  "358": [
-    "It re- ceives tasks from clients, and controls the memory daemon and the workers to execute the tasks."
-  ],
-  "198": [
-    "Memory daemon.",
-    "Controller and memory daemon."
-  ],
-  "79": [
-    "The memory daemon manages the GPU memory and the DNN models.",
-    "The server stores the DNN models in the host memory."
-  ],
-  "69": [
-    "It allocates the GPU memory to the active worker, and transfers the model from the host memory to the GPU memory.",
-    "This eliminates the GPU environ- ment initialization overhead when a new task is assigned to a worker."
-  ],
-  "429": [
-    "Active worker."
-  ],
-  "325": [
-    "All components should be optimized to meet the SLOs."
-  ],
-  "270": [
-    "Standby worker."
-  ],
-  "4": [
-    "A standby worker is idle, is initializing a new task, or is cleaning its environment for the previous task.",
-    "The standby worker becomes the new active worker to execute the new task, and the active worker becomes a standby worker and cleans the environment for the previous task (4.4).",
-    "If a new task arrives before a standby worker nishes cleaning a previous task, the new task needs to wait, which increases its startup time."
-  ],
-  "45": [
-    "Task execution.",
-    "Task initialization."
-  ],
-  "383": [
-    "The controller queues a set of tasks received from the clients."
-  ],
-  "66": [
-    "It uses a scheduling policy to decide which task to execute next.",
-    "The scheduling is preemptive, i.e., the controller can preempt the current task for the next one based on the scheduling policy."
-  ],
-  "308": [
-    "It supports canonical scheduling policies such as rst come rst serve (FCFS) and earliest deadline rst (EDF), and can be easily extended to support new policies."
-  ],
-  "287": [
-    "We focus on fast context switching, and the specic schedul- ing algorithm is orthogonal to this paper."
-  ],
-  "263": [
-    "For example, if the current task is a training task, the controller can preempt it for an inference task that has a strict latency SLO."
-  ],
-  "466": [
-    "To start a new task, the controller either waits for the current task to nish (e.g., if it is inference) or preempts it by notifying the active worker to stop (e.g., if it is training)."
-  ],
-  "25": [
-    "At the same time, the controller noties an idle standby worker to initialize its environment for the new task.",
-    "When the controller schedules a task, it determines whether to switch to another worker."
-  ],
-  "58": [
-    "The memory daemon allocates the memory to the standby worker (4.3), and transmits the model used by the new task from the host memory to the GPU memory.",
-    "Because the memory daemon also manages the GPU memory, it directly transmits the model from the host memory to the GPU memory for task startup, which eliminates the extra memory copy from the memory daemon to the worker.",
-    "After the model is transmitted to the GPU, the memory daemon needs to notify the worker and export the relevant GPU memory handlers to the worker, so that the worker can access the model to execute its task.",
-    "The memory daemon handles GPU memory allocation and model transmission, but creates and sends GPU memory handlers to workers."
-  ],
-  "484": [
-    "The primary goal of this paper is to design a set of techniques based on the characteristics of DL applications to minimize the task switching overhead in this process."
-  ],
-  "53": [
-    "4 PipeSwitch Design We rst perform a measurement study to prole the task switching overhead and break it down to individual compo- nents.",
-    "6 Evaluation In this section, we rst use end-to-end experiments to demon- strate the benets of PipeSwitch, and then show the effective- ness of the design choices on each component."
-  ],
-  "477": [
-    "Then we describe our design to systematically mini- mize the overhead of each component."
-  ],
-  "354": [
-    "The mea- 502 14th USENIX Symposium on Operating Systems Design and Implementation USENIX Association surement considers a typical scenario that a server stops a training task running on the GPU, and then starts an in- ference task."
-  ],
-  "252": [
-    "The DNN model used in the measurement is ResNet152 17."
-  ],
-  "421": [
-    "The measurement covers two types of instances on Amazon AWS, which are g4dn.2xlarge with NVIDA T4 and p3.2xlarge with NVIDIA V100."
-  ],
-  "382": [
-    "We assume the inference task has arrived at the server, and focus on mea- suring the time to start and execute it on the GPU."
-  ],
-  "385": [
-    "We exclude the network time and the task queueing time."
-  ],
-  "393": [
-    "Table 1 shows the results."
-  ],
-  "248": [
-    "The total times to start the infer- ence task on the GPUs are 5787 ms and 7551 ms, respectively."
-  ],
-  "365": [
-    "We break the overhead down into the four components."
-  ],
-  "180": [
-    "Task cleaning.",
-    "On one hand, task cleaning takes time."
-  ],
-  "409": [
-    "The inference task creates and ini- tializes its environment (i.e., process launching, PyTorch CUDA runtime loading, and CUDA context initialization)."
-  ],
-  "481": [
-    "Memory allocation."
-  ],
-  "67": [
-    "The inference task allocates GPU memory for its neural network model.",
-    "The inference task transmits the model from the host memory to the GPU memory."
-  ],
-  "26": [
-    "Model transmission.",
-    "Grouped transmission."
-  ],
-  "321": [
-    "The inference time on V100 is lower than that on T4, and both of them are signicantly lower than the total overheads."
-  ],
-  "262": [
-    "The reason for lower overhead on T4 is that task switching largely depends on CPU, and g4dn.2xlarge is equipped with better CPU than p3.2xlarge (Intel Platinum 8259CL vs. Intel Xeon E5-2686 v4)."
-  ],
-  "246": [
-    "A strawman solution that simply stops the old task and starts the new task would easily violate SLOs."
-  ],
-  "397": [
-    "Because all the components take considerable time com- pared to the inference time, we emphasize that all the com- ponents should be optimized to achieve minimal switching overhead and meet the SLOs."
-  ],
-  "326": [
-    "The PCIe bandwidth is the physical limit on how fast an arbitrary task can be loaded to the GPU."
-  ],
-  "274": [
-    "We exploit the characteristics of DL applications to circumvent this physical limit."
-  ],
-  "371": [
-    "The computation is performed layer by layer."
-  ],
-  "387": [
-    "An inference task only performs a forward pass from the rst layer to the nal layer to make a prediction; each iteration in a training task performs a forward pass and then a backward pass."
-  ],
-  "309": [
-    "Instead, the task can start the com- putation of a layer as soon as the layer is loaded in the GPU and the input of the layer is ready (i.e., the previous layers have nished their computation), regardless of its following layers."
-  ],
-  "310": [
-    "Figure 2 illustrates the advantage of pipelining over the strawman solution."
-  ],
-  "11": [
-    "PipeSwitch requires the knowledge of models.",
-    "It is the pipelining mechanism with optimal model-aware grouping in PipeSwitch.",
-    "PipeSwitch uses model-aware grouping and achieves the best trade-off between pipeline overhead and efciency."
-  ],
-  "118": [
-    "T0 E0 model transmission over PCIe task execution on GPU T1 Tn-1 E1 En-1 T2 E2 (a) Transmit model to GPU, and then execute task on GPU.",
-    "PCIe GPU E0 E1 En-1 E2 (b) Pipeline model transmission and task execution."
-  ],
-  "357": [
-    "The example shows an inference task that only has a forward pass in task execution."
-  ],
-  "360": [
-    "Adding hooks can be automated, and PipeSwitch can be im- plemented as a part of the DNN framework, e.g., PyTorch, so it can gather the model structure information while remaining transparent to users and cluster managers."
-  ],
-  "381": [
-    "The basic way for pipelin- ing is to pipeline on per-layer granularity, i.e., the system transmits the layers to the GPU memory one by one, and the computation for a layer is blocked before the layer is trans- mitted."
-  ],
-  "440": [
-    "One is the overhead to invoke multiple calls to PCIe to trans- mit the data."
-  ],
-  "329": [
-    "For a large amount of data (e.g., combining the entire model to a large tensor to transmit together), the trans- mission overhead is dominated by the data size."
-  ],
-  "388": [
-    "But when we divide the model into many layers, invoking a PCIe call for each layer, especially given that some layers can be very small, would cause signicant extra overhead."
-  ],
-  "441": [
-    "The other is the synchronization overhead between transmission and computa- tion, which is necessary for the computation to know when a layer is ready to compute."
-  ],
-  "411": [
-    "We use grouping to minimize these two sources of over- head."
-  ],
-  "430": [
-    "We combine multiple layers into a group, and the pipelining is performed on per-group granularity."
-  ],
-  "432": [
-    "In this way, the pipelining overhead is paid once for each group, instead of each layer."
-  ],
-  "21": [
-    "Grouping introduces a trade-off between pipelin- ing efciency and pipelining overhead.",
-    "On one hand, using small groups (e.g., per-layer in the extreme case) enables more overlap between transmission and computation, which improves pipelining efciency, but it also pays more pipelin- ing overhead.",
-    "On the other hand, using big groups (e.g., the entire model in one group in the extreme case) has minimal pipelining overhead, but reduces the chance for overlapping."
-  ],
-  "480": [
-    "Grouping must be model-aware, because models have dif- ferent structures in terms of the number of layers and the size of each layer."
-  ],
-  "16": [
-    "Naively, we can enumerate all possible com- binations to nd the optimal grouping strategy.",
-    "In order to nd the optimal grouping strategy efciently, we introduce two pruning techniques based on two insights."
-  ],
-  "219": [
-    "This is not amenable because large models can have hundreds of layers and the time complexity for enumeration is exponential."
-  ],
-  "423": [
-    "USENIX Association 14th USENIX Symposium on Operating Systems Design and Implementation 503 PCIe GPU lower bound of F(Group(0, i), i1) PCIe GPU Group(0, i) Group(i1, j) Group(0, i) Group(i1, j) j, j1, , n-1 j, j1, , n-1 (a) Prune this case if lower bound current optimal time."
-  ],
-  "128": [
-    "(b) Prune the cases that group from i to j  j. batch at least from layer i1 to j Group(0, i) Group(i1, n-1) Group(0, i) Group(i1, n-1) Figure 3: Examples for two pruning techniques.",
-    "Therefore, we can prune the cases that group from layer (i  1) to j  j and only search for j j. Algorithm."
-  ],
-  "306": [
-    "Before we dive into the details, we rst formulate the problem."
-  ],
-  "61": [
-    "Let the number of layers be n. Let F(B,i) be a function that returns the total time of the optimal grouping strategy from layer i to n-1 given that layer 0 to i-1 have formed groups rep- resented by B.",
-    "Given the group from layer x to i is formed, the function recursively applies itself to nd the optimal groups from layer i1 to n-1 (line 21-23), and updates optgroups if the current strategy is better (line 24-26)."
-  ],
-  "389": [
-    "Then we have the following recursive formula."
-  ],
-  "346": [
-    "F(,0)  min i F(group(0,i),i1) (1) Specically, to nd the optimal grouping strategy for the en- tire model (i.e., F(, 0)), we divide all possible combinations into n cases based on how the rst group is formed, i.e., case i means the rst group contains layer 0 to i."
-  ],
-  "341": [
-    "This formula can be applied recursively to compute F(group(0,i),i1)."
-  ],
-  "117": [
-    "Our rst insight is that it is not necessary to examine all the n cases, because if the rst group contains too many layers, the computation of the rst group would be delayed too much to compensate the pipeline efciency.",
-    "Our second insight is that other than the rst group, we can safely pack multiple layers in a group based on the progress of computation without affecting pipeline efciency."
-  ],
-  "322": [
-    "Let T(i, j) and E(i, j) be the transmission and execution times for a group from layer i to j respectively, where T(i, j) is calculated based on the size of layer i to j and PCIe bandwidth, and E(i, j) is proled on the GPU."
-  ],
-  "293": [
-    "Note that the overhead of invoking multiple calls is included in T(i, j)."
-  ],
-  "343": [
-    "As illustrated by Figure 3(a), we compute a lower bound for the total time for each case in Equation 1."
-  ],
-  "380": [
-    "F(group(0,i),i1)  min(T(0,i)T(i1,n1), T(0,i)E(0,i)E(i1,n1)) (2) The lower bound considers the best case that all the remaining layers are combined in one group for transmission and com- putation, and that the computation and communication can be perfectly overlapped, i.e., its computation can happen right after the computation of the rst group nishes."
-  ],
-  "399": [
-    "If the lower bound of case i is already larger than the total time of the best grouping strategy found so far, then case i (i.e., the recursive computation for F(group(0,i),i1)) can be pruned."
-  ],
-  "337": [
-    "Figure 3(b) shows an example for this insight."
-  ],
-  "384": [
-    "Suppose that we have already xed the rst group to be from layer 0 to i, and we apply Equation 1 recursively to enumerate the cases for the PCIe GPU B.delay (group at least from layer x to j to fill) 0, 1, , x-1 0, 1, , x-1 Group(a, i) Group(i1, n-1) Group(x, i) Group(i1, n-1) lower bound of F(B  Group(a,i), i1) Figure 4: General case for the two pruning techniques."
-  ],
-  "487": [
-    "second group."
-  ],
-  "413": [
-    "We can hide the transmission of the second group into the computation of the rst group, as long as the transmission nishes no later than the computation of the rst group."
-  ],
-  "330": [
-    "The least number of layers to group can be computed using the following equation."
-  ],
-  "394": [
-    "j argmax j T(i1, j) E(0,i) (3) Group from layer (i1) to j  jis no better than grouping from (i  1) to jbecause it does not increase the pipeline efciency and has higher pipeline overhead."
-  ],
-  "356": [
-    "We emphasize that this algorithm runs ofine to nd the strat- egy, and the resulting strategy is used online by PipeSwitch for context switching."
-  ],
-  "334": [
-    "Algorithm 1 shows the pseudo code."
-  ],
-  "70": [
-    "The function FindOptGrouping recursively nds the opti- mal grouping strategy based on Equation 1 (line 1-27).",
-    "Algorithm 1 computes the recursive function FindOptGrouping(B,x)."
-  ],
-  "86": [
-    "It takes two inputs: B represents the groups that have already formed, x is the rst layer that have not formed a group.",
-    "For case i  k, the rst group contains all layers from x to n1."
-  ],
-  "283": [
-    "It uses optgroups to store the best grouping strategy from layer x given B, which is initialized to none (line 2)."
-  ],
-  "105": [
-    "The algorithm applies the second pruning insight to form the rst group from layer x (line 3-9).",
-    "The algorithm divides the problem into k  1 cases, where case i (0 i k) forms the rst group from layer x to xi."
-  ],
-  "420": [
-    "Equation 3 and Figure 3(b) illustrate this insight with a special example that B only contains one group from layer 0 to i."
-  ],
-  "296": [
-    "In general, B can contain multiple groups formed by previous layers, and we use B.delay to de- note the time to which the group can be formed, as shown in Figure 4."
-  ],
-  "417": [
-    "The algorithm nds jbased on B.delay (line 4-9), and the enumeration for i can skip the layers from x to j-1 (line 11)."
-  ],
-  "267": [
-    "For case i, the algorithm applies the rst insight to compute the lower bound (line 12-17)."
-  ],
-  "446": [
-    "Again, the example in Equation 2 and Figure 3(a) is a special case when x is 0."
-  ],
-  "264": [
-    "For the general case, the computation from x has to wait for both its transmission (i.e., T(x,i)) and the computation of the previous groups (i.e., B.delay), as shown in Figure 4."
-  ],
-  "302": [
-    "If the lower bound is already bigger than the current optimal time, then case i is pruned (line 18-19)."
-  ],
-  "255": [
-    "Finally, it returns optgroups (line 27)."
-  ],
-  "352": [
-    "In practice, we use a heuristic that bootstraps optgroups with a relative 504 14th USENIX Symposium on Operating Systems Design and Implementation USENIX Association Algorithm 1 Optimal Model-Aware Grouping 1: function FINDOPTGROUPING(B, x) 2: optgroups 0, optgroups.time  3:  nd rst group from layer i to j 4: jx 5: for layer i from x to n1 do 6: if T(x,i) B.delay then 7: ji 8: else 9: break 10:  recursively nd the optimal grouping 11: for layer i from jto n1 do 12: if optgroups  0 then 13:  compute lower bound 14: transtime T(x,i)T(i1,n1) 15: exectime max(T(x,i),B.delay) 16: E(x,i)E(i1,n1) 17: lowerbound min(transtime,exectime) 18: if lowerbound  optgroups.time then 19: continue 20:  recursively nd rest groups 21: firstgroup Group(x,i) 22: restgroups FindOptGrouping( 23: B firstgroup,i1) 24: curgroups firstgrouprestgroups 25: if curgroups.time  optgroups.time then 26: optgroups curgroups 27: return optgroups good strategy (e.g., group every ten layers)."
-  ],
-  "422": [
-    "Given n layers, there are 2n1 different grouping strategies, so the time com- plexity of Algorithm 1 is O(2n), as in the worst case it needs to enumerate all strategies."
-  ],
-  "72": [
-    "The two pruning techniques are able to prune most of the strategies, and can quickly nd the optimal one as we will show in 6.",
-    "The algorithm uses two pruning techniques."
-  ],
-  "237": [
-    "We have the following theorem for the algorithm."
-  ],
-  "295": [
-    "Theorem 1."
-  ],
-  "390": [
-    "Algorithm 1 nds the optimal grouping strategy that minimizes the total time for the pipeline."
-  ],
-  "485": [
-    "Let m  n x, which is the num- ber of layers the function considers."
-  ],
-  "108": [
-    "We use induction on m to show that FindOptGrouping(B,x) outputs the optimal grouping strategy from layer x to n 1 given that previous layers have formed groups represented by B.",
-    "Assume that for some k 1 and any m k, FindOptGrouping(B,x) outputs the optimal strategy.",
-    "For case i where 0 i k 1, because FindOptGrouping(B  Group(x,x  i),x  i  1) only considers k i k layers, it outputs the optimal grouping strategy for case i based on the assumption."
-  ],
-  "239": [
-    "Base case."
-  ],
-  "311": [
-    "When m  1, the function only examines one layer."
-  ],
-  "404": [
-    "Because there is only one strategy which is layer x itself is one group, this strategy is the optimal strategy."
-  ],
-  "367": [
-    "Inductive step."
-  ],
-  "366": [
-    "Con- sider m  k1, i.e., the algorithm now considers k1 layers."
-  ],
-  "152": [
-    "The optimal strategy for this case is one group."
-  ],
-  "465": [
-    "Because these cases are exclusive and cover the entire search space, by choosing the optimal grouping strategy from these cases, the algorithm outputs the optimal grouping strat- egy for m  k 1."
-  ],
-  "275": [
-    "The rst tech- nique prunes the cases if their lower bounds are no better than the current found optimal."
-  ],
-  "368": [
-    "It is obvious that this tech- nique does not affect the optimality."
-  ],
-  "456": [
-    "The second technique prunes the case if their rst groups are from layer x to j  j."
-  ],
-  "342": [
-    "Because these cases cannot advance the computation to an earlier point than grouping from x to at least j, pruning these cases also do not affect the optimality."
-  ],
-  "139": [
-    "Algorithm 1 achieves optimality for a given list of layers."
-  ],
-  "160": [
-    "This, however, does not require the models to be linear."
-  ],
-  "464": [
-    "In general, the layers or operators in a DNN model can be connected as an arbitrary computation graph, instead of a simple chain."
-  ],
-  "303": [
-    "Models like ResNet and Inception are techni- cally non-linear directed acyclic graph (DAGs)."
-  ],
-  "130": [
-    "Yet, there is an execution order that the layersoperators in the DAG are issued to the GPU one by one."
-  ],
-  "257": [
-    "Algorithm 1 does not have any special assumptions on the execution order."
-  ],
-  "149": [
-    "It is only interested in nding out how to group the layers given the execution order (and corresponding data dependencies) to achieve high pipelining efciency and low pipelining over- head."
-  ],
-  "153": [
-    "It even applies for graphs with loops, in which the order is based on the rst time an operator is executed."
-  ],
-  "313": [
-    "The order does not affect correctness, because an operator can be exe- cuted only when it is transmitted to the GPU and the input is ready."
-  ],
-  "81": [
-    "Thus, our pipelined model transmission is applicable to the general case.",
-    "6.2 Pipelined Model Transmission To evaluate the effectiveness of pipelined model transmission, we keep all other components of PipeSwitch the same, and compare the following mechanisms discussed in 4.2.",
-    "Figure 7: Effectiveness of pipelined model transmission."
-  ],
-  "444": [
-    "4.3 Unied Memory Management Task execution in a GPU requires GPU memory."
-  ],
-  "486": [
-    "A GPU has its own memory management system, and provides a malloc function (e.g., cudaMalloc for NVIDIA GPUs) sim- ilar to CPUs for memory allocation."
-  ],
-  "41": [
-    "A naive solution for GPU memory manage- ment is that each task uses the native cudaMallocManaged function for GPU memory allocation, and delegates model transmission to CUDA unied memory.",
-    "To share GPU memory between the controller and the workers, we add functions for allocating GPU memory, sharing the GPU USENIX Association 14th USENIX Symposium on Operating Systems Design and Implementation 507 memory to workers through CUDA IPC API, and getting the shared GPU memory.",
-    "Each worker uses cudaMalloc to allocate GPU memory, and transmits the model to GPU by its own.",
-    "Each worker allocates GPU mem- ory with cudaMallocManaged, and CUDA automatically transmits the model to GPU when needed."
-  ],
-  "469": [
-    "This solution incurs high overhead for DL applications because of two reasons."
-  ],
-  "114": [
-    "Second, the native cudaMalloc function and CUDA unied memory are designed for general-purpose applications, and may incur unnecessary overhead for DL applications.",
-    "Finally, CUDA unied memory is not optimized for DL applications, and in- troduces more than one hundred milliseconds overhead than PipeSwitch."
-  ],
-  "147": [
-    "We exploit two characteristics of DL applications to mini- mize GPU memory management overhead.",
-    "The general-purpose GPU memory management does not consider these characteristics, and is too heavy-weight for DL applications that require fast task switching."
-  ],
-  "209": [
-    "First, the amount of memory allocated to the DNN model is xed, and does not change during task execution.",
-    "While a training task updates the model, it only updates the model parameters (i.e., the weights of the neural network), not the DNN structure, and the amount of memory needed to store them stays the same."
-  ],
-  "395": [
-    "An USENIX Association 14th USENIX Symposium on Operating Systems Design and Implementation 505 inference task only uses the model for inference, and does not change the model itself."
-  ],
-  "319": [
-    "Second, the intermediate results change in a simple, regular pattern, which do not cause memory fragmentation."
-  ],
-  "154": [
-    "For an inference task, the intermediate results are the outputs of each layer, which are used by the next layer."
-  ],
-  "189": [
-    "After the next layer is computed, they are no longer needed and can be safely freed."
-  ],
-  "203": [
-    "A training task differs in that the intermediate results gener- ated in the forward pass cannot be immediately freed, because they are also used by the backward pass to update the weights."
-  ],
-  "482": [
-    "However, the backward pass consumes the intermediate re- sults in the reverse order as that the forward pass generates them, i.e., the intermediate results are rst-in-last-out."
-  ],
-  "288": [
-    "The memory allocation and release can be handled by a simple stack-like mechanism, without causing memory fragmenta- tion."
-  ],
-  "238": [
-    "Minimize memory allocation overhead.",
-    "Minimize memory footprint and avoid extra memory copies."
-  ],
-  "214": [
-    "Based on these two characteristics, we design a memory management mech- anism tailored for DL applications."
-  ],
-  "23": [
-    "PipeSwitch uses a ded- icated memory daemon to manage the GPU memory.",
-    "To compare, PipeSwitch simply sends an 64-bit integer offset for the shared GPU memory to workers.",
-    "First, compared to no unied memory management, PipeSwitch saves 223 ms by eliminating the memory allocation over- head with the memory daemon."
-  ],
-  "227": [
-    "This eliminates the overhead for each worker to use cudaMalloc to get a large amount of memory to store their models and intermediate results."
-  ],
-  "324": [
-    "The memory daemon only needs to pass memory pointers to the workers, which is light-weight."
-  ],
-  "434": [
-    "The daemon ensures that each time only one worker owns the GPU mem- ory to guarantee memory isolation between workers."
-  ],
-  "339": [
-    "Each worker uses a memory pool to allocate the memory to store its model and intermediate results, and recycles the memory to the pool after the intermediate results are no longer needed."
-  ],
-  "28": [
-    "The memory management of PipeSwitch extends that of Py- Torch.",
-    "PipeSwitch inserts GPU memory blocks to PyTorch GPU memory pool, and PyTorch creates tensors on them."
-  ],
-  "470": [
-    "It is designed and optimized for efcient GPU memory allocation between different tasks, while the memory man- agement in PyTorch handles memory allocation for a task itself."
-  ],
-  "412": [
-    "Replicating the models in each worker incurs high memory footprint, and reduces the number of models a server can store, and consequently the types of tasks the server can execute."
-  ],
-  "350": [
-    "On the other hand, storing the models in a dedicate process has minimal memory footprint as each model is only stored once, but it incurs an extra memory copy from this process to a worker to start a task, which hurts the task switching time."
-  ],
-  "416": [
-    "PipeSwitch stores the models in the memory daemon so that the server only needs to keep one copy of each model in the host memory."
-  ],
-  "63": [
-    "Minimize IPC overhead.",
-    "We leverage a property of DL applications to minimize the IPC overhead."
-  ],
-  "301": [
-    "This can be implemented by IPC APIs provided by GPUs, e.g., cudaIpcOpenMemHandle for NVIDIA GPUs."
-  ],
-  "182": [
-    "We have measured the performance of these IPC APIs and found that they incur high overhead (6)."
-  ],
-  "467": [
-    "The overhead is exacerbated by the pipeline because the pipeline needs to invoke the IPCs frequently to synchronize model transmission and task exe- cution for every pipeline group, instead of invoking the IPC only once for the entire model transmission."
-  ],
-  "396": [
-    "The property is that the memory allocation process for a neural network model is deterministic."
-  ],
-  "433": [
-    "Specif- ically, given the same GPU memory region and the same model, as long as the memory daemon and the worker uses the same order to allocate memory for the model parameters, the memory pointers for the parameters would be the same."
-  ],
-  "373": [
-    "It is easy to keep the same order for the memory daemon and the worker because the neural network model is known and given, and the memory daemon only needs to use the same order to transmit the model as the worker would."
-  ],
-  "15": [
-    "As a result, the memory daemon can minimize the usage of expensive GPU IPCs.",
-    "Without IPC opti- mization, the latency is even higher than no unied memory management."
-  ],
-  "402": [
-    "It only uses the GPU IPC once to initialize the worker, and then uses cheap CPU IPCs to notify the worker which pipeline group has been transmitted."
-  ],
-  "187": [
-    "Pin memory.",
-    "No pin memory."
-  ],
-  "125": [
-    "The OS would swap a memory page to disk if the page is inactive for a certain amount of time."
-  ],
-  "490": [
-    "GPUs require a page in the host memory to be pinned (or page- locked) in order to transmit the data in the page to the GPU memory."
-  ],
-  "449": [
-    "Otherwise, a temporary pinned page is created for the transmission."
-  ],
-  "232": [
-    "We pin the pages of the memory daemon to the host memory, to eliminate this overhead."
-  ],
-  "36": [
-    "Process-level isolation is desirable because it ensures that one task cannot read the memory of another task, and that the crashing of one task, e.g., because of a bug, does not affect other tasks or the entire system.",
-    "Similar to the naive solution, we use separate processes to achieve process-level isolation."
-  ],
-  "317": [
-    "A naive solution is to use separate processes and start the new task after the current task is stopped."
-  ],
-  "318": [
-    "in Table 1, such sequential execution incurs long delay due to old task cleaning and new task initialization."
-  ],
-  "10": [
-    "Another possible solution is to let the current and new tasks share the same process with a warm CUDA context, so that the new task can reuse the GPU environment of the current task.",
-    "The process of the old task cleans the GPU environment, and then another process is created and ini- tialized for the new task.",
-    "The process cleans the GPU environment for the old task, and reuses the environment for the new task."
-  ],
-  "271": [
-    "This avoids the new task initialization, but it still has the overhead for the current task to clean its status."
-  ],
-  "460": [
-    "In addition, it does not provide process-level isolation between tasks."
-  ],
-  "435": [
-    "Each worker is a separate process, and initializes its own GPU environment (i.e., CUDA context) when it is rst created."
-  ],
-  "372": [
-    "When a current task is stopped, a major job is to clear asynchronous CUDA functions queued on the GPU."
-  ],
-  "453": [
-    "We in- sert synchronization points into training tasks, so the number of queued functions are limited and can be quickly cleared."
-  ],
-  "463": [
-    "Synchronization points are not needed for inference tasks as they are short and not preempted."
-  ],
-  "488": [
-    "Another job is to free its GPU memory."
-  ],
-  "37": [
-    "An important property of the cleaning proce- dure is that it does not modify the content of the memory, but only cleans the metadata, i.e., GPU memory pointers.",
-    "As the GPU memory is managed by PipeSwitch, the cleaning pro- cedure deletes the pointers pointing to the tensor data rather than freeing the actual data."
-  ],
-  "491": [
-    "Therefore, it is safe for the new task to transmit its model to the GPU memory at the same time."
-  ],
-  "297": [
-    "In other words, we can parallelize the task cleaning of the current task and the pipelined model transmission of the new task, to hide the task cleaning overhead."
-  ],
-  "400": [
-    "This choice is optimized for performance, and is not a problem for a trusted environment."
-  ],
-  "216": [
-    "It is possible that a latter process can read the memory data of a previous process."
-  ],
-  "291": [
-    "If this is a concern, an additional zero-out operation can be added."
-  ],
-  "191": [
-    "GPU has high memory bandwidth (e.g., 900GBs for V100)."
-  ],
-  "361": [
-    "It would incur sub-millisecond overhead for zeroing-out most models like ResNet-152 (around 240MB)."
-  ],
-  "403": [
-    "On the other hand, for a trusted environment, it is unnecessary to release all allocated memory for the preempted process if the new process does not require entire GPU memory, and this could be achieved by some sim- ple coordination."
-  ],
-  "242": [
-    "Table 2 summarizes the differences between these three solutions."
-  ],
-  "24": [
-    "In summary, to switch workers, the controller signals the current active worker to stop, deletes the GPU memory allo- cated to it, and allocates the GPU memory to the new active worker.",
-    "If a new model should be loaded to the GPU, the controller will notify the current active worker to stop, and transfers the parameters of the new model to the GPU after receiving the current ac- tive workers reply."
-  ],
-  "294": [
-    "The controller ensures only one active worker to guar- antee exclusive occupation of the GPU."
-  ],
-  "31": [
-    "There is a trade-off between the number of standby work- ers and their GPU memory consumption.",
-    "However, every standby worker needs to maintain its own CUDA context, which consumes a few hundred MB GPU memory."
-  ],
-  "44": [
-    "On the other hand, it is possible to have many standby workers so that there is always at least one idle standby worker.",
-    "Our expe- rience is that two standby workers are sufcient to ensure at least one idle worker, which eliminates the waiting time and has moderate GPU memory consumption."
-  ],
-  "458": [
-    "A transaction here means a model is switched in or out on all of its GPUs to enable or disable inference on this model."
-  ],
-  "424": [
-    "However, it does not work out of the box with synchronous multi-GPU training."
-  ],
-  "243": [
-    "We have analyzed a production GPU training trace from Microsoft 19,20."
-  ],
-  "174": [
-    "Among 111,883 tasks in this trace, 96,662 tasks (or 86 of all the tasks) are single- GPU training tasks."
-  ],
-  "415": [
-    "However, these jobs only account for 18 of total GPU hours and we expect the share of multi-GPU jobs to increase in the future."
-  ],
-  "123": [
-    "Unfortunately, current training frameworks do not have mature support of elastic training."
-  ],
-  "52": [
-    "This remains an active research topic and is orthogonal to PipeSwitch.",
-    "PipeSwitch.",
-    "PipeSwitch performs the best and is close to the lower bound.",
-    "PipeSwitch.",
-    "PipeSwitch.",
-    "These solutions are complementary to PipeSwitch."
+    "WE PRESENT PIPESWITCH, A SYSTEM THAT ENABLES UNUSED CYCLES OF AN INFERENCE APPLICATION TO BE LLED BY TRAINING OR OTHER INFERENCE APPLICATIONS.",
+    "PIPESWITCH ENABLES UNUSED CYCLES OF AN INFERENCE APPLICATION TO BE LLED BY TRAINING OR OTHER INFERENCE APPLICA- TIONS."
+  ],
+  "457": [
+    "IT ALLOWS MULTIPLE DL APPLICATIONS TO TIME-SHARE THE SAME GPU WITH THE ENTIRE GPU MEMORY AND MILLISECOND-SCALE SWITCHING OVERHEAD."
+  ],
+  "6": [
+    "WITH PIPESWITCH, GPU UTILIZATION CAN BE SIGNICANTLY IMPROVED WITHOUT SACRI- CING SLOS.",
+    "EXPERIMENTS ON A VARIETY OF DL MODELS AND GPU CARDS SHOW THAT PIPESWITCH ONLY INCURS A TASK STARTUP OVERHEAD OF 3.66.6 MS AND A TOTAL OVERHEAD OF 5.434.6 MS (1050 BETTER THAN NVIDIA MPS), AND ACHIEVES NEAR 100 GPU UTILIZATION.",
+    "EXPERIMENTS ON A VARIETY OF DL MODELS AND GPU CARDS SHOW THAT PIPESWITCH ONLY INCURS A TASK STARTUP OVER- HEAD OF 3.66.6 MS AND A TOTAL OVERHEAD OF 5.434.6 MS (1050 BETTER THAN NVIDIA MPS), AND ACHIEVES NEAR 100 GPU UTILIZATION.",
+    "4.5 DISCUSSION PIPESWITCH IS FOCUSED ON SINGLE-GPU TASKS FOR TRAINING AND INFERENCE.",
+    "MULTI-GPU INFERENCE TASKS CAN BE SUPPORTED BY PERFORMING PIPESWITCH ON EACH GPU WITH TRANSACTIONS.",
+    "FOR TRAINING TASKS, PIPESWITCH SUPPORTS SINGLE-GPU TRAIN- ING AND ASYNCHRONOUS MULTI-GPU TRAINING FOR DATA PARALLEL STRATEGIES, AS PREEMPTING ONE GPU DOES NOT AFFECT OTHER GPUS.",
+    "THUS, A SIGNICANT FRACTION OF TASKS IN REAL- WORLD WORKLOADS CURRENTLY USE A SINGLE GPU, AND PIPESWITCH IS APPLICABLE TO THEM OUT OF THE BOX.",
+    "ONE WAY TO SEAMLESSLY USE PIPESWITCH FOR SYNCHRONOUS MULTI-GPU TRAINING IS TO USE ELASTIC SYNCHRONOUS TRAINING, WHICH ALLOWS THE DYNAMIC CHANGING OF THE NUMBER OF GPUS USED FOR TRAIN- ING.",
+    "PIPESWITCH HAS HIGH THROUGHPUT CLOSE TO THE UPPER BOUND, ACHIEVING NEAR 100 GPU UTILIZATION.",
+    "WE DEMONSTRATE THE PERFORMANCE OF PIPESWITCH WITH EXPERIMENTS ON A VARIETY OF DNN MODELS AND GPU CARDS.",
+    "PIPESWITCH CAN SIGNICANTLY INCREASE GPU UTILIZATION AND IMPROVE THE AGILITY OF DL APPLICATIONS."
+  ],
+  "445": [
+    "WE ACHIEVE SO BY INTRODUCING PIPELINED CONTEXT SWITCHING."
   ],
   "38": [
-    "PyTorch Plugins.",
-    "https:pytorch.org."
+    "THE KEY IDEA IS TO LEVERAGE THE LAYERED STRUCTURE OF NEURAL NETWORK MODELS AND THEIR LAYER-BY-LAYER COMPUTA- TION PATTERN TO PIPELINE MODEL TRANSMISSION OVER THE PCIE AND TASK EXECUTION IN THE GPU WITH MODEL-AWARE GROUPING.",
+    "BASED ON THIS OBSERVATION, WE DESIGN A PIPELINED MODEL TRANSMISSION MECHANISM, WHICH PIPELINES MODEL TRANSMISSION OVER THE PCIE AND MODEL COMPUTATION IN THE GPU.",
+    "4.2 PIPELINED MODEL TRANSMISSION TRANSMITTING A TASK FROM CPU TO GPU IS BOUNDED BY THE PCIE BANDWIDTH."
   ],
-  "22": [
-    "We add C and Python functions to the GPU memory management module of PyTorch.",
-    "We also add functions which insert the received GPU memory into PyTorch GPU memory pool for a specic CUDA stream or clear the GPU memory from the pool.",
-    "Note that the shared GPU memory can be inserted into the PyTorch GPU memory pool for multiple times for different CUDA streams, and the controller guarantees that only one of these CUDA streams is active."
+  "116": [
+    "WE ALSO DESIGN UNIED MEMORY MANAGEMENT AND ACTIVE-STANDBY WORKER SWITCHING MECHANISMS TO ACCOMPANY THE PIPELINING AND ENSURE PROCESS-LEVEL ISOLATION.",
+    "WE USE AN ACTIVE-STANDBY MECHANISM FOR FAST WORKER SWITCHING AND PROCESS-LEVEL ISOLATION."
   ],
-  "210": [
-    "The controller process consists of a TCP thread and a scheduler thread."
+  "68": [
+    "WE HAVE BUILT A PIPESWITCH PROTOTYPE AND INTEGRATED IT WITH PYTORCH.",
+    "PIPESWITCH DOES NOT MODIFY THE MODEL STRUCTURE, AND ONLY ADDS HOOKS FOR PYTORCH TO WAIT FOR TRANSMISSION OR SYNCHRONIZE THE EXECUTION.",
+    "5 IMPLEMENTATION WE HAVE IMPLEMENTED A SYSTEM PROTOTYPE FOR PIPESWITCH WITH 3600 LINES OF CODE IN C AND PYTHON, AND WE HAVE INTEGRATED IT WITH PYTORCH 21."
   ],
-  "215": [
-    "For better performance, the scheduler and the memory daemon are im- plemented together."
+  "451": [
+    "1 INTRODUCTION DEEP LEARNING (DL) POWERS AN EMERGING FAMILY OF INTELLIGENT APPLICATIONS IN MANY DOMAINS, FROM RETAIL AND TRANSPORTATION, TO NANCE AND HEALTHCARE."
+  ],
+  "293": [
+    "GPUS ARE ONE OF THE MOST WIDELY- USED CLASSES OF ACCELERATORS FOR DL."
+  ],
+  "350": [
+    "THEY PROVIDE BETTER TRADE- OFF BETWEEN PERFORMANCE, COST AND ENERGY CONSUMPTION THAN CPUS FOR DEEP NEURAL NETWORK (DNN) MODELS."
+  ],
+  "402": [
+    "DL WORKLOADS INCLUDE THROUGHPUT-INTENSIVE TRAINING TASKS AND LATENCY-SENSITIVE INFERENCE TASKS."
+  ],
+  "83": [
+    "INFERENCE TASKS CANNOT BE SERVED WITH TRAINING CLUSTERS UNDER ASH CROWDS, AND TRAINING TASKS CANNOT UTILIZE INFERENCE CLUSTERS WHEN THE INFERENCE LOAD IS LOW.",
+    "HOWEVER, WHEN THERE IS A ASH CROWD (E.G., AN AP- PLICATION SUDDENLY BECOMES POPULAR AND THE DEMAND GROWS BEYOND THE OPERATORS EXPECTATION), THE TRAINING CLUSTER CAN- NOT PREEMPT THE TRAINING TASKS FOR INFERENCE TASKS."
   ],
   "170": [
-    "The TCP thread accepts task through TCP from clients, and sends the task to the scheduler thread."
-  ],
-  "483": [
-    "The scheduler thread allocates and shares the GPU memory with workers, activates or deactivates workers, sends the task to a worker, and transfers parameters for the corresponding model to the GPU memory."
-  ],
-  "414": [
-    "Before starting a task, the user should register the model in the scheduler to notify the controller to load the model from the disk to the CPU memory."
-  ],
-  "363": [
-    "Parameters are transmitted to the GPU memory in groups in a pipeline."
-  ],
-  "386": [
-    "After each group is trans- ferred, the controller noties the worker to start computing the corresponding layers."
-  ],
-  "282": [
-    "The worker process consists of two threads."
-  ],
-  "468": [
-    "The ter- mination thread waits for the termination signal from the con- troller, and noties the main thread."
-  ],
-  "398": [
-    "The main thread manages the DNN models and performs the computation for inference or training."
-  ],
-  "269": [
-    "Similar to the controller, the worker also requires the user to register the model before starting a task, so the worker can load the models and add the hooks to wait for parameter transmission or terminate on notication."
-  ],
-  "195": [
-    "Note that the worker only loads the model structures, which is small, not the model parameters."
-  ],
-  "196": [
-    "The parameters are only stored once in the memory daemon for minimal memory footprint."
-  ],
-  "35": [
-    "When the models are loaded, they are attached to different CUDA streams, and their parameters are assigned to locations in the shared GPU memory.",
-    "Different models might use the same GPU memory location, but the value is not valid until the controller transfers the corresponding parameters to these locations."
-  ],
-  "183": [
-    "After loading the models, the worker waits for the scheduler to transfer required parameters for DNN models, and performs inference or training."
-  ],
-  "144": [
-    "All experiments are conducted on AWS."
-  ],
-  "143": [
-    "We use two EC2 instance types."
-  ],
-  "97": [
-    "One is p3.2xlarge, which is congured with 8 vCPUs (Intel Xeon E5-2686 v4), 1 GPU (NVIDIA V100 with 16 GB GPU memory), PCIe 3.0 16, and 61 GB memory.",
-    "The other is g4dn.2xlarge, which is congured with 8 vCPUs (Intel Platinum 8259CL), 1 GPU (NVIDIA T4 with 16 GB GPU memory), PCIe 3.0 8, and 32 GB memory."
-  ],
-  "472": [
-    "The software environment includes PyTorch-1.3.0, torchvision- 0.4.2, scipy-1.3.2, and CUDA-10.1."
-  ],
-  "241": [
-    "We use PyTorch with our plugins for all mechanisms in comparison for consistency, which provides better results for stop-and-start than native PyTorch from Python-PyPI used in Table 1."
-  ],
-  "193": [
-    "The models include ResNet152 17, Incep- tionv3 22 and Bertbase 23, which are standard bench- marks for evaluating DL systems."
-  ],
-  "315": [
-    "We use representative con- gurations for each model."
-  ],
-  "369": [
-    "The experiments cover both train- ing and inference."
-  ],
-  "194": [
-    "We use single-GPU inference and training tasks as discussed in 4.5."
-  ],
-  "213": [
-    "Training tasks periodically check- point their models to the host memory, and restart from the latest checkpoint after preemption."
-  ],
-  "169": [
-    "The checkpointing fre- quency of training tasks is set according to the scheduling cycle to minimize checkpointing overhead."
-  ],
-  "405": [
-    "The default batch size for training is 32, and that for inference is 8."
-  ],
-  "34": [
-    "We use throughput and latency as evaluation metrics.",
-    "We measure the the end-to-end latency experienced by the client.",
-    "Figure 5: Total latency experienced by the client for different mechanisms.",
-    "Figure 5 shows the latency experienced by the client, and Table 3 shows the total overhead."
-  ],
-  "135": [
-    "Each number is reported with the average of 100 runs."
-  ],
-  "452": [
-    "For Figure 6(b), we additionally report the minimum and maxi- mum latencies using the error bar, because the latency of the rst batch and those of later batches in one scheduling cycle can differ signicantly due to switching overhead."
-  ],
-  "351": [
-    "6.1 End-to-End Experiments Minimizing end-to-end overhead."
-  ],
-  "231": [
-    "In this experiment, a client sends an inference task to a GPU server, and the GPU server preempts the training task to execute the inference task and sends a reply back to the client."
-  ],
-  "229": [
-    "We compare the following mechanisms."
-  ],
-  "436": [
-    "Ready model."
-  ],
-  "200": [
-    "There is no training task."
-  ],
-  "418": [
-    "The process with the required model is already loaded in the GPU."
-  ],
-  "138": [
-    "This solu- tion provides the lower bound, which is the lowest latency we can achieve for an inference task."
-  ],
-  "131": [
-    "Stop-and-start."
-  ],
-  "168": [
-    "This solution is used by ex- isting systems like Gandiva 24 for task switching, which reported similar second-scale overhead."
-  ],
-  "374": [
-    "NVIDIA MPS."
-  ],
-  "323": [
-    "We initialize separate pro- cesses in advance."
-  ],
-  "30": [
-    "CUDA unied memory is used for memory swapping.",
-    "CUDA unied memory.",
-    "4 CUDA Unied Memory.",
-    "https: devblogs.nvidia.comunified-memory-cuda- beginners."
-  ],
-  "129": [
-    "The properties are described in 4."
-  ],
-  "3": [
-    "508 14th USENIX Symposium on Operating Systems Design and Implementation USENIX Association 7500 10000 Latency (ms) Ready model PipeSwitch MPS Stop-and-start ResNet152 Inceptionv3 Bertbase 0 200 400 (a) p3.2xlarge (NVIDIA V100, PCIe 3.0 16).",
-    "5000 10000 Latency (ms) Ready model PipeSwitch MPS Stop-and-start ResNet152 Inceptionv3 Bertbase 0 200 400 600 (b) g4dn.2xlarge (NVIDIA T4, PCIe 3.0 8).",
-    "p3.2xlarge (NVIDIA V100, PCIe 3.0 16) g4dn.2xlarge (NVIDIA T4, PCIe 3.0 8) ResNet152 Inceptionv3 Bertbase ResNet152 Inceptionv3 Bertbase Stop-and-start 6475.40 ms 7536.07 ms 6371.32 ms 5486.74 ms 6558.76 ms 5355.95 ms NVIDIA MPS 307.02 ms 232.25 ms 204.52 ms 259.20 ms 193.05 ms 338.25 ms PipeSwitch 6.01 ms 5.40 ms 10.27 ms 5.57 ms 7.66 ms 34.56 ms Table 3: Total overhead, i.e., the difference on total latency between different mechanisms and ready model.",
-    "ResNet152 Inceptionv3 Bertbase 0 20 40 60 80 100 Latency (ms) PipeSwitch Per-layer pipeline Grouped transmission No optimization (a) p3.2xlarge (NVIDIA V100, PCIe 3.0 16).",
-    "ResNet152 Inceptionv3 Bertbase 0 50 100 150 200 250 Latency (ms) PipeSwitch Per-layer pipeline Grouped transmission No optimization (b) g4dn.2xlarge (NVIDIA T4, PCIe 3.0 8).",
-    "510 14th USENIX Symposium on Operating Systems Design and Implementation USENIX Association ResNet152 Inceptionv3 Bertbase 0 100 200 300 400 Latency (ms) PipeSwitch No memory management No IPC optimization No pin memory CUDA unified memory (a) p3.2xlarge (NVIDIA V100, PCIe 3.0 16).",
-    "ResNet152 Inceptionv3 Bertbase 0 100 200 300 400 Latency (ms) PipeSwitch No memory management No IPC optimization No pin memory CUDA unified memory (b) g4dn.2xlarge (NVIDIA T4, PCIe 3.0 8).",
-    "6000 8000 Latency (ms) PipeSwitch One process Two processes ResNet152 Inceptionv3 Bertbase 0 100 200 (a) p3.2xlarge (NVIDIA V100, PCIe 3.0 16).",
-    "5000 7500 Latency (ms) PipeSwitch One process Two processes ResNet152 Inceptionv3 Bertbase 0 200 400 (b) g4dn.2xlarge (NVIDIA T4, PCIe 3.0 8)."
-  ],
-  "92": [
-    "ResNet152 Inceptionv3 Bertbase p3.2xlarge 3.62 ms 4.82 ms 3.62 ms g4dn.2xlarge 2.53 ms 5.49 ms 6.57 ms Table 4: The startup overhead for PipeSwitch to start comput- ing the rst layer.",
-    "We also show the task startup overhead for PipeSwitch in Table 4, which is the difference between the time for ResNet152 Inceptionv3 Bertbase  of Layers 464 189 139 Algorithm 1 1.33 s 0.18 s 0.34 s Only Pruning 1 2.09 s 0.30 s 0.88 s Only Pruning 2 3.44 h 5.07 s  24 h No Pruning  24 h  24 h  24 h Table 5: Effectiveness of two pruning techniques."
-  ],
-  "245": [
-    "Salus 7 is not directly comparable because it requires the models to be preloaded to the GPU, and has several limitations described in 2.2."
-  ],
-  "146": [
-    "Its performance is similar to the ready model when the model is preloaded, and is similar to NVIDIA MPS when the model is in the host memory."
-  ],
-  "158": [
-    "The total overhead is the difference between the latency of a mechanism and that of the ready model."
-  ],
-  "204": [
-    "It is obvious that stop-and-start performs the worst, which takes several seconds."
-  ],
-  "355": [
-    "The main source of the overhead is CUDA context initialization and rst-time library loading operations in PyTorch."
-  ],
-  "217": [
-    "Another source is GPU memory swapping."
-  ],
-  "190": [
-    "The overhead of PipeSwitch for most congurations is up to 10ms, except for BERT on T4, which is due to the large model size and the smaller PCIe bandwidth on T4 than that on V100."
-  ],
-  "199": [
-    "Since it also takes longer (120ms) to compute BERT on T4 even with the ready model, the relative overhead is acceptable."
-  ],
-  "96": [
-    "PipeSwitch to start computing the rst layer and that for the ready model to start computing."
-  ],
-  "236": [
-    "The startup overhead of PipeSwitch is only a few milliseconds.",
-    "PipeSwitch incurs only a few milliseconds overhead for task switching, and achieves low latency close to the lower bound."
-  ],
-  "228": [
-    "In this experi- ment, we compare throughput and end-to-end latency of dif- ferent mechanisms under different scheduling cycles."
-  ],
-  "364": [
-    "We use ResNet152 for both training and inference on eight p3.2xlarge instances, and switch between these two tasks after each scheduling cycle."
-  ],
-  "234": [
-    "Figure 6(a) shows the inference throughput."
-  ],
-  "110": [
-    "The dashed line is the upper bound, which is the throughput of the ready model assuming no task switching.",
-    "The dashed line is the lower bound, which is the average latency of the ready model assuming no task switching."
-  ],
-  "316": [
-    "The throughput of stop-and-start is nearly zero for scheduling cycles smaller than 10 s, because it takes several seconds for task switching."
-  ],
-  "276": [
-    "MPS keeps poor throughput around 100 batches per second."
+    "CON- SEQUENTLY, INFERENCE CLUSTERS ARE OFTEN OVER-PROVISIONED FOR THE PEAK LOAD, IN ORDER TO MEET STRICT SERVICE LEVEL OBJECTIVES (SLOS).",
+    "INFERENCE CLUSTERS ARE OVER-PROVISIONED FOR THE PEAK LOAD, BECAUSE THEY DIRECTLY SERVE USER REQUESTS AND NEED TO MEET STRICT SLOS."
   ],
   "137": [
-    "We dene GPU utilization as the ratio to the upper bound."
+    "EVEN FOR INFERENCE ITSELF, PRODUCTION SYSTEMS ARE TYP- ICALLY PROVISIONED TO EACH APPLICATION ON PER-GPU GRANULARITY TO LIMIT THE INTERFERENCE BETWEEN APPLICATIONS.",
+    "EVEN FOR INFERENCE TASKS, PRODUCTION SYSTEMS OFTEN ALLOCATE GPUS TO APPLICATIONS ON PER-GPU GRANULARITY (E.G., BINDING GPUS TO THE VMS, CONTAINERS OR PROCESSES OF AN APPLICA- TION), IN ORDER TO LIMIT THE INTERFERENCE BETWEEN DIFFERENT APPLICATIONS AND SATISFY THE SLO REQUIREMENTS."
   ],
-  "268": [
-    "Figure 6(b) shows the average latency of the inference tasks."
+  "319": [
+    "IDEALLY, MULTIPLE DL APPLICATIONS SHOULD BE ABLE TO BE PACKED TO THE SAME GPU SERVER TO MAXIMIZE GPU UTILIZA- TION VIA TIME-SHARING."
   ],
-  "201": [
-    "The error bar indicates the minimum and maximum latency."
+  "100": [
+    "THIS IS EXACTLY HOW OPERATING SYSTEMS ACHIEVE HIGH CPU UTILIZATION VIA TASK SCHEDULING AND CON- TEXT SWITCHING.",
+    "THIS IS INSPIRED BY THE OS SCHEDULER AND CONTEXT SWITCHING IN THE CPU WORLD."
   ],
-  "250": [
-    "Stop- and-start has poor latency because the rst batch has several seconds overhead."
+  "111": [
+    "THE IDEA OF NE-GRAINED CPU TIME-SHARING HAS BEEN FURTHER EXTENDED TO CLUSTER SCHEDULING.",
+    "SIMILAR TO CPU WORKLOADS, NE-GRAINED TIME-SHARING CAN PROVIDE BETTER UTILIZATION THAN PROVISIONING DEDICATED RE- SOURCES, WHILE PROVIDING NECESSARY PROCESS-LEVEL ISOLATION.",
+    "ENABLING NE-GRAINED SCHEDULING CYCLES."
   ],
-  "192": [
-    "MPS has about 80 ms average latency, and has several hundred milliseconds latency for the rst batch."
+  "311": [
+    "FOR EXAMPLE, GOOGLE BORG 1 PACKS ONLINE SERVICES AND BATCH JOBS, AND SAVES 20-30 MACHINES (COMPARED WITH NOT PACKING THEM)."
   ],
-  "115": [
-    "7500 10000 Latency (ms) PipeSwitch MPS Stop-and-start 1s 2s 5s 10s 30s 0 200 400 Lower bound (b) Latency."
-  ],
-  "218": [
-    "Figure 6: Throughput and latency under different scheduling cycles for ResNet on p3.2xlarge."
-  ],
-  "161": [
-    "It transmits the model layer by layer (with many PCIe calls), and then executes the task."
-  ],
-  "178": [
-    "It groups the entire model in one transmission, and then executes the task."
-  ],
-  "240": [
-    "Per-layer pipeline."
-  ],
-  "284": [
-    "It transits model parameters layer by layer."
-  ],
-  "207": [
-    "Computation starts, once parameters are transmitted."
-  ],
-  "7": [
-    "Figure 7 shows the total time measured by the client for an in- ference task to preempt a training task and nish its inference.",
-    "Figure 8 shows the total time measured by the client."
-  ],
-  "344": [
-    "No optimization performs the worst in most cases."
-  ],
-  "258": [
-    "Grouped transmission improves no optimization by combining the lay- ers of the model into one big tensor and transmitting it in one group."
-  ],
-  "140": [
-    "Per-layer pipeline overlaps transmission and com- putation at the granularity of layer."
-  ],
-  "353": [
-    "But because it has PCIe overhead and synchronization overhead for every layer, for the models with many layers but relatively light computa- tion such as ResNet152 and Inception, it can perform worse than grouped transmission and sometimes even no pipeline."
-  ],
-  "14": [
-    "It reduces the total time by up to 38.2 ms compared to other solutions.",
-    "It reduces the latency by 116307 ms compared to one process, and 57 s compared to two processes."
-  ],
-  "205": [
-    "Note that this reduction is signicant, especially consider- ing that it is evaluated when the optimizations on memory management and worker switching have already been applied."
-  ],
-  "448": [
-    "We would like to emphasize that to meet strict SLOs, it is important to reduce all overheads for task switching, not only the most signicant one."
-  ],
-  "206": [
-    "Table 5 shows the running time of Algorithm 1, as well as the effects of the two pruning techniques mentioned in  4.2."
-  ],
-  "177": [
-    "Note that the number of layers includes both weighted and unweighted layers, as both contribute to the computation time."
-  ],
-  "120": [
-    "We measure the parameter size and running time for each layer in advance."
-  ],
-  "473": [
-    "Algorithm 1 takes only several seconds to compute an optimal grouping strategy, even for ResNet152 which has hundreds of layers."
-  ],
-  "176": [
-    "On the contrary, no pruning does not nish for all three models after running for 24 hours."
-  ],
-  "88": [
-    "6.3 Unied Memory Management To evaluate the effectiveness of unied memory management.",
-    "No unied memory management.",
-    "Figure 8: Effectiveness of unied memory management."
-  ],
-  "221": [
-    "we keep all other components of PipeSwitch the same, and compare the following ve mechanisms discussed in 4.3."
-  ],
-  "442": [
-    "No IPC optimization."
-  ],
-  "27": [
-    "It has all optimizations on unied memory management except that the pages of the memory daemon are not pinned to the main memory.",
-    "Overall, this experiment demonstrates that all the optimizations on memory management are effective."
-  ],
-  "273": [
-    "It is the unied memory management mecha- nism used by PipeSwitch."
-  ],
-  "94": [
-    "Second, IPC optimization is important, which reduces the latency by 1648 ms."
-  ],
-  "76": [
-    "Third, pinning the pages to the host memory can reduce the latency with a few milliseconds."
-  ],
-  "104": [
-    "Two processes.",
-    "One process."
-  ],
-  "155": [
-    "Figure 9: Effectiveness of active-standby switching."
-  ],
-  "266": [
-    "Figure 9 shows the results."
-  ],
-  "113": [
-    "Two processes perform the worst as it stops the training task and initializes a new process for the new task."
-  ],
-  "60": [
-    "The new process needs to create a new CUDA environment, which dominates the total time.",
-    "One process reuses the CUDA environment, but still pays the overhead to clean the environment."
-  ],
-  "314": [
-    "7 Related Work Many frameworks have been developed for deep learning, such as TensorFlow 25, PyTorch 21 and MXNet 26."
-  ],
-  "328": [
-    "Sev- eral algorithms and systems have been designed for executing and scheduling deep learning tasks on clusters, including both training and inference tasks 3, 10, 24, 2732."
-  ],
-  "208": [
-    "These scheduling solutions are orthogonal and complementary to PipeSwitch."
-  ],
-  "112": [
-    "They focus on what scheduling decisions to make, while PipeSwitch focuses on how to realize a schedul- ing decision.",
-    "Importantly, PipeSwitch enables the scheduler to change the resource allocation more often with millisecond- scale task switching."
-  ],
-  "101": [
-    "Many techniques and systems have been proposed to optimize communication and improve dis- tributed training 8,9,15,3342."
-  ],
-  "197": [
-    "The most relevant ones are PipeDream 8, ByteScheduler 9 and Poseidon 40."
-  ],
-  "478": [
-    "Other works like vDNN 43 and SwapAdvisor 44 also have GPU memory management module, but they focus on memory management for a single training task of large models, which are not directly comparable to PipeSwitch."
-  ],
-  "461": [
-    "Cluster managers 4548 typically allocate GPUs to VMs or containers at device granularity."
-  ],
-  "179": [
-    "Several solutions have been proposed to share a GPU at application granularity us- ing techniques like library interception 6,4953."
-  ],
-  "122": [
-    "They are general-purpose and focus on sharing only a few kernels."
-  ],
-  "332": [
-    "As such, they are not suitable for deep learning applications that typically require hundreds of kernels."
-  ],
-  "156": [
-    "It is also not specially designed for deep learning and thus cannot meet strict SLOs of inference tasks as shown in 6."
-  ],
-  "186": [
-    "There are many efforts on GPU optimization to im- prove the performance of running a single task, such as tensor fusion and kernel-level concurrency and scheduling 5458."
+  "425": [
+    "WHY CANT WE USE GPUS IN THE SAME WAY?"
   ],
   "211": [
-    "We thank our shepherd Madan Musu- vathi and the anonymous reviewers for their valuable feed- back."
+    "THE GAP IS THAT GPU HAS HIGH OVERHEAD WHEN SWITCHING BETWEEN TASKS.",
+    "THE GAP: THE PRECIOUS GPU MEMORY AND SLOW SWITCHING."
   ],
-  "133": [
-    "Zhihao Bai, Zhen Zhang and Xin Jin were supported in part by an AWS Machine Learning Research Award."
+  "453": [
+    "CONSEQUENTLY, NAIVELY USING GPUS IN THE SAME WAY AS CPUS WILL NOT SATISFY THE REQUIREMENTS OF DL INFER- ENCE THAT HAVE STRICT SLOS IN THE RANGE OF TENS TO HUNDREDS OF MILLISECONDS 2,3."
+  ],
+  "280": [
+    "IF A GPU SWITCHES TO A DNN MODEL (E.G., RESNET) THAT HAS NOT BEEN PRELOADED ONTO THE GPU, IT CAN TAKE MULTIPLE SECONDS BEFORE SERVING THE RST INFERENCE REQUEST, EVEN WITH STATE-OF-THE-ART TRICKS LIKE CUDA UNIED MEM- ORY 4 (6)."
+  ],
+  "338": [
+    "IN CONTRAST, CPU APPLICATIONS CAN BE SWITCHED IN MILLISECONDS OR EVEN MICROSECONDS 5."
+  ],
+  "2": [
+    "TO AVOID SUCH SWITCHING OVERHEAD, THE EXISTING SOLUTION IS TO SPATIALLY SHARE THE GPU MEMORY.",
+    "IN ADDITION, THIS APPROACH DOES NOT PROVIDE STRONG GPU MEMORY ISOLATION BETWEEN APPLICATIONS."
+  ],
+  "1": [
+    "FOR EXAMPLE, ALTHOUGH NVIDIA MULTIPLE PROCESS SHARING (MPS) 6 AND SALUS 7 ALLOW MULTIPLE PROCESSES TO USE THE SAME GPU, THEY REQUIRE ALL PROCESSES DATA (E.G., DNN MODELS) TO BE PRELOADED INTO THE GPU MEMORY.",
+    "THIS IS THE MULTI-PROCESS SUPPORT FROM NVIDIA WHICH ALLOWS THE INFERENCE PROCESS TO SHARE THE GPU WITH THE TRAINING PROCESS.",
+    "NVIDIA MPS 6 PRO- VIDES OFCIAL SUPPORT FOR SHARING A GPU BETWEEN MULTIPLE PROCESSES."
+  ],
+  "439": [
+    "UNFORTUNATELY, THE GPU MEMORY IS MUCH MORE LIMITED THAN HOST MEMORY AND CANNOT PRELOAD MANY APPLICA- TIONS."
+  ],
+  "48": [
+    "SOMETIMES, JUST ONE SINGLE MEMORY-INTENSIVE TRAINING TASK MAY CONSUME ALL THE GPU MEMORY.",
+    "THE TRAINING TASK STOPS AND CLEANS ITS GPU ENVIRONMENT, SUCH AS FREEING THE GPU MEMORY.",
+    "IT STOPS THE TRAINING TASK IN THE GPU, AND THEN STARTS THE INFERENCE TASK.",
+    "THE TRAINING TASK OCCUPIES THE ENTIRE GPU MEMORY AND DOES NOT STOP WHEN INFERENCE TASKS COME."
+  ],
+  "25": [
+    "MOREOVER, THE MEM- ORY FOOTPRINTS OF INFERENCE TASKS ARE ALSO INCREASINGTHE MOD- ELS ARE GETTING LARGER, AND REQUEST BATCHING IS PREVALENTLY USED TO INCREASE THROUGHPUT 3.",
+    "IN ADDITION, REQUEST BATCHING IS PREVALENTLY USED TO INCREASE THROUGHPUT 3, WHICH FURTHER INCREASES THE GPU MEMORY REQUIREMENT OF INFERENCE APPLICATIONS."
+  ],
+  "19": [
+    "AS SUCH, WE ARGUE THAT A CONTEXT SWITCHING DESIGN THAT MIN- IMIZES THE SWITCHING OVERHEAD, ESPECIALLY QUICKLY SWITCHING THE CONTENTS ON GPU MEMORY, IS A BETTER APPROACH FOR EF- CIENTLY TIME-SHARING GPUS.",
+    "TO OUR BEST KNOWLEDGE, NO EXISTING SOLUTION OFFERS SUCH CONTEXT SWITCHING ABSTRACTION FOR GPU.",
+    "WE ACHIEVE SO BY INTRODUCING A NEW TECHNOLOGY CALLED PIPELINED CONTEXT SWITCHING THAT EXPLOITS THE CHARACTERISTICS OF DL APPLICATIONS TO ACHIEVE MILLISECOND-SCALE OVERHEAD FOR SWITCHING TASKS ON GPUS.",
+    "TO ACHIEVE THIS GOAL, HOWEVER, WE FACE A MAJOR CHALLENGEFAST GPU CONTEXT SWITCHING BETWEEN DIFFERENT PROCESSES.",
+    "THUS, IT IS POSSIBLE TO BUILD A PIPELINE THAT OVERLAPS THE COMPUTATION AND GPU MEMORY SWAPPING FOR FAST CONTEXT SWITCHING.",
+    "THERE IS NO NEED FOR CONTEXT SWITCHING IF THE APPLICATION IS ALREADY LOADED IN THE GPU.",
+    "WE INTRODUCE PIPELINED CONTEXT SWITCHING TO MINIMIZE TASK SWITCH- ING OVERHEAD ON GPUS FOR DL APPLICATIONS."
+  ],
+  "14": [
+    "THE DNN MODELS CAN BE HELD IN HOST MEMORY, WHICH IS MUCH LARGER AND CHEAPER THAN GPU MEMORY, AND THE GPU CAN QUICKLY CONTEXT-SWITCH BETWEEN USENIX ASSOCIATION 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION 499 THE MODELS EITHER FOR TRAINING OR INFERENCE.",
+    "TO RUN DNN WORKLOADS IN A LARGE SCALE, ENTERPRISES BUILD GPU CLUSTERS THAT ARE EITHER PRI- VATELY 10,11 OR PUBLICLY 1214 SHARED BY MULTIPLE USERS.",
+    "11 M. JEON, S. VENKATARAMAN, A. PHANISHAYEE, U. QIAN, W. XIAO, AND F. YANG, ANALYSIS OF LARGE-SCALE MULTI- TENANT GPU CLUSTERS FOR DNN TRAINING WORKLOADS, IN USENIX ATC, 2019.",
+    "512 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION USENIX ASSOCIATION 19 M. JEON, S. VENKATARAMAN, A. PHANISHAYEE, J. QIAN, W. XIAO, AND F. YANG, ANALYSIS OF LARGE-SCALE MULTI- TENANT GPU CLUSTERS FOR DNN TRAINING WORKLOADS, IN USENIX ATC, 2019."
+  ],
+  "393": [
+    "THIS WAY, THE NUM- BER OF APPLICATIONS THAT CAN BE MULTIPLEXED IS NOT LIMITED BY THE GPU MEMORY SIZE, AND EACH APPLICATION IS ABLE TO USE THE ENTIRE GPU COMPUTE AND MEMORY RESOURCES DURING ITS TIME SLICE."
+  ],
+  "26": [
+    "TO THIS END, WE PROPOSE PIPESWITCH, A SYSTEM THAT (I) EN- ABLES GPU-EFCIENT MULTIPLEXING OF MANY DL APPLICATIONS ON GPU SERVERS VIA NE-GRAINED TIME-SHARING, AND (II) ACHIEVES MILLISECOND-SCALE LATENCIES AND HIGH THROUGHPUT AS DEDICATED SERVERS.",
+    "WE PROPOSE PIPESWITCH, A SYSTEM THAT ENABLES GPU- EFCIENT NE-GRAINED TIME-SHARING FOR MULTIPLE DL APPLI- CATIONS, AND ACHIEVES MILLISECOND-SCALE CONTEXT SWITCHING LATENCIES AND HIGH THROUGHPUT.",
+    "COMBINING ALL THE IDEAS INTO OUR SYSTEM, PIPESWITCH, WE CLOSE THE GAP OF GPU MEMORY SHARING AND SWITCHING, AND ENABLE THE DESIGN OF AN EFCIENT TIME-SHARING GPU CLUSTER FOR DL WORKLOADS.",
+    "3 PIPESWITCH OVERVIEW PIPESWITCH ENABLES GPU-EFCIENT MULTIPLEXING OF MULTIPLE DL APPLICATIONS ON GPU SERVERS.",
+    "8 CONCLUSION WE PRESENT PIPESWITCH, A SYSTEM THAT ENABLES GPU-EFCIENT NE-GRAINED TIME-SHARING FOR MULTIPLE DL APPLICATIONS.",
+    "WITH THESE TECHNIQUES, PIPESWITCH IS ABLE TO ACHIEVE MILLISECOND-SCALE TASK SWITCHING TIME, AND ENABLES DL APPLICATIONS ON TIME-SHARING GPUS TO MEET STRICT SLOS."
+  ],
+  "258": [
+    "SUCH SMALL SWITCHING OVERHEAD IS CRITICAL FOR DL APPLICATIONS TO SATISFY STRICT SLO REQUIREMENTS.",
+    "IT EXPLOITS THE CHARACTERISTICS OF DL APPLICATIONS TO ACHIEVE MILLISECOND-SCALE TASK SWITCH- ING OVERHEAD IN ORDER TO SATISFY SLO REQUIREMENTS."
+  ],
+  "224": [
+    "TO UNDERSTAND THE PROBLEM, WE RST PERFORM A MEASURE- MENT STUDY TO PROLE THE TASK SWITCHING OVERHEAD AND ANALYZE THE OVERHEAD OF EACH COMPONENT.",
+    "4.1 PROLING TASK SWITCHING OVERHEAD IN ORDER TO UNDERSTAND THE PROBLEM, WE PERFORM A MEASURE- MENT STUDY TO PROLE THE TASK SWITCHING OVERHEAD."
+  ],
+  "3": [
+    "WE DIVIDE THE SWITCHING OVERHEAD INTO FOUR COMPONENTS, WHICH ARE OLD TASK CLEANING, NEW TASK INITIALIZATION, GPU MEMORY ALLOCATION, AND MODEL TRANSMISSION VIA PCIE FROM CPU TO GPU.",
+    "INSTANCE TYPE G4DN.2XLARGE P3.2XLARGE GPU TYPE NVIDIA T4 NVIDIA V100 TASK CLEANING 155 MS 165 MS TASK INITIALIZATION 5530 MS 7290 MS MEMORY ALLOCATION 10 MS 13 MS MODEL TRANSMISSION 91 MS 81 MS TOTAL OVERHEAD 5787 MS 7551 MS INFERENCE TIME 105 MS 32 MS TABLE 1: MEASUREMENT RESULTS OF TASK SWITCHING OVERHEAD AND THE BREAKDOWN OF INDIVIDUAL COMPONENTS."
+  ],
+  "285": [
+    "EVERY COMPONENT TAKES A CONSIDERABLE AMOUNT OF TIME, VARYING FROM TENS OF MIL- LISECONDS TO SECONDS."
+  ],
+  "44": [
+    "SUCH OVERHEAD IS SIGNICANT, BECAUSE AN INFERENCE TASK ITSELF ONLY TAKES TENS OF MILLISECONDS ON A GPU AND THE LATENCY SLOS ARE TYPICALLY A SMALL MULTIPLE OF THE INFERENCE TIME 3.",
+    "ONE SOURCE OF THE OVERHEAD IS THE CONTENTIONS BOTH ON THE COMPUTATION AND MEMORY OF THE GPU, AS THE TRAINING TASK DO NOT STOP WHEN AN INFERENCE TASK COMES."
+  ],
+  "459": [
+    "WE TAKE A HOLISTIC APPROACH, AND EXPLOIT THE CHARACTERISTICS OF DL APPLICATIONS TO MINIMIZE THE OVERHEAD OF ALL THE COM- PONENTS."
+  ],
+  "121": [
+    "OUR DESIGN IS BASED ON A KEY OBSERVATION THAT DNN MODELS HAVE A LAYERED STRUCTURE AND A LAYER-BY-LAYER COMPU- TATION PATTERN.",
+    "DNN MODELS ARE USUALLY DEEP, CONSISTING OF MULTIPLE LAYERS STACKING ONE ON ANOTHER.",
+    "FURTHERMORE, THE COMPUTATION OF DNN MODELS TAKES PLACE LAYER BY LAYER AS WELL.",
+    "OUR KEY OBSERVATION IS THAT DNN MODELS HAVE A LAYERED STRUCTURE."
+  ],
+  "153": [
+    "AS SUCH, THERE IS NO NEED TO WAIT FOR THE ENTIRE MODEL TO BE TRANSMITTED TO THE GPU BEFORE STARTING COMPUTA- TION.",
+    "IN BOTH CASES, A TASK DOES NOT NEED TO WAIT FOR THE ENTIRE MODEL TO BE TRANSMITTED TO THE GPU BEFORE BEGINNING THE COMPUTATION."
+  ],
+  "98": [
+    "NAIVE PIPELINING ON PER-LAYER GRANULARITY INTRODUCES HIGH OVERHEAD ON TENSOR TRANSMISSION AND SYNCHRONIZATION.",
+    "PIPELINING ON PER-LAYER GRANULARITY REQUIRES SYNCHRONIZATION FOR EVERY LAYER."
+  ],
+  "99": [
+    "WE DIVIDE LAYERS INTO GROUPS, AND DESIGN AN OPTIMAL MODEL-AWARE GROUPING ALGORITHM TO ND THE BEST GROUPING STRATEGY FOR A GIVEN MODEL.",
+    "OPTIMAL MODEL-AWARE GROUPING.",
+    "BASED ON THESE TWO INSIGHTS, WE DESIGN AN ALGO- RITHM TO ND THE OPTIMAL GROUPING STRATEGY FOR A GIVEN MODEL."
+  ],
+  "10": [
+    "THE COMPUTATION OF A DL TASK IS LAYER BY LAYER, WHICH HAS A SIMPLE, REGULAR PATTERN FOR MEMORY ALLOCATION.",
+    "A DL TASK STORES TWO IMPORTANT TYPES OF DATA IN THE GPU MEMORY: THE DNN MODEL (INCLUDING THE MODEL PARAMETERS), AND THE INTERMEDIATE RESULTS."
+  ],
+  "226": [
+    "THE DEFAULT GENERAL-PURPOSE GPU MEMORY MANAGEMENT (E.G., CUDA UNI- ED MEMORY 4) IS AN OVERKILL AND INCURS UNNECESSARY OVER- HEAD.",
+    "NVIDIA ALSO PROVIDES CUDA UNIED MEMORY 4 TO AUTOMATICALLY HANDLE MEMORY MOVEMENT BETWEEN THE HOST MEMORY AND THE GPU MEMORY FOR APPLICATIONS."
+  ],
+  "89": [
+    "WE DESIGN UNIED MEMORY MANAGEMENT WITH A DEDI- CATED MEMORY DAEMON TO MINIMIZE THE OVERHEAD.",
+    "WE USE UNIED MEMORY MANAGEMENT WITH THE MEMORY DAEMON TO BOTH ACHIEVE MINIMAL MEMORY FOOTPRINT AND ELIMINATE EXTRA MEMORY COPIES."
+  ],
+  "18": [
+    "THE DAEMON PRE-ALLOCATES THE GPU MEMORY, AND RE-ALLOCATES IT TO EACH TASK, WITHOUT INVOLVING THE EXPENSIVE GPU MEMORY MANAGER.",
+    "TO BE COMPATIBLE WITH THE EXISTING SYSTEM AND INCUR MINIMAL CHANGES, INSTEAD OF REPLACING THE GPU MEMORY MANAGER, THE MEMORY DAEMON USES CUDAMALLOC TO OBTAIN THE GPU MEM- ORY WHEN THE SYSTEM STARTS, AND THEN DYNAMICALLY ALLOCATES THE MEMORY TO THE WORKERS AT RUNTIME."
+  ],
+  "29": [
+    "THE DNN MODELS ARE STORED ONLY ONCE IN THE MEMORY DAEMON, INSTEAD OF IN EVERY WORKER, TO MINIMIZE MEMORY FOOTPRINT.",
+    "WE EXPLOIT THAT THE MEMORY ALLOCATION FOR A DNN MODEL IS DETERMINISTIC TO ELIMINATE EXTRA MEMORY COPIES BETWEEN THE DAEMON AND THE WORKERS AND REDUCE THE IPC OVERHEAD .",
+    "IT IS ALSO IMPORTANT TO NOTE THAT NO UNIED MEMORY MANAGEMENT REQUIRES EACH WORKER TO KEEP A COPY FOR EACH DNN MODEL, WHICH INCREASES THE MEMORY FOOTPRINT."
+  ],
+  "57": [
+    "EACH SERVER CONTAINS AN ACTIVE WORKER AND MULTIPLE STANDBY WORKERS.",
+    "A SERVER HAS ONE OR MORE STANDBY WORK- ERS."
+  ],
+  "5": [
+    "THE ACTIVE WORKER EXECUTES THE CURRENT TASK ON THE GPU; THE STANDBY WORKERS STAY ON THE CPU AND WAIT FOR THE NEXT TASK.",
+    "THE ACTIVE WORKER IS THE WORKER THAT CUR- RENTLY EXECUTES A TASK IN THE GPU.",
+    "HERE A WORKER IS A PROCESS THAT EXECUTES TASKS ON ONE GPU.",
+    "AFTER THE ACTIVE WORKER COMPLETES OR STOPS THE CURRENT TASK, THE CONTROLLER NOTIES THE MEMORY DAEMON AND THE STANDBY WORKER TO LOAD THE TASK TO GPU TO EXECUTE WITH PIPELINED MODEL TRANSMISSION (4.2)."
+  ],
+  "0": [
+    "OUR MECHANISM PARALLELIZES OLD TASK CLEANING IN THE ACTIVE WORKER AND NEW TASK INITIALIZATION IN THE STANDBY WORKER TO MINIMIZE WORKER SWITCHING OVERHEAD.",
+    "AS WE HAVE PROLED 506 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION USENIX ASSOCIATION NO TASK NO TASK PROCESS- CLEANING INITIALIZATION LEVEL OVERHEAD OVERHEAD ISOLATION TWO PROCESSES    ONE PROCESS    ACTIVE-STANDBY    TABLE 2: COMPARISON OF WORKER SWITCHING MECHANISMS.",
+    "WE DESIGN AN ACTIVE AND STANDBY WORKER SWITCHING MECHA- NISM THAT HIDES THE OVERHEAD OF BOTH TASK CLEANING AND TASK INITIALIZATION, AND ALSO ENSURES PROCESS-LEVEL ISOLATION."
+  ],
+  "13": [
+    "WITH SEPARATE WORKER PROCESSES, PIPESWITCH ENFORCES PROCESS-LEVEL ISOLATION.",
+    "UN- LIKE PIPELINING FOR THE SAME TASK, PIPESWITCH REQUIRES US TO ADDRESS NEW TECHNICAL CHALLENGES ON MEMORY MANAGEMENT AND WORKER SWITCHING ACROSS DIFFERENT PROCESSES.",
+    "4.4 ACTIVE-STANDBY WORKER SWITCHING PIPESWITCH AIMS TO PROVIDE FAST TASK SWITCHING AND ENSURE PROCESS-LEVEL ISOLATION.",
+    "PIPESWITCH HAS AN ACTIVE WORKER AND MULTIPLE STANDBY WORKERS.",
+    "6.4 ACTIVE-STANDBY WORKER SWITCHING TO EVALUATE THE EFFECTIVENESS OF ACTIVE-STANDBY WORKER SWITCH- ING, WE KEEP ALL OTHER COMPONENTS OF PIPESWITCH THE SAME, AND COMPARE THE FOLLOWING MECHANISMS DISCUSSED IN 4.4.",
+    "PIPESWITCH IT IS THE ACTIVE-STANDBY WORKER SWITCHING MECH- ANISM USED BY PIPESWITCH.",
+    "PIPESWITCH USES AN ACTIVE-STANDBY WORKER SWITCHING MECHANISM TO PARALLELIZE OLD TASK CLEANING AND NEW TASK INITIALIZATION, AND INCURS MINIMAL OVERHEAD."
+  ],
+  "32": [
+    "PIPELINING IS A CANONICAL TECHNIQUE WIDELY USED IN COM- PUTER SYSTEMS TO IMPROVE SYSTEM PERFORMANCE AND MAXI- MIZE RESOURCE UTILIZATION.",
+    "PIPELINING BRINGS TWO SOURCES OF SYSTEM OVERHEADS."
+  ],
+  "289": [
+    "PRIOR WORK IN DL SYSTEMS SUCH AS PIPEDREAM 8 AND BYTESCHEDULER 9 HAS APPLIED PIPELINING TO DISTRIBUTED TRAINING."
+  ],
+  "128": [
+    "THESE SOLUTIONS FOCUS ON INTER-BATCH PIPELINING TO OVERLAP COMPUTATION AND GRADIENT TRANSMISSION OF DIFFERENT BATCHES FOR TRAINING WORKLOADS OF THE SAME DNN MODEL.",
+    "THE KEY NOVELTY OF PIPESWITCH IS THAT IT INTRODUCES INTRA-BATCH PIPELINING TO OVERLAP MODEL TRANSMISSION AND COM- PUTATION TO REDUCE THE OVERHEAD OF SWITCHING BETWEEN DIFFERENT DNN MODELS, WHICH CAN BE EITHER INFERENCE OR TRAINING."
+  ],
+  "427": [
+    "WE DESIGN NEW TECHNIQUES TO NOT ONLY SUPPORT TRAINING, BUT ALSO INFERENCE THAT HAS STRICT SLOS."
+  ],
+  "251": [
+    "IN SUMMARY, WE MAKE THE FOLLOWING CONTRIBUTIONS."
+  ],
+  "192": [
+    "WE INTRODUCE PIPELINED CONTEXT SWITCHING, WHICH EXPLOITS THE CHARACTERISTICS OF DL APPLICATIONS, AND LEVERAGES PIPELINED MODEL TRANSMISSION, UNIED MEMORY MANAGE- MENT, AND ACTIVE-STANDBY WORKER SWITCHING TO MINIMIZE SWITCHING OVERHEAD AND ENFORCE PROCESS-LEVEL ISOLATION.",
+    "PIPELINED CONTEXT SWITCHING INCLUDES THREE KEY TECHNIQUES, WHICH ARE PIPELINED MODEL TRANSMISSION, UNIED MEMORY MANAGEMENT AND ACTIVE- STANDBY WORKER SWITCHING."
+  ],
+  "308": [
+    "WE IMPLEMENT A SYSTEM PROTOTYPE AND INTEGRATE IT WITH PY- TORCH."
+  ],
+  "49": [
+    "2 MOTIVATION IN THIS SECTION, WE IDENTIFY THE INEFCIENCIES IN TODAYS SHARED GPU CLUSTERS, AND MOTIVATE RUNNING DL WORKLOADS ON GPUS IN THE NE-GRAINED TIME-SHARING MODEL.",
+    "WE PROPOSE TO PACK MULTIPLE DL APPLICATIONS ONTO THE SAME GPU VIA NE-GRAINED TIME-SHARING ABSTRACTION TO MAXIMIZE GPU UTILIZATION.",
+    "SUCH FAST TASK SWITCHING ENABLES MORE EXIBLE NE-GRAINED SCHEDULING TO IMPROVE GPU UTILIZATION FOR DYNAMIC WORKLOADS."
+  ],
+  "310": [
+    "SUCH GPU CLUSTERS ARE USUALLY SPECICALLY DESIGNED WITH DED- ICATED PHYSICAL FORMS AND POWER SUPPLIES, ALONG WITH HIGH SPEED NETWORKS AND SPECIALIZED TASK SCHEDULERS."
+  ],
+  "35": [
+    "500 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION USENIX ASSOCIATION WHY BUILD A SHARED CLUSTER INSTEAD OF A DEDICATED ONE FOR EACH USER?",
+    "USENIX ASSOCIATION 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION 513 45 KUBERNETES.",
+    "514 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION USENIX ASSOCIATION"
+  ],
+  "479": [
+    "THE MAIN REASON IS TO BRING DOWN THE COST."
+  ],
+  "287": [
+    "THE DEMAND OF TRAINING IS NOT WELL PREDICTABLEIT WOULD DEPEND ON THE PROGRESS OF DIFFERENT DEVELOPERS."
+  ],
+  "461": [
+    "THE DEMAND OF INFER- ENCE IS MORE PREDICTABLE, E.G., AN INFERENCE TASK FOR A PARTIC- ULAR APPLICATION USUALLY HAS A DAILY PERIODICAL PATTERN BASED ON THE APPLICATION USAGE."
+  ],
+  "381": [
+    "NEVERTHELESS, THE PATTERNS CAN STILL VARY ACROSS DIFFERENT TASKS."
+  ],
+  "348": [
+    "LIKE TRADITIONAL CPU WORKLOADS, A SHARED CLUSTER BY DIFFERENT TASKS WOULD INCREASE THE RESOURCE UTILIZATION VIA TIME-SHARING."
+  ],
+  "322": [
+    "NO SHARING BETWEEN TRAINING AND INFERENCE."
+  ],
+  "379": [
+    "HOWEVER, SUCH SHARED CLUSTERS ARE NOT SHARED BETWEEN TRAINING AND INFER- ENCE."
+  ],
+  "455": [
+    "THIS BRINGS SEVERAL INEFCIENCIES."
+  ],
+  "480": [
+    "ALTHOUGH INFERENCE CLUSTERS ARE NOT ALWAYS RUN- NING AT HIGH UTILIZATION, THEY CANNOT BE UTILIZED BY TRAINING."
+  ],
+  "252": [
+    "TRAINING CLUSTERS ARE EQUIPPED WITH POWERFUL GPUS TO RUN TRAINING TASKS, WHICH ARE OFTEN ELASTIC AND DO NOT HAVE STRICT DEADLINES."
+  ],
+  "440": [
+    "ONE OF THE REASONS FOR SEPARATELY PROVISIONING IS THAT GPUS DESIGNED FOR INFERENCE TASKS MIGHT BE TOO WIMPY FOR TRAINING TASKS."
+  ],
+  "301": [
+    "THIS, HOWEVER, HAS STARTED TO CHANGE WITH THE ARRIVAL OF NEW GPU HARDWARE, MOST NOTABLY NVIDIA T4."
+  ],
+  "431": [
+    "COMPARED WITH NVIDIA V100 WHICH HAS UP TO 32GB GPU MEMORY AND 15.7 TFLOPS (SINGLE-PRECISION), NVIDIA T4 HAS COMPARA- BLE PERFORMANCE WITH 16GB GPU MEMORY AND 8.1 TFLOPS (SINGLE-PRECISION)."
+  ],
+  "408": [
+    "ALSO, NEW ALGORITHMS AND SYSTEMS FOR DIS- TRIBUTED TRAINING 8,9,15,16 ENABLE MULTIPLE GPUS TO ACCEL- ERATE TRAINING, IF ONE GPU IS NOT FAST ENOUGH."
+  ],
+  "367": [
+    "OUR INDUSTRY COLLABORATOR, A LEADING ONLINE SERVICE PROVIDER, CONRMS THIS OBSERVATION."
+  ],
+  "292": [
+    "THIS SERVICE PROVIDER CURRENTLY RUNS MORE THAN 10K V100 GPUS FOR TRAINING, AND AT LEAST 5 AS MANY T4 GPUS FOR INFERENCE."
+  ],
+  "255": [
+    "THE COMPUTATION POWER ON BOTH SIDES IS WITHIN THE SAME ORDER OF MAGNITUDE."
+  ],
+  "353": [
+    "THE INFERENCE WORKLOAD UCTUATES IN CORRELATION WITH THE NUMBER OF ACTIVE USERS, AND SHOWS CLEAR PEAKS AND VALLEYS WITHIN EACH DAY THE PEAK DEMAND DURING DAYTIME IS  2 OF THE VALLEY AT MIDNIGHT."
+  ],
+  "490": [
+    "IT WOULD BE A GREAT MATCH TO UTILIZE INFERENCE GPUS DURING LESS BUSY TIMES FOR TRAINING MODELS THAT REQUIRE DAILY UPDATES WITH LATEST DATA."
+  ],
+  "415": [
+    "A GOOD EXAMPLE IS TO NE-TUNE BERT USING DAILY NEWS."
+  ],
+  "275": [
+    "THIS MEANS GREAT OPPORTUNITY IN IMPROVING GPU UTILIZATION BY BORG-LIKE 1 SYSTEMS FOR GPUS."
+  ],
+  "357": [
+    "IT HAS THE FOLLOWING ADVANTAGES."
+  ],
+  "268": [
+    "IT WOULD DRAMATICALLY IMPROVE THE RESOURCE UTILIZATION, ES- PECIALLY BECAUSE INFERENCE AND TRAINING WORKLOADS HAVE COMPLEMENTARY USAGE PATTERNS."
+  ],
+  "475": [
+    "ONLINE INFERENCE SERVICES ARE OFTEN MORE IDLE DURING MIDNIGHT, WHILE MANY TRAINING DEVELOPERS WOULD START A TIME-CONSUMING JOB AT NIGHT."
+  ],
+  "491": [
+    "BE- SIDES, INFERENCE LOADS ON DIFFERENT MODELS HAVE DIFFERENT PATTERNS, WHICH ALSO BENETS FROM THE TIME SHARING."
+  ],
+  "446": [
+    "IT WOULD GREATLY SIMPLIFY THE DESIGN OF LOAD BALANCERS AND SCHEDULERS AS ANY SERVER WOULD BE ABLE TO RUN ANY TASK WITH LOW OVERHEAD TO SWITCH BETWEEN DIFFERENT APPLICATIONS."
+  ],
+  "335": [
+    "A MOD- ERN SERVER CAN BE EQUIPPED WITH SEVERAL TB OF HOST MEMORY, ENABLING IT TO LOAD MANY APPLICATIONS."
+  ],
+  "219": [
+    "HOWEVER, TASK EXECU- TION ON GPUS REQUIRE GPU MEMORY, WHICH IS VERY LIMITED EVEN ON HIGH-END GPUS, E.G., 16 GB FOR T4 AND 32 GB FOR V100."
+  ],
+  "476": [
+    "MORE IMPORTANTLY, GPU MEMORY IS PURPOSED FOR TASK EXECUTION, NOT FOR STORING THE STATE OF IDLE APPLICATIONS."
+  ],
+  "60": [
+    "DL TASKS, ESPECIALLY TRAINING, REQUIRE A LARGE AMOUNT, OR EVEN ALL OF THE MEMORY ON A GPU.",
+    "FIRST, DL APPLICATIONS HAVE LARGE MODELS AND GENERATE LARGE AMOUNTS OF INTERMEDIATE RESULTS, WHICH REQUIRE A LOT OF GPU MEMORY."
+  ],
+  "295": [
+    "STORING THE MODELS IN THE GPU LIKE SALUS 7 CANNOT SUPPORT TRAINING TASKS WHICH ARE MEMORY-INTENSIVE OR EVEN MULTIPLE INFERENCE TASKS WHICH HAVE LARGE MODELS."
+  ],
+  "282": [
+    "THIS IS PARTICULARLY IMPORTANT AS STATE-OF-THE-ART MODELS ARE GETTING DEEPER AND LARGER, AND THUS EVEN IDLE APPLICATIONS CAN OCCUPY LARGE MEM- ORY SPACE."
+  ],
+  "366": [
+    "IDEALLY, THE ACTIVE APPLICATION SHOULD BE ABLE TO UTILIZE THE ENTIRE GPU MEMORY FOR ITS PURPOSE, AND THE NUMBER OF APPLICATIONS THAT CAN BE SERVED BY A GPU SERVER SHOULD ONLY BE LIMITED BY ITS HOST MEMORY SIZE."
+  ],
+  "392": [
+    "CONSEQUENTLY, SWITCHING A TASK WOULD REQUIRE HEAVY MEMORY SWAPPING."
+  ],
+  "33": [
+    "UNFORTUNATELY, MANY ONLINE INFERENCE WORKLOADS REQUIRE STRICT SLOS THAT NAIVE MEMORY SWAPPING BETWEEN THE HOST MEMORY AND THE GPU MEMORY CANNOT MEET.",
+    "FOR INFERENCE TASKS, STRICT SLOS REQUIRE REQUESTS TO BE HANDLED IN SMALL BATCHES FOR LOW LATENCY, SO IT IS COMMON TO EXECUTE AN INFERENCE TASK WITH A SINGLE GPU 18."
+  ],
+  "257": [
+    "FOR EXAMPLE, WE TEST THE STRAWMAN SCENARIO WHERE WE STOP A TRAINING TASK AND THEN START AN INFERENCE TASK."
+  ],
+  "364": [
+    "THE RST INFERENCE BATCH WOULD REQUIRE SEVERAL SECONDS TO NISH (4.1)."
   ],
   "64": [
-    "References 1 A. Verma, L. Pedrosa, M. Korupolu, D. Oppenheimer, E. Tune, and J. Wilkes, Large-scale cluster management at Google with Borg, in EuroSys, 2015."
+    "EXISTING SUPPORT SUCH AS NVIDIA MPS IS NOT OPTIMIZED FOR DL WORKLOADS, AND INCURS HUNDREDS OF MILLISECONDS OVERHEAD (6).",
+    "NVIDIA MPS HAS LOWER OVERHEAD COMPARED TO STOP-AND-START, BUT STILL INCURS SEVERAL HUNDRED MILLISECONDS OVERHEAD, WHICH PREVENTS MPS FROM MEETING STRICT SLOS."
+  ],
+  "37": [
+    "USENIX ASSOCIATION 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION 501 CONTROLLER ACTIVE WORKER GPU MEMORY DAEMON STANDBY WORKER STANDBY WORKER NEW TASK FIGURE 1: PIPESWITCH ARCHITECTURE.",
+    "USENIX ASSOCIATION 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION 509 1S 2S 5S 10S 30S 0 100 200 300 400 THROUGHPUT (BATCHESSEC) UPPER BOUND PIPESWITCH MPS STOP-AND-START (A) THROUGHPUT (EIGHT P3.2XLARGE INSTANCES).",
+    "THEY USE INTER-BATCH PIPELINING FOR TRAINING OF THE SAME TASK, WHILE PIPESWITCH INTRODUCES INTRA-BATCH PIPELINING TO FAST START BOTH USENIX ASSOCIATION 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION 511 TRAINING AND INFERENCE TASKS AND ENABLES FAST SWITCHING ACROSS TASKS."
+  ],
+  "443": [
+    "THE OPPORTUNITY: DL WORKLOADS HAVE WELL-DENED STRUC- TURES."
+  ],
+  "278": [
+    "FORTUNATELY, THE STRUCTURE AND COMPUTATION PATTERN OF DNN MODELS ALLOW US TO HIGHLY OPTIMIZE TASK SWITCHING AND ACHIEVE MILLISECOND-SCALE OVERHEAD."
+  ],
+  "303": [
+    "IN THE FOLLOWING SECTIONS, WE WILL SHOW THAT SUCH PIPELINE IS INDEED FEASIBLE AND EFFECTIVE."
+  ],
+  "294": [
+    "IN ADDITION, WE WILL ALSO NEED TO RESOLVE OTHER CHALLENGES LIKE MEMORY MANAGEMENT AND WORKER SWITCHING."
+  ],
+  "315": [
+    "IT BENETS SWITCHING NOT ONLY BETWEEN INFERENCE AND TRAINING, BUT ALSO BETWEEN INFERENCE ON DIFFERENT MODELS."
+  ],
+  "262": [
+    "HERE WE PROVIDE AN OVERVIEW OF THE ARCHITECTURE AND TASK EXECUTION."
+  ],
+  "41": [
+    "FIGURE 1 SHOWS THE ARCHITECTURE OF A PIPESWITCH SERVER.",
+    "T0 T1 TN-1 T2 FIGURE 2: PIPESWITCH PIPELINES MODEL TRANSMISSION AND TASK EXECUTION."
+  ],
+  "302": [
+    "THIS SERVER CONTAINS FOUR TYPES OF COMPO- NENTS: A CONTROLLER, A MEMORY DAEMON, AN ACTIVE WORKER, AND MULTIPLE STANDBY WORKERS."
+  ],
+  "290": [
+    "THE CONTROLLER IS THE CENTRAL COMPONENT."
+  ],
+  "360": [
+    "IT RE- CEIVES TASKS FROM CLIENTS, AND CONTROLS THE MEMORY DAEMON AND THE WORKERS TO EXECUTE THE TASKS."
+  ],
+  "198": [
+    "MEMORY DAEMON.",
+    "CONTROLLER AND MEMORY DAEMON."
+  ],
+  "42": [
+    "THE MEMORY DAEMON MANAGES THE GPU MEMORY AND THE DNN MODELS.",
+    "THE SERVER STORES THE DNN MODELS IN THE HOST MEMORY."
+  ],
+  "112": [
+    "IT ALLOCATES THE GPU MEMORY TO THE ACTIVE WORKER, AND TRANSFERS THE MODEL FROM THE HOST MEMORY TO THE GPU MEMORY.",
+    "THIS ELIMINATES THE GPU ENVIRON- MENT INITIALIZATION OVERHEAD WHEN A NEW TASK IS ASSIGNED TO A WORKER."
+  ],
+  "429": [
+    "ACTIVE WORKER."
+  ],
+  "328": [
+    "ALL COMPONENTS SHOULD BE OPTIMIZED TO MEET THE SLOS."
+  ],
+  "345": [
+    "STANDBY WORKER."
+  ],
+  "4": [
+    "A STANDBY WORKER IS IDLE, IS INITIALIZING A NEW TASK, OR IS CLEANING ITS ENVIRONMENT FOR THE PREVIOUS TASK.",
+    "THE STANDBY WORKER BECOMES THE NEW ACTIVE WORKER TO EXECUTE THE NEW TASK, AND THE ACTIVE WORKER BECOMES A STANDBY WORKER AND CLEANS THE ENVIRONMENT FOR THE PREVIOUS TASK (4.4).",
+    "IF A NEW TASK ARRIVES BEFORE A STANDBY WORKER NISHES CLEANING A PREVIOUS TASK, THE NEW TASK NEEDS TO WAIT, WHICH INCREASES ITS STARTUP TIME."
+  ],
+  "154": [
+    "TASK EXECUTION.",
+    "TASK INITIALIZATION."
+  ],
+  "387": [
+    "THE CONTROLLER QUEUES A SET OF TASKS RECEIVED FROM THE CLIENTS."
+  ],
+  "135": [
+    "IT USES A SCHEDULING POLICY TO DECIDE WHICH TASK TO EXECUTE NEXT.",
+    "THE SCHEDULING IS PREEMPTIVE, I.E., THE CONTROLLER CAN PREEMPT THE CURRENT TASK FOR THE NEXT ONE BASED ON THE SCHEDULING POLICY."
+  ],
+  "316": [
+    "IT SUPPORTS CANONICAL SCHEDULING POLICIES SUCH AS RST COME RST SERVE (FCFS) AND EARLIEST DEADLINE RST (EDF), AND CAN BE EASILY EXTENDED TO SUPPORT NEW POLICIES."
+  ],
+  "144": [
+    "WE FOCUS ON FAST CONTEXT SWITCHING, AND THE SPECIC SCHEDUL- ING ALGORITHM IS ORTHOGONAL TO THIS PAPER."
+  ],
+  "266": [
+    "FOR EXAMPLE, IF THE CURRENT TASK IS A TRAINING TASK, THE CONTROLLER CAN PREEMPT IT FOR AN INFERENCE TASK THAT HAS A STRICT LATENCY SLO."
+  ],
+  "466": [
+    "TO START A NEW TASK, THE CONTROLLER EITHER WAITS FOR THE CURRENT TASK TO NISH (E.G., IF IT IS INFERENCE) OR PREEMPTS IT BY NOTIFYING THE ACTIVE WORKER TO STOP (E.G., IF IT IS TRAINING)."
+  ],
+  "7": [
+    "AT THE SAME TIME, THE CONTROLLER NOTIES AN IDLE STANDBY WORKER TO INITIALIZE ITS ENVIRONMENT FOR THE NEW TASK.",
+    "WHEN THE CONTROLLER SCHEDULES A TASK, IT DETERMINES WHETHER TO SWITCH TO ANOTHER WORKER."
+  ],
+  "118": [
+    "THE MEMORY DAEMON ALLOCATES THE MEMORY TO THE STANDBY WORKER (4.3), AND TRANSMITS THE MODEL USED BY THE NEW TASK FROM THE HOST MEMORY TO THE GPU MEMORY.",
+    "BECAUSE THE MEMORY DAEMON ALSO MANAGES THE GPU MEMORY, IT DIRECTLY TRANSMITS THE MODEL FROM THE HOST MEMORY TO THE GPU MEMORY FOR TASK STARTUP, WHICH ELIMINATES THE EXTRA MEMORY COPY FROM THE MEMORY DAEMON TO THE WORKER.",
+    "AFTER THE MODEL IS TRANSMITTED TO THE GPU, THE MEMORY DAEMON NEEDS TO NOTIFY THE WORKER AND EXPORT THE RELEVANT GPU MEMORY HANDLERS TO THE WORKER, SO THAT THE WORKER CAN ACCESS THE MODEL TO EXECUTE ITS TASK.",
+    "THE MEMORY DAEMON HANDLES GPU MEMORY ALLOCATION AND MODEL TRANSMISSION, BUT CREATES AND SENDS GPU MEMORY HANDLERS TO WORKERS."
+  ],
+  "485": [
+    "THE PRIMARY GOAL OF THIS PAPER IS TO DESIGN A SET OF TECHNIQUES BASED ON THE CHARACTERISTICS OF DL APPLICATIONS TO MINIMIZE THE TASK SWITCHING OVERHEAD IN THIS PROCESS."
+  ],
+  "53": [
+    "4 PIPESWITCH DESIGN WE RST PERFORM A MEASUREMENT STUDY TO PROLE THE TASK SWITCHING OVERHEAD AND BREAK IT DOWN TO INDIVIDUAL COMPO- NENTS.",
+    "6 EVALUATION IN THIS SECTION, WE RST USE END-TO-END EXPERIMENTS TO DEMON- STRATE THE BENETS OF PIPESWITCH, AND THEN SHOW THE EFFECTIVE- NESS OF THE DESIGN CHOICES ON EACH COMPONENT."
+  ],
+  "481": [
+    "THEN WE DESCRIBE OUR DESIGN TO SYSTEMATICALLY MINI- MIZE THE OVERHEAD OF EACH COMPONENT."
+  ],
+  "358": [
+    "THE MEA- 502 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION USENIX ASSOCIATION SUREMENT CONSIDERS A TYPICAL SCENARIO THAT A SERVER STOPS A TRAINING TASK RUNNING ON THE GPU, AND THEN STARTS AN IN- FERENCE TASK."
+  ],
+  "256": [
+    "THE DNN MODEL USED IN THE MEASUREMENT IS RESNET152 17."
+  ],
+  "239": [
+    "THE MEASUREMENT COVERS TWO TYPES OF INSTANCES ON AMAZON AWS, WHICH ARE G4DN.2XLARGE WITH NVIDA T4 AND P3.2XLARGE WITH NVIDIA V100."
+  ],
+  "383": [
+    "WE ASSUME THE INFERENCE TASK HAS ARRIVED AT THE SERVER, AND FOCUS ON MEA- SURING THE TIME TO START AND EXECUTE IT ON THE GPU."
+  ],
+  "389": [
+    "WE EXCLUDE THE NETWORK TIME AND THE TASK QUEUEING TIME."
+  ],
+  "394": [
+    "TABLE 1 SHOWS THE RESULTS."
+  ],
+  "249": [
+    "THE TOTAL TIMES TO START THE INFER- ENCE TASK ON THE GPUS ARE 5787 MS AND 7551 MS, RESPECTIVELY."
+  ],
+  "273": [
+    "WE BREAK THE OVERHEAD DOWN INTO THE FOUR COMPONENTS."
+  ],
+  "45": [
+    "TASK CLEANING.",
+    "ON ONE HAND, TASK CLEANING TAKES TIME."
+  ],
+  "417": [
+    "THE INFERENCE TASK CREATES AND INI- TIALIZES ITS ENVIRONMENT (I.E., PROCESS LAUNCHING, PYTORCH CUDA RUNTIME LOADING, AND CUDA CONTEXT INITIALIZATION)."
+  ],
+  "482": [
+    "MEMORY ALLOCATION."
+  ],
+  "46": [
+    "THE INFERENCE TASK ALLOCATES GPU MEMORY FOR ITS NEURAL NETWORK MODEL.",
+    "THE INFERENCE TASK TRANSMITS THE MODEL FROM THE HOST MEMORY TO THE GPU MEMORY."
+  ],
+  "47": [
+    "MODEL TRANSMISSION.",
+    "GROUPED TRANSMISSION."
+  ],
+  "324": [
+    "THE INFERENCE TIME ON V100 IS LOWER THAN THAT ON T4, AND BOTH OF THEM ARE SIGNICANTLY LOWER THAN THE TOTAL OVERHEADS."
+  ],
+  "265": [
+    "THE REASON FOR LOWER OVERHEAD ON T4 IS THAT TASK SWITCHING LARGELY DEPENDS ON CPU, AND G4DN.2XLARGE IS EQUIPPED WITH BETTER CPU THAN P3.2XLARGE (INTEL PLATINUM 8259CL VS. INTEL XEON E5-2686 V4)."
+  ],
+  "437": [
+    "A STRAWMAN SOLUTION THAT SIMPLY STOPS THE OLD TASK AND STARTS THE NEW TASK WOULD EASILY VIOLATE SLOS."
+  ],
+  "421": [
+    "BECAUSE ALL THE COMPONENTS TAKE CONSIDERABLE TIME COM- PARED TO THE INFERENCE TIME, WE EMPHASIZE THAT ALL THE COM- PONENTS SHOULD BE OPTIMIZED TO ACHIEVE MINIMAL SWITCHING OVERHEAD AND MEET THE SLOS."
+  ],
+  "329": [
+    "THE PCIE BANDWIDTH IS THE PHYSICAL LIMIT ON HOW FAST AN ARBITRARY TASK CAN BE LOADED TO THE GPU."
+  ],
+  "277": [
+    "WE EXPLOIT THE CHARACTERISTICS OF DL APPLICATIONS TO CIRCUMVENT THIS PHYSICAL LIMIT."
+  ],
+  "374": [
+    "THE COMPUTATION IS PERFORMED LAYER BY LAYER."
+  ],
+  "390": [
+    "AN INFERENCE TASK ONLY PERFORMS A FORWARD PASS FROM THE RST LAYER TO THE NAL LAYER TO MAKE A PREDICTION; EACH ITERATION IN A TRAINING TASK PERFORMS A FORWARD PASS AND THEN A BACKWARD PASS."
+  ],
+  "312": [
+    "INSTEAD, THE TASK CAN START THE COM- PUTATION OF A LAYER AS SOON AS THE LAYER IS LOADED IN THE GPU AND THE INPUT OF THE LAYER IS READY (I.E., THE PREVIOUS LAYERS HAVE NISHED THEIR COMPUTATION), REGARDLESS OF ITS FOLLOWING LAYERS."
+  ],
+  "313": [
+    "FIGURE 2 ILLUSTRATES THE ADVANTAGE OF PIPELINING OVER THE STRAWMAN SOLUTION."
+  ],
+  "23": [
+    "PIPESWITCH REQUIRES THE KNOWLEDGE OF MODELS.",
+    "IT IS THE PIPELINING MECHANISM WITH OPTIMAL MODEL-AWARE GROUPING IN PIPESWITCH.",
+    "PIPESWITCH USES MODEL-AWARE GROUPING AND ACHIEVES THE BEST TRADE-OFF BETWEEN PIPELINE OVERHEAD AND EFCIENCY."
+  ],
+  "238": [
+    "T0 E0 MODEL TRANSMISSION OVER PCIE TASK EXECUTION ON GPU T1 TN-1 E1 EN-1 T2 E2 (A) TRANSMIT MODEL TO GPU, AND THEN EXECUTE TASK ON GPU.",
+    "PCIE GPU E0 E1 EN-1 E2 (B) PIPELINE MODEL TRANSMISSION AND TASK EXECUTION."
+  ],
+  "281": [
+    "THE EXAMPLE SHOWS AN INFERENCE TASK THAT ONLY HAS A FORWARD PASS IN TASK EXECUTION."
+  ],
+  "362": [
+    "ADDING HOOKS CAN BE AUTOMATED, AND PIPESWITCH CAN BE IM- PLEMENTED AS A PART OF THE DNN FRAMEWORK, E.G., PYTORCH, SO IT CAN GATHER THE MODEL STRUCTURE INFORMATION WHILE REMAINING TRANSPARENT TO USERS AND CLUSTER MANAGERS."
+  ],
+  "385": [
+    "THE BASIC WAY FOR PIPELIN- ING IS TO PIPELINE ON PER-LAYER GRANULARITY, I.E., THE SYSTEM TRANSMITS THE LAYERS TO THE GPU MEMORY ONE BY ONE, AND THE COMPUTATION FOR A LAYER IS BLOCKED BEFORE THE LAYER IS TRANS- MITTED."
+  ],
+  "441": [
+    "ONE IS THE OVERHEAD TO INVOKE MULTIPLE CALLS TO PCIE TO TRANS- MIT THE DATA."
+  ],
+  "333": [
+    "FOR A LARGE AMOUNT OF DATA (E.G., COMBINING THE ENTIRE MODEL TO A LARGE TENSOR TO TRANSMIT TOGETHER), THE TRANS- MISSION OVERHEAD IS DOMINATED BY THE DATA SIZE."
+  ],
+  "194": [
+    "BUT WHEN WE DIVIDE THE MODEL INTO MANY LAYERS, INVOKING A PCIE CALL FOR EACH LAYER, ESPECIALLY GIVEN THAT SOME LAYERS CAN BE VERY SMALL, WOULD CAUSE SIGNICANT EXTRA OVERHEAD."
+  ],
+  "447": [
+    "THE OTHER IS THE SYNCHRONIZATION OVERHEAD BETWEEN TRANSMISSION AND COMPUTA- TION, WHICH IS NECESSARY FOR THE COMPUTATION TO KNOW WHEN A LAYER IS READY TO COMPUTE."
+  ],
+  "419": [
+    "WE USE GROUPING TO MINIMIZE THESE TWO SOURCES OF OVER- HEAD."
+  ],
+  "430": [
+    "WE COMBINE MULTIPLE LAYERS INTO A GROUP, AND THE PIPELINING IS PERFORMED ON PER-GROUP GRANULARITY."
+  ],
+  "432": [
+    "IN THIS WAY, THE PIPELINING OVERHEAD IS PAID ONCE FOR EACH GROUP, INSTEAD OF EACH LAYER."
+  ],
+  "12": [
+    "GROUPING INTRODUCES A TRADE-OFF BETWEEN PIPELIN- ING EFCIENCY AND PIPELINING OVERHEAD.",
+    "ON ONE HAND, USING SMALL GROUPS (E.G., PER-LAYER IN THE EXTREME CASE) ENABLES MORE OVERLAP BETWEEN TRANSMISSION AND COMPUTATION, WHICH IMPROVES PIPELINING EFCIENCY, BUT IT ALSO PAYS MORE PIPELIN- ING OVERHEAD.",
+    "ON THE OTHER HAND, USING BIG GROUPS (E.G., THE ENTIRE MODEL IN ONE GROUP IN THE EXTREME CASE) HAS MINIMAL PIPELINING OVERHEAD, BUT REDUCES THE CHANCE FOR OVERLAPPING."
+  ],
+  "240": [
+    "GROUPING MUST BE MODEL-AWARE, BECAUSE MODELS HAVE DIF- FERENT STRUCTURES IN TERMS OF THE NUMBER OF LAYERS AND THE SIZE OF EACH LAYER."
+  ],
+  "34": [
+    "NAIVELY, WE CAN ENUMERATE ALL POSSIBLE COM- BINATIONS TO ND THE OPTIMAL GROUPING STRATEGY.",
+    "IN ORDER TO ND THE OPTIMAL GROUPING STRATEGY EFCIENTLY, WE INTRODUCE TWO PRUNING TECHNIQUES BASED ON TWO INSIGHTS."
+  ],
+  "449": [
+    "THIS IS NOT AMENABLE BECAUSE LARGE MODELS CAN HAVE HUNDREDS OF LAYERS AND THE TIME COMPLEXITY FOR ENUMERATION IS EXPONENTIAL."
+  ],
+  "423": [
+    "USENIX ASSOCIATION 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION 503 PCIE GPU LOWER BOUND OF F(GROUP(0, I), I1) PCIE GPU GROUP(0, I) GROUP(I1, J) GROUP(0, I) GROUP(I1, J) J, J1, , N-1 J, J1, , N-1 (A) PRUNE THIS CASE IF LOWER BOUND CURRENT OPTIMAL TIME."
+  ],
+  "200": [
+    "(B) PRUNE THE CASES THAT GROUP FROM I TO J  J. BATCH AT LEAST FROM LAYER I1 TO J GROUP(0, I) GROUP(I1, N-1) GROUP(0, I) GROUP(I1, N-1) FIGURE 3: EXAMPLES FOR TWO PRUNING TECHNIQUES.",
+    "THEREFORE, WE CAN PRUNE THE CASES THAT GROUP FROM LAYER (I  1) TO J  J AND ONLY SEARCH FOR J J. ALGORITHM."
+  ],
+  "309": [
+    "BEFORE WE DIVE INTO THE DETAILS, WE RST FORMULATE THE PROBLEM."
+  ],
+  "54": [
+    "LET THE NUMBER OF LAYERS BE N. LET F(B,I) BE A FUNCTION THAT RETURNS THE TOTAL TIME OF THE OPTIMAL GROUPING STRATEGY FROM LAYER I TO N-1 GIVEN THAT LAYER 0 TO I-1 HAVE FORMED GROUPS REP- RESENTED BY B.",
+    "GIVEN THE GROUP FROM LAYER X TO I IS FORMED, THE FUNCTION RECURSIVELY APPLIES ITSELF TO ND THE OPTIMAL GROUPS FROM LAYER I1 TO N-1 (LINE 21-23), AND UPDATES OPTGROUPS IF THE CURRENT STRATEGY IS BETTER (LINE 24-26)."
+  ],
+  "196": [
+    "THEN WE HAVE THE FOLLOWING RECURSIVE FORMULA."
+  ],
+  "349": [
+    "F(,0)  MIN I F(GROUP(0,I),I1) (1) SPECICALLY, TO ND THE OPTIMAL GROUPING STRATEGY FOR THE EN- TIRE MODEL (I.E., F(, 0)), WE DIVIDE ALL POSSIBLE COMBINATIONS INTO N CASES BASED ON HOW THE RST GROUP IS FORMED, I.E., CASE I MEANS THE RST GROUP CONTAINS LAYER 0 TO I."
+  ],
+  "343": [
+    "THIS FORMULA CAN BE APPLIED RECURSIVELY TO COMPUTE F(GROUP(0,I),I1)."
+  ],
+  "126": [
+    "OUR RST INSIGHT IS THAT IT IS NOT NECESSARY TO EXAMINE ALL THE N CASES, BECAUSE IF THE RST GROUP CONTAINS TOO MANY LAYERS, THE COMPUTATION OF THE RST GROUP WOULD BE DELAYED TOO MUCH TO COMPENSATE THE PIPELINE EFCIENCY.",
+    "OUR SECOND INSIGHT IS THAT OTHER THAN THE RST GROUP, WE CAN SAFELY PACK MULTIPLE LAYERS IN A GROUP BASED ON THE PROGRESS OF COMPUTATION WITHOUT AFFECTING PIPELINE EFCIENCY."
+  ],
+  "325": [
+    "LET T(I, J) AND E(I, J) BE THE TRANSMISSION AND EXECUTION TIMES FOR A GROUP FROM LAYER I TO J RESPECTIVELY, WHERE T(I, J) IS CALCULATED BASED ON THE SIZE OF LAYER I TO J AND PCIE BANDWIDTH, AND E(I, J) IS PROLED ON THE GPU."
+  ],
+  "299": [
+    "NOTE THAT THE OVERHEAD OF INVOKING MULTIPLE CALLS IS INCLUDED IN T(I, J)."
+  ],
+  "346": [
+    "AS ILLUSTRATED BY FIGURE 3(A), WE COMPUTE A LOWER BOUND FOR THE TOTAL TIME FOR EACH CASE IN EQUATION 1."
+  ],
+  "380": [
+    "F(GROUP(0,I),I1)  MIN(T(0,I)T(I1,N1), T(0,I)E(0,I)E(I1,N1)) (2) THE LOWER BOUND CONSIDERS THE BEST CASE THAT ALL THE REMAINING LAYERS ARE COMBINED IN ONE GROUP FOR TRANSMISSION AND COM- PUTATION, AND THAT THE COMPUTATION AND COMMUNICATION CAN BE PERFECTLY OVERLAPPED, I.E., ITS COMPUTATION CAN HAPPEN RIGHT AFTER THE COMPUTATION OF THE RST GROUP NISHES."
+  ],
+  "399": [
+    "IF THE LOWER BOUND OF CASE I IS ALREADY LARGER THAN THE TOTAL TIME OF THE BEST GROUPING STRATEGY FOUND SO FAR, THEN CASE I (I.E., THE RECURSIVE COMPUTATION FOR F(GROUP(0,I),I1)) CAN BE PRUNED."
+  ],
+  "340": [
+    "FIGURE 3(B) SHOWS AN EXAMPLE FOR THIS INSIGHT."
+  ],
+  "435": [
+    "SUPPOSE THAT WE HAVE ALREADY XED THE RST GROUP TO BE FROM LAYER 0 TO I, AND WE APPLY EQUATION 1 RECURSIVELY TO ENUMERATE THE CASES FOR THE PCIE GPU B.DELAY (GROUP AT LEAST FROM LAYER X TO J TO FILL) 0, 1, , X-1 0, 1, , X-1 GROUP(A, I) GROUP(I1, N-1) GROUP(X, I) GROUP(I1, N-1) LOWER BOUND OF F(B  GROUP(A,I), I1) FIGURE 4: GENERAL CASE FOR THE TWO PRUNING TECHNIQUES."
+  ],
+  "487": [
+    "SECOND GROUP."
+  ],
+  "405": [
+    "WE CAN HIDE THE TRANSMISSION OF THE SECOND GROUP INTO THE COMPUTATION OF THE RST GROUP, AS LONG AS THE TRANSMISSION NISHES NO LATER THAN THE COMPUTATION OF THE RST GROUP."
+  ],
+  "332": [
+    "THE LEAST NUMBER OF LAYERS TO GROUP CAN BE COMPUTED USING THE FOLLOWING EQUATION."
+  ],
+  "397": [
+    "J ARGMAX J T(I1, J) E(0,I) (3) GROUP FROM LAYER (I1) TO J  JIS NO BETTER THAN GROUPING FROM (I  1) TO JBECAUSE IT DOES NOT INCREASE THE PIPELINE EFCIENCY AND HAS HIGHER PIPELINE OVERHEAD."
+  ],
+  "426": [
+    "WE EMPHASIZE THAT THIS ALGORITHM RUNS OFINE TO ND THE STRAT- EGY, AND THE RESULTING STRATEGY IS USED ONLINE BY PIPESWITCH FOR CONTEXT SWITCHING."
+  ],
+  "337": [
+    "ALGORITHM 1 SHOWS THE PSEUDO CODE."
+  ],
+  "30": [
+    "THE FUNCTION FINDOPTGROUPING RECURSIVELY NDS THE OPTI- MAL GROUPING STRATEGY BASED ON EQUATION 1 (LINE 1-27).",
+    "ALGORITHM 1 COMPUTES THE RECURSIVE FUNCTION FINDOPTGROUPING(B,X)."
+  ],
+  "20": [
+    "IT TAKES TWO INPUTS: B REPRESENTS THE GROUPS THAT HAVE ALREADY FORMED, X IS THE RST LAYER THAT HAVE NOT FORMED A GROUP.",
+    "FOR CASE I  K, THE RST GROUP CONTAINS ALL LAYERS FROM X TO N1."
+  ],
+  "286": [
+    "IT USES OPTGROUPS TO STORE THE BEST GROUPING STRATEGY FROM LAYER X GIVEN B, WHICH IS INITIALIZED TO NONE (LINE 2)."
+  ],
+  "52": [
+    "THE ALGORITHM APPLIES THE SECOND PRUNING INSIGHT TO FORM THE RST GROUP FROM LAYER X (LINE 3-9).",
+    "THE ALGORITHM DIVIDES THE PROBLEM INTO K  1 CASES, WHERE CASE I (0 I K) FORMS THE RST GROUP FROM LAYER X TO XI."
+  ],
+  "420": [
+    "EQUATION 3 AND FIGURE 3(B) ILLUSTRATE THIS INSIGHT WITH A SPECIAL EXAMPLE THAT B ONLY CONTAINS ONE GROUP FROM LAYER 0 TO I."
+  ],
+  "272": [
+    "IN GENERAL, B CAN CONTAIN MULTIPLE GROUPS FORMED BY PREVIOUS LAYERS, AND WE USE B.DELAY TO DE- NOTE THE TIME TO WHICH THE GROUP CAN BE FORMED, AS SHOWN IN FIGURE 4."
+  ],
+  "424": [
+    "THE ALGORITHM NDS JBASED ON B.DELAY (LINE 4-9), AND THE ENUMERATION FOR I CAN SKIP THE LAYERS FROM X TO J-1 (LINE 11)."
+  ],
+  "270": [
+    "FOR CASE I, THE ALGORITHM APPLIES THE RST INSIGHT TO COMPUTE THE LOWER BOUND (LINE 12-17)."
+  ],
+  "469": [
+    "AGAIN, THE EXAMPLE IN EQUATION 2 AND FIGURE 3(A) IS A SPECIAL CASE WHEN X IS 0."
+  ],
+  "267": [
+    "FOR THE GENERAL CASE, THE COMPUTATION FROM X HAS TO WAIT FOR BOTH ITS TRANSMISSION (I.E., T(X,I)) AND THE COMPUTATION OF THE PREVIOUS GROUPS (I.E., B.DELAY), AS SHOWN IN FIGURE 4."
+  ],
+  "373": [
+    "IF THE LOWER BOUND IS ALREADY BIGGER THAN THE CURRENT OPTIMAL TIME, THEN CASE I IS PRUNED (LINE 18-19)."
+  ],
+  "327": [
+    "FINALLY, IT RETURNS OPTGROUPS (LINE 27)."
+  ],
+  "355": [
+    "IN PRACTICE, WE USE A HEURISTIC THAT BOOTSTRAPS OPTGROUPS WITH A RELATIVE 504 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION USENIX ASSOCIATION ALGORITHM 1 OPTIMAL MODEL-AWARE GROUPING 1: FUNCTION FINDOPTGROUPING(B, X) 2: OPTGROUPS 0, OPTGROUPS.TIME  3:  ND RST GROUP FROM LAYER I TO J 4: JX 5: FOR LAYER I FROM X TO N1 DO 6: IF T(X,I) B.DELAY THEN 7: JI 8: ELSE 9: BREAK 10:  RECURSIVELY ND THE OPTIMAL GROUPING 11: FOR LAYER I FROM JTO N1 DO 12: IF OPTGROUPS  0 THEN 13:  COMPUTE LOWER BOUND 14: TRANSTIME T(X,I)T(I1,N1) 15: EXECTIME MAX(T(X,I),B.DELAY) 16: E(X,I)E(I1,N1) 17: LOWERBOUND MIN(TRANSTIME,EXECTIME) 18: IF LOWERBOUND  OPTGROUPS.TIME THEN 19: CONTINUE 20:  RECURSIVELY ND REST GROUPS 21: FIRSTGROUP GROUP(X,I) 22: RESTGROUPS FINDOPTGROUPING( 23: B FIRSTGROUP,I1) 24: CURGROUPS FIRSTGROUPRESTGROUPS 25: IF CURGROUPS.TIME  OPTGROUPS.TIME THEN 26: OPTGROUPS CURGROUPS 27: RETURN OPTGROUPS GOOD STRATEGY (E.G., GROUP EVERY TEN LAYERS)."
+  ],
+  "422": [
+    "GIVEN N LAYERS, THERE ARE 2N1 DIFFERENT GROUPING STRATEGIES, SO THE TIME COM- PLEXITY OF ALGORITHM 1 IS O(2N), AS IN THE WORST CASE IT NEEDS TO ENUMERATE ALL STRATEGIES."
+  ],
+  "66": [
+    "THE TWO PRUNING TECHNIQUES ARE ABLE TO PRUNE MOST OF THE STRATEGIES, AND CAN QUICKLY ND THE OPTIMAL ONE AS WE WILL SHOW IN 6.",
+    "THE ALGORITHM USES TWO PRUNING TECHNIQUES."
+  ],
+  "384": [
+    "WE HAVE THE FOLLOWING THEOREM FOR THE ALGORITHM."
+  ],
+  "304": [
+    "THEOREM 1."
+  ],
+  "391": [
+    "ALGORITHM 1 NDS THE OPTIMAL GROUPING STRATEGY THAT MINIMIZES THE TOTAL TIME FOR THE PIPELINE."
+  ],
+  "486": [
+    "LET M  N X, WHICH IS THE NUM- BER OF LAYERS THE FUNCTION CONSIDERS."
+  ],
+  "218": [
+    "WE USE INDUCTION ON M TO SHOW THAT FINDOPTGROUPING(B,X) OUTPUTS THE OPTIMAL GROUPING STRATEGY FROM LAYER X TO N 1 GIVEN THAT PREVIOUS LAYERS HAVE FORMED GROUPS REPRESENTED BY B.",
+    "ASSUME THAT FOR SOME K 1 AND ANY M K, FINDOPTGROUPING(B,X) OUTPUTS THE OPTIMAL STRATEGY.",
+    "FOR CASE I WHERE 0 I K 1, BECAUSE FINDOPTGROUPING(B  GROUP(X,X  I),X  I  1) ONLY CONSIDERS K I K LAYERS, IT OUTPUTS THE OPTIMAL GROUPING STRATEGY FOR CASE I BASED ON THE ASSUMPTION."
+  ],
+  "271": [
+    "BASE CASE."
+  ],
+  "341": [
+    "WHEN M  1, THE FUNCTION ONLY EXAMINES ONE LAYER."
+  ],
+  "406": [
+    "BECAUSE THERE IS ONLY ONE STRATEGY WHICH IS LAYER X ITSELF IS ONE GROUP, THIS STRATEGY IS THE OPTIMAL STRATEGY."
+  ],
+  "375": [
+    "INDUCTIVE STEP."
+  ],
+  "368": [
+    "CON- SIDER M  K1, I.E., THE ALGORITHM NOW CONSIDERS K1 LAYERS."
+  ],
+  "146": [
+    "THE OPTIMAL STRATEGY FOR THIS CASE IS ONE GROUP."
+  ],
+  "471": [
+    "BECAUSE THESE CASES ARE EXCLUSIVE AND COVER THE ENTIRE SEARCH SPACE, BY CHOOSING THE OPTIMAL GROUPING STRATEGY FROM THESE CASES, THE ALGORITHM OUTPUTS THE OPTIMAL GROUPING STRAT- EGY FOR M  K 1."
+  ],
+  "477": [
+    "THE RST TECH- NIQUE PRUNES THE CASES IF THEIR LOWER BOUNDS ARE NO BETTER THAN THE CURRENT FOUND OPTIMAL."
+  ],
+  "371": [
+    "IT IS OBVIOUS THAT THIS TECH- NIQUE DOES NOT AFFECT THE OPTIMALITY."
+  ],
+  "456": [
+    "THE SECOND TECHNIQUE PRUNES THE CASE IF THEIR RST GROUPS ARE FROM LAYER X TO J  J."
+  ],
+  "344": [
+    "BECAUSE THESE CASES CANNOT ADVANCE THE COMPUTATION TO AN EARLIER POINT THAN GROUPING FROM X TO AT LEAST J, PRUNING THESE CASES ALSO DO NOT AFFECT THE OPTIMALITY."
+  ],
+  "372": [
+    "GENERALITY."
+  ],
+  "142": [
+    "ALGORITHM 1 ACHIEVES OPTIMALITY FOR A GIVEN LIST OF LAYERS."
+  ],
+  "326": [
+    "THIS, HOWEVER, DOES NOT REQUIRE THE MODELS TO BE LINEAR."
+  ],
+  "464": [
+    "IN GENERAL, THE LAYERS OR OPERATORS IN A DNN MODEL CAN BE CONNECTED AS AN ARBITRARY COMPUTATION GRAPH, INSTEAD OF A SIMPLE CHAIN."
+  ],
+  "155": [
+    "MODELS LIKE RESNET AND INCEPTION ARE TECHNI- CALLY NON-LINEAR DIRECTED ACYCLIC GRAPH (DAGS)."
+  ],
+  "264": [
+    "YET, THERE IS AN EXECUTION ORDER THAT THE LAYERSOPERATORS IN THE DAG ARE ISSUED TO THE GPU ONE BY ONE."
+  ],
+  "261": [
+    "ALGORITHM 1 DOES NOT HAVE ANY SPECIAL ASSUMPTIONS ON THE EXECUTION ORDER."
+  ],
+  "151": [
+    "IT IS ONLY INTERESTED IN NDING OUT HOW TO GROUP THE LAYERS GIVEN THE EXECUTION ORDER (AND CORRESPONDING DATA DEPENDENCIES) TO ACHIEVE HIGH PIPELINING EFCIENCY AND LOW PIPELINING OVER- HEAD."
+  ],
+  "314": [
+    "IT EVEN APPLIES FOR GRAPHS WITH LOOPS, IN WHICH THE ORDER IS BASED ON THE RST TIME AN OPERATOR IS EXECUTED."
+  ],
+  "291": [
+    "THE ORDER DOES NOT AFFECT CORRECTNESS, BECAUSE AN OPERATOR CAN BE EXE- CUTED ONLY WHEN IT IS TRANSMITTED TO THE GPU AND THE INPUT IS READY."
+  ],
+  "84": [
+    "THUS, OUR PIPELINED MODEL TRANSMISSION IS APPLICABLE TO THE GENERAL CASE.",
+    "6.2 PIPELINED MODEL TRANSMISSION TO EVALUATE THE EFFECTIVENESS OF PIPELINED MODEL TRANSMISSION, WE KEEP ALL OTHER COMPONENTS OF PIPESWITCH THE SAME, AND COMPARE THE FOLLOWING MECHANISMS DISCUSSED IN 4.2.",
+    "FIGURE 7: EFFECTIVENESS OF PIPELINED MODEL TRANSMISSION."
+  ],
+  "242": [
+    "4.3 UNIED MEMORY MANAGEMENT TASK EXECUTION IN A GPU REQUIRES GPU MEMORY."
+  ],
+  "488": [
+    "A GPU HAS ITS OWN MEMORY MANAGEMENT SYSTEM, AND PROVIDES A MALLOC FUNCTION (E.G., CUDAMALLOC FOR NVIDIA GPUS) SIM- ILAR TO CPUS FOR MEMORY ALLOCATION."
+  ],
+  "40": [
+    "A NAIVE SOLUTION FOR GPU MEMORY MANAGE- MENT IS THAT EACH TASK USES THE NATIVE CUDAMALLOCMANAGED FUNCTION FOR GPU MEMORY ALLOCATION, AND DELEGATES MODEL TRANSMISSION TO CUDA UNIED MEMORY.",
+    "TO SHARE GPU MEMORY BETWEEN THE CONTROLLER AND THE WORKERS, WE ADD FUNCTIONS FOR ALLOCATING GPU MEMORY, SHARING THE GPU USENIX ASSOCIATION 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION 507 MEMORY TO WORKERS THROUGH CUDA IPC API, AND GETTING THE SHARED GPU MEMORY.",
+    "EACH WORKER USES CUDAMALLOC TO ALLOCATE GPU MEMORY, AND TRANSMITS THE MODEL TO GPU BY ITS OWN.",
+    "EACH WORKER ALLOCATES GPU MEM- ORY WITH CUDAMALLOCMANAGED, AND CUDA AUTOMATICALLY TRANSMITS THE MODEL TO GPU WHEN NEEDED."
+  ],
+  "428": [
+    "THIS SOLUTION INCURS HIGH OVERHEAD FOR DL APPLICATIONS BECAUSE OF TWO REASONS."
+  ],
+  "56": [
+    "SECOND, THE NATIVE CUDAMALLOC FUNCTION AND CUDA UNIED MEMORY ARE DESIGNED FOR GENERAL-PURPOSE APPLICATIONS, AND MAY INCUR UNNECESSARY OVERHEAD FOR DL APPLICATIONS.",
+    "FINALLY, CUDA UNIED MEMORY IS NOT OPTIMIZED FOR DL APPLICATIONS, AND IN- TRODUCES MORE THAN ONE HUNDRED MILLISECONDS OVERHEAD THAN PIPESWITCH."
+  ],
+  "62": [
+    "WE EXPLOIT TWO CHARACTERISTICS OF DL APPLICATIONS TO MINI- MIZE GPU MEMORY MANAGEMENT OVERHEAD.",
+    "THE GENERAL-PURPOSE GPU MEMORY MANAGEMENT DOES NOT CONSIDER THESE CHARACTERISTICS, AND IS TOO HEAVY-WEIGHT FOR DL APPLICATIONS THAT REQUIRE FAST TASK SWITCHING."
+  ],
+  "51": [
+    "FIRST, THE AMOUNT OF MEMORY ALLOCATED TO THE DNN MODEL IS XED, AND DOES NOT CHANGE DURING TASK EXECUTION.",
+    "WHILE A TRAINING TASK UPDATES THE MODEL, IT ONLY UPDATES THE MODEL PARAMETERS (I.E., THE WEIGHTS OF THE NEURAL NETWORK), NOT THE DNN STRUCTURE, AND THE AMOUNT OF MEMORY NEEDED TO STORE THEM STAYS THE SAME."
+  ],
+  "396": [
+    "AN USENIX ASSOCIATION 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION 505 INFERENCE TASK ONLY USES THE MODEL FOR INFERENCE, AND DOES NOT CHANGE THE MODEL ITSELF."
+  ],
+  "331": [
+    "SECOND, THE INTERMEDIATE RESULTS CHANGE IN A SIMPLE, REGULAR PATTERN, WHICH DO NOT CAUSE MEMORY FRAGMENTATION."
+  ],
+  "317": [
+    "FOR AN INFERENCE TASK, THE INTERMEDIATE RESULTS ARE THE OUTPUTS OF EACH LAYER, WHICH ARE USED BY THE NEXT LAYER."
+  ],
+  "191": [
+    "AFTER THE NEXT LAYER IS COMPUTED, THEY ARE NO LONGER NEEDED AND CAN BE SAFELY FREED."
+  ],
+  "413": [
+    "A TRAINING TASK DIFFERS IN THAT THE INTERMEDIATE RESULTS GENER- ATED IN THE FORWARD PASS CANNOT BE IMMEDIATELY FREED, BECAUSE THEY ARE ALSO USED BY THE BACKWARD PASS TO UPDATE THE WEIGHTS."
+  ],
+  "483": [
+    "HOWEVER, THE BACKWARD PASS CONSUMES THE INTERMEDIATE RE- SULTS IN THE REVERSE ORDER AS THAT THE FORWARD PASS GENERATES THEM, I.E., THE INTERMEDIATE RESULTS ARE RST-IN-LAST-OUT."
+  ],
+  "145": [
+    "THE MEMORY ALLOCATION AND RELEASE CAN BE HANDLED BY A SIMPLE STACK-LIKE MECHANISM, WITHOUT CAUSING MEMORY FRAGMENTA- TION."
+  ],
+  "65": [
+    "MINIMIZE MEMORY ALLOCATION OVERHEAD.",
+    "MINIMIZE MEMORY FOOTPRINT AND AVOID EXTRA MEMORY COPIES."
+  ],
+  "195": [
+    "BASED ON THESE TWO CHARACTERISTICS, WE DESIGN A MEMORY MANAGEMENT MECH- ANISM TAILORED FOR DL APPLICATIONS."
+  ],
+  "101": [
+    "PIPESWITCH USES A DED- ICATED MEMORY DAEMON TO MANAGE THE GPU MEMORY.",
+    "TO COMPARE, PIPESWITCH SIMPLY SENDS AN 64-BIT INTEGER OFFSET FOR THE SHARED GPU MEMORY TO WORKERS.",
+    "FIRST, COMPARED TO NO UNIED MEMORY MANAGEMENT, PIPESWITCH SAVES 223 MS BY ELIMINATING THE MEMORY ALLOCATION OVER- HEAD WITH THE MEMORY DAEMON."
+  ],
+  "227": [
+    "THIS ELIMINATES THE OVERHEAD FOR EACH WORKER TO USE CUDAMALLOC TO GET A LARGE AMOUNT OF MEMORY TO STORE THEIR MODELS AND INTERMEDIATE RESULTS."
+  ],
+  "163": [
+    "THE MEMORY DAEMON ONLY NEEDS TO PASS MEMORY POINTERS TO THE WORKERS, WHICH IS LIGHT-WEIGHT."
+  ],
+  "436": [
+    "THE DAEMON ENSURES THAT EACH TIME ONLY ONE WORKER OWNS THE GPU MEM- ORY TO GUARANTEE MEMORY ISOLATION BETWEEN WORKERS."
+  ],
+  "300": [
+    "EACH WORKER USES A MEMORY POOL TO ALLOCATE THE MEMORY TO STORE ITS MODEL AND INTERMEDIATE RESULTS, AND RECYCLES THE MEMORY TO THE POOL AFTER THE INTERMEDIATE RESULTS ARE NO LONGER NEEDED."
+  ],
+  "58": [
+    "THE MEMORY MANAGEMENT OF PIPESWITCH EXTENDS THAT OF PY- TORCH.",
+    "PIPESWITCH INSERTS GPU MEMORY BLOCKS TO PYTORCH GPU MEMORY POOL, AND PYTORCH CREATES TENSORS ON THEM."
+  ],
+  "470": [
+    "IT IS DESIGNED AND OPTIMIZED FOR EFCIENT GPU MEMORY ALLOCATION BETWEEN DIFFERENT TASKS, WHILE THE MEMORY MAN- AGEMENT IN PYTORCH HANDLES MEMORY ALLOCATION FOR A TASK ITSELF."
+  ],
+  "412": [
+    "REPLICATING THE MODELS IN EACH WORKER INCURS HIGH MEMORY FOOTPRINT, AND REDUCES THE NUMBER OF MODELS A SERVER CAN STORE, AND CONSEQUENTLY THE TYPES OF TASKS THE SERVER CAN EXECUTE."
+  ],
+  "352": [
+    "ON THE OTHER HAND, STORING THE MODELS IN A DEDICATE PROCESS HAS MINIMAL MEMORY FOOTPRINT AS EACH MODEL IS ONLY STORED ONCE, BUT IT INCURS AN EXTRA MEMORY COPY FROM THIS PROCESS TO A WORKER TO START A TASK, WHICH HURTS THE TASK SWITCHING TIME."
+  ],
+  "418": [
+    "PIPESWITCH STORES THE MODELS IN THE MEMORY DAEMON SO THAT THE SERVER ONLY NEEDS TO KEEP ONE COPY OF EACH MODEL IN THE HOST MEMORY."
+  ],
+  "43": [
+    "MINIMIZE IPC OVERHEAD.",
+    "WE LEVERAGE A PROPERTY OF DL APPLICATIONS TO MINIMIZE THE IPC OVERHEAD."
+  ],
+  "305": [
+    "THIS CAN BE IMPLEMENTED BY IPC APIS PROVIDED BY GPUS, E.G., CUDAIPCOPENMEMHANDLE FOR NVIDIA GPUS."
+  ],
+  "183": [
+    "WE HAVE MEASURED THE PERFORMANCE OF THESE IPC APIS AND FOUND THAT THEY INCUR HIGH OVERHEAD (6)."
+  ],
+  "473": [
+    "THE OVERHEAD IS EXACERBATED BY THE PIPELINE BECAUSE THE PIPELINE NEEDS TO INVOKE THE IPCS FREQUENTLY TO SYNCHRONIZE MODEL TRANSMISSION AND TASK EXE- CUTION FOR EVERY PIPELINE GROUP, INSTEAD OF INVOKING THE IPC ONLY ONCE FOR THE ENTIRE MODEL TRANSMISSION."
+  ],
+  "403": [
+    "THE PROPERTY IS THAT THE MEMORY ALLOCATION PROCESS FOR A NEURAL NETWORK MODEL IS DETERMINISTIC."
+  ],
+  "434": [
+    "SPECIF- ICALLY, GIVEN THE SAME GPU MEMORY REGION AND THE SAME MODEL, AS LONG AS THE MEMORY DAEMON AND THE WORKER USES THE SAME ORDER TO ALLOCATE MEMORY FOR THE MODEL PARAMETERS, THE MEMORY POINTERS FOR THE PARAMETERS WOULD BE THE SAME."
+  ],
+  "377": [
+    "IT IS EASY TO KEEP THE SAME ORDER FOR THE MEMORY DAEMON AND THE WORKER BECAUSE THE NEURAL NETWORK MODEL IS KNOWN AND GIVEN, AND THE MEMORY DAEMON ONLY NEEDS TO USE THE SAME ORDER TO TRANSMIT THE MODEL AS THE WORKER WOULD."
+  ],
+  "16": [
+    "AS A RESULT, THE MEMORY DAEMON CAN MINIMIZE THE USAGE OF EXPENSIVE GPU IPCS.",
+    "WITHOUT IPC OPTI- MIZATION, THE LATENCY IS EVEN HIGHER THAN NO UNIED MEMORY MANAGEMENT."
+  ],
+  "404": [
+    "IT ONLY USES THE GPU IPC ONCE TO INITIALIZE THE WORKER, AND THEN USES CHEAP CPU IPCS TO NOTIFY THE WORKER WHICH PIPELINE GROUP HAS BEEN TRANSMITTED."
+  ],
+  "93": [
+    "PIN MEMORY.",
+    "NO PIN MEMORY."
+  ],
+  "254": [
+    "THE OS WOULD SWAP A MEMORY PAGE TO DISK IF THE PAGE IS INACTIVE FOR A CERTAIN AMOUNT OF TIME."
+  ],
+  "489": [
+    "GPUS REQUIRE A PAGE IN THE HOST MEMORY TO BE PINNED (OR PAGE- LOCKED) IN ORDER TO TRANSMIT THE DATA IN THE PAGE TO THE GPU MEMORY."
+  ],
+  "460": [
+    "OTHERWISE, A TEMPORARY PINNED PAGE IS CREATED FOR THE TRANSMISSION."
+  ],
+  "465": [
+    "WE PIN THE PAGES OF THE MEMORY DAEMON TO THE HOST MEMORY, TO ELIMINATE THIS OVERHEAD."
+  ],
+  "78": [
+    "PROCESS-LEVEL ISOLATION IS DESIRABLE BECAUSE IT ENSURES THAT ONE TASK CANNOT READ THE MEMORY OF ANOTHER TASK, AND THAT THE CRASHING OF ONE TASK, E.G., BECAUSE OF A BUG, DOES NOT AFFECT OTHER TASKS OR THE ENTIRE SYSTEM.",
+    "SIMILAR TO THE NAIVE SOLUTION, WE USE SEPARATE PROCESSES TO ACHIEVE PROCESS-LEVEL ISOLATION."
+  ],
+  "321": [
+    "A NAIVE SOLUTION IS TO USE SEPARATE PROCESSES AND START THE NEW TASK AFTER THE CURRENT TASK IS STOPPED."
+  ],
+  "160": [
+    "IN TABLE 1, SUCH SEQUENTIAL EXECUTION INCURS LONG DELAY DUE TO OLD TASK CLEANING AND NEW TASK INITIALIZATION."
   ],
   "9": [
+    "ANOTHER POSSIBLE SOLUTION IS TO LET THE CURRENT AND NEW TASKS SHARE THE SAME PROCESS WITH A WARM CUDA CONTEXT, SO THAT THE NEW TASK CAN REUSE THE GPU ENVIRONMENT OF THE CURRENT TASK.",
+    "THE PROCESS OF THE OLD TASK CLEANS THE GPU ENVIRONMENT, AND THEN ANOTHER PROCESS IS CREATED AND INI- TIALIZED FOR THE NEW TASK.",
+    "THE PROCESS CLEANS THE GPU ENVIRONMENT FOR THE OLD TASK, AND REUSES THE ENVIRONMENT FOR THE NEW TASK."
+  ],
+  "323": [
+    "THIS AVOIDS THE NEW TASK INITIALIZATION, BUT IT STILL HAS THE OVERHEAD FOR THE CURRENT TASK TO CLEAN ITS STATUS."
+  ],
+  "229": [
+    "IN ADDITION, IT DOES NOT PROVIDE PROCESS-LEVEL ISOLATION BETWEEN TASKS."
+  ],
+  "442": [
+    "EACH WORKER IS A SEPARATE PROCESS, AND INITIALIZES ITS OWN GPU ENVIRONMENT (I.E., CUDA CONTEXT) WHEN IT IS RST CREATED."
+  ],
+  "376": [
+    "WHEN A CURRENT TASK IS STOPPED, A MAJOR JOB IS TO CLEAR ASYNCHRONOUS CUDA FUNCTIONS QUEUED ON THE GPU."
+  ],
+  "458": [
+    "WE IN- SERT SYNCHRONIZATION POINTS INTO TRAINING TASKS, SO THE NUMBER OF QUEUED FUNCTIONS ARE LIMITED AND CAN BE QUICKLY CLEARED."
+  ],
+  "472": [
+    "SYNCHRONIZATION POINTS ARE NOT NEEDED FOR INFERENCE TASKS AS THEY ARE SHORT AND NOT PREEMPTED."
+  ],
+  "244": [
+    "ANOTHER JOB IS TO FREE ITS GPU MEMORY."
+  ],
+  "76": [
+    "AN IMPORTANT PROPERTY OF THE CLEANING PROCE- DURE IS THAT IT DOES NOT MODIFY THE CONTENT OF THE MEMORY, BUT ONLY CLEANS THE METADATA, I.E., GPU MEMORY POINTERS.",
+    "AS THE GPU MEMORY IS MANAGED BY PIPESWITCH, THE CLEANING PRO- CEDURE DELETES THE POINTERS POINTING TO THE TENSOR DATA RATHER THAN FREEING THE ACTUAL DATA."
+  ],
+  "492": [
+    "THEREFORE, IT IS SAFE FOR THE NEW TASK TO TRANSMIT ITS MODEL TO THE GPU MEMORY AT THE SAME TIME."
+  ],
+  "149": [
+    "IN OTHER WORDS, WE CAN PARALLELIZE THE TASK CLEANING OF THE CURRENT TASK AND THE PIPELINED MODEL TRANSMISSION OF THE NEW TASK, TO HIDE THE TASK CLEANING OVERHEAD."
+  ],
+  "407": [
+    "THIS CHOICE IS OPTIMIZED FOR PERFORMANCE, AND IS NOT A PROBLEM FOR A TRUSTED ENVIRONMENT."
+  ],
+  "220": [
+    "IT IS POSSIBLE THAT A LATTER PROCESS CAN READ THE MEMORY DATA OF A PREVIOUS PROCESS."
+  ],
+  "205": [
+    "IF THIS IS A CONCERN, AN ADDITIONAL ZERO-OUT OPERATION CAN BE ADDED."
+  ],
+  "386": [
+    "GPU HAS HIGH MEMORY BANDWIDTH (E.G., 900GBS FOR V100)."
+  ],
+  "363": [
+    "IT WOULD INCUR SUB-MILLISECOND OVERHEAD FOR ZEROING-OUT MOST MODELS LIKE RESNET-152 (AROUND 240MB)."
+  ],
+  "347": [
+    "ON THE OTHER HAND, FOR A TRUSTED ENVIRONMENT, IT IS UNNECESSARY TO RELEASE ALL ALLOCATED MEMORY FOR THE PREEMPTED PROCESS IF THE NEW PROCESS DOES NOT REQUIRE ENTIRE GPU MEMORY, AND THIS COULD BE ACHIEVED BY SOME SIM- PLE COORDINATION."
+  ],
+  "237": [
+    "TABLE 2 SUMMARIZES THE DIFFERENCES BETWEEN THESE THREE SOLUTIONS."
+  ],
+  "24": [
+    "IN SUMMARY, TO SWITCH WORKERS, THE CONTROLLER SIGNALS THE CURRENT ACTIVE WORKER TO STOP, DELETES THE GPU MEMORY ALLO- CATED TO IT, AND ALLOCATES THE GPU MEMORY TO THE NEW ACTIVE WORKER.",
+    "IF A NEW MODEL SHOULD BE LOADED TO THE GPU, THE CONTROLLER WILL NOTIFY THE CURRENT ACTIVE WORKER TO STOP, AND TRANSFERS THE PARAMETERS OF THE NEW MODEL TO THE GPU AFTER RECEIVING THE CURRENT AC- TIVE WORKERS REPLY."
+  ],
+  "297": [
+    "THE CONTROLLER ENSURES ONLY ONE ACTIVE WORKER TO GUAR- ANTEE EXCLUSIVE OCCUPATION OF THE GPU."
+  ],
+  "63": [
+    "THERE IS A TRADE-OFF BETWEEN THE NUMBER OF STANDBY WORK- ERS AND THEIR GPU MEMORY CONSUMPTION.",
+    "HOWEVER, EVERY STANDBY WORKER NEEDS TO MAINTAIN ITS OWN CUDA CONTEXT, WHICH CONSUMES A FEW HUNDRED MB GPU MEMORY."
+  ],
+  "80": [
+    "ON THE OTHER HAND, IT IS POSSIBLE TO HAVE MANY STANDBY WORKERS SO THAT THERE IS ALWAYS AT LEAST ONE IDLE STANDBY WORKER.",
+    "OUR EXPE- RIENCE IS THAT TWO STANDBY WORKERS ARE SUFCIENT TO ENSURE AT LEAST ONE IDLE WORKER, WHICH ELIMINATES THE WAITING TIME AND HAS MODERATE GPU MEMORY CONSUMPTION."
+  ],
+  "228": [
+    "A TRANSACTION HERE MEANS A MODEL IS SWITCHED IN OR OUT ON ALL OF ITS GPUS TO ENABLE OR DISABLE INFERENCE ON THIS MODEL."
+  ],
+  "202": [
+    "HOWEVER, IT DOES NOT WORK OUT OF THE BOX WITH SYNCHRONOUS MULTI-GPU TRAINING."
+  ],
+  "246": [
+    "WE HAVE ANALYZED A PRODUCTION GPU TRAINING TRACE FROM MICROSOFT 19,20."
+  ],
+  "354": [
+    "AMONG 111,883 TASKS IN THIS TRACE, 96,662 TASKS (OR 86 OF ALL THE TASKS) ARE SINGLE- GPU TRAINING TASKS."
+  ],
+  "209": [
+    "HOWEVER, THESE JOBS ONLY ACCOUNT FOR 18 OF TOTAL GPU HOURS AND WE EXPECT THE SHARE OF MULTI-GPU JOBS TO INCREASE IN THE FUTURE."
+  ],
+  "250": [
+    "UNFORTUNATELY, CURRENT TRAINING FRAMEWORKS DO NOT HAVE MATURE SUPPORT OF ELASTIC TRAINING."
+  ],
+  "105": [
+    "THIS REMAINS AN ACTIVE RESEARCH TOPIC AND IS ORTHOGONAL TO PIPESWITCH.",
+    "THESE SCHEDULING SOLUTIONS ARE ORTHOGONAL AND COMPLEMENTARY TO PIPESWITCH.",
+    "THESE SOLUTIONS ARE COMPLEMENTARY TO PIPESWITCH."
+  ],
+  "73": [
+    "PYTORCH PLUGINS.",
+    "HTTPS:PYTORCH.ORG."
+  ],
+  "31": [
+    "WE ADD C AND PYTHON FUNCTIONS TO THE GPU MEMORY MANAGEMENT MODULE OF PYTORCH.",
+    "WE ALSO ADD FUNCTIONS WHICH INSERT THE RECEIVED GPU MEMORY INTO PYTORCH GPU MEMORY POOL FOR A SPECIC CUDA STREAM OR CLEAR THE GPU MEMORY FROM THE POOL.",
+    "NOTE THAT THE SHARED GPU MEMORY CAN BE INSERTED INTO THE PYTORCH GPU MEMORY POOL FOR MULTIPLE TIMES FOR DIFFERENT CUDA STREAMS, AND THE CONTROLLER GUARANTEES THAT ONLY ONE OF THESE CUDA STREAMS IS ACTIVE."
+  ],
+  "210": [
+    "THE CONTROLLER PROCESS CONSISTS OF A TCP THREAD AND A SCHEDULER THREAD."
+  ],
+  "217": [
+    "FOR BETTER PERFORMANCE, THE SCHEDULER AND THE MEMORY DAEMON ARE IM- PLEMENTED TOGETHER."
+  ],
+  "178": [
+    "THE TCP THREAD ACCEPTS TASK THROUGH TCP FROM CLIENTS, AND SENDS THE TASK TO THE SCHEDULER THREAD."
+  ],
+  "484": [
+    "THE SCHEDULER THREAD ALLOCATES AND SHARES THE GPU MEMORY WITH WORKERS, ACTIVATES OR DEACTIVATES WORKERS, SENDS THE TASK TO A WORKER, AND TRANSFERS PARAMETERS FOR THE CORRESPONDING MODEL TO THE GPU MEMORY."
+  ],
+  "416": [
+    "BEFORE STARTING A TASK, THE USER SHOULD REGISTER THE MODEL IN THE SCHEDULER TO NOTIFY THE CONTROLLER TO LOAD THE MODEL FROM THE DISK TO THE CPU MEMORY."
+  ],
+  "365": [
+    "PARAMETERS ARE TRANSMITTED TO THE GPU MEMORY IN GROUPS IN A PIPELINE."
+  ],
+  "388": [
+    "AFTER EACH GROUP IS TRANS- FERRED, THE CONTROLLER NOTIES THE WORKER TO START COMPUTING THE CORRESPONDING LAYERS."
+  ],
+  "284": [
+    "THE WORKER PROCESS CONSISTS OF TWO THREADS."
+  ],
+  "463": [
+    "THE TER- MINATION THREAD WAITS FOR THE TERMINATION SIGNAL FROM THE CON- TROLLER, AND NOTIES THE MAIN THREAD."
+  ],
+  "398": [
+    "THE MAIN THREAD MANAGES THE DNN MODELS AND PERFORMS THE COMPUTATION FOR INFERENCE OR TRAINING."
+  ],
+  "334": [
+    "SIMILAR TO THE CONTROLLER, THE WORKER ALSO REQUIRES THE USER TO REGISTER THE MODEL BEFORE STARTING A TASK, SO THE WORKER CAN LOAD THE MODELS AND ADD THE HOOKS TO WAIT FOR PARAMETER TRANSMISSION OR TERMINATE ON NOTICATION."
+  ],
+  "395": [
+    "NOTE THAT THE WORKER ONLY LOADS THE MODEL STRUCTURES, WHICH IS SMALL, NOT THE MODEL PARAMETERS."
+  ],
+  "400": [
+    "THE PARAMETERS ARE ONLY STORED ONCE IN THE MEMORY DAEMON FOR MINIMAL MEMORY FOOTPRINT."
+  ],
+  "36": [
+    "WHEN THE MODELS ARE LOADED, THEY ARE ATTACHED TO DIFFERENT CUDA STREAMS, AND THEIR PARAMETERS ARE ASSIGNED TO LOCATIONS IN THE SHARED GPU MEMORY.",
+    "DIFFERENT MODELS MIGHT USE THE SAME GPU MEMORY LOCATION, BUT THE VALUE IS NOT VALID UNTIL THE CONTROLLER TRANSFERS THE CORRESPONDING PARAMETERS TO THESE LOCATIONS."
+  ],
+  "370": [
+    "AFTER LOADING THE MODELS, THE WORKER WAITS FOR THE SCHEDULER TO TRANSFER REQUIRED PARAMETERS FOR DNN MODELS, AND PERFORMS INFERENCE OR TRAINING."
+  ],
+  "298": [
+    "ALL EXPERIMENTS ARE CONDUCTED ON AWS."
+  ],
+  "307": [
+    "WE USE TWO EC2 INSTANCE TYPES."
+  ],
+  "199": [
+    "ONE IS P3.2XLARGE, WHICH IS CONGURED WITH 8 VCPUS (INTEL XEON E5-2686 V4), 1 GPU (NVIDIA V100 WITH 16 GB GPU MEMORY), PCIE 3.0 16, AND 61 GB MEMORY.",
+    "THE OTHER IS G4DN.2XLARGE, WHICH IS CONGURED WITH 8 VCPUS (INTEL PLATINUM 8259CL), 1 GPU (NVIDIA T4 WITH 16 GB GPU MEMORY), PCIE 3.0 8, AND 32 GB MEMORY."
+  ],
+  "235": [
+    "THE SOFTWARE ENVIRONMENT INCLUDES PYTORCH-1.3.0, TORCHVISION- 0.4.2, SCIPY-1.3.2, AND CUDA-10.1."
+  ],
+  "241": [
+    "WE USE PYTORCH WITH OUR PLUGINS FOR ALL MECHANISMS IN COMPARISON FOR CONSISTENCY, WHICH PROVIDES BETTER RESULTS FOR STOP-AND-START THAN NATIVE PYTORCH FROM PYTHON-PYPI USED IN TABLE 1."
+  ],
+  "119": [
+    "THE MODELS INCLUDE RESNET152 17, INCEP- TIONV3 22 AND BERTBASE 23, WHICH ARE STANDARD BENCH- MARKS FOR EVALUATING DL SYSTEMS."
+  ],
+  "283": [
+    "WE USE REPRESENTATIVE CON- GURATIONS FOR EACH MODEL."
+  ],
+  "187": [
+    "THE EXPERIMENTS COVER BOTH TRAIN- ING AND INFERENCE."
+  ],
+  "444": [
+    "WE USE SINGLE-GPU INFERENCE AND TRAINING TASKS AS DISCUSSED IN 4.5."
+  ],
+  "213": [
+    "TRAINING TASKS PERIODICALLY CHECK- POINT THEIR MODELS TO THE HOST MEMORY, AND RESTART FROM THE LATEST CHECKPOINT AFTER PREEMPTION."
+  ],
+  "342": [
+    "THE CHECKPOINTING FRE- QUENCY OF TRAINING TASKS IS SET ACCORDING TO THE SCHEDULING CYCLE TO MINIMIZE CHECKPOINTING OVERHEAD."
+  ],
+  "414": [
+    "THE DEFAULT BATCH SIZE FOR TRAINING IS 32, AND THAT FOR INFERENCE IS 8."
+  ],
+  "161": [
+    "METRICS."
+  ],
+  "70": [
+    "WE USE THROUGHPUT AND LATENCY AS EVALUATION METRICS.",
+    "WE MEASURE THE THE END-TO-END LATENCY EXPERIENCED BY THE CLIENT.",
+    "FIGURE 5: TOTAL LATENCY EXPERIENCED BY THE CLIENT FOR DIFFERENT MECHANISMS.",
+    "FIGURE 5 SHOWS THE LATENCY EXPERIENCED BY THE CLIENT, AND TABLE 3 SHOWS THE TOTAL OVERHEAD."
+  ],
+  "351": [
+    "EACH NUMBER IS REPORTED WITH THE AVERAGE OF 100 RUNS."
+  ],
+  "452": [
+    "FOR FIGURE 6(B), WE ADDITIONALLY REPORT THE MINIMUM AND MAXI- MUM LATENCIES USING THE ERROR BAR, BECAUSE THE LATENCY OF THE RST BATCH AND THOSE OF LATER BATCHES IN ONE SCHEDULING CYCLE CAN DIFFER SIGNICANTLY DUE TO SWITCHING OVERHEAD."
+  ],
+  "359": [
+    "6.1 END-TO-END EXPERIMENTS MINIMIZING END-TO-END OVERHEAD."
+  ],
+  "231": [
+    "IN THIS EXPERIMENT, A CLIENT SENDS AN INFERENCE TASK TO A GPU SERVER, AND THE GPU SERVER PREEMPTS THE TRAINING TASK TO EXECUTE THE INFERENCE TASK AND SENDS A REPLY BACK TO THE CLIENT."
+  ],
+  "467": [
+    "WE COMPARE THE FOLLOWING MECHANISMS."
+  ],
+  "433": [
+    "READY MODEL."
+  ],
+  "182": [
+    "THERE IS NO TRAINING TASK."
+  ],
+  "208": [
+    "THE PROCESS WITH THE REQUIRED MODEL IS ALREADY LOADED IN THE GPU."
+  ],
+  "140": [
+    "THIS SOLU- TION PROVIDES THE LOWER BOUND, WHICH IS THE LOWEST LATENCY WE CAN ACHIEVE FOR AN INFERENCE TASK."
+  ],
+  "279": [
+    "STOP-AND-START."
+  ],
+  "173": [
+    "THIS SOLUTION IS USED BY EX- ISTING SYSTEMS LIKE GANDIVA 24 FOR TASK SWITCHING, WHICH REPORTED SIMILAR SECOND-SCALE OVERHEAD."
+  ],
+  "378": [
+    "NVIDIA MPS."
+  ],
+  "330": [
+    "WE INITIALIZE SEPARATE PRO- CESSES IN ADVANCE."
+  ],
+  "95": [
+    "CUDA UNIED MEMORY IS USED FOR MEMORY SWAPPING.",
+    "CUDA UNIED MEMORY.",
+    "4 CUDA UNIED MEMORY.",
+    "HTTPS: DEVBLOGS.NVIDIA.COMUNIFIED-MEMORY-CUDA- BEGINNERS."
+  ],
+  "263": [
+    "THE PROPERTIES ARE DESCRIBED IN 4."
+  ],
+  "11": [
+    "508 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION USENIX ASSOCIATION 7500 10000 LATENCY (MS) READY MODEL PIPESWITCH MPS STOP-AND-START RESNET152 INCEPTIONV3 BERTBASE 0 200 400 (A) P3.2XLARGE (NVIDIA V100, PCIE 3.0 16).",
+    "5000 10000 LATENCY (MS) READY MODEL PIPESWITCH MPS STOP-AND-START RESNET152 INCEPTIONV3 BERTBASE 0 200 400 600 (B) G4DN.2XLARGE (NVIDIA T4, PCIE 3.0 8).",
+    "P3.2XLARGE (NVIDIA V100, PCIE 3.0 16) G4DN.2XLARGE (NVIDIA T4, PCIE 3.0 8) RESNET152 INCEPTIONV3 BERTBASE RESNET152 INCEPTIONV3 BERTBASE STOP-AND-START 6475.40 MS 7536.07 MS 6371.32 MS 5486.74 MS 6558.76 MS 5355.95 MS NVIDIA MPS 307.02 MS 232.25 MS 204.52 MS 259.20 MS 193.05 MS 338.25 MS PIPESWITCH 6.01 MS 5.40 MS 10.27 MS 5.57 MS 7.66 MS 34.56 MS TABLE 3: TOTAL OVERHEAD, I.E., THE DIFFERENCE ON TOTAL LATENCY BETWEEN DIFFERENT MECHANISMS AND READY MODEL.",
+    "RESNET152 INCEPTIONV3 BERTBASE 0 20 40 60 80 100 LATENCY (MS) PIPESWITCH PER-LAYER PIPELINE GROUPED TRANSMISSION NO OPTIMIZATION (A) P3.2XLARGE (NVIDIA V100, PCIE 3.0 16).",
+    "RESNET152 INCEPTIONV3 BERTBASE 0 50 100 150 200 250 LATENCY (MS) PIPESWITCH PER-LAYER PIPELINE GROUPED TRANSMISSION NO OPTIMIZATION (B) G4DN.2XLARGE (NVIDIA T4, PCIE 3.0 8).",
+    "510 14TH USENIX SYMPOSIUM ON OPERATING SYSTEMS DESIGN AND IMPLEMENTATION USENIX ASSOCIATION RESNET152 INCEPTIONV3 BERTBASE 0 100 200 300 400 LATENCY (MS) PIPESWITCH NO MEMORY MANAGEMENT NO IPC OPTIMIZATION NO PIN MEMORY CUDA UNIFIED MEMORY (A) P3.2XLARGE (NVIDIA V100, PCIE 3.0 16).",
+    "RESNET152 INCEPTIONV3 BERTBASE 0 100 200 300 400 LATENCY (MS) PIPESWITCH NO MEMORY MANAGEMENT NO IPC OPTIMIZATION NO PIN MEMORY CUDA UNIFIED MEMORY (B) G4DN.2XLARGE (NVIDIA T4, PCIE 3.0 8).",
+    "6000 8000 LATENCY (MS) PIPESWITCH ONE PROCESS TWO PROCESSES RESNET152 INCEPTIONV3 BERTBASE 0 100 200 (A) P3.2XLARGE (NVIDIA V100, PCIE 3.0 16).",
+    "5000 7500 LATENCY (MS) PIPESWITCH ONE PROCESS TWO PROCESSES RESNET152 INCEPTIONV3 BERTBASE 0 200 400 (B) G4DN.2XLARGE (NVIDIA T4, PCIE 3.0 8)."
+  ],
+  "22": [
+    "RESNET152 INCEPTIONV3 BERTBASE P3.2XLARGE 3.62 MS 4.82 MS 3.62 MS G4DN.2XLARGE 2.53 MS 5.49 MS 6.57 MS TABLE 4: THE STARTUP OVERHEAD FOR PIPESWITCH TO START COMPUT- ING THE RST LAYER.",
+    "WE ALSO SHOW THE TASK STARTUP OVERHEAD FOR PIPESWITCH IN TABLE 4, WHICH IS THE DIFFERENCE BETWEEN THE TIME FOR RESNET152 INCEPTIONV3 BERTBASE  OF LAYERS 464 189 139 ALGORITHM 1 1.33 S 0.18 S 0.34 S ONLY PRUNING 1 2.09 S 0.30 S 0.88 S ONLY PRUNING 2 3.44 H 5.07 S  24 H NO PRUNING  24 H  24 H  24 H TABLE 5: EFFECTIVENESS OF TWO PRUNING TECHNIQUES."
+  ],
+  "248": [
+    "SALUS 7 IS NOT DIRECTLY COMPARABLE BECAUSE IT REQUIRES THE MODELS TO BE PRELOADED TO THE GPU, AND HAS SEVERAL LIMITATIONS DESCRIBED IN 2.2."
+  ],
+  "296": [
+    "ITS PERFORMANCE IS SIMILAR TO THE READY MODEL WHEN THE MODEL IS PRELOADED, AND IS SIMILAR TO NVIDIA MPS WHEN THE MODEL IS IN THE HOST MEMORY."
+  ],
+  "320": [
+    "THE TOTAL OVERHEAD IS THE DIFFERENCE BETWEEN THE LATENCY OF A MECHANISM AND THAT OF THE READY MODEL."
+  ],
+  "410": [
+    "IT IS OBVIOUS THAT STOP-AND-START PERFORMS THE WORST, WHICH TAKES SEVERAL SECONDS."
+  ],
+  "131": [
+    "THE MAIN SOURCE OF THE OVERHEAD IS CUDA CONTEXT INITIALIZATION AND RST-TIME LIBRARY LOADING OPERATIONS IN PYTORCH."
+  ],
+  "438": [
+    "ANOTHER SOURCE IS GPU MEMORY SWAPPING."
+  ],
+  "216": [
+    "PIPESWITCH PERFORMS THE BEST AND IS CLOSE TO THE LOWER BOUND."
+  ],
+  "382": [
+    "THE OVERHEAD OF PIPESWITCH FOR MOST CONGURATIONS IS UP TO 10MS, EXCEPT FOR BERT ON T4, WHICH IS DUE TO THE LARGE MODEL SIZE AND THE SMALLER PCIE BANDWIDTH ON T4 THAN THAT ON V100."
+  ],
+  "361": [
+    "SINCE IT ALSO TAKES LONGER (120MS) TO COMPUTE BERT ON T4 EVEN WITH THE READY MODEL, THE RELATIVE OVERHEAD IS ACCEPTABLE."
+  ],
+  "125": [
+    "PIPESWITCH TO START COMPUTING THE RST LAYER AND THAT FOR THE READY MODEL TO START COMPUTING."
+  ],
+  "117": [
+    "THE STARTUP OVERHEAD OF PIPESWITCH IS ONLY A FEW MILLISECONDS.",
+    "PIPESWITCH INCURS ONLY A FEW MILLISECONDS OVERHEAD FOR TASK SWITCHING, AND ACHIEVES LOW LATENCY CLOSE TO THE LOWER BOUND."
+  ],
+  "113": [
+    "IN THIS EXPERI- MENT, WE COMPARE THROUGHPUT AND END-TO-END LATENCY OF DIF- FERENT MECHANISMS UNDER DIFFERENT SCHEDULING CYCLES."
+  ],
+  "369": [
+    "WE USE RESNET152 FOR BOTH TRAINING AND INFERENCE ON EIGHT P3.2XLARGE INSTANCES, AND SWITCH BETWEEN THESE TWO TASKS AFTER EACH SCHEDULING CYCLE."
+  ],
+  "234": [
+    "FIGURE 6(A) SHOWS THE INFERENCE THROUGHPUT."
+  ],
+  "401": [
+    "THE DASHED LINE IS THE UPPER BOUND, WHICH IS THE THROUGHPUT OF THE READY MODEL ASSUMING NO TASK SWITCHING.",
+    "THE DASHED LINE IS THE LOWER BOUND, WHICH IS THE AVERAGE LATENCY OF THE READY MODEL ASSUMING NO TASK SWITCHING."
+  ],
+  "150": [
+    "THE THROUGHPUT OF STOP-AND-START IS NEARLY ZERO FOR SCHEDULING CYCLES SMALLER THAN 10 S, BECAUSE IT TAKES SEVERAL SECONDS FOR TASK SWITCHING."
+  ],
+  "139": [
+    "MPS KEEPS POOR THROUGHPUT AROUND 100 BATCHES PER SECOND."
+  ],
+  "130": [
+    "WE DENE GPU UTILIZATION AS THE RATIO TO THE UPPER BOUND."
+  ],
+  "175": [
+    "FIGURE 6(B) SHOWS THE AVERAGE LATENCY OF THE INFERENCE TASKS."
+  ],
+  "409": [
+    "THE ERROR BAR INDICATES THE MINIMUM AND MAXIMUM LATENCY."
+  ],
+  "245": [
+    "STOP- AND-START HAS POOR LATENCY BECAUSE THE RST BATCH HAS SEVERAL SECONDS OVERHEAD."
+  ],
+  "172": [
+    "MPS HAS ABOUT 80 MS AVERAGE LATENCY, AND HAS SEVERAL HUNDRED MILLISECONDS LATENCY FOR THE RST BATCH."
+  ],
+  "468": [
+    "7500 10000 LATENCY (MS) PIPESWITCH MPS STOP-AND-START 1S 2S 5S 10S 30S 0 200 400 LOWER BOUND (B) LATENCY."
+  ],
+  "193": [
+    "FIGURE 6: THROUGHPUT AND LATENCY UNDER DIFFERENT SCHEDULING CYCLES FOR RESNET ON P3.2XLARGE."
+  ],
+  "185": [
+    "IT TRANSMITS THE MODEL LAYER BY LAYER (WITH MANY PCIE CALLS), AND THEN EXECUTES THE TASK."
+  ],
+  "225": [
+    "IT GROUPS THE ENTIRE MODEL IN ONE TRANSMISSION, AND THEN EXECUTES THE TASK."
+  ],
+  "120": [
+    "PER-LAYER PIPELINE."
+  ],
+  "159": [
+    "IT TRANSITS MODEL PARAMETERS LAYER BY LAYER."
+  ],
+  "214": [
+    "COMPUTATION STARTS, ONCE PARAMETERS ARE TRANSMITTED."
+  ],
+  "15": [
+    "FIGURE 7 SHOWS THE TOTAL TIME MEASURED BY THE CLIENT FOR AN IN- FERENCE TASK TO PREEMPT A TRAINING TASK AND NISH ITS INFERENCE.",
+    "FIGURE 8 SHOWS THE TOTAL TIME MEASURED BY THE CLIENT."
+  ],
+  "69": [
+    "NO OPTIMIZATION PERFORMS THE WORST IN MOST CASES."
+  ],
+  "260": [
+    "GROUPED TRANSMISSION IMPROVES NO OPTIMIZATION BY COMBINING THE LAY- ERS OF THE MODEL INTO ONE BIG TENSOR AND TRANSMITTING IT IN ONE GROUP."
+  ],
+  "306": [
+    "PER-LAYER PIPELINE OVERLAPS TRANSMISSION AND COM- PUTATION AT THE GRANULARITY OF LAYER."
+  ],
+  "356": [
+    "BUT BECAUSE IT HAS PCIE OVERHEAD AND SYNCHRONIZATION OVERHEAD FOR EVERY LAYER, FOR THE MODELS WITH MANY LAYERS BUT RELATIVELY LIGHT COMPUTA- TION SUCH AS RESNET152 AND INCEPTION, IT CAN PERFORM WORSE THAN GROUPED TRANSMISSION AND SOMETIMES EVEN NO PIPELINE."
+  ],
+  "67": [
+    "IT REDUCES THE TOTAL TIME BY UP TO 38.2 MS COMPARED TO OTHER SOLUTIONS.",
+    "IT REDUCES THE LATENCY BY 116307 MS COMPARED TO ONE PROCESS, AND 57 S COMPARED TO TWO PROCESSES."
+  ],
+  "207": [
+    "NOTE THAT THIS REDUCTION IS SIGNICANT, ESPECIALLY CONSIDER- ING THAT IT IS EVALUATED WHEN THE OPTIMIZATIONS ON MEMORY MANAGEMENT AND WORKER SWITCHING HAVE ALREADY BEEN APPLIED."
+  ],
+  "448": [
+    "WE WOULD LIKE TO EMPHASIZE THAT TO MEET STRICT SLOS, IT IS IMPORTANT TO REDUCE ALL OVERHEADS FOR TASK SWITCHING, NOT ONLY THE MOST SIGNICANT ONE."
+  ],
+  "206": [
+    "TABLE 5 SHOWS THE RUNNING TIME OF ALGORITHM 1, AS WELL AS THE EFFECTS OF THE TWO PRUNING TECHNIQUES MENTIONED IN  4.2."
+  ],
+  "97": [
+    "NOTE THAT THE NUMBER OF LAYERS INCLUDES BOTH WEIGHTED AND UNWEIGHTED LAYERS, AS BOTH CONTRIBUTE TO THE COMPUTATION TIME."
+  ],
+  "243": [
+    "WE MEASURE THE PARAMETER SIZE AND RUNNING TIME FOR EACH LAYER IN ADVANCE."
+  ],
+  "141": [
+    "ALGORITHM 1 TAKES ONLY SEVERAL SECONDS TO COMPUTE AN OPTIMAL GROUPING STRATEGY, EVEN FOR RESNET152 WHICH HAS HUNDREDS OF LAYERS."
+  ],
+  "177": [
+    "ON THE CONTRARY, NO PRUNING DOES NOT NISH FOR ALL THREE MODELS AFTER RUNNING FOR 24 HOURS."
+  ],
+  "21": [
+    "6.3 UNIED MEMORY MANAGEMENT TO EVALUATE THE EFFECTIVENESS OF UNIED MEMORY MANAGEMENT.",
+    "NO UNIED MEMORY MANAGEMENT.",
+    "FIGURE 8: EFFECTIVENESS OF UNIED MEMORY MANAGEMENT."
+  ],
+  "59": [
+    "WE KEEP ALL OTHER COMPONENTS OF PIPESWITCH THE SAME, AND COMPARE THE FOLLOWING VE MECHANISMS DISCUSSED IN 4.3."
+  ],
+  "221": [
+    "NO IPC OPTIMIZATION."
+  ],
+  "27": [
+    "IT HAS ALL OPTIMIZATIONS ON UNIED MEMORY MANAGEMENT EXCEPT THAT THE PAGES OF THE MEMORY DAEMON ARE NOT PINNED TO THE MAIN MEMORY.",
+    "OVERALL, THIS EXPERIMENT DEMONSTRATES THAT ALL THE OPTIMIZATIONS ON MEMORY MANAGEMENT ARE EFFECTIVE."
+  ],
+  "138": [
+    "IT IS THE UNIED MEMORY MANAGEMENT MECHA- NISM USED BY PIPESWITCH."
+  ],
+  "190": [
+    "SECOND, IPC OPTIMIZATION IS IMPORTANT, WHICH REDUCES THE LATENCY BY 1648 MS."
+  ],
+  "88": [
+    "THIRD, PINNING THE PAGES TO THE HOST MEMORY CAN REDUCE THE LATENCY WITH A FEW MILLISECONDS."
+  ],
+  "108": [
+    "TWO PROCESSES.",
+    "ONE PROCESS."
+  ],
+  "156": [
+    "FIGURE 9: EFFECTIVENESS OF ACTIVE-STANDBY SWITCHING."
+  ],
+  "133": [
+    "FIGURE 9 SHOWS THE RESULTS."
+  ],
+  "232": [
+    "TWO PROCESSES PERFORM THE WORST AS IT STOPS THE TRAINING TASK AND INITIALIZES A NEW PROCESS FOR THE NEW TASK."
+  ],
+  "82": [
+    "THE NEW PROCESS NEEDS TO CREATE A NEW CUDA ENVIRONMENT, WHICH DOMINATES THE TOTAL TIME.",
+    "ONE PROCESS REUSES THE CUDA ENVIRONMENT, BUT STILL PAYS THE OVERHEAD TO CLEAN THE ENVIRONMENT."
+  ],
+  "318": [
+    "7 RELATED WORK MANY FRAMEWORKS HAVE BEEN DEVELOPED FOR DEEP LEARNING, SUCH AS TENSORFLOW 25, PYTORCH 21 AND MXNET 26."
+  ],
+  "164": [
+    "SEV- ERAL ALGORITHMS AND SYSTEMS HAVE BEEN DESIGNED FOR EXECUTING AND SCHEDULING DEEP LEARNING TASKS ON CLUSTERS, INCLUDING BOTH TRAINING AND INFERENCE TASKS 3, 10, 24, 2732."
+  ],
+  "136": [
+    "THEY FOCUS ON WHAT SCHEDULING DECISIONS TO MAKE, WHILE PIPESWITCH FOCUSES ON HOW TO REALIZE A SCHEDUL- ING DECISION.",
+    "IMPORTANTLY, PIPESWITCH ENABLES THE SCHEDULER TO CHANGE THE RESOURCE ALLOCATION MORE OFTEN WITH MILLISECOND- SCALE TASK SWITCHING."
+  ],
+  "203": [
+    "MANY TECHNIQUES AND SYSTEMS HAVE BEEN PROPOSED TO OPTIMIZE COMMUNICATION AND IMPROVE DIS- TRIBUTED TRAINING 8,9,15,3342."
+  ],
+  "147": [
+    "THE MOST RELEVANT ONES ARE PIPEDREAM 8, BYTESCHEDULER 9 AND POSEIDON 40."
+  ],
+  "478": [
+    "OTHER WORKS LIKE VDNN 43 AND SWAPADVISOR 44 ALSO HAVE GPU MEMORY MANAGEMENT MODULE, BUT THEY FOCUS ON MEMORY MANAGEMENT FOR A SINGLE TRAINING TASK OF LARGE MODELS, WHICH ARE NOT DIRECTLY COMPARABLE TO PIPESWITCH."
+  ],
+  "115": [
+    "CLUSTER MANAGERS 4548 TYPICALLY ALLOCATE GPUS TO VMS OR CONTAINERS AT DEVICE GRANULARITY."
+  ],
+  "180": [
+    "SEVERAL SOLUTIONS HAVE BEEN PROPOSED TO SHARE A GPU AT APPLICATION GRANULARITY US- ING TECHNIQUES LIKE LIBRARY INTERCEPTION 6,4953."
+  ],
+  "247": [
+    "THEY ARE GENERAL-PURPOSE AND FOCUS ON SHARING ONLY A FEW KERNELS."
+  ],
+  "336": [
+    "AS SUCH, THEY ARE NOT SUITABLE FOR DEEP LEARNING APPLICATIONS THAT TYPICALLY REQUIRE HUNDREDS OF KERNELS."
+  ],
+  "288": [
+    "IT IS ALSO NOT SPECIALLY DESIGNED FOR DEEP LEARNING AND THUS CANNOT MEET STRICT SLOS OF INFERENCE TASKS AS SHOWN IN 6."
+  ],
+  "339": [
+    "THERE ARE MANY EFFORTS ON GPU OPTIMIZATION TO IM- PROVE THE PERFORMANCE OF RUNNING A SINGLE TASK, SUCH AS TENSOR FUSION AND KERNEL-LEVEL CONCURRENCY AND SCHEDULING 5458."
+  ],
+  "184": [
+    "WE THANK OUR SHEPHERD MADAN MUSU- VATHI AND THE ANONYMOUS REVIEWERS FOR THEIR VALUABLE FEED- BACK."
+  ],
+  "269": [
+    "ZHIHAO BAI, ZHEN ZHANG AND XIN JIN WERE SUPPORTED IN PART BY AN AWS MACHINE LEARNING RESEARCH AWARD."
+  ],
+  "152": [
+    "REFERENCES 1 A. VERMA, L. PEDROSA, M. KORUPOLU, D. OPPENHEIMER, E. TUNE, AND J. WILKES, LARGE-SCALE CLUSTER MANAGEMENT AT GOOGLE WITH BORG, IN EUROSYS, 2015."
+  ],
+  "8": [
     "2 J.",
     "39 J."
   ],
-  "249": [
-    "Dean and L. A. Barroso, The tail at scale, Commu- nications of the ACM, vol."
+  "259": [
+    "DEAN AND L. A. BARROSO, THE TAIL AT SCALE, COMMU- NICATIONS OF THE ACM, VOL."
   ],
-  "159": [
+  "167": [
     "56, 2013.",
     "41, 2013."
   ],
   "102": [
-    "3 H. Shen, L. Chen, Y. Jin, L. Zhao, B. Kong, M. Phili- pose, A. Krishnamurthy, and R. Sundaram, Nexus: A GPU cluster engine for accelerating DNN-based video analysis, in ACM SOSP, 2019."
+    "3 H. SHEN, L. CHEN, Y. JIN, L. ZHAO, B. KONG, M. PHILI- POSE, A. KRISHNAMURTHY, AND R. SUNDARAM, NEXUS: A GPU CLUSTER ENGINE FOR ACCELERATING DNN-BASED VIDEO ANALYSIS, IN ACM SOSP, 2019."
   ],
-  "148": [
-    "5 A. Ousterhout, J."
+  "74": [
+    "5 A. OUSTERHOUT, J."
   ],
-  "175": [
-    "Fried, J. Behrens, A. Belay, and H. Bal- akrishnan, Shenango: Achieving high CPU efciency for latency-sensitive datacenter workloads, in USENIX NSDI, 2019."
-  ],
-  "220": [
-    "6 CUDA Multi-Process Service."
-  ],
-  "370": [
-    "https: docs.nvidia.comdeploypdf CUDAMultiProcessServiceOverview.pdf."
-  ],
-  "336": [
-    "7 P. Yu and M. Chowdhury, Salus: Fine-grained GPU sharing primitives for deep learning applications, in Conference on Machine Learning and Systems, 2020."
-  ],
-  "474": [
-    "8 D. Narayanan, A. Harlap, A. Phanishayee, V. Seshadri, N. R. Devanur, G. R. Ganger, P. B. Gibbons, and M. Za- haria, PipeDream: generalized pipeline parallelism for DNN training, in ACM SOSP, 2019."
-  ],
-  "134": [
-    "9 Y. Peng, Y. Zhu, Y. Chen, Y. Bao, B. Yi, C. Lan, C. Wu, and C. Guo, A generic communication scheduler for distributed DNN training acceleration, in ACM SOSP, 2019."
-  ],
-  "84": [
-    "10 J. Gu, M. Chowdhury, K. G. Shin, Y. Zhu, M. Jeon, J. Qian, H. Liu, and C. Guo, Tiresias: A GPU clus- ter manager for distributed deep learning, in USENIX NSDI, 2019.",
-    "40 H. Zhang, Z. Zheng, S. Xu, W. Dai, Q. Ho, X. Liang, Z. Hu, J. Wei, P. Xie, and E. P. Xing, Poseidon: An ef- cient communication architecture for distributed deep learning on GPU clusters, in USENIX ATC, 2017."
-  ],
-  "165": [
-    "12 Amazon Web Services."
-  ],
-  "233": [
-    "https:aws.amazon.com."
-  ],
-  "462": [
-    "13 Microsoft Azure."
-  ],
-  "150": [
-    "https:azure.microsoft.com."
-  ],
-  "406": [
-    "14 Google Cloud Platform."
-  ],
-  "256": [
-    "https: cloud.google.com."
-  ],
-  "141": [
-    "15 A. Sergeev and M. Del Balso, Horovod: fast and easy distributed deep learning in tensorow, arXiv preprint arXiv:1802.05799, 2018."
-  ],
-  "185": [
-    "16 M. Li, D. G. Andersen, J. W. Park, A. J. Smola, A. Ahmed, V. Josifovski, J."
-  ],
-  "230": [
-    "Long, E. J. Shekita, and B.-Y."
-  ],
-  "184": [
-    "Su, Scaling distributed machine learning with the parameter server, in USENIX OSDI, 2014."
-  ],
-  "222": [
-    "17 K. He, X. Zhang, S. Ren, and J."
-  ],
-  "225": [
-    "Sun, Deep residual learning for image recognition, in IEEE Conference on Computer Vision and Pattern Recognition, 2016."
-  ],
-  "223": [
-    "18 Nvidia data center deep learning product perfor- mance."
-  ],
-  "450": [
-    "https:developer.nvidia.comdeep- learning-performance-training-inference."
-  ],
-  "172": [
-    "20 Philly traces."
-  ],
-  "119": [
-    "https:github.commsr-fiddle philly-traces."
-  ],
-  "162": [
-    "21 PyTorch."
-  ],
-  "471": [
-    "22 C. Szegedy, V. Vanhoucke, S. Ioffe, J. Shlens, and Z. Wo- jna, Rethinking the inception architecture for computer vision, in IEEE Conference on Computer Vision and Pattern Recognition, 2016."
-  ],
-  "224": [
-    "23 J. Devlin, M.-W. Chang, K. Lee, and K. Toutanova, BERT: Pre-training of deep bidirectional transformers for language understanding, in Proceedings of the 2019 Conference of the North American Chapter of the Associ- ation for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), 2019."
-  ],
-  "91": [
-    "24 W. Xiao, R. Bhardwaj, R. Ramjee, M. Sivathanu, N. Kwatra, Z. Han, P. Patel, X. Peng, H. Zhao, Q. Zhang, et al., Gandiva: Introspective cluster scheduling for deep learning, in USENIX OSDI, 2018."
-  ],
-  "124": [
-    "25 TensorFlow.",
-    "54 TensorFlow XLA."
-  ],
-  "107": [
-    "https:www.tensorflow.org.",
-    "https:www.tensorflow.org xla."
-  ],
-  "333": [
-    "26 MXNet."
-  ],
-  "145": [
-    "https:mxnet.apache.org."
-  ],
-  "80": [
-    "27 H. Zhang, L. Stafman, A."
-  ],
-  "244": [
-    "Or, and M. J. Freedman, Slaq: quality-driven scheduling for distributed machine learn- ing, in ACM Symposium on Cloud Computing, 2017."
-  ],
-  "59": [
-    "28 Y. Peng, Y. Bao, Y. Chen, C. Wu, and C. Guo, Opti- mus: an efcient dynamic resource scheduler for deep learning clusters, in EuroSys, 2018."
-  ],
-  "167": [
-    "29 K. Mahajan, A. Balasubramanian, A. Singhvi, S. Venkataraman, A. Akella, A. Phanishayee, and S. Chawla, Themis: Fair and efcient GPU cluster scheduling, in USENIX NSDI, 2020."
-  ],
-  "188": [
-    "30 R. Liaw, R. Bhardwaj, L. Dunlap, Y. Zou, J. E. Gonza- lez, I. Stoica, and A. Tumanov, HyperSched: Dynamic resource reallocation for model development on a dead- line, in ACM Symposium on Cloud Computing, 2019."
-  ],
-  "132": [
-    "31 R. Dathathri, O. Saarikivi, H. Chen, K. Laine, K. Lauter, S. Maleki, M. Musuvathi, and T. Mytkowicz, CHET: An optimizing compiler for fully-homomorphic neural- network inferencing, in ACM Conference on Program- ming Language Design and Implementation, 2019."
-  ],
-  "375": [
-    "32 T. Chen, T. Moreau, Z. Jiang, L. Zheng, E. Yan, H. Shen, M. Cowan, L. Wang, Y. Hu, L. Ceze, et al., TVM: An automated end-to-end optimizing compiler for deep learning, in USENIX OSDI, 2018."
-  ],
-  "348": [
-    "33 Y. Huang, Y. Cheng, A. Bapna, O. Firat, D. Chen, M. Chen, H. Lee, J. Ngiam, Q. V. Le, Y. Wu, et al., Gpipe: Efcient training of giant neural networks using pipeline parallelism, in Advances in Neural Informa- tion Processing Systems, 2019."
-  ],
-  "235": [
-    "34 G. Wang, S. Venkataraman, A. Phanishayee, J. Thelin, N. Devanur, and I. Stoica, Blink: Fast and generic col- lectives for distributed ML, in Conference on Machine Learning and Systems, 2020."
-  ],
-  "127": [
-    "35 NVIDIA Collective Communications Library (NCCL)."
-  ],
-  "164": [
-    "https:developer.nvidia.comnccl."
-  ],
-  "320": [
-    "36 J. Liu, J. Wu, and D. K. Panda, High performance RDMA-based MPI implementation over inniband, Int."
-  ],
-  "151": [
-    "Parallel Program., vol."
-  ],
-  "202": [
-    "32, 2004."
-  ],
-  "163": [
-    "37 Q. Ho, J. Cipar, H. Cui, S. Lee, J. K. Kim, P. B. Gib- bons, G. A. Gibson, G. Ganger, and E. P. Xing, More effective distributed ML via a stale synchronous parallel parameter server, in Advances in Neural Information Processing Systems, 2013."
-  ],
-  "106": [
-    "38 A."
-  ],
-  "103": [
-    "A. Awan, C.-H. Chu, H. Subramoni, and D. K. Panda, Optimized broadcast for deep learning workloads on dense-GPU inniband clusters: MPI or NCCL?, in Pro- ceedings of the 25th European MPI Users Group Meet- ing, 2018."
-  ],
-  "77": [
-    "Daily, A. Vishnu, C. Siegel, T. Warfel, and V. Am- atya, GossipGraD: Scalable deep learning using gossip communication based asynchronous gradient descent, CoRR, vol."
-  ],
-  "171": [
-    "abs1803.05880, 2018."
-  ],
-  "253": [
-    "41 Z. Zhang, C. Chang, H. Lin, Y. Wang, R. Arora, and X. Jin, Is network the bottleneck of distributed train- ing?, in ACM SIGCOMM Workshop on Network Meets AI  ML (NetAI), August 2020."
-  ],
-  "157": [
-    "42 Y. Chen, Z. Liu, B. Ren, and X. Jin, On efcient con- structions of checkpoints, in International Conference on Machine Learning (ICML), July 2020."
-  ],
-  "71": [
-    "43 M. Rhu, N. Gimelshein, J. Clemons, A. Zulqar, and S. W. Keckler, vDNN: Virtualized deep neural net- works for scalable, memory-efcient neural network de- sign, in 2016 49th Annual IEEEACM International Symposium on Microarchitecture (MICRO), 2016."
+  "176": [
+    "FRIED, J. BEHRENS, A. BELAY, AND H. BAL- AKRISHNAN, SHENANGO: ACHIEVING HIGH CPU EFCIENCY FOR LATENCY-SENSITIVE DATACENTER WORKLOADS, IN USENIX NSDI, 2019."
   ],
   "109": [
-    "44 C.-C. Huang, G. Jin, and J. Li, SwapAdvisor: Pushing deep learning beyond the GPU memory limit via smart swapping, in ACM ASPLOS, 2020."
+    "6 CUDA MULTI-PROCESS SERVICE."
+  ],
+  "186": [
+    "HTTPS: DOCS.NVIDIA.COMDEPLOYPDF CUDAMULTIPROCESSSERVICEOVERVIEW.PDF."
+  ],
+  "181": [
+    "7 P. YU AND M. CHOWDHURY, SALUS: FINE-GRAINED GPU SHARING PRIMITIVES FOR DEEP LEARNING APPLICATIONS, IN CONFERENCE ON MACHINE LEARNING AND SYSTEMS, 2020."
+  ],
+  "474": [
+    "8 D. NARAYANAN, A. HARLAP, A. PHANISHAYEE, V. SESHADRI, N. R. DEVANUR, G. R. GANGER, P. B. GIBBONS, AND M. ZA- HARIA, PIPEDREAM: GENERALIZED PIPELINE PARALLELISM FOR DNN TRAINING, IN ACM SOSP, 2019."
+  ],
+  "274": [
+    "9 Y. PENG, Y. ZHU, Y. CHEN, Y. BAO, B. YI, C. LAN, C. WU, AND C. GUO, A GENERIC COMMUNICATION SCHEDULER FOR DISTRIBUTED DNN TRAINING ACCELERATION, IN ACM SOSP, 2019."
+  ],
+  "158": [
+    "10 J. GU, M. CHOWDHURY, K. G. SHIN, Y. ZHU, M. JEON, J. QIAN, H. LIU, AND C. GUO, TIRESIAS: A GPU CLUS- TER MANAGER FOR DISTRIBUTED DEEP LEARNING, IN USENIX NSDI, 2019.",
+    "40 H. ZHANG, Z. ZHENG, S. XU, W. DAI, Q. HO, X. LIANG, Z. HU, J. WEI, P. XIE, AND E. P. XING, POSEIDON: AN EF- CIENT COMMUNICATION ARCHITECTURE FOR DISTRIBUTED DEEP LEARNING ON GPU CLUSTERS, IN USENIX ATC, 2017."
   ],
   "166": [
-    "https:kubernetes.io."
+    "12 AMAZON WEB SERVICES."
   ],
-  "13": [
-    "46 NVIDIA Container Runtime for Docker.",
-    "https: github.comNVIDIAnvidia-docker."
+  "148": [
+    "HTTPS:AWS.AMAZON.COM."
+  ],
+  "462": [
+    "13 MICROSOFT AZURE."
+  ],
+  "132": [
+    "HTTPS:AZURE.MICROSOFT.COM."
+  ],
+  "204": [
+    "14 GOOGLE CLOUD PLATFORM."
+  ],
+  "143": [
+    "HTTPS: CLOUD.GOOGLE.COM."
+  ],
+  "71": [
+    "15 A. SERGEEV AND M. DEL BALSO, HOROVOD: FAST AND EASY DISTRIBUTED DEEP LEARNING IN TENSOROW, ARXIV PREPRINT ARXIV:1802.05799, 2018."
+  ],
+  "189": [
+    "16 M. LI, D. G. ANDERSEN, J. W. PARK, A. J. SMOLA, A. AHMED, V. JOSIFOVSKI, J."
   ],
   "212": [
-    "47 B. Hindman, A. Konwinski, M. Zaharia, A. Ghodsi, A. D. Joseph, R. H. Katz, S. Shenker, and I. Stoica, Mesos: A platform for ne-grained resource sharing in the data center., in USENIX NSDI, 2011."
+    "LONG, E. J. SHEKITA, AND B.-Y."
   ],
-  "99": [
-    "48 V. K. Vavilapalli, A. C. Murthy, C. Douglas, S. Agarwal, M. Konar, R. Evans, T. Graves, J. Lowe, H. Shah, S. Seth, et al., Apache Hadoop YARN: Yet another resource negotiator, in ACM Symposium on Cloud Computing, 2013."
+  "92": [
+    "SU, SCALING DISTRIBUTED MACHINE LEARNING WITH THE PARAMETER SERVER, IN USENIX OSDI, 2014."
+  ],
+  "222": [
+    "17 K. HE, X. ZHANG, S. REN, AND J."
+  ],
+  "230": [
+    "SUN, DEEP RESIDUAL LEARNING FOR IMAGE RECOGNITION, IN IEEE CONFERENCE ON COMPUTER VISION AND PATTERN RECOGNITION, 2016."
+  ],
+  "114": [
+    "18 NVIDIA DATA CENTER DEEP LEARNING PRODUCT PERFOR- MANCE."
+  ],
+  "450": [
+    "HTTPS:DEVELOPER.NVIDIA.COMDEEP- LEARNING-PERFORMANCE-TRAINING-INFERENCE."
+  ],
+  "174": [
+    "20 PHILLY TRACES."
+  ],
+  "197": [
+    "HTTPS:GITHUB.COMMSR-FIDDLE PHILLY-TRACES."
+  ],
+  "81": [
+    "21 PYTORCH."
+  ],
+  "124": [
+    "22 C. SZEGEDY, V. VANHOUCKE, S. IOFFE, J. SHLENS, AND Z. WO- JNA, RETHINKING THE INCEPTION ARCHITECTURE FOR COMPUTER VISION, IN IEEE CONFERENCE ON COMPUTER VISION AND PATTERN RECOGNITION, 2016."
+  ],
+  "233": [
+    "23 J. DEVLIN, M.-W. CHANG, K. LEE, AND K. TOUTANOVA, BERT: PRE-TRAINING OF DEEP BIDIRECTIONAL TRANSFORMERS FOR LANGUAGE UNDERSTANDING, IN PROCEEDINGS OF THE 2019 CONFERENCE OF THE NORTH AMERICAN CHAPTER OF THE ASSOCI- ATION FOR COMPUTATIONAL LINGUISTICS: HUMAN LANGUAGE TECHNOLOGIES, VOLUME 1 (LONG AND SHORT PAPERS), 2019."
+  ],
+  "91": [
+    "24 W. XIAO, R. BHARDWAJ, R. RAMJEE, M. SIVATHANU, N. KWATRA, Z. HAN, P. PATEL, X. PENG, H. ZHAO, Q. ZHANG, ET AL., GANDIVA: INTROSPECTIVE CLUSTER SCHEDULING FOR DEEP LEARNING, IN USENIX OSDI, 2018."
+  ],
+  "61": [
+    "25 TENSORFLOW.",
+    "54 TENSORFLOW XLA."
+  ],
+  "107": [
+    "HTTPS:WWW.TENSORFLOW.ORG.",
+    "HTTPS:WWW.TENSORFLOW.ORG XLA."
+  ],
+  "168": [
+    "26 MXNET."
+  ],
+  "103": [
+    "HTTPS:MXNET.APACHE.ORG."
+  ],
+  "90": [
+    "27 H. ZHANG, L. STAFMAN, A."
+  ],
+  "123": [
+    "OR, AND M. J. FREEDMAN, SLAQ: QUALITY-DRIVEN SCHEDULING FOR DISTRIBUTED MACHINE LEARN- ING, IN ACM SYMPOSIUM ON CLOUD COMPUTING, 2017."
+  ],
+  "236": [
+    "28 Y. PENG, Y. BAO, Y. CHEN, C. WU, AND C. GUO, OPTI- MUS: AN EFCIENT DYNAMIC RESOURCE SCHEDULER FOR DEEP LEARNING CLUSTERS, IN EUROSYS, 2018."
+  ],
+  "179": [
+    "29 K. MAHAJAN, A. BALASUBRAMANIAN, A. SINGHVI, S. VENKATARAMAN, A. AKELLA, A. PHANISHAYEE, AND S. CHAWLA, THEMIS: FAIR AND EFCIENT GPU CLUSTER SCHEDULING, IN USENIX NSDI, 2020."
+  ],
+  "94": [
+    "30 R. LIAW, R. BHARDWAJ, L. DUNLAP, Y. ZOU, J. E. GONZA- LEZ, I. STOICA, AND A. TUMANOV, HYPERSCHED: DYNAMIC RESOURCE REALLOCATION FOR MODEL DEVELOPMENT ON A DEAD- LINE, IN ACM SYMPOSIUM ON CLOUD COMPUTING, 2019."
+  ],
+  "134": [
+    "31 R. DATHATHRI, O. SAARIKIVI, H. CHEN, K. LAINE, K. LAUTER, S. MALEKI, M. MUSUVATHI, AND T. MYTKOWICZ, CHET: AN OPTIMIZING COMPILER FOR FULLY-HOMOMORPHIC NEURAL- NETWORK INFERENCING, IN ACM CONFERENCE ON PROGRAM- MING LANGUAGE DESIGN AND IMPLEMENTATION, 2019."
+  ],
+  "171": [
+    "32 T. CHEN, T. MOREAU, Z. JIANG, L. ZHENG, E. YAN, H. SHEN, M. COWAN, L. WANG, Y. HU, L. CEZE, ET AL., TVM: AN AUTOMATED END-TO-END OPTIMIZING COMPILER FOR DEEP LEARNING, IN USENIX OSDI, 2018."
+  ],
+  "87": [
+    "33 Y. HUANG, Y. CHENG, A. BAPNA, O. FIRAT, D. CHEN, M. CHEN, H. LEE, J. NGIAM, Q. V. LE, Y. WU, ET AL., GPIPE: EFCIENT TRAINING OF GIANT NEURAL NETWORKS USING PIPELINE PARALLELISM, IN ADVANCES IN NEURAL INFORMA- TION PROCESSING SYSTEMS, 2019."
+  ],
+  "223": [
+    "34 G. WANG, S. VENKATARAMAN, A. PHANISHAYEE, J. THELIN, N. DEVANUR, AND I. STOICA, BLINK: FAST AND GENERIC COL- LECTIVES FOR DISTRIBUTED ML, IN CONFERENCE ON MACHINE LEARNING AND SYSTEMS, 2020."
+  ],
+  "129": [
+    "35 NVIDIA COLLECTIVE COMMUNICATIONS LIBRARY (NCCL)."
+  ],
+  "188": [
+    "HTTPS:DEVELOPER.NVIDIA.COMNCCL."
+  ],
+  "72": [
+    "36 J. LIU, J. WU, AND D. K. PANDA, HIGH PERFORMANCE RDMA-BASED MPI IMPLEMENTATION OVER INNIBAND, INT."
+  ],
+  "157": [
+    "PARALLEL PROGRAM., VOL."
+  ],
+  "201": [
+    "32, 2004."
+  ],
+  "165": [
+    "37 Q. HO, J. CIPAR, H. CUI, S. LEE, J. K. KIM, P. B. GIB- BONS, G. A. GIBSON, G. GANGER, AND E. P. XING, MORE EFFECTIVE DISTRIBUTED ML VIA A STALE SYNCHRONOUS PARALLEL PARAMETER SERVER, IN ADVANCES IN NEURAL INFORMATION PROCESSING SYSTEMS, 2013."
+  ],
+  "215": [
+    "38 A."
+  ],
+  "104": [
+    "A. AWAN, C.-H. CHU, H. SUBRAMONI, AND D. K. PANDA, OPTIMIZED BROADCAST FOR DEEP LEARNING WORKLOADS ON DENSE-GPU INNIBAND CLUSTERS: MPI OR NCCL?, IN PRO- CEEDINGS OF THE 25TH EUROPEAN MPI USERS GROUP MEET- ING, 2018."
+  ],
+  "77": [
+    "DAILY, A. VISHNU, C. SIEGEL, T. WARFEL, AND V. AM- ATYA, GOSSIPGRAD: SCALABLE DEEP LEARNING USING GOSSIP COMMUNICATION BASED ASYNCHRONOUS GRADIENT DESCENT, CORR, VOL."
+  ],
+  "86": [
+    "ABS1803.05880, 2018."
+  ],
+  "106": [
+    "41 Z. ZHANG, C. CHANG, H. LIN, Y. WANG, R. ARORA, AND X. JIN, IS NETWORK THE BOTTLENECK OF DISTRIBUTED TRAIN- ING?, IN ACM SIGCOMM WORKSHOP ON NETWORK MEETS AI  ML (NETAI), AUGUST 2020."
+  ],
+  "79": [
+    "42 Y. CHEN, Z. LIU, B. REN, AND X. JIN, ON EFCIENT CON- STRUCTIONS OF CHECKPOINTS, IN INTERNATIONAL CONFERENCE ON MACHINE LEARNING (ICML), JULY 2020."
+  ],
+  "96": [
+    "43 M. RHU, N. GIMELSHEIN, J. CLEMONS, A. ZULQAR, AND S. W. KECKLER, VDNN: VIRTUALIZED DEEP NEURAL NET- WORKS FOR SCALABLE, MEMORY-EFCIENT NEURAL NETWORK DE- SIGN, IN 2016 49TH ANNUAL IEEEACM INTERNATIONAL SYMPOSIUM ON MICROARCHITECTURE (MICRO), 2016."
+  ],
+  "110": [
+    "44 C.-C. HUANG, G. JIN, AND J. LI, SWAPADVISOR: PUSHING DEEP LEARNING BEYOND THE GPU MEMORY LIMIT VIA SMART SWAPPING, IN ACM ASPLOS, 2020."
+  ],
+  "169": [
+    "HTTPS:KUBERNETES.IO."
+  ],
+  "28": [
+    "46 NVIDIA CONTAINER RUNTIME FOR DOCKER.",
+    "HTTPS: GITHUB.COMNVIDIANVIDIA-DOCKER."
+  ],
+  "253": [
+    "47 B. HINDMAN, A. KONWINSKI, M. ZAHARIA, A. GHODSI, A. D. JOSEPH, R. H. KATZ, S. SHENKER, AND I. STOICA, MESOS: A PLATFORM FOR NE-GRAINED RESOURCE SHARING IN THE DATA CENTER., IN USENIX NSDI, 2011."
+  ],
+  "162": [
+    "48 V. K. VAVILAPALLI, A. C. MURTHY, C. DOUGLAS, S. AGARWAL, M. KONAR, R. EVANS, T. GRAVES, J. LOWE, H. SHAH, S. SETH, ET AL., APACHE HADOOP YARN: YET ANOTHER RESOURCE NEGOTIATOR, IN ACM SYMPOSIUM ON CLOUD COMPUTING, 2013."
   ],
   "55": [
-    "49 G. Giunta, R. Montella, G. Agrillo, and G. Coviello, A GPGPU transparent virtualization component for high performance computing clouds, in European Confer- ence on Parallel Processing, 2010.",
-    "52 V. T. Ravi, M. Becchi, G. Agrawal, and S. Chakradhar, Supporting GPU sharing in cloud environments with a transparent runtime consolidation framework, in Pro- ceedings of the 20th international symposium on High performance distributed computing, 2011."
+    "49 G. GIUNTA, R. MONTELLA, G. AGRILLO, AND G. COVIELLO, A GPGPU TRANSPARENT VIRTUALIZATION COMPONENT FOR HIGH PERFORMANCE COMPUTING CLOUDS, IN EUROPEAN CONFER- ENCE ON PARALLEL PROCESSING, 2010.",
+    "52 V. T. RAVI, M. BECCHI, G. AGRAWAL, AND S. CHAKRADHAR, SUPPORTING GPU SHARING IN CLOUD ENVIRONMENTS WITH A TRANSPARENT RUNTIME CONSOLIDATION FRAMEWORK, IN PRO- CEEDINGS OF THE 20TH INTERNATIONAL SYMPOSIUM ON HIGH PERFORMANCE DISTRIBUTED COMPUTING, 2011."
   ],
   "17": [
-    "50 V. Gupta, A. Gavrilovska, K. Schwan, H. Kharche, N. Tolia, V. Talwar, and P. Ranganathan, GViM: GPU- accelerated virtual machines, in Proceedings of the 3rd ACM Workshop on System-level Virtualization for High Performance Computing, 2009.",
-    "51 J. Duato, A. J. Pena, F. Silla, R. Mayo, and E. S. Quintana-Ort, rCUDA: Reducing the number of GPU- based accelerators in high performance clusters, in 2010 International Conference on High Performance Computing  Simulation, 2010.",
-    "Sun, and K. Li, vCUDA: GPU- accelerated high-performance computing in virtual ma- chines, IEEE Transactions on Computers, vol."
+    "50 V. GUPTA, A. GAVRILOVSKA, K. SCHWAN, H. KHARCHE, N. TOLIA, V. TALWAR, AND P. RANGANATHAN, GVIM: GPU- ACCELERATED VIRTUAL MACHINES, IN PROCEEDINGS OF THE 3RD ACM WORKSHOP ON SYSTEM-LEVEL VIRTUALIZATION FOR HIGH PERFORMANCE COMPUTING, 2009.",
+    "51 J. DUATO, A. J. PENA, F. SILLA, R. MAYO, AND E. S. QUINTANA-ORT, RCUDA: REDUCING THE NUMBER OF GPU- BASED ACCELERATORS IN HIGH PERFORMANCE CLUSTERS, IN 2010 INTERNATIONAL CONFERENCE ON HIGH PERFORMANCE COMPUTING  SIMULATION, 2010.",
+    "SUN, AND K. LI, VCUDA: GPU- ACCELERATED HIGH-PERFORMANCE COMPUTING IN VIRTUAL MA- CHINES, IEEE TRANSACTIONS ON COMPUTERS, VOL."
   ],
-  "136": [
-    "53 L. Shi, H. Chen, J."
+  "276": [
+    "53 L. SHI, H. CHEN, J."
   ],
-  "121": [
+  "122": [
     "61, 2011."
   ],
-  "173": [
-    "55 T. Chen, M. Li, Y. Li, M. Lin, N. Wang, M. Wang, T. Xiao, B. Xu, C. Zhang, and Z. Zhang, MXNet: A exible and efcient machine learning library for heterogeneous distributed systems, arXiv preprint arXiv:1512.01274, 2015."
+  "127": [
+    "55 T. CHEN, M. LI, Y. LI, M. LIN, N. WANG, M. WANG, T. XIAO, B. XU, C. ZHANG, AND Z. ZHANG, MXNET: A EXIBLE AND EFCIENT MACHINE LEARNING LIBRARY FOR HETEROGENEOUS DISTRIBUTED SYSTEMS, ARXIV PREPRINT ARXIV:1512.01274, 2015."
   ],
   "39": [
-    "56 C. Gregg, J. Dorn, K. Hazelwood, and K. Skadron, Fine- grained resource sharing for concurrent GPGPU kernels, in Presented as part of the 4th USENIX Workshop on Hot Topics in Parallelism, 2012.",
-    "57 S. Pai, M. J. Thazhuthaveetil, and R. Govindarajan, Im- proving GPGPU concurrency with elastic kernels, ACM SIGARCH Computer Architecture News, vol."
+    "56 C. GREGG, J. DORN, K. HAZELWOOD, AND K. SKADRON, FINE- GRAINED RESOURCE SHARING FOR CONCURRENT GPGPU KERNELS, IN PRESENTED AS PART OF THE 4TH USENIX WORKSHOP ON HOT TOPICS IN PARALLELISM, 2012.",
+    "57 S. PAI, M. J. THAZHUTHAVEETIL, AND R. GOVINDARAJAN, IM- PROVING GPGPU CONCURRENCY WITH ELASTIC KERNELS, ACM SIGARCH COMPUTER ARCHITECTURE NEWS, VOL."
   ],
   "85": [
-    "58 Z. Jia, O. Padon, J. Thomas, T. Warszawski, M. Zaharia, and A. Aiken, TASO: optimizing deep learning compu- tation with automatic generation of graph substitutions, in ACM SOSP, 2019."
+    "58 Z. JIA, O. PADON, J. THOMAS, T. WARSZAWSKI, M. ZAHARIA, AND A. AIKEN, TASO: OPTIMIZING DEEP LEARNING COMPU- TATION WITH AUTOMATIC GENERATION OF GRAPH SUBSTITUTIONS, IN ACM SOSP, 2019."
   ]
 }
