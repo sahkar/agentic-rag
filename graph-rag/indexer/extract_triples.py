@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 client = AsyncOpenAI()
 
 # currently options are pipeswitch, riscv, vLLM
-input_paper = 'vLLM'
+input_paper = 'riscv'
 
 print(f'Extracting triples for paper: {input_paper}')
 
@@ -25,6 +25,9 @@ texts = [chunk for group in clustered_chunks.values() for chunk in group]
 def build_prompt(text):
     return (
         "Extract factual (subject, predicate, object) triples from the following text.\n"
+        "try to make predicate names descriptive.\n"
+        "Try to focus on relevant subjects and not be duplicative. Subjects should encapsulate words."
+        "Provide all output in upper case.\n"
         "Return in JSON format:\n"
         '[{"subject": ..., "predicate": ..., "object": ...}]\n\n'
         f"Text:\n{text}"
