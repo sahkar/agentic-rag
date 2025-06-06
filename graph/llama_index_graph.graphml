@@ -1,0 +1,495 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="title" attr.type="string"/>
+<key id="d0" for="edge" attr.name="label" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Proceedings"/>
+<node id="Paper"/>
+<node id="14th usenix symposium on operating systems design and implementation"/>
+<node id="978-1-939133-19-9"/>
+<node id="Open access"/>
+<node id="Usenix"/>
+<node id="Pipeswitch"/>
+<node id="Fast pipelined context switching"/>
+<node id="Deep learning applications"/>
+<node id="Unused cycles of inference application to be filled by training or other inference applications"/>
+<node id="Multiple dl applications to time-share same gpu"/>
+<node id="Entire gpu memory"/>
+<node id="Millisecond-scale switching overhead"/>
+<node id="Gpu utilization"/>
+<node id="Pipelined context switching"/>
+<node id="Unified memory management and active-standby worker switching"/>
+<node id="Gpu-efficient multiplexing of dl applications"/>
+<node id="Millisecond-scale latencies"/>
+<node id="High throughput"/>
+<node id="Process-level isolation"/>
+<node id="Intra-batch pipelining"/>
+<node id="Memory management challenges"/>
+<node id="Training and inference"/>
+<node id="Millisecond-scale task switching overhead"/>
+<node id="Transmission and task execution"/>
+<node id="Part of dnn framework"/>
+<node id="Dedicated memory daemon"/>
+<node id="Separate processes"/>
+<node id="Single-gpu tasks"/>
+<node id="Single-gpu training"/>
+<node id="Asynchronous multi-gpu training"/>
+<node id="Proposed system"/>
+<node id="6.01 ms"/>
+<node id="Latency"/>
+<node id="First layer"/>
+<node id="Few milliseconds"/>
+<node id="Near 100% gpu utilization"/>
+<node id="Few milliseconds overhead"/>
+<node id="Low latency close to lower bound"/>
+<node id="Model-aware grouping"/>
+<node id="Total time by up to 38.2 ms"/>
+<node id="Five mechanisms"/>
+<node id="64-bit integer offset for shared gpu memory to workers"/>
+<node id="Unified memory management"/>
+<node id="2–23 ms latency"/>
+<node id="Active-standby worker switching mechanism"/>
+<node id="Resource allocation more often"/>
+<node id="Millisecond-scale task switching"/>
+<node id="Gpu-efficient fine-grained time-sharing"/>
+<node id="Millisecond-scale task switching time"/>
+<node id="Dl applications on time-sharing gpus to meet strict slos"/>
+<node id="Agility of dl applications"/>
+<node id="Zhihao bai"/>
+<node id="Johns hopkins university"/>
+<node id="Yibo zhu"/>
+<node id="Bytedance inc."/>
+<node id="Ratio to upper bound"/>
+<node id="Layered structure of neural network models"/>
+<node id="Model transmission over pcie and task execution in gpu"/>
+<node id="Characteristics of dl applications"/>
+<node id="Pipelined model transmission"/>
+<node id="Active-standby worker switching"/>
+<node id="Pipeswitch prototype"/>
+<node id="Pytorch"/>
+<node id="C++ and python"/>
+<node id="Https://pytorch.org"/>
+<node id="Gpu"/>
+<node id="Dnn model"/>
+<node id="Serving first inference request"/>
+<node id="Gpu memory for task execution"/>
+<node id="Resnet"/>
+<node id="Cpu applications"/>
+<node id="Milliseconds or microseconds"/>
+<node id="Existing solution"/>
+<node id="Spatially share gpu memory"/>
+<node id="Nvidia mps"/>
+<node id="Multiple processes to use same gpu"/>
+<node id="Inference process to share gpu"/>
+<node id="307.02 ms"/>
+<node id="Stop-and-start"/>
+<node id="Official support for sharing gpu between multiple processes"/>
+<node id="Salus"/>
+<node id="Conference on machine learning and systems"/>
+<node id="2020"/>
+<node id="All processes’ data"/>
+<node id="Preloaded into gpu memory"/>
+<node id="Gpu memory"/>
+<node id="Host memory"/>
+<node id="Even on high-end gpus"/>
+<node id="Memory-intensive training task"/>
+<node id="All gpu memory"/>
+<node id="Switching overhead"/>
+<node id="Old task cleaning"/>
+<node id="New task initialization"/>
+<node id="Gpu memory allocation"/>
+<node id="Model transmission via pcie"/>
+<node id="Model transmission"/>
+<node id="Pcie and gpu computation"/>
+<node id="Pipelining"/>
+<node id="Canonical technique"/>
+<node id="Computer systems"/>
+<node id="System overheads"/>
+<node id="Per-group granularity"/>
+<node id="Prior work"/>
+<node id="Pipelining to distributed training"/>
+<node id="Pipedream"/>
+<node id="Inter-batch pipelining"/>
+<node id="Acm sosp"/>
+<node id="2019"/>
+<node id="Bytescheduler"/>
+<node id="Model transmission and computation"/>
+<edge source="Proceedings" target="Paper">
+  <data key="d0">Include</data>
+  <data key="d1">Include</data>
+</edge>
+<edge source="Proceedings" target="14th usenix symposium on operating systems design and implementation">
+  <data key="d0">Of</data>
+  <data key="d1">Of</data>
+</edge>
+<edge source="Proceedings" target="978-1-939133-19-9">
+  <data key="d0">Isbn</data>
+  <data key="d1">Isbn</data>
+</edge>
+<edge source="Proceedings" target="Open access">
+  <data key="d0">To</data>
+  <data key="d1">To</data>
+</edge>
+<edge source="Open access" target="Usenix">
+  <data key="d0">Sponsored by</data>
+  <data key="d1">Sponsored by</data>
+</edge>
+<edge source="Pipeswitch" target="Fast pipelined context switching">
+  <data key="d0">Is</data>
+  <data key="d1">Is</data>
+</edge>
+<edge source="Pipeswitch" target="Deep learning applications">
+  <data key="d0">Designed for</data>
+  <data key="d1">Designed for</data>
+</edge>
+<edge source="Pipeswitch" target="Unused cycles of inference application to be filled by training or other inference applications">
+  <data key="d0">Enables</data>
+  <data key="d1">Enables</data>
+</edge>
+<edge source="Pipeswitch" target="Multiple dl applications to time-share same gpu">
+  <data key="d0">Allows</data>
+  <data key="d1">Allows</data>
+</edge>
+<edge source="Pipeswitch" target="Entire gpu memory">
+  <data key="d0">Uses</data>
+  <data key="d1">Uses</data>
+</edge>
+<edge source="Pipeswitch" target="Millisecond-scale switching overhead">
+  <data key="d0">Achieves</data>
+  <data key="d1">Achieves</data>
+</edge>
+<edge source="Pipeswitch" target="Gpu utilization">
+  <data key="d0">Improves</data>
+  <data key="d1">Improves</data>
+</edge>
+<edge source="Pipeswitch" target="Pipelined context switching">
+  <data key="d0">Introduces</data>
+  <data key="d1">Introduces</data>
+</edge>
+<edge source="Pipeswitch" target="Unified memory management and active-standby worker switching">
+  <data key="d0">Designs</data>
+  <data key="d1">Designs</data>
+</edge>
+<edge source="Pipeswitch" target="Gpu-efficient multiplexing of dl applications">
+  <data key="d0">Enables</data>
+  <data key="d1">Enables</data>
+</edge>
+<edge source="Pipeswitch" target="Millisecond-scale latencies">
+  <data key="d0">Achieves</data>
+  <data key="d1">Achieves</data>
+</edge>
+<edge source="Pipeswitch" target="High throughput">
+  <data key="d0">Achieves</data>
+  <data key="d1">Achieves</data>
+</edge>
+<edge source="Pipeswitch" target="Process-level isolation">
+  <data key="d0">Enforces</data>
+  <data key="d1">Enforces</data>
+</edge>
+<edge source="Pipeswitch" target="Intra-batch pipelining">
+  <data key="d0">Introduces</data>
+  <data key="d1">Introduces</data>
+</edge>
+<edge source="Pipeswitch" target="Memory management challenges">
+  <data key="d0">Addresses</data>
+  <data key="d1">Addresses</data>
+</edge>
+<edge source="Pipeswitch" target="Training and inference">
+  <data key="d0">Supports</data>
+  <data key="d1">Supports</data>
+</edge>
+<edge source="Pipeswitch" target="Millisecond-scale task switching overhead">
+  <data key="d0">Achieves</data>
+  <data key="d1">Achieves</data>
+</edge>
+<edge source="Pipeswitch" target="Transmission and task execution">
+  <data key="d0">Models</data>
+  <data key="d1">Models</data>
+</edge>
+<edge source="Pipeswitch" target="Part of dnn framework">
+  <data key="d0">Can be implemented as</data>
+  <data key="d1">Can be implemented as</data>
+</edge>
+<edge source="Pipeswitch" target="Dedicated memory daemon">
+  <data key="d0">Uses</data>
+  <data key="d1">Uses</data>
+</edge>
+<edge source="Pipeswitch" target="Separate processes">
+  <data key="d0">Uses</data>
+  <data key="d1">Uses</data>
+</edge>
+<edge source="Pipeswitch" target="Single-gpu tasks">
+  <data key="d0">Focused on</data>
+  <data key="d1">Focused on</data>
+</edge>
+<edge source="Pipeswitch" target="Single-gpu training">
+  <data key="d0">Supports</data>
+  <data key="d1">Supports</data>
+</edge>
+<edge source="Pipeswitch" target="Asynchronous multi-gpu training">
+  <data key="d0">Supports</data>
+  <data key="d1">Supports</data>
+</edge>
+<edge source="Pipeswitch" target="Proposed system">
+  <data key="d0">Is</data>
+  <data key="d1">Is</data>
+</edge>
+<edge source="Pipeswitch" target="6.01 ms">
+  <data key="d0">Has latency</data>
+  <data key="d1">Has latency</data>
+</edge>
+<edge source="Pipeswitch" target="Latency">
+  <data key="d0">Performs best</data>
+  <data key="d1">Performs best</data>
+</edge>
+<edge source="Pipeswitch" target="First layer">
+  <data key="d0">Starts computing</data>
+  <data key="d1">Starts computing</data>
+</edge>
+<edge source="Pipeswitch" target="Few milliseconds">
+  <data key="d0">Startup overhead</data>
+  <data key="d1">Startup overhead</data>
+</edge>
+<edge source="Pipeswitch" target="Near 100% gpu utilization">
+  <data key="d0">Achieves</data>
+  <data key="d1">Achieves</data>
+</edge>
+<edge source="Pipeswitch" target="Few milliseconds overhead">
+  <data key="d0">Incurs</data>
+  <data key="d1">Incurs</data>
+</edge>
+<edge source="Pipeswitch" target="Low latency close to lower bound">
+  <data key="d0">Achieves</data>
+  <data key="d1">Achieves</data>
+</edge>
+<edge source="Pipeswitch" target="Model-aware grouping">
+  <data key="d0">Uses</data>
+  <data key="d1">Uses</data>
+</edge>
+<edge source="Pipeswitch" target="Total time by up to 38.2 ms">
+  <data key="d0">Reduces</data>
+  <data key="d1">Reduces</data>
+</edge>
+<edge source="Pipeswitch" target="Five mechanisms">
+  <data key="d0">Compares</data>
+  <data key="d1">Compares</data>
+</edge>
+<edge source="Pipeswitch" target="64-bit integer offset for shared gpu memory to workers">
+  <data key="d0">Sends</data>
+  <data key="d1">Sends</data>
+</edge>
+<edge source="Pipeswitch" target="Unified memory management">
+  <data key="d0">Uses</data>
+  <data key="d1">Uses</data>
+</edge>
+<edge source="Pipeswitch" target="2–23 ms latency">
+  <data key="d0">Saves</data>
+  <data key="d1">Saves</data>
+</edge>
+<edge source="Pipeswitch" target="Active-standby worker switching mechanism">
+  <data key="d0">Uses</data>
+  <data key="d1">Uses</data>
+</edge>
+<edge source="Pipeswitch" target="Resource allocation more often">
+  <data key="d0">Enables scheduler to change</data>
+  <data key="d1">Enables scheduler to change</data>
+</edge>
+<edge source="Pipeswitch" target="Millisecond-scale task switching">
+  <data key="d0">Uses</data>
+  <data key="d1">Uses</data>
+</edge>
+<edge source="Pipeswitch" target="Gpu-efficient fine-grained time-sharing">
+  <data key="d0">Enables</data>
+  <data key="d1">Enables</data>
+</edge>
+<edge source="Pipeswitch" target="Millisecond-scale task switching time">
+  <data key="d0">Achieves</data>
+  <data key="d1">Achieves</data>
+</edge>
+<edge source="Pipeswitch" target="Dl applications on time-sharing gpus to meet strict slos">
+  <data key="d0">Enables</data>
+  <data key="d1">Enables</data>
+</edge>
+<edge source="Pipeswitch" target="Agility of dl applications">
+  <data key="d0">Improves</data>
+  <data key="d1">Improves</data>
+</edge>
+<edge source="Gpu utilization" target="Ratio to upper bound">
+  <data key="d0">Defined as</data>
+  <data key="d1">Defined as</data>
+</edge>
+<edge source="Pipelined context switching" target="Layered structure of neural network models">
+  <data key="d0">Leverages</data>
+  <data key="d1">Leverages</data>
+</edge>
+<edge source="Pipelined context switching" target="Model transmission over pcie and task execution in gpu">
+  <data key="d0">Pipelines</data>
+  <data key="d1">Pipelines</data>
+</edge>
+<edge source="Pipelined context switching" target="Characteristics of dl applications">
+  <data key="d0">Exploits</data>
+  <data key="d1">Exploits</data>
+</edge>
+<edge source="Pipelined context switching" target="Pipelined model transmission">
+  <data key="d0">Includes</data>
+  <data key="d1">Includes</data>
+</edge>
+<edge source="Pipelined context switching" target="Unified memory management">
+  <data key="d0">Includes</data>
+  <data key="d1">Includes</data>
+</edge>
+<edge source="Pipelined context switching" target="Active-standby worker switching">
+  <data key="d0">Includes</data>
+  <data key="d1">Includes</data>
+</edge>
+<edge source="Intra-batch pipelining" target="Model transmission and computation">
+  <data key="d0">Overlaps</data>
+  <data key="d1">Overlaps</data>
+</edge>
+<edge source="Zhihao bai" target="Johns hopkins university">
+  <data key="d0">Affiliated with</data>
+  <data key="d1">Affiliated with</data>
+</edge>
+<edge source="Yibo zhu" target="Bytedance inc.">
+  <data key="d0">Affiliated with</data>
+  <data key="d1">Affiliated with</data>
+</edge>
+<edge source="Pipeswitch prototype" target="Pytorch">
+  <data key="d0">Integrated with</data>
+  <data key="d1">Integrated with</data>
+</edge>
+<edge source="Pipeswitch prototype" target="C++ and python">
+  <data key="d0">Implemented with</data>
+  <data key="d1">Implemented with</data>
+</edge>
+<edge source="Pytorch" target="Https://pytorch.org">
+  <data key="d0">Available at</data>
+  <data key="d1">Available at</data>
+</edge>
+<edge source="Gpu" target="Dnn model">
+  <data key="d0">Switches to</data>
+  <data key="d1">Switches to</data>
+</edge>
+<edge source="Gpu" target="Serving first inference request">
+  <data key="d0">Takes multiple seconds before</data>
+  <data key="d1">Takes multiple seconds before</data>
+</edge>
+<edge source="Gpu" target="Gpu memory for task execution">
+  <data key="d0">Requires</data>
+  <data key="d1">Requires</data>
+</edge>
+<edge source="Dnn model" target="Resnet">
+  <data key="d0">Example</data>
+  <data key="d1">Example</data>
+</edge>
+<edge source="Cpu applications" target="Milliseconds or microseconds">
+  <data key="d0">Switched in</data>
+  <data key="d1">Switched in</data>
+</edge>
+<edge source="Existing solution" target="Spatially share gpu memory">
+  <data key="d0">Is</data>
+  <data key="d1">Is</data>
+</edge>
+<edge source="Nvidia mps" target="Multiple processes to use same gpu">
+  <data key="d0">Allows</data>
+  <data key="d1">Allows</data>
+</edge>
+<edge source="Nvidia mps" target="Inference process to share gpu">
+  <data key="d0">Allows</data>
+  <data key="d1">Allows</data>
+</edge>
+<edge source="Nvidia mps" target="307.02 ms">
+  <data key="d0">Has latency</data>
+  <data key="d1">Has latency</data>
+</edge>
+<edge source="Nvidia mps" target="Stop-and-start">
+  <data key="d0">Has lower overhead than</data>
+  <data key="d1">Has lower overhead than</data>
+</edge>
+<edge source="Nvidia mps" target="Official support for sharing gpu between multiple processes">
+  <data key="d0">Provides</data>
+  <data key="d1">Provides</data>
+</edge>
+<edge source="Multiple processes to use same gpu" target="Salus">
+  <data key="d0">Allows</data>
+  <data key="d1">Allows</data>
+</edge>
+<edge source="Salus" target="Conference on machine learning and systems">
+  <data key="d0">Presented in</data>
+  <data key="d1">Presented in</data>
+</edge>
+<edge source="Salus" target="2020">
+  <data key="d0">Published in</data>
+  <data key="d1">Published in</data>
+</edge>
+<edge source="All processes’ data" target="Preloaded into gpu memory">
+  <data key="d0">Required to be</data>
+  <data key="d1">Required to be</data>
+</edge>
+<edge source="Gpu memory" target="Host memory">
+  <data key="d0">More limited than</data>
+  <data key="d1">More limited than</data>
+</edge>
+<edge source="Gpu memory" target="Even on high-end gpus">
+  <data key="d0">Is limited</data>
+  <data key="d1">Is limited</data>
+</edge>
+<edge source="Memory-intensive training task" target="All gpu memory">
+  <data key="d0">May consume</data>
+  <data key="d1">May consume</data>
+</edge>
+<edge source="Switching overhead" target="Old task cleaning">
+  <data key="d0">Divided into</data>
+  <data key="d1">Divided into</data>
+</edge>
+<edge source="Switching overhead" target="New task initialization">
+  <data key="d0">Divided into</data>
+  <data key="d1">Divided into</data>
+</edge>
+<edge source="Switching overhead" target="Gpu memory allocation">
+  <data key="d0">Divided into</data>
+  <data key="d1">Divided into</data>
+</edge>
+<edge source="Switching overhead" target="Model transmission via pcie">
+  <data key="d0">Divided into</data>
+  <data key="d1">Divided into</data>
+</edge>
+<edge source="Model transmission" target="Pcie and gpu computation">
+  <data key="d0">Pipelined over</data>
+  <data key="d1">Pipelined over</data>
+</edge>
+<edge source="Pipelining" target="Canonical technique">
+  <data key="d0">Is</data>
+  <data key="d1">Is</data>
+</edge>
+<edge source="Pipelining" target="Computer systems">
+  <data key="d0">Used in</data>
+  <data key="d1">Used in</data>
+</edge>
+<edge source="Pipelining" target="System overheads">
+  <data key="d0">Causes</data>
+  <data key="d1">Causes</data>
+</edge>
+<edge source="Pipelining" target="Per-group granularity">
+  <data key="d0">Performed on</data>
+  <data key="d1">Performed on</data>
+</edge>
+<edge source="Prior work" target="Pipelining to distributed training">
+  <data key="d0">Applied</data>
+  <data key="d1">Applied</data>
+</edge>
+<edge source="Pipedream" target="Inter-batch pipelining">
+  <data key="d0">Applies</data>
+  <data key="d1">Applies</data>
+</edge>
+<edge source="Pipedream" target="Acm sosp">
+  <data key="d0">Presented in</data>
+  <data key="d1">Presented in</data>
+</edge>
+<edge source="Pipedream" target="2019">
+  <data key="d0">Published in</data>
+  <data key="d1">Published in</data>
+</edge>
+<edge source="Inter-batch pipelining" target="Bytescheduler">
+  <data key="d0">Applies</data>
+  <data key="d1">Applies</data>
+</edge>
+</graph></graphml>
