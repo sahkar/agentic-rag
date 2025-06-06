@@ -1,7 +1,6 @@
 from llama_index.core import (
     StorageContext,
     KnowledgeGraphIndex,
-    load_graph_from_storage, 
     load_index_from_storage
 )
 from llama_index.core.graph_stores import SimpleGraphStore
@@ -27,7 +26,6 @@ class GraphRAG(BaseRAG):
     def _process_document(self, file_name: str, file_docs: list) -> None:
         print(f"Creating index for {file_name}")
 
-        # Create storage context with graph store BEFORE creating the index
         storage_context = StorageContext.from_defaults(
             graph_store=self.graph_store
         )
@@ -41,7 +39,6 @@ class GraphRAG(BaseRAG):
             storage_context=storage_context
         )
 
-        # Persist the index to storage
         index.storage_context.persist(
             persist_dir=f"{self.storage_dir}/{file_name}_graph"
         )
