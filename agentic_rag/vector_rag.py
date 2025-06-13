@@ -42,5 +42,6 @@ class VectorRAG(BaseRAG):
         4. If information comes from multiple documents, clearly indicate this
         5. Keep all text in English
         6. Provide exact quotes when relevant
-        7. Keep language as English""" 
+        7. Keep language as English
+        8. DO NOT TRANSLATE TO CHINESE""" 
 

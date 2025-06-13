@@ -10,11 +10,11 @@ if __name__ == "__main__":
     st.title("Vector RAG")
     files = st.file_uploader("Upload files", type=["pdf", "txt", "docx", "doc"], accept_multiple_files=True)
 
-    if files:
-        if "temp_dir" not in st.session_state:
-            st.session_state["temp_dir"] = tempfile.mkdtemp()
+    if "vector_temp_dir" not in st.session_state:
+        st.session_state["vector_temp_dir"] = tempfile.mkdtemp()
         
-        temp_dir = st.session_state["temp_dir"]
+    if files:
+        temp_dir = st.session_state["vector_temp_dir"]
         
         for file in files:
             file_path = os.path.join(temp_dir, file.name)
@@ -24,13 +24,13 @@ if __name__ == "__main__":
     if "vector" not in st.session_state:
         st.session_state["vector"] = VectorRAG()
         rag:BaseRAG = st.session_state["vector"]
-        
-        if files and "temp_dir" in st.session_state:
-            rag.load_documents(st.session_state["temp_dir"])
-        
-        rag.create_agent()
-
+    
     rag = st.session_state["vector"]
+    if files: 
+        rag.load_documents(st.session_state['vector_temp_dir'])
+        
+    rag.create_agent()
+
     if "vector_messages" not in st.session_state:
         st.session_state.vector_messages = []
 
@@ -43,7 +43,7 @@ if __name__ == "__main__":
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        with st.chat_message("assistant"):
+        with st.chat_message("vector"):
             with st.spinner("Thinking..."):
                 response = rag.run_agent(prompt)
 

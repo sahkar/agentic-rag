@@ -5,7 +5,7 @@ from llama_index.core import (
 )
 from llama_index.core.graph_stores import SimpleGraphStore
 from llama_index.core.tools import QueryEngineTool
-from .base_rag import BaseRAG
+from base_rag import BaseRAG
 
 
 class GraphRAG(BaseRAG):
