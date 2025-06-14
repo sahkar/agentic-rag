@@ -37,7 +37,7 @@ There are a few steps to run the native GraphRAG pipeline, listed below.
 Note that for the files for this can be found in the ./graph-rag/indexer directory.
 To run the indexer and to use the GraphRAG system when querying, an OpenAPI key needs to be
 provided through a .env file. There is an example .env.sample file in this repository, but note
-that the .env file used by the GraphRAG implementation needs to go inside the
+that the .env file used by the native GraphRAG implementation needs to go inside the
 ./graph-rag/indexer directory.
 
 1. Creating clustered chunks (specify which paper in script)
@@ -58,7 +58,7 @@ python3 ./generate_graph.py
 ```
 
 4. Prompt the LLM using GraphRAG
-Specify which graphml file to read from in the script.
+(specify which graphml file to read from in the script)
 ```
 python3 ./graphRAG.py
 ```
