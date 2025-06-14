@@ -66,7 +66,8 @@ python3 ./graphRAG.py
 ## Generating results
 For this project, most of our results were obtained by running either the LlamaIndex RAG
 implementation or our own native GraphRAG pipeline and comparing outputs. The instructions for
-running either of those RAG systems is above. If you want to determine graph statistics for a file
+running either of those RAG systems is above. If you want to determine graph statistics for a
+specific graph, run the script below:
 
 ```
 python3 ./print_graph_stats.py <graphml-file-path>
