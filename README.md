@@ -73,7 +73,7 @@ python3 ./print_graph_stats.py <graphml-file-path>
 ```
 
 The results from comparing our native indexer graph to the LlamaIndex-generated graph are included
-below (components = wea):
+below:
 
 | Attribute                       | LlamaIndex | Our Indexer |
 |---------------------------------|------------|-------------|
