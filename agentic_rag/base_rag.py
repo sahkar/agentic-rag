@@ -2,13 +2,10 @@ from dotenv import load_dotenv
 from llama_index.llms.openai import OpenAI
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core import Settings
-from llama_index.core import StorageContext, load_index_from_storage
 from llama_index.core import SimpleDirectoryReader
 from llama_index.core.agent import ReActAgent
-from llama_index.core.workflow import Context
-from llama_index.core.agent.workflow import ToolCallResult, AgentStream
 from llama_index.core.tools import QueryEngineTool
-import asyncio
+
 
 load_dotenv()
 Settings.llm = OpenAI(model="gpt-4.1-mini")
@@ -74,14 +71,7 @@ class BaseRAG:
         raise NotImplementedError
 
     def run_agent(self, question: str) -> str:
-        return self.agent.stream_chat(question)
-
-        # async for ev in handler.stream_events():
-        #     if isinstance(ev, ToolCallResult):
-        #         print(f"\033[36m\nCall {ev.tool_name} with {ev.tool_kwargs}\nReturned: {ev.tool_output}\033[0m")
-        #     if isinstance(ev, AgentStream):
-        #         print(f"\033[33m{ev.delta}\033[0m", end="", flush=True)
-                
+        return self.agent.stream_chat(question)  
     
     def add_message(self, message: str, role: str = "user") -> None:
         self.context.add_message(message, role)
