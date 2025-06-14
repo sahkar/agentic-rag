@@ -3,7 +3,7 @@ import os
 import tempfile
 import streamlit as st
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '.', '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'agentic_rag')))
 from agentic_rag import VectorRAG, BaseRAG
 
 if __name__ == "__main__":
