@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 client = AsyncOpenAI()
 
 # currently options are pipeswitch, riscv, vLLM
-input_paper = 'riscv'
+input_paper = 'pipeswitch'
 
 print(f'Extracting triples for paper: {input_paper}')
 
